@@ -152,6 +152,9 @@ public class FuncionariosDAO {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
+                if(rs.getString("nome").equals("ADMINISTRADOR")){
+                    break;
+                }
                 Funcionarios obj = new Funcionarios();
 
                 obj.setId(rs.getInt("id"));
@@ -244,6 +247,9 @@ public class FuncionariosDAO {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
+                if(rs.getString("nome").equals("ADMINISTRADOR")){
+                    break;
+                }
                 Funcionarios obj = new Funcionarios();
 
                 obj.setId(rs.getInt("id"));
@@ -294,11 +300,11 @@ public class FuncionariosDAO {
                 //Usuario logou
 
                 //Caso o usuario seja do tipo admin
-                if (rs.getString("nivel_acesso").equals("Admin")) {
+                if (rs.getString("nivel_acesso").equals("Administrador")) {
 
                     JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema");
                     Frmmenu tela = new Frmmenu();
-                     tela.setUsuarioLogado(rs.getString("nome"));
+                    tela.setUsuarioLogado(rs.getString("nome"));
                     
                     tela.setVisible(true);
                 } 
