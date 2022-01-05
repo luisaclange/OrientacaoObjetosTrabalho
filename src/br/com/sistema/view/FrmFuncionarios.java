@@ -26,7 +26,12 @@ import javax.swing.table.DefaultTableModel;
  * @author Tampelini
  */
 public class FrmFuncionarios extends javax.swing.JFrame {
-
+    
+    public FrmFuncionarios(boolean isCadastrando) {
+        initComponents();
+        this.getContentPane().setBackground(Color.WHITE);
+    }
+   
     //Metodo Listar na tabela
     public void listar() {
 

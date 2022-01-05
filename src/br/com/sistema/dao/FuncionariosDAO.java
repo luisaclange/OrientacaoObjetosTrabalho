@@ -30,7 +30,7 @@ public class FuncionariosDAO {
     public FuncionariosDAO() {
         this.con = new ConnectionFactory().getConnection();
     }
-
+    
     //Metodo cadastrar Funcionario
     public void cadastrarFuncionarios(Funcionarios obj) {
         try {
@@ -327,7 +327,7 @@ public class FuncionariosDAO {
             } else {
                 //Dados incorretos
                 JOptionPane.showMessageDialog(null, "Dados incorretos!");
-                new FrmLogin().setVisible(true);
+                //new FrmLogin().setVisible(true);
 
             }
 
@@ -336,5 +336,87 @@ public class FuncionariosDAO {
         }
 
     }
+
+    public void esqueciMinhaSenha(){
+        try{
+            String sql = "select senha from tb_funcionarios where nome like ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, "ADMINISTRADOR");
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            String senha = null;
+            while(rs.next()){
+                 senha = rs.getString("senha");
+            }
+
+            String senhaAdm = JOptionPane.showInputDialog("Digite a senha do administrador para alterar o cadastro\n"
+                                                                + "Login: admin@email.com");
+            
+            if(senhaAdm.equals(senha)){
+                EmailCheck();
+            }else{
+                JOptionPane.showMessageDialog(null,"Senha incorreta");
+            }
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "Erro :" + erro);
+            //      return null;
+        }
+    }
+    
+    private void EmailCheck(){
+        try{
+            String email = JOptionPane.showInputDialog("Digite seu e-mail");
+
+            String sql = "select email from tb_funcionarios where email like ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, email);
+
+            ResultSet rs = stmt.executeQuery();
+
+            String emailCheck = null;
+            while(rs.next()){
+                emailCheck = rs.getString("email");
+            }
+
+            if(email.equals(emailCheck)){
+                
+                TrocaSenha(email);
+                                
+            }else{
+                JOptionPane.showMessageDialog(null, "E-mail não cadastrado");
+            }
+
+        }catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "Erro :" + erro);
+            //      return null;
+        }
+    }
+    
+    private void TrocaSenha(String email){
+        try{
+            String novaSenha = JOptionPane.showInputDialog("Digite a nova senha");
+                
+            String sql = "update tb_funcionarios set senha = ? where email like ?";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            stmt.setString(1, novaSenha);
+            stmt.setString(2, email);
+
+            JOptionPane.showMessageDialog(null, "Senha cadastrada com sucesso");
+            
+            stmt.execute();
+            stmt.close();
+                
+        }catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "Erro :" + erro);
+            // return null;
+        }
+    }    
 
 }
