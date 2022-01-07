@@ -123,8 +123,8 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         btnpesquisar = new javax.swing.JButton();
         btnnovo = new javax.swing.JButton();
         btnsalvar = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btneditar = new javax.swing.JButton();
+        btnexcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Funcionários");
@@ -161,6 +161,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         painel_dados.setBackground(new java.awt.Color(255, 255, 255));
         painel_dados.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        painel_dados.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                painel_dadosComponentShown(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Nome:");
@@ -513,6 +518,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         jTabbedPane1.addTab("Dados Pessoais", painel_dados);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jPanel4ComponentShown(evt);
+            }
+        });
 
         tabelaFuncionarios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tabelaFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
@@ -599,19 +609,21 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton3.setText("Editar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btneditar.setEnabled( false );// habilita o botão salvar
+        btneditar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btneditar.setText("Editar");
+        btneditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btneditarActionPerformed(evt);
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton4.setText("Excluir");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnexcluir.setEnabled( false );// habilita o botão salvar
+        btnexcluir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnexcluir.setText("Excluir");
+        btnexcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnexcluirActionPerformed(evt);
             }
         });
 
@@ -630,9 +642,9 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -645,8 +657,8 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnnovo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -793,6 +805,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     private void tabelaFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFuncionariosMouseClicked
         //Pega os dados
         jTabbedPane1.setSelectedIndex(0);
+        
+        
+        btnsalvar.setEnabled( false );// desabilita o botão salvar
+        btneditar.setEnabled( true );// habilita o botão editar
+        btnexcluir.setEnabled( true );//habilita o botão escluir
 
         txtcodigo.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 0).toString());
         txtnome.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 1).toString());
@@ -815,7 +832,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
     }//GEN-LAST:event_tabelaFuncionariosMouseClicked
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
         // botao editar
 
         Funcionarios obj = new Funcionarios();
@@ -846,11 +863,15 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         dao.alterarFuncionario(obj);
 
         new Utilitarios().LimpaTela(painel_dados);
+      
+        btnsalvar.setEnabled( true );// habilita o botão salvar
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btnexcluir.setEnabled( false );// desabilita o botão escluir
+        btnnovo.setEnabled( true );// habilita o botão escluir
 
+    }//GEN-LAST:event_btneditarActionPerformed
 
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluirActionPerformed
         // botao excluir
 
         Funcionarios obj = new Funcionarios();
@@ -861,8 +882,13 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         dao.excluirFuncionario(obj);
         new Utilitarios().LimpaTela(painel_dados);
+        
+        btnsalvar.setEnabled( true );// habilita o botão salvar
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btnexcluir.setEnabled( false );// desabilita o botão escluir
+        btnnovo.setEnabled( true );// habilita o botão escluir
 
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnexcluirActionPerformed
 
     private void txtpesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyPressed
         String nome = "%" + txtpesquisa.getText() + "%";
@@ -900,7 +926,10 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
     private void btnnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnovoActionPerformed
         new Utilitarios().LimpaTela(painel_dados);
-
+        btnsalvar.setEnabled( true );// habilita o botão salvar
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btnexcluir.setEnabled( false );// desabilita o botão escluir
+        btnnovo.setEnabled( true );// habilita o botão escluir
     }//GEN-LAST:event_btnnovoActionPerformed
 
     private void cbnivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbnivelActionPerformed
@@ -931,6 +960,29 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_txtcpfFocusLost
+
+    private void jPanel4ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel4ComponentShown
+        // TODO add your handling code here:
+        btnsalvar.setEnabled( false );// desabilita o botão salvar
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btnexcluir.setEnabled( false );// desabilita o botão escluir
+        btnnovo.setEnabled( false );// desabilita o botão escluir
+    }//GEN-LAST:event_jPanel4ComponentShown
+
+    private void painel_dadosComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_painel_dadosComponentShown
+        // TODO add your handling code here:
+        if(txtcodigo.getText().equals("")){
+        btnsalvar.setEnabled( true );// habilita o botão salvar
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btnexcluir.setEnabled( false );// desabilita o botão escluir
+        btnnovo.setEnabled( true );// habilita o botão escluir
+        }else{
+        btnsalvar.setEnabled( false );// desabilita o botão salvar
+        btneditar.setEnabled( true );// habilita o botão editar
+        btnexcluir.setEnabled( true );// habilita o botão escluir
+        btnnovo.setEnabled( true );// habilita o botão escluir   
+        }
+    }//GEN-LAST:event_painel_dadosComponentShown
 
     /**
      * @param args the command line arguments
@@ -970,13 +1022,13 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnbusca;
+    private javax.swing.JButton btneditar;
+    private javax.swing.JButton btnexcluir;
     private javax.swing.JButton btnnovo;
     private javax.swing.JButton btnpesquisar;
     private javax.swing.JButton btnsalvar;
     private javax.swing.JComboBox<String> cbnivel;
     private javax.swing.JComboBox<String> cbuf;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

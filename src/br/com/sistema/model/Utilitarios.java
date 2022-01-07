@@ -5,18 +5,14 @@
  */
 package br.com.sistema.model;
 
-import br.com.sistema.dao.ClientesDAO;
 import br.com.sistema.view.Frmmenu;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,11 +21,13 @@ import javax.swing.table.DefaultTableModel;
 public class Utilitarios {
 
     //metodo limparCampos
+    
     public void LimpaTela(JPanel container) {
         Component components[] = container.getComponents();
         for (Component component : components) {
             if (component instanceof JTextField) {
                 ((JTextField) component).setText(null);
+                
             }
         }
     }
