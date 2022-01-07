@@ -5,6 +5,9 @@
  */
 package br.com.sistema.model;
 
+import br.com.sistema.dao.FuncionariosDAO;
+import java.util.List;
+
 /**
  *
  * @author Tampelini
@@ -43,5 +46,16 @@ public class Funcionarios extends Clientes {
 
     public void setNivel_acesso(String nivel_acesso) {
         this.nivel_acesso = nivel_acesso;
+    }
+    @Override
+    public Boolean equalsCpf(String CPF){//verifica se ja existe pessoas com esse cpf
+        
+        FuncionariosDAO dao = new FuncionariosDAO();//cria conexão com o banco de dados
+        List<Funcionarios> lista = dao.listarFuncionarios();// cria lista dos clientes 
+        for (Funcionarios c : lista) {//percorre a lista
+            if(CPF.equals(c.getCpf())){ //se encontrar o mesmo cpf retorna true
+                return true;
+            }
+        } return false;       
     }
 }

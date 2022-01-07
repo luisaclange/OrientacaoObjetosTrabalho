@@ -10,6 +10,7 @@ import br.com.sistema.dao.FuncionariosDAO;
 import br.com.sistema.model.Clientes;
 import br.com.sistema.model.Funcionarios;
 import br.com.sistema.model.Utilitarios;
+import br.com.sistema.model.ValidaCPFeCNPJ;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
@@ -170,6 +171,16 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         txtcpf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtcpf.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtcpfFocusLost(evt);
+            }
+        });
+        txtcpf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtcpfKeyPressed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("E-mail:");
@@ -895,6 +906,31 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     private void cbnivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbnivelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbnivelActionPerformed
+
+    private void txtcpfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcpfKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcpfKeyPressed
+
+    private void txtcpfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtcpfFocusLost
+        // TODO add your handling code here:
+        ValidaCPFeCNPJ model = new ValidaCPFeCNPJ();
+        Funcionarios obj = new Funcionarios();
+        Utilitarios verifica = new Utilitarios();
+        
+        if(txtcpf.getText().equals("   .   .   -  ")){// compara se a txtcpf está vazia        
+        }
+        else{
+            if (obj.equalsCpf(txtcpf.getText())) {// se for false...
+                JOptionPane.showMessageDialog(null, "CPF Já Cadastrado");
+            }else{
+                boolean testecpf = model.isCPF(txtcpf.getText());// envia o cpf para a validação
+                if (testecpf == false) {// se for false...
+                    JOptionPane.showMessageDialog(null, "CPF Inválido");
+                    txtcpf.setText(obj.getCpf());//seta null no campo cpf
+                } 
+            }
+        }
+    }//GEN-LAST:event_txtcpfFocusLost
 
     /**
      * @param args the command line arguments

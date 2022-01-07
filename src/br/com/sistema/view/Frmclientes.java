@@ -8,6 +8,8 @@ package br.com.sistema.view;
 import br.com.sistema.dao.ClientesDAO;
 import br.com.sistema.model.Clientes;
 import br.com.sistema.model.Utilitarios;
+//import br.com.sistema.model.ValidaCPF;
+import br.com.sistema.model.ValidaCPFeCNPJ;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
@@ -151,7 +153,7 @@ public class Frmclientes extends javax.swing.JFrame {
         painel_dados.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setText("Nome:");
+        jLabel3.setText("*Nome:");
 
         try {
             txtcpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -159,6 +161,21 @@ public class Frmclientes extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         txtcpf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtcpf.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtcpfFocusLost(evt);
+            }
+        });
+        txtcpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcpfActionPerformed(evt);
+            }
+        });
+        txtcpf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtcpfKeyPressed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("E-mail:");
@@ -171,7 +188,7 @@ public class Frmclientes extends javax.swing.JFrame {
         txtcel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setText("CPF:");
+        jLabel5.setText("*CPF:");
 
         try {
             txtfixo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #### - ####")));
@@ -202,7 +219,7 @@ public class Frmclientes extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel8.setText("Celular:");
+        jLabel8.setText("*Celular:");
 
         txtcodigo.setEditable(false);
         txtcodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -226,7 +243,7 @@ public class Frmclientes extends javax.swing.JFrame {
         txtbairro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel9.setText("CEP:");
+        jLabel9.setText("*CEP:");
 
         txtcidade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtcidade.addActionListener(new java.awt.event.ActionListener() {
@@ -255,6 +272,11 @@ public class Frmclientes extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         txtcep.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtcep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcepActionPerformed(evt);
+            }
+        });
         txtcep.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtcepKeyPressed(evt);
@@ -455,6 +477,13 @@ public class Frmclientes extends javax.swing.JFrame {
                 tabelaClientesMouseClicked(evt);
             }
         });
+        tabelaClientes.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+                tabelaClientesCaretPositionChanged(evt);
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+            }
+        });
         jScrollPane1.setViewportView(tabelaClientes);
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -482,7 +511,7 @@ public class Frmclientes extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 983, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel16)
                         .addGap(9, 9, 9)
@@ -675,7 +704,34 @@ public class Frmclientes extends javax.swing.JFrame {
 
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
         // boto salvar
+        int lib = 0;  
+        String msg = "Os Campos: \n";
+        
+        if(txtnome.getText().equals("")){//campo nome vazio
+            msg += "\n Nome ";
+            lib++;
+        }
+        if(txtcpf.getText().equals("   .   .   -  ")){//campo cpf vazio
+            msg += "\n CPF ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo CPF está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+        if(txtcep.getText().equals("     -   ")){//campo cep vazio
+            msg += "\n CEP ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo CEP está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+        if(txtcel.getText().equals("(  )        -     ")){//campo celular vazio
+            msg += "\n Celular ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo Celular está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+       if (txtnumero.getText().equals("")){//se o numero da residencia estiver nulo seta 0
+            txtnumero.setText("0");
+        }
 
+        if (lib == 0){
+          
         Clientes obj = new Clientes();
 
         obj.setNome(txtnome.getText());
@@ -696,7 +752,11 @@ public class Frmclientes extends javax.swing.JFrame {
 
         dao.cadastrarCliente(obj);
         new Utilitarios().LimpaTela(painel_dados);
-
+        }else{
+              msg += "\n\n Estão Vazios.";
+        JOptionPane.showMessageDialog(null, msg, "ERRO AO CADASTRAR ", HEIGHT);
+        
+        }
 
     }//GEN-LAST:event_btnsalvarActionPerformed
 
@@ -806,6 +866,55 @@ public class Frmclientes extends javax.swing.JFrame {
         new Utilitarios().LimpaTela(painel_dados);
 
     }//GEN-LAST:event_btnnovoActionPerformed
+
+    private void txtcpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcpfActionPerformed
+        // TODO add your handling code here:
+         //ValidaCPF(txtcpf) 
+    }//GEN-LAST:event_txtcpfActionPerformed
+
+    private void txtcepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcepActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcepActionPerformed
+
+    private void txtcpfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcpfKeyPressed
+     /*if (evt.getKeyCode() == KeyEvent.VK_ENTER) {// se apertar Enter
+            ValidaCPFeCNPJ obj = new ValidaCPFeCNPJ();
+            //ClientesDAO dao = new ClientesDAO();
+            boolean testecpf = obj.isCPF(txtcpf.getText());// envia o cpf para a validação
+
+            if (testecpf == false) {// se for false...
+                  JOptionPane.showMessageDialog(null, "CPF Inválido");
+             
+            }
+        }*/
+    // TODO add your handling code here:
+    }//GEN-LAST:event_txtcpfKeyPressed
+
+    private void txtcpfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtcpfFocusLost
+        // TODO add your handling code here:
+        // ao sair do jtextfield verifica se o cpf é valid
+        ValidaCPFeCNPJ model = new ValidaCPFeCNPJ();
+        Clientes obj = new Clientes();
+        Utilitarios verifica = new Utilitarios();
+        
+        if(txtcpf.getText().equals("   .   .   -  ")){// compara se a txtcpf está vazia        
+        }
+        else{
+            if (obj.equalsCpf(txtcpf.getText())) {// se for false...
+                JOptionPane.showMessageDialog(null, "CPF Já Cadastrado");
+            }else{
+                boolean testecpf = model.isCPF(txtcpf.getText());// envia o cpf para a validação
+                if (testecpf == false) {// se for false...
+                    JOptionPane.showMessageDialog(null, "CPF Inválido");
+                    txtcpf.setText(obj.getCpf());//seta null no campo cpf
+                } 
+            }
+        }
+    }//GEN-LAST:event_txtcpfFocusLost
+
+    private void tabelaClientesCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tabelaClientesCaretPositionChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabelaClientesCaretPositionChanged
 
     /**
      * @param args the command line arguments

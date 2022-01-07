@@ -5,6 +5,9 @@
  */
 package br.com.sistema.model;
 
+import br.com.sistema.dao.ClientesDAO;
+import java.util.List;
+
 /**
  *
  * @author Tampelini
@@ -140,7 +143,16 @@ public class Clientes {
         this.uf = uf;
     }
     
-    
+    public Boolean equalsCpf(String CPF){//verifica se ja existe pessoas com esse cpf
+        
+        ClientesDAO dao = new ClientesDAO();//cria conexão com o banco de dados
+        List<Clientes> lista = dao.listarClientes();// cria lista dos clientes 
+        for (Clientes c : lista) {//percorre a lista
+            if(CPF.equals(c.getCpf())){ //se encontrar o mesmo cpf retorna true
+                return true;
+            }
+        } return false;       
+    }
     
     
 }
