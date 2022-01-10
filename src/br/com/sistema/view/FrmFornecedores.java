@@ -10,6 +10,7 @@ import br.com.sistema.dao.FornecedoresDAO;
 import br.com.sistema.model.Clientes;
 import br.com.sistema.model.Fornecedores;
 import br.com.sistema.model.Utilitarios;
+import br.com.sistema.model.ValidaCPFeCNPJ;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
@@ -188,6 +189,11 @@ public class FrmFornecedores extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         txtcnpj.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtcnpj.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtcnpjFocusLost(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setText("Telefone (fixo):");
@@ -674,7 +680,33 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
         // boto salvar
+        int lib = 0;  
+        String msg = "Os Campos: \n";
+        
+        if(txtnome.getText().equals("")){//campo nome vazio
+            msg += "\n Nome ";
+            lib++;
+        }
+        if(txtcnpj.getText().equals("  .   .   /    -  ")){//campo cpf vazio
+            msg += "\n CNPJ ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo CPF está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+        if(txtcep.getText().equals("     -   ")){//campo cep vazio
+            msg += "\n CEP ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo CEP está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+        if(txtcel.getText().equals("(  )        -     ")){//campo celular vazio
+            msg += "\n Celular ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo Celular está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+       if (txtnumero.getText().equals("")){//se o numero da residencia estiver nulo seta 0
+            txtnumero.setText("0");
+        }
 
+        if (lib == 0){
         Fornecedores obj = new Fornecedores();
 
         obj.setNome(txtnome.getText());
@@ -694,7 +726,11 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
         dao.cadastrarFornecedores(obj);
         new Utilitarios().LimpaTela(painel_dados);
-
+         }else{
+              msg += "\n\n Estão Vazios.";
+        JOptionPane.showMessageDialog(null, msg, "ERRO AO CADASTRAR ", HEIGHT);
+        
+        }
     }//GEN-LAST:event_btnsalvarActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -850,6 +886,27 @@ public class FrmFornecedores extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_painel_dadosComponentShown
+
+    private void txtcnpjFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtcnpjFocusLost
+        // TODO add your handling code here:
+        // ao sair do jtextfield verifica se o CNPJ é valid
+        ValidaCPFeCNPJ model = new ValidaCPFeCNPJ();
+        Fornecedores obj = new Fornecedores();
+        if(txtcnpj.getText().equals("  .   .   /    -  ")){// compara se a txtCNPJ está vazia        
+        }
+        else{
+            if (obj.equalsCpf(txtcnpj.getText())) {// se for false...
+                JOptionPane.showMessageDialog(null, "CNPJ Já Cadastrado");
+            }else{
+                boolean testecpf = model.isCNPJ(txtcnpj.getText());// envia o CNPJ para a validação
+                if (testecpf == false) {// se for false...
+                    JOptionPane.showMessageDialog(null, "CNPJ Inválido");
+                    txtcnpj.setText(obj.getCpf());//seta null no campo cpf
+                } 
+            }
+        }
+        
+    }//GEN-LAST:event_txtcnpjFocusLost
 
     /**
      * @param args the command line arguments
