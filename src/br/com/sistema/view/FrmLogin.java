@@ -183,11 +183,7 @@ public class FrmLogin extends javax.swing.JFrame {
             
             
             dao.efetuaLogin(email, senha);
-            
-            
-            
-            this.dispose();
-            
+                                  
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "erro");
         }
@@ -208,38 +204,8 @@ public class FrmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsairActionPerformed
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        try{
-            String sql = "select * from tb_funcionarios where nome like ?";
-            PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setString(1, "ADMINISTRADOR");
-            
-            ResultSet rs = stmt.executeQuery();
-            
-            String senha = null;
-            while(rs.next()){
-                 senha = rs.getString("senha");
-            }
-
-
-            String senhaAdm = JOptionPane.showInputDialog("Digite a senha do administrador para alterar o cadastro\n"
-                                                                + "Login: admin@email.com");
-            
-            if(senhaAdm.equals(senha)){
-                FrmFuncionarios cadastroFuncionario = new FrmFuncionarios();
-
-                this.dispose();
-
-                cadastroFuncionario.setVisible(true);
-            }else{
-                JOptionPane.showMessageDialog(null,"Senha incorreta");
-            }
-
-        } catch (SQLException erro) {
-
-            JOptionPane.showMessageDialog(null, "Erro :" + erro);
-            //return null;
-        }
-
+        FuncionariosDAO dao = new FuncionariosDAO();
+        dao.esqueciMinhaSenha();
     }//GEN-LAST:event_jLabel2MouseClicked
 
     /**
