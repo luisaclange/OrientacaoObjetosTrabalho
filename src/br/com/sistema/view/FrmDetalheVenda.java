@@ -8,6 +8,7 @@ package br.com.sistema.view;
 import br.com.sistema.dao.VendasDAO;
 import br.com.sistema.model.Produtos;
 import br.com.sistema.model.Vendas;
+import java.awt.Color;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -20,6 +21,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmDetalheVenda extends javax.swing.JFrame {
 
+    Color corPrimaria;
+    
     /**
      * Creates new form FrmHistorico
      */

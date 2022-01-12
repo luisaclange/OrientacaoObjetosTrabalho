@@ -5,14 +5,20 @@
  */
 package br.com.sistema.model;
 
+import br.com.sistema.view.FrmTema;
 import br.com.sistema.view.Frmmenu;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.io.File;
 import javax.swing.ImageIcon;
+import javax.swing.JColorChooser;
 import javax.swing.JDesktopPane;
+import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -32,17 +38,55 @@ public class Utilitarios {
         }
     }
     
-    //Metodo para adicionar imagem de fundo JDesktopPane
-//    public void adicionaImagem() {
-//
-//        ImageIcon icon = new ImageIcon(Frmmenu.class.getResource("br.com.projeto.images/fundo.jpg"));
-//        Image img = icon.getImage();
-//
-//        JDesktopPane painel = new JDesktopPane() {
-//            public void paintComponent(Graphics g) {
-//                g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
-//            }
-//
-//        }
-                
-                }
+    public void escolheImagem(FrmTema tema, JTextField txtFile){
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Procurar imagem");
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Imagem","jpg","png");
+
+        fileChooser.setFileFilter(filter);
+
+        int retorno = fileChooser.showOpenDialog(tema);
+
+        if(retorno == JFileChooser.APPROVE_OPTION){
+
+            File file = fileChooser.getSelectedFile();
+            txtFile.setText(file.getPath());
+        }
+    }
+    
+    private static Color corPrimaria;
+    private static Color corSecundaria;
+    
+    public String getCorPrimaria(){
+        return corPrimaria.toString();
+    }
+    
+    // Método para alterar cor primária
+    
+    public void setCorPrimaria(){
+        JColorChooser escolheCor = new JColorChooser();
+        
+        this.corPrimaria = JColorChooser.showDialog(null, "Escolha a cor principal do sistema", Color.blue);
+    }
+    
+    public String getCorSecundaria(){
+        return corSecundaria.toString();
+    }
+    
+    public void setCorSecundaria(){
+        JColorChooser escolheCor = new JColorChooser();
+        
+        this.corSecundaria = JColorChooser.showDialog(null, "Escolha a cor secundária do sistema", Color.black);
+    }
+    
+    public static void setAllCorPrimaria(Color color){
+        corPrimaria = color;
+    }
+    
+    public static void setAllCorSecundaria(Color color){
+        corSecundaria = color;
+    }
+    
+}
