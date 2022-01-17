@@ -93,8 +93,8 @@ public class FrmProdutos extends javax.swing.JFrame {
         btnpesquisar = new javax.swing.JButton();
         btnnovo = new javax.swing.JButton();
         btnsalvar = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btneditar = new javax.swing.JButton();
+        btnexcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Produtos");
@@ -131,6 +131,11 @@ public class FrmProdutos extends javax.swing.JFrame {
 
         painel_dados.setBackground(new java.awt.Color(255, 255, 255));
         painel_dados.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        painel_dados.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                painel_dadosComponentShown(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Descrição:");
@@ -260,6 +265,11 @@ public class FrmProdutos extends javax.swing.JFrame {
         jTabbedPane1.addTab("Dados do Produto", painel_dados);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jPanel4ComponentShown(evt);
+            }
+        });
 
         tabelaProdutos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tabelaProdutos.setModel(new javax.swing.table.DefaultTableModel(
@@ -343,19 +353,19 @@ public class FrmProdutos extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton3.setText("Editar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btneditar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btneditar.setText("Editar");
+        btneditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btneditarActionPerformed(evt);
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton4.setText("Excluir");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnexcluir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnexcluir.setText("Excluir");
+        btnexcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnexcluirActionPerformed(evt);
             }
         });
 
@@ -374,9 +384,9 @@ public class FrmProdutos extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -389,8 +399,8 @@ public class FrmProdutos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnnovo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -460,6 +470,27 @@ public class FrmProdutos extends javax.swing.JFrame {
 
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
         // boto salvar
+        
+        int lib = 0;  
+        String msg = "Os Campos: \n";
+        
+        if(txtdescricao.getText().equals("")){//campo nome vazio
+            msg += "\n Descrição do Produto ";
+            lib++;
+        }
+        if(txtpreco.getText().equals("")){//campo cpf vazio
+            msg += "\n Preço do Produto ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo CPF está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+        if(txtqtdestoque.getText().equals("")){//campo cep vazio
+            msg += "\n Quantidade de Estoque ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo CEP está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+
+        if (lib == 0){
+        
         Produtos obj = new Produtos();
         obj.setDescricao(txtdescricao.getText());
         obj.setPreco(Double.parseDouble(txtpreco.getText()));
@@ -474,8 +505,16 @@ public class FrmProdutos extends javax.swing.JFrame {
         dao.cadastrar(obj);
 
         new Utilitarios().LimpaTela(painel_dados);
-
-
+        
+        }else{
+              msg += "\n\n Estão Vazios.";
+        JOptionPane.showMessageDialog(null, msg, "ERRO AO CADASTRAR ", HEIGHT);
+        return;
+        }
+        btnsalvar.setEnabled( true );// Habilita o botão escluir
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btnexcluir.setEnabled( false );// desabilita o botão editar
+        btnnovo.setEnabled( true );// Habilita o botão escluir
     }//GEN-LAST:event_btnsalvarActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -501,11 +540,15 @@ public class FrmProdutos extends javax.swing.JFrame {
 
         cbfornecedor.removeAllItems();
         cbfornecedor.getModel().setSelectedItem(f);
-
+        
+        btnsalvar.setEnabled( false );// desabilita o botão editar
+        btneditar.setEnabled( true );// Habilita o botão escluir
+        btnexcluir.setEnabled( true );// Habilita o botão escluir
+        btnnovo.setEnabled( true );// Habilita o botão escluir
 
     }//GEN-LAST:event_tabelaProdutosMouseClicked
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
         // botao editar
         Produtos obj = new Produtos();
         obj.setId(Integer.parseInt(txtcodigo.getText()));
@@ -523,11 +566,15 @@ public class FrmProdutos extends javax.swing.JFrame {
         dao.alterar(obj);
 
         new Utilitarios().LimpaTela(painel_dados);
+        
+        btnsalvar.setEnabled( true );// Habilita o botão escluir
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btnexcluir.setEnabled( false );// desabilita o botão editar
+        btnnovo.setEnabled( true );// Habilita o botão escluir
 
+    }//GEN-LAST:event_btneditarActionPerformed
 
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluirActionPerformed
         // botao excluir
 
         Produtos obj = new Produtos();
@@ -537,8 +584,12 @@ public class FrmProdutos extends javax.swing.JFrame {
         dao.excluir(obj);
 
         new Utilitarios().LimpaTela(painel_dados);
-
-    }//GEN-LAST:event_jButton4ActionPerformed
+        
+        btnsalvar.setEnabled( true );// Habilita o botão escluir
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btnexcluir.setEnabled( false );// desabilita o botão editar
+        btnnovo.setEnabled( true );// Habilita o botão escluir
+    }//GEN-LAST:event_btnexcluirActionPerformed
 
     private void txtpesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyPressed
         String nome = "%" + txtpesquisa.getText() + "%";
@@ -593,6 +644,27 @@ public class FrmProdutos extends javax.swing.JFrame {
 
      }//GEN-LAST:event_cbfornecedorMouseClicked
 
+    private void jPanel4ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel4ComponentShown
+        // TODO add your handling code here:
+        btnsalvar.setEnabled( false );// desabilita o botão escluir
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btnexcluir.setEnabled( false );// desabilita o botão escluir
+        btnnovo.setEnabled( false );// desabilita o botão escluir
+    }//GEN-LAST:event_jPanel4ComponentShown
+
+    private void painel_dadosComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_painel_dadosComponentShown
+        // TODO add your handling code here:
+        if (txtdescricao.getText().equals("")){
+            
+        btnsalvar.setEnabled( true );// Habilita o botão escluir
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btnexcluir.setEnabled( false );// desabilita o botão escluir
+        btnnovo.setEnabled( true );// Habilita o botão escluir
+        }
+        
+        
+    }//GEN-LAST:event_painel_dadosComponentShown
+
     /**
      * @param args the command line arguments
      */
@@ -631,12 +703,12 @@ public class FrmProdutos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnbusca;
+    private javax.swing.JButton btneditar;
+    private javax.swing.JButton btnexcluir;
     private javax.swing.JButton btnnovo;
     private javax.swing.JButton btnpesquisar;
     private javax.swing.JButton btnsalvar;
     private javax.swing.JComboBox cbfornecedor;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;

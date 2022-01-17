@@ -745,7 +745,20 @@ public class Frmclientes extends javax.swing.JFrame {
         if (lib == 0){
           
         Clientes obj = new Clientes();
-
+        ValidaCPFeCNPJ model = new ValidaCPFeCNPJ();
+        Utilitarios verifica = new Utilitarios();
+        
+        if (model.isCPF(txtcpf.getText()) == false) {//Verifica se o Cpf é Valido se for false...
+            JOptionPane.showMessageDialog(null, "CPF Inválido");
+            txtcpf.setText(obj.getCpf());//seta null no campo cpf
+            return;
+        } 
+        if (obj.equalsCpf(txtcpf.getText())) {// Verifica se o Cpf já está cadastrado se for false...
+            JOptionPane.showMessageDialog(null, "CPF Já Cadastrado");
+            txtcpf.setText(obj.getCpf());//seta null no campo cpf
+            return;
+        }
+  
         obj.setNome(txtnome.getText());
         obj.setRg(txtrg.getText());
         obj.setCpf(txtcpf.getText());
@@ -764,12 +777,16 @@ public class Frmclientes extends javax.swing.JFrame {
 
         dao.cadastrarCliente(obj);
         new Utilitarios().LimpaTela(painel_dados);
+        
         }else{
               msg += "\n\n Estão Vazios.";
         JOptionPane.showMessageDialog(null, msg, "ERRO AO CADASTRAR ", HEIGHT);
         
         }
-
+        btnsalvar.setEnabled( true );//habilita o botão escluir
+        btneditar.setEnabled( false );// desabilita o botão salvar
+        btnexcluir.setEnabled( false );// desabilita o botão salvar
+        btnnovo.setEnabled( true );//habilita o botão escluir
     }//GEN-LAST:event_btnsalvarActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -807,7 +824,48 @@ public class Frmclientes extends javax.swing.JFrame {
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
         // botao editar
 
+        int lib = 0;  
+        String msg = "Os Campos: \n";
+        
+        if(txtnome.getText().equals("")){//campo nome vazio
+            msg += "\n Nome ";
+            lib++;
+        }
+        if(txtcpf.getText().equals("   .   .   -  ")){//campo cpf vazio
+            msg += "\n CPF ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo CPF está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+        if(txtcep.getText().equals("     -   ")){//campo cep vazio
+            msg += "\n CEP ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo CEP está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+        if(txtcel.getText().equals("(  )        -     ")){//campo celular vazio
+            msg += "\n Celular ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo Celular está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+       if (txtnumero.getText().equals("")){//se o numero da residencia estiver nulo seta 0
+            txtnumero.setText("0");
+        }
+
+        if (lib == 0){
+          
         Clientes obj = new Clientes();
+        ValidaCPFeCNPJ model = new ValidaCPFeCNPJ();
+        Utilitarios verifica = new Utilitarios();
+        
+        if (model.isCPF(txtcpf.getText()) == false) {//Verifica se o Cpf é Valido se for false...
+            JOptionPane.showMessageDialog(null, "CPF Inválido");
+            txtcpf.setText(obj.getCpf());//seta null no campo cpf
+            return;
+        } 
+        if (obj.equalsCpfId(txtcpf.getText(),(Integer.parseInt(txtcodigo.getText())))) {// Verifica se o Cpf já está cadastrado se for false...
+            JOptionPane.showMessageDialog(null, "CPF Já Cadastrado");
+            txtcpf.setText(obj.getCpf());//seta null no campo cpf
+            return;
+        }
 
         obj.setNome(txtnome.getText());
         obj.setRg(txtrg.getText());
@@ -831,6 +889,12 @@ public class Frmclientes extends javax.swing.JFrame {
 
         new Utilitarios().LimpaTela(painel_dados);
         
+        }else{
+              msg += "\n\n Estão Vazios.";
+        JOptionPane.showMessageDialog(null, msg, "ERRO AO CADASTRAR ", HEIGHT);
+        return;
+        }
+         
         btnsalvar.setEnabled( true );// habilita o botão salvar
         btneditar.setEnabled( false );// desabilita o botão editar
         btnexcluir.setEnabled( false );// desabilita o botão escluir

@@ -4,11 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Nine/Desktop/Biopark%20Conect/orientação%20a%20objetos/Trabalho%20Leonardo/OrientacaoObjetosTrabalho/src/br/com/sistema/view/FrmFuncionarios.java</file>
-            <file>file:/C:/Users/Nine/Desktop/Biopark%20Conect/orientação%20a%20objetos/Trabalho%20Leonardo/OrientacaoObjetosTrabalho/src/br/com/sistema/model/Funcionarios.java</file>
-            <file>file:/C:/Users/Nine/Desktop/Biopark%20Conect/orientação%20a%20objetos/Trabalho%20Leonardo/OrientacaoObjetosTrabalho/src/br/com/sistema/model/Utilitarios.java</file>
-            <file>file:/C:/Users/Nine/Desktop/Biopark%20Conect/orientação%20a%20objetos/Trabalho%20Leonardo/OrientacaoObjetosTrabalho/src/br/com/sistema/model/Clientes.java</file>
             <file>file:/C:/Users/Nine/Desktop/Biopark%20Conect/orientação%20a%20objetos/Trabalho%20Leonardo/OrientacaoObjetosTrabalho/src/br/com/sistema/view/Frmclientes.java</file>
-            <file>file:/C:/Users/Nine/Desktop/Biopark%20Conect/orientação%20a%20objetos/Trabalho%20Leonardo/OrientacaoObjetosTrabalho/src/br/com/sistema/dao/ClientesDAO.java</file>
+            <file>file:/C:/Users/Nine/Desktop/Biopark%20Conect/orientação%20a%20objetos/Trabalho%20Leonardo/OrientacaoObjetosTrabalho/src/br/com/sistema/model/Fornecedores.java</file>
+            <file>file:/C:/Users/Nine/Desktop/Biopark%20Conect/orientação%20a%20objetos/Trabalho%20Leonardo/OrientacaoObjetosTrabalho/src/br/com/sistema/view/FrmProdutos.java</file>
             <file>file:/C:/Users/Nine/Desktop/Biopark%20Conect/orientação%20a%20objetos/Trabalho%20Leonardo/OrientacaoObjetosTrabalho/src/br/com/sistema/view/FrmFornecedores.java</file>
         </group>
     </open-files>
