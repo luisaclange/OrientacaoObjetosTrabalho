@@ -6,8 +6,12 @@
 package br.com.sistema.view;
 
 import br.com.sistema.model.Utilitarios;
+import java.awt.Color;
 import java.io.File;
 import javax.swing.JFileChooser;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -48,9 +52,9 @@ public class FrmTema extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         txtCorPrimaria = new javax.swing.JTextField();
         txtCorSecundaria = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        btSalvarTema = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btAplicarTema = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
@@ -58,7 +62,7 @@ public class FrmTema extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel4.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel4.setBackground(java.awt.Color.blue);
         jPanel4.setPreferredSize(new java.awt.Dimension(1200, 150));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
@@ -127,14 +131,24 @@ public class FrmTema extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jButton3.setText("Salvar");
+        btSalvarTema.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btSalvarTema.setText("Salvar");
+        btSalvarTema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarTemaActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton4.setText("Cancelar");
 
-        jButton5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jButton5.setText("Aplicar");
+        btAplicarTema.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btAplicarTema.setText("Aplicar");
+        btAplicarTema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAplicarTemaActionPerformed(evt);
+            }
+        });
 
         jButton6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton6.setText("Selecionar ");
@@ -187,9 +201,9 @@ public class FrmTema extends javax.swing.JFrame {
                                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btAplicarTema, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btSalvarTema, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(34, 34, 34)
                                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(7, 7, 7)))))
@@ -222,9 +236,9 @@ public class FrmTema extends javax.swing.JFrame {
                     .addComponent(jButton7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
+                    .addComponent(btSalvarTema)
                     .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(btAplicarTema))
                 .addGap(70, 70, 70))
         );
 
@@ -269,6 +283,20 @@ public class FrmTema extends javax.swing.JFrame {
         txtCorSecundaria.setText(util.getCorSecundaria());
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void btSalvarTemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarTemaActionPerformed
+        UIManager.put("",new Utilitarios().getCorPrimaria());
+
+        SwingUtilities.updateComponentTreeUI(this);
+
+        this.dispose();
+    }//GEN-LAST:event_btSalvarTemaActionPerformed
+
+    private void btAplicarTemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAplicarTemaActionPerformed
+        UIManager.put("Color.blue",Color.GREEN);
+
+        SwingUtilities.updateComponentTreeUI(this);
+    }//GEN-LAST:event_btAplicarTemaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -306,11 +334,11 @@ public class FrmTema extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btAplicarTema;
+    private javax.swing.JButton btSalvarTema;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel4;
