@@ -27,7 +27,7 @@ import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 /**
@@ -68,15 +68,71 @@ public class Utilitarios {
         }
     }
     
+    
+    // Gerenciamento de tema do sistema
+    
+    public String[] getConfigJson() {
+        JSONObject jsonObject;
+        JSONParser parser = new JSONParser();
+        
+        String arquivo = "./src/config/config.json";
+        String[] tema = new String[4];
+        try {
+            try (FileReader f = new FileReader(arquivo)) {
+                jsonObject = (JSONObject) parser.parse(f);
+            }
+            tema[0] = (String) jsonObject.get("Fundo");
+            /*tema[1] = (String) jsonObject.get("Logo");
+            tema[2] = (String) jsonObject.get("CorPrimaria");
+            tema[3] = (String) jsonObject.get("CorSecundaria");*/
+            System.out.println(">>>>" + tema[0]);
+            return tema;
+            
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException | org.json.simple.parser.ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    // public static void setConfigJson(String fundo, String logo, Color corPrimaria, Color corSecundaria){
+    public void setConfigJson(String fundo){
+        FileWriter writeJson = null;
+        String arquivo = "./src/config/config.json";
+        JSONObject jsonObject = new JSONObject();
+        
+        try {
+            //preenche o objeto com os campos do tema
+            jsonObject.put("Fundo", fundo);
+            // jsonObject.put("Logo", logo); 
+            // jsonObject.put("CorPrincipal", String.valueOf(corPrimaria));
+            // jsonObject.put("CorSecundaria", String.valueOf(corSecundaria));
+            writeJson = new FileWriter(arquivo);
+            writeJson.write(jsonObject.toString());
+        } catch (IOException ex) {
+            Logger.getLogger(Utilitarios.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                writeJson.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Utilitarios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+    }
+    
+    /*
+    
+    // Métodos para alterar cores do sistema
+    
     private static Color corPrimaria;
     private static Color corSecundaria;
     
     public String getCorPrimaria(){
         return corPrimaria.toString();
-    }
-    
-    // Método para alterar cor primária
-    
+    }    
+
     public void setCorPrimaria(){
         JColorChooser escolheCor = new JColorChooser();
         
@@ -100,57 +156,6 @@ public class Utilitarios {
     public static void setAllCorSecundaria(Color color){
         corSecundaria = color;
     }
-    
-    // Gerenciamento de tema do sistema
-    
-    public static String[] getConfigJson() {
-        JSONObject jsonObject;
-        JSONParser parser = new JSONParser();
-        
-        String arquivo = ".\\src\\config\\config.json";
-        String[] tema = new String[4];
-        try {
-            try (FileReader f = new FileReader(arquivo)) {
-                jsonObject = (JSONObject) parser.parse(f);
-            }
-            tema[0] = (String) jsonObject.get("Fundo");
-            tema[1] = (String) jsonObject.get("Logo");
-            tema[2] = (String) jsonObject.get("CorPrimaria");
-            tema[3] = (String) jsonObject.get("CorSecundaria");
-
-            return tema;
-            
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException | org.json.simple.parser.ParseException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-    
-    public static void setConfigJson(String fundo, String logo, String corPrimaria, String corSecundaria){
-        FileWriter writeJson = null;
-        String arquivo = ".\\src\\config\\config.json";
-        JSONObject jsonObject = new JSONObject();
-        
-        try {
-            //preenche o objeto com os campos do tema
-            jsonObject.put("Fundo", fundo);
-            jsonObject.put("Logo", logo);
-            jsonObject.put("CorPrincipal", corPrimaria);
-            jsonObject.put("CorSecundaria", corSecundaria);
-            writeJson = new FileWriter(arquivo);
-            writeJson.write(jsonObject.toString());
-        } catch (IOException ex) {
-            Logger.getLogger(Utilitarios.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                writeJson.close();
-            } catch (IOException ex) {
-                Logger.getLogger(Utilitarios.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-    }
+    */
     
 }

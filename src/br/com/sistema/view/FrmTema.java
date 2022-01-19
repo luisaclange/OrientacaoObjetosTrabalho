@@ -42,13 +42,13 @@ public class FrmTema extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        txtFile = new javax.swing.JTextField();
+        txtFundo = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txtFiletwo = new javax.swing.JTextField();
+        txtLogo = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         txtCorPrimaria = new javax.swing.JTextField();
         txtCorSecundaria = new javax.swing.JTextField();
@@ -98,8 +98,8 @@ public class FrmTema extends javax.swing.JFrame {
             }
         });
 
-        txtFile.setEditable(false);
-        txtFile.setVerifyInputWhenFocusTarget(false);
+        txtFundo.setEditable(false);
+        txtFundo.setVerifyInputWhenFocusTarget(false);
 
         jButton1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton1.setText("Pesquisar ");
@@ -121,7 +121,7 @@ public class FrmTema extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel8.setText("Cor Secundária");
 
-        txtFiletwo.setEditable(false);
+        txtLogo.setEditable(false);
 
         jButton2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton2.setText("Pesquisar ");
@@ -191,8 +191,8 @@ public class FrmTema extends javax.swing.JFrame {
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtCorSecundaria, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtCorPrimaria, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtFiletwo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtFile, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtFundo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(40, 40, 40)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -216,13 +216,13 @@ public class FrmTema extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addGap(47, 47, 47)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFile, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFundo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1)
                     .addComponent(jLabel5))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtFiletwo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -266,35 +266,37 @@ public class FrmTema extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel5AncestorAdded
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new Utilitarios().escolheImagem(this, txtFile);
+        new Utilitarios().escolheImagem(this, txtFundo);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        new Utilitarios().escolheImagem(this, txtFiletwo);
+        new Utilitarios().escolheImagem(this, txtLogo);
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        new Utilitarios().setCorPrimaria();
-        txtCorPrimaria.setText(util.getCorPrimaria());
+        /*new Utilitarios().setCorPrimaria();
+        txtCorPrimaria.setText(util.getCorPrimaria());*/
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        new Utilitarios().setCorSecundaria();
-        txtCorSecundaria.setText(util.getCorSecundaria());
+        /*new Utilitarios().setCorSecundaria();
+        txtCorSecundaria.setText(util.getCorSecundaria());*/
     }//GEN-LAST:event_jButton7ActionPerformed
-
+    
     private void btSalvarTemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarTemaActionPerformed
-        UIManager.put("",new Utilitarios().getCorPrimaria());
+        /*UIManager.put("",new Utilitarios().getCorPrimaria());
 
         SwingUtilities.updateComponentTreeUI(this);
 
-        this.dispose();
+        this.dispose();*/
     }//GEN-LAST:event_btSalvarTemaActionPerformed
-
+    
     private void btAplicarTemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAplicarTemaActionPerformed
-        UIManager.put("Color.blue",Color.GREEN);
+        new Utilitarios().setConfigJson(txtFundo.getText());
 
-        SwingUtilities.updateComponentTreeUI(this);
+        // UIManager.put("Color.blue",Color.GREEN);
+
+        // SwingUtilities.updateComponentTreeUI(this);
     }//GEN-LAST:event_btAplicarTemaActionPerformed
 
     /**
@@ -351,7 +353,7 @@ public class FrmTema extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField txtCorPrimaria;
     private javax.swing.JTextField txtCorSecundaria;
-    private javax.swing.JTextField txtFile;
-    private javax.swing.JTextField txtFiletwo;
+    private javax.swing.JTextField txtFundo;
+    private javax.swing.JTextField txtLogo;
     // End of variables declaration//GEN-END:variables
 }
