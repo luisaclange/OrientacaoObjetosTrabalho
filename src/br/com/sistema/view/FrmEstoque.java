@@ -69,6 +69,7 @@ public class FrmEstoque extends javax.swing.JFrame {
         txtqtd = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         btnadd = new javax.swing.JButton();
+        btnrmv = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaProdutos = new javax.swing.JTable();
@@ -92,7 +93,7 @@ public class FrmEstoque extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(224, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(201, 201, 201))
         );
@@ -153,6 +154,14 @@ public class FrmEstoque extends javax.swing.JFrame {
             }
         });
 
+        btnrmv.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnrmv.setText("Remover");
+        btnrmv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrmvActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -175,7 +184,9 @@ public class FrmEstoque extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnpesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnadd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnrmv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(153, 153, 153))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,7 +201,8 @@ public class FrmEstoque extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel18)
                         .addComponent(txtqtd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnadd))
+                        .addComponent(btnadd)
+                        .addComponent(btnrmv))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel17)
                         .addComponent(txtestoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -320,6 +332,10 @@ public class FrmEstoque extends javax.swing.JFrame {
             dao.adicionarEstoque(idproduto, qtd_nova);
 
             JOptionPane.showMessageDialog(null, "Estoque do Produto Atualizado");
+            
+            txtestoque.setText("");
+            txtqtd.setText("");
+            txtpesquisa.setText("");
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Selecione o produto ou informe a nova qtd." + e);
@@ -331,6 +347,38 @@ public class FrmEstoque extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         listar();
     }//GEN-LAST:event_formWindowActivated
+
+    private void btnrmvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrmvActionPerformed
+        try {
+            int qtd_estoque, qtd;
+
+            qtd_estoque = Integer.parseInt(txtestoque.getText());
+
+            qtd = Integer.parseInt(txtqtd.getText());
+            
+            if(qtd_estoque >= qtd){
+                qtd_nova = qtd_estoque - qtd;
+
+                ProdutosDAO dao = new ProdutosDAO();
+
+                dao.removerEstoque(idproduto, qtd_nova);
+
+                JOptionPane.showMessageDialog(null, "Estoque do Produto Atualizado");
+            
+                txtestoque.setText("");
+                txtqtd.setText("");
+                txtpesquisa.setText("");
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "Favor inserir uma quantidade válida");
+            }
+            
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Selecione o produto ou informe a nova qtd." + e);
+
+        }
+    }//GEN-LAST:event_btnrmvActionPerformed
 
     /**
      * @param args the command line arguments
@@ -373,6 +421,7 @@ public class FrmEstoque extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnadd;
     private javax.swing.JButton btnpesquisar;
+    private javax.swing.JButton btnrmv;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;

@@ -285,7 +285,7 @@ public class FuncionariosDAO {
     }
 
     //Metodo efetuaLogin
-    public void efetuaLogin(String email, String senha ) {
+    public boolean efetuaLogin(String email, String senha ) {
         try {
 
             //1 passo - SQL
@@ -306,7 +306,8 @@ public class FuncionariosDAO {
                     Frmmenu tela = new Frmmenu();
                     tela.setUsuarioLogado(rs.getString("nome"));
                     
-                    tela.setVisible(true);
+                    tela.setVisible(true);  
+                    return true;
                 } 
 
 //Caso o usuario seja do tipo limitado 
@@ -321,20 +322,20 @@ public class FuncionariosDAO {
                     tela.menu_controlevendas.setVisible(false);
                    
                     tela.setVisible(true);
-
+                    return true;
                 }
 
             } else {
                 //Dados incorretos
                 JOptionPane.showMessageDialog(null, "Dados incorretos!");
                 //new FrmLogin().setVisible(true);
-
+                return false;
             }
 
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro : " + erro);
         }
-
+        return false;
     }
 
     public void esqueciMinhaSenha(){

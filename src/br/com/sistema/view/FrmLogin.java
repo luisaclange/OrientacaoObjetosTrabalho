@@ -182,7 +182,9 @@ public class FrmLogin extends javax.swing.JFrame {
             FuncionariosDAO dao = new FuncionariosDAO();
             
             
-            dao.efetuaLogin(email, senha);
+            if(dao.efetuaLogin(email, senha)){
+                this.dispose();
+            }
                                   
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "erro");
