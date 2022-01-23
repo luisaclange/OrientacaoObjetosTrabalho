@@ -8,6 +8,13 @@ package br.com.sistema.view;
 import br.com.sistema.model.Utilitarios;
 import java.awt.Color;
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -53,7 +60,7 @@ public class FrmTema extends javax.swing.JFrame {
         txtCorPrimaria = new javax.swing.JTextField();
         txtCorSecundaria = new javax.swing.JTextField();
         btSalvarTema = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btCancelar = new javax.swing.JButton();
         btAplicarTema = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
@@ -139,8 +146,13 @@ public class FrmTema extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jButton4.setText("Cancelar");
+        btCancelar.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btCancelar.setText("Cancelar");
+        btCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCancelarActionPerformed(evt);
+            }
+        });
 
         btAplicarTema.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btAplicarTema.setText("Aplicar");
@@ -205,7 +217,7 @@ public class FrmTema extends javax.swing.JFrame {
                                 .addGap(31, 31, 31)
                                 .addComponent(btSalvarTema, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(34, 34, 34)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(7, 7, 7)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -237,7 +249,7 @@ public class FrmTema extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvarTema)
-                    .addComponent(jButton4)
+                    .addComponent(btCancelar)
                     .addComponent(btAplicarTema))
                 .addGap(70, 70, 70))
         );
@@ -284,20 +296,50 @@ public class FrmTema extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
     
     private void btSalvarTemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarTemaActionPerformed
-        /*UIManager.put("",new Utilitarios().getCorPrimaria());
-
-        SwingUtilities.updateComponentTreeUI(this);
-
-        this.dispose();*/
+        try {
+            Utilitarios util = new Utilitarios();
+            
+            Path fundo = Paths.get(txtFundo.getText()); // Armazena a imagem selecionada pelo usuário
+            
+            Path diretorioImagens = Paths.get("./src/imagens/"  + fundo.getFileName()); // Escolhe o novo diretório da imagem
+            
+            Files.copy(fundo, diretorioImagens, StandardCopyOption.REPLACE_EXISTING); // Copia e, se necessário, substitui a imagen
+            
+            util.setConfigJson(fundo.getFileName().toString()); // Altera a configuração de inicialização no JSON
+            
+            // UIManager.put("Color.blue",Color.GREEN);
+            
+            // SwingUtilities.updateComponentTreeUI(this);
+            
+           this.dispose();
+        } catch (IOException ex) {
+            Logger.getLogger(FrmTema.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btSalvarTemaActionPerformed
     
     private void btAplicarTemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAplicarTemaActionPerformed
-        new Utilitarios().setConfigJson(txtFundo.getText());
-
-        // UIManager.put("Color.blue",Color.GREEN);
-
-        // SwingUtilities.updateComponentTreeUI(this);
+        try {
+            Utilitarios util = new Utilitarios();
+            
+            Path fundo = Paths.get(txtFundo.getText()); // Armazena a imagem selecionada pelo usuário
+            
+            Path diretorioImagens = Paths.get("./src/imagens/"  + fundo.getFileName()); // Escolhe o novo diretório da imagem
+            
+            Files.copy(fundo, diretorioImagens, StandardCopyOption.REPLACE_EXISTING); // Copia e, se necessário, substitui a imagen
+            
+            util.setConfigJson(fundo.getFileName().toString()); // Altera a configuração de inicialização no JSON
+            
+            // UIManager.put("Color.blue",Color.GREEN);
+            
+            // SwingUtilities.updateComponentTreeUI(this);
+        } catch (IOException ex) {
+            Logger.getLogger(FrmTema.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btAplicarTemaActionPerformed
+
+    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -337,10 +379,10 @@ public class FrmTema extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAplicarTema;
+    private javax.swing.JButton btCancelar;
     private javax.swing.JButton btSalvarTema;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel4;

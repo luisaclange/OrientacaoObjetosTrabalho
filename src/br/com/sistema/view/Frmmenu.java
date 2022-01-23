@@ -20,48 +20,8 @@ public class Frmmenu extends javax.swing.JFrame {
     
     public Frmmenu() {
         initComponents();
-        
-        
-        String[] tema = new Utilitarios().getConfigJson();
-        // Image fundo = getClass().getResource();
-        ImageIcon icon = new ImageIcon(tema[0]);
-        
-        Image image = icon.getImage();
-        painel_desktop = new javax.swing.JDesktopPane(){
-            public void paintComponent(Graphics g){
-                g.drawImage(image, 0,0, getWidth(),getHeight(),this);
-            }
-        };
-        
-        painel_desktop.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout painel_desktopLayout = new javax.swing.GroupLayout(painel_desktop);
-        painel_desktop.setLayout(painel_desktopLayout);
-        painel_desktopLayout.setHorizontalGroup(
-            painel_desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        painel_desktopLayout.setVerticalGroup(
-            painel_desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painel_desktopLayout.createSequentialGroup()
-                .addGap(0, 382, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painel_desktop)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painel_desktop)
-        );
-        
-        //ImageIcon logo = new ImageIcon(getClass().getResource(tema[1]));
     }
-    
+        
     public void setUsuarioLogado(String nome) {
         lblusuario.setText(nome);
     }
@@ -74,7 +34,9 @@ public class Frmmenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ImageIcon icon = new ImageIcon(getClass().getResource("/imagens/fundo.jpg"));
+        String[] tema = new Utilitarios().getConfigJson();
+        // Image fundo = getClass().getResource();
+        ImageIcon icon = new ImageIcon(tema[0]);
 
         Image image = icon.getImage();
         painel_desktop = new javax.swing.JDesktopPane(){

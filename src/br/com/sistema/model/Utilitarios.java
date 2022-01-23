@@ -26,7 +26,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import org.json.JSONException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
@@ -85,7 +84,7 @@ public class Utilitarios {
             /*tema[1] = (String) jsonObject.get("Logo");
             tema[2] = (String) jsonObject.get("CorPrimaria");
             tema[3] = (String) jsonObject.get("CorSecundaria");*/
-            System.out.println(">>>>" + tema[0]);
+            
             return tema;
             
         } catch (FileNotFoundException e) {
@@ -104,7 +103,7 @@ public class Utilitarios {
         
         try {
             //preenche o objeto com os campos do tema
-            jsonObject.put("Fundo", fundo);
+            jsonObject.put("Fundo", "./src/imagens/" + fundo);
             // jsonObject.put("Logo", logo); 
             // jsonObject.put("CorPrincipal", String.valueOf(corPrimaria));
             // jsonObject.put("CorSecundaria", String.valueOf(corSecundaria));
