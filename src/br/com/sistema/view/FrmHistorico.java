@@ -28,7 +28,7 @@ public class FrmHistorico extends javax.swing.JFrame {
     public FrmHistorico() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,6 +51,11 @@ public class FrmHistorico extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Histórico de Vendas");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 204));
 
@@ -201,8 +206,8 @@ public class FrmHistorico extends javax.swing.JFrame {
         try {
             //Receber as datas
             DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-            LocalDate data_inicio = LocalDate.parse(txtdatainicio.getText(), formato);
+            
+            LocalDate data_inicio = LocalDate.parse(txtdatainicio.getText(), formato);;
             LocalDate data_fim = LocalDate.parse(txtdatafim.getText(), formato);
 
             VendasDAO dao = new VendasDAO();
@@ -225,7 +230,6 @@ public class FrmHistorico extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Digite duas datas como intervalo!");
         }
-
     }//GEN-LAST:event_btnpesquisarActionPerformed
 
     private void tabelaHistoricoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaHistoricoMouseClicked
@@ -261,6 +265,34 @@ public class FrmHistorico extends javax.swing.JFrame {
         tela.setVisible(true);
 
     }//GEN-LAST:event_tabelaHistoricoMouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // botao buscar venda por periodo
+        try {
+            //Receber as datas
+            DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            
+            VendasDAO dao = new VendasDAO();
+            List<Vendas> lista = dao.listarVendas();
+
+            DefaultTableModel dados = (DefaultTableModel) tabelaHistorico.getModel();
+            dados.setNumRows(0);
+
+            for (Vendas v : lista) {
+                dados.addRow(new Object[]{
+                    v.getId(),
+                    v.getData_venda(),
+                    v.getCliente().getNome(),
+                    v.getTotal_venda(),
+                    v.getObs()
+                });
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Digite duas datas como intervalo!");
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
