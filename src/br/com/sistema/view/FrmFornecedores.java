@@ -1909,7 +1909,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
     private void btnfornecedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfornecedoresMouseClicked
         // TODO add your handling code here:
-        FrmFornecedorres tela = new FrmFornecedorres();
+        FrmFornecedores tela = new FrmFornecedores();
         tela.setVisible(true);
     }//GEN-LAST:event_btnfornecedoresMouseClicked
 
