@@ -53,35 +53,85 @@ public class FrmVendas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        btnpagamento = new javax.swing.JButton();
-        btncancelar = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        telapdv = new javax.swing.JPanel();
+        painelinferior = new javax.swing.JPanel();
+        abaprodutos = new javax.swing.JPanel();
+        btnestoque = new javax.swing.JLabel();
+        btncontrolprodutos = new javax.swing.JLabel();
+        abavendas = new javax.swing.JPanel();
+        btntotalvendas = new javax.swing.JLabel();
+        btnpdv = new javax.swing.JLabel();
+        btncontrolevendas = new javax.swing.JLabel();
+        abaconfigurações = new javax.swing.JPanel();
+        btnlogo = new javax.swing.JLabel();
+        btntrocaruser = new javax.swing.JLabel();
+        abadetalhevendas = new javax.swing.JPanel();
+        consulta = new javax.swing.JPanel();
+        opcoes = new javax.swing.JPanel();
+        consulte = new javax.swing.JLabel();
+        separator = new javax.swing.JSeparator();
+        dadoscliente = new javax.swing.JPanel();
         txtnome = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        txtdataatual = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        btnbuscacliente = new javax.swing.JButton();
+        nomecliente = new javax.swing.JLabel();
+        dataatual = new javax.swing.JLabel();
+        cpfcliente = new javax.swing.JLabel();
         txtcpf = new javax.swing.JFormattedTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        txtdataatual = new javax.swing.JTextField();
+        btnbuscacliente = new com.k33ptoo.components.KButton();
+        dadosproduto = new javax.swing.JPanel();
+        produto = new javax.swing.JLabel();
+        codigo = new javax.swing.JLabel();
+        quantidade = new javax.swing.JLabel();
+        btnbuscaproduto = new com.k33ptoo.components.KButton();
         txtcodigo = new javax.swing.JTextField();
         txtdescricao = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        txtpreco = new javax.swing.JTextField();
+        nomepreco = new javax.swing.JLabel();
         txtqtd = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        btnadd = new javax.swing.JButton();
-        txtbuscaproduto = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        txtpreco = new javax.swing.JTextField();
+        carrinhocompras = new javax.swing.JPanel();
+        scrollTabela = new javax.swing.JScrollPane();
         tabelaItens = new javax.swing.JTable();
-        jPanel5 = new javax.swing.JPanel();
+        totalvenda = new javax.swing.JPanel();
         txttotal = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+        btnadd = new com.k33ptoo.components.KButton();
+        btnpagamento = new com.k33ptoo.components.KButton();
+        btncancelar = new com.k33ptoo.components.KButton();
+        titulo = new javax.swing.JPanel();
+        titulovendas = new javax.swing.JLabel();
+        slogan = new javax.swing.JLabel();
+        navbar = new javax.swing.JPanel();
+        arealogo = new javax.swing.JPanel();
+        logo = new javax.swing.JLabel();
+        btninicio = new javax.swing.JPanel();
+        inicio = new javax.swing.JLabel();
+        iconinicio = new javax.swing.JLabel();
+        btnclientes = new javax.swing.JPanel();
+        clientes = new javax.swing.JLabel();
+        iconclientes = new javax.swing.JLabel();
+        btnfuncionarios = new javax.swing.JPanel();
+        funcionarios = new javax.swing.JLabel();
+        iconfuncionarios = new javax.swing.JLabel();
+        btnfornecedores = new javax.swing.JPanel();
+        fornecedores = new javax.swing.JLabel();
+        iconfornecedores = new javax.swing.JLabel();
+        btnprodutos = new javax.swing.JPanel();
+        produtos = new javax.swing.JLabel();
+        iconprodutos = new javax.swing.JLabel();
+        btnvendas = new javax.swing.JPanel();
+        clientes5 = new javax.swing.JLabel();
+        iconclientes5 = new javax.swing.JLabel();
+        btnconfigurações = new javax.swing.JPanel();
+        configurações = new javax.swing.JLabel();
+        iconconfigurações = new javax.swing.JLabel();
+        btnsair = new javax.swing.JPanel();
+        sair = new javax.swing.JLabel();
+        iconsair = new javax.swing.JLabel();
+        painelsuperior = new javax.swing.JPanel();
+        iconusuario = new javax.swing.JLabel();
+        feedbacks = new javax.swing.JLabel();
+        lblusuario = new javax.swing.JLabel();
+        iconusuario1 = new javax.swing.JLabel();
+        usuario1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela de vendas");
@@ -91,139 +141,430 @@ public class FrmVendas extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 204));
+        telapdv.setBackground(new java.awt.Color(245, 245, 245));
+        telapdv.setPreferredSize(new java.awt.Dimension(1200, 700));
+        telapdv.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Ponto de Vendas");
+        painelinferior.setBackground(new java.awt.Color(245, 245, 245));
+        painelinferior.setPreferredSize(new java.awt.Dimension(950, 480));
+        painelinferior.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                painelinferiorMouseEntered(evt);
+            }
+        });
+        painelinferior.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(337, 337, 337))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-
-        btnpagamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnpagamento.setText("PAGAMENTO");
-        btnpagamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnpagamentoActionPerformed(evt);
+        abaprodutos.setBackground(new java.awt.Color(90, 124, 191));
+        abaprodutos.setPreferredSize(new java.awt.Dimension(170, 88));
+        abaprodutos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                abaprodutosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                abaprodutosMouseExited(evt);
             }
         });
 
-        btncancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btncancelar.setText("CANCELAR VENDA");
-        btncancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncancelarActionPerformed(evt);
+        btnestoque.setBackground(new java.awt.Color(57, 77, 191));
+        btnestoque.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        btnestoque.setForeground(new java.awt.Color(242, 242, 242));
+        btnestoque.setText("    Controle de Estoque");
+        btnestoque.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnestoque.setPreferredSize(new java.awt.Dimension(170, 44));
+        btnestoque.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnestoqueMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnestoqueMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnestoqueMouseExited(evt);
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados do Cliente"));
+        btncontrolprodutos.setBackground(new java.awt.Color(57, 77, 191));
+        btncontrolprodutos.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        btncontrolprodutos.setForeground(new java.awt.Color(242, 242, 242));
+        btncontrolprodutos.setText("   Controle de Produtos");
+        btncontrolprodutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btncontrolprodutos.setPreferredSize(new java.awt.Dimension(170, 44));
+        btncontrolprodutos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btncontrolprodutosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btncontrolprodutosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btncontrolprodutosMouseExited(evt);
+            }
+        });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setText("CPF:");
+        javax.swing.GroupLayout abaprodutosLayout = new javax.swing.GroupLayout(abaprodutos);
+        abaprodutos.setLayout(abaprodutosLayout);
+        abaprodutosLayout.setHorizontalGroup(
+            abaprodutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(abaprodutosLayout.createSequentialGroup()
+                .addGroup(abaprodutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnestoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btncontrolprodutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47))
+        );
+        abaprodutosLayout.setVerticalGroup(
+            abaprodutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaprodutosLayout.createSequentialGroup()
+                .addComponent(btncontrolprodutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btnestoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
-        txtnome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        painelinferior.add(abaprodutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 0, 88));
+
+        abavendas.setBackground(new java.awt.Color(90, 124, 191));
+        abavendas.setPreferredSize(new java.awt.Dimension(170, 150));
+        abavendas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                abavendasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                abavendasMouseExited(evt);
+            }
+        });
+
+        btntotalvendas.setBackground(new java.awt.Color(57, 77, 191));
+        btntotalvendas.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        btntotalvendas.setForeground(new java.awt.Color(242, 242, 242));
+        btntotalvendas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btntotalvendas.setText("        Total de Vendas");
+        btntotalvendas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btntotalvendas.setPreferredSize(new java.awt.Dimension(170, 44));
+        btntotalvendas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btntotalvendasMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btntotalvendasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btntotalvendasMouseExited(evt);
+            }
+        });
+
+        btnpdv.setBackground(new java.awt.Color(57, 77, 191));
+        btnpdv.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        btnpdv.setForeground(new java.awt.Color(242, 242, 242));
+        btnpdv.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnpdv.setText("       Ponto de Vendas");
+        btnpdv.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnpdv.setPreferredSize(new java.awt.Dimension(170, 44));
+        btnpdv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnpdvMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnpdvMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnpdvMouseExited(evt);
+            }
+        });
+
+        btncontrolevendas.setBackground(new java.awt.Color(57, 77, 191));
+        btncontrolevendas.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        btncontrolevendas.setForeground(new java.awt.Color(242, 242, 242));
+        btncontrolevendas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btncontrolevendas.setText("     Controle de Vendas");
+        btncontrolevendas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btncontrolevendas.setPreferredSize(new java.awt.Dimension(170, 44));
+        btncontrolevendas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btncontrolevendasMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btncontrolevendasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btncontrolevendasMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout abavendasLayout = new javax.swing.GroupLayout(abavendas);
+        abavendas.setLayout(abavendasLayout);
+        abavendasLayout.setHorizontalGroup(
+            abavendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(abavendasLayout.createSequentialGroup()
+                .addGroup(abavendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btntotalvendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btncontrolevendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnpdv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        abavendasLayout.setVerticalGroup(
+            abavendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(abavendasLayout.createSequentialGroup()
+                .addComponent(btnpdv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btncontrolevendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btntotalvendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        painelinferior.add(abavendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 0, 132));
+
+        abaconfigurações.setBackground(new java.awt.Color(90, 124, 191));
+        abaconfigurações.setPreferredSize(new java.awt.Dimension(170, 88));
+        abaconfigurações.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                abaconfiguraçõesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                abaconfiguraçõesMouseExited(evt);
+            }
+        });
+
+        btnlogo.setBackground(new java.awt.Color(57, 77, 191));
+        btnlogo.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        btnlogo.setForeground(new java.awt.Color(242, 242, 242));
+        btnlogo.setText("           Inserir logo");
+        btnlogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnlogo.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnlogo.setPreferredSize(new java.awt.Dimension(170, 44));
+        btnlogo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnlogoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnlogoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnlogoMouseExited(evt);
+            }
+        });
+
+        btntrocaruser.setBackground(new java.awt.Color(57, 77, 191));
+        btntrocaruser.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        btntrocaruser.setForeground(new java.awt.Color(242, 242, 242));
+        btntrocaruser.setText("         Trocar usuário");
+        btntrocaruser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btntrocaruser.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btntrocaruser.setPreferredSize(new java.awt.Dimension(170, 44));
+        btntrocaruser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btntrocaruserMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btntrocaruserMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btntrocaruserMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout abaconfiguraçõesLayout = new javax.swing.GroupLayout(abaconfigurações);
+        abaconfigurações.setLayout(abaconfiguraçõesLayout);
+        abaconfiguraçõesLayout.setHorizontalGroup(
+            abaconfiguraçõesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(abaconfiguraçõesLayout.createSequentialGroup()
+                .addGroup(abaconfiguraçõesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnlogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btntrocaruser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47))
+        );
+        abaconfiguraçõesLayout.setVerticalGroup(
+            abaconfiguraçõesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaconfiguraçõesLayout.createSequentialGroup()
+                .addComponent(btntrocaruser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btnlogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        painelinferior.add(abaconfigurações, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 0, 88));
+
+        abadetalhevendas.setLayout(new java.awt.CardLayout());
+
+        consulta.setBackground(new java.awt.Color(245, 245, 245));
+        consulta.setPreferredSize(new java.awt.Dimension(910, 530));
+
+        opcoes.setBackground(new java.awt.Color(245, 245, 245));
+
+        consulte.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        consulte.setForeground(new java.awt.Color(63, 106, 191));
+        consulte.setText("Dados da venda");
+        consulte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        consulte.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                consulteMouseClicked(evt);
+            }
+        });
+
+        separator.setForeground(new java.awt.Color(63, 106, 191));
+
+        javax.swing.GroupLayout opcoesLayout = new javax.swing.GroupLayout(opcoes);
+        opcoes.setLayout(opcoesLayout);
+        opcoesLayout.setHorizontalGroup(
+            opcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(opcoesLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(consulte))
+            .addGroup(opcoesLayout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(separator, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        opcoesLayout.setVerticalGroup(
+            opcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(opcoesLayout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(consulte)
+                .addGap(7, 7, 7)
+                .addComponent(separator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        dadoscliente.setBackground(new java.awt.Color(245, 245, 245));
+        dadoscliente.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 0, 0, new java.awt.Color(155, 171, 191)), "Dados do cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Light", 0, 12), new java.awt.Color(2, 30, 115))); // NOI18N
+        dadoscliente.setForeground(new java.awt.Color(2, 30, 115));
+        dadoscliente.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+
+        txtnome.setEditable(false);
+        txtnome.setBackground(new java.awt.Color(255, 255, 255));
+        txtnome.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        txtnome.setForeground(new java.awt.Color(2, 30, 115));
         txtnome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnomeActionPerformed(evt);
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel4.setText("Nome:");
+        nomecliente.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        nomecliente.setForeground(new java.awt.Color(2, 30, 115));
+        nomecliente.setText("Nome");
 
-        txtdataatual.setEditable(false);
-        txtdataatual.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtdataatual.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtdataatualActionPerformed(evt);
-            }
-        });
+        dataatual.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        dataatual.setForeground(new java.awt.Color(2, 30, 115));
+        dataatual.setText("Data");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setText("Data:");
+        cpfcliente.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        cpfcliente.setForeground(new java.awt.Color(2, 30, 115));
+        cpfcliente.setText("CPF");
 
-        btnbuscacliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnbuscacliente.setText("Pesquisar");
-        btnbuscacliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbuscaclienteActionPerformed(evt);
-            }
-        });
-
+        txtcpf.setForeground(new java.awt.Color(2, 30, 115));
         try {
             txtcpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtcpf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtcpf.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         txtcpf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtcpfKeyPressed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+        txtdataatual.setEditable(false);
+        txtdataatual.setBackground(new java.awt.Color(255, 255, 255));
+        txtdataatual.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        txtdataatual.setForeground(new java.awt.Color(2, 30, 115));
+        txtdataatual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtdataatualActionPerformed(evt);
+            }
+        });
+
+        btnbuscacliente.setText("Pesquisar");
+        btnbuscacliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnbuscacliente.setkBackGroundColor(new java.awt.Color(145, 176, 217));
+        btnbuscacliente.setkEndColor(new java.awt.Color(75, 97, 166));
+        btnbuscacliente.setkHoverEndColor(new java.awt.Color(75, 97, 166));
+        btnbuscacliente.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        btnbuscacliente.setkHoverStartColor(new java.awt.Color(75, 97, 166));
+        btnbuscacliente.setkPressedColor(new java.awt.Color(75, 97, 166));
+        btnbuscacliente.setkSelectedColor(new java.awt.Color(145, 176, 217));
+        btnbuscacliente.setkStartColor(new java.awt.Color(52, 55, 115));
+        btnbuscacliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscaclienteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout dadosclienteLayout = new javax.swing.GroupLayout(dadoscliente);
+        dadoscliente.setLayout(dadosclienteLayout);
+        dadosclienteLayout.setHorizontalGroup(
+            dadosclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dadosclienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dadosclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dadosclienteLayout.createSequentialGroup()
+                        .addComponent(txtnome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnbuscacliente, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtcpf, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtdataatual, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(22, 22, 22))
+                        .addComponent(btnbuscacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dadosclienteLayout.createSequentialGroup()
+                        .addGroup(dadosclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dataatual)
+                            .addComponent(txtdataatual, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(dadosclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtcpf, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cpfcliente)))
+                    .addGroup(dadosclienteLayout.createSequentialGroup()
+                        .addComponent(nomecliente)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5)
-                    .addComponent(txtdataatual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtcpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        dadosclienteLayout.setVerticalGroup(
+            dadosclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dadosclienteLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
-                        .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnbuscacliente))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGroup(dadosclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dataatual, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cpfcliente, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(7, 7, 7)
+                .addGroup(dadosclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtdataatual, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtcpf, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(nomecliente)
+                .addGap(7, 7, 7)
+                .addGroup(dadosclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnbuscacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(86, 86, 86))
         );
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados do Produto"));
+        dadosproduto.setBackground(new java.awt.Color(245, 245, 245));
+        dadosproduto.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 0, 0, new java.awt.Color(155, 171, 191)), "Dados do produto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Light", 0, 12), new java.awt.Color(2, 30, 115))); // NOI18N
+        dadosproduto.setForeground(new java.awt.Color(2, 30, 115));
+        dadosproduto.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel6.setText("Código:");
+        produto.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        produto.setForeground(new java.awt.Color(2, 30, 115));
+        produto.setText("Produto");
 
-        txtcodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        codigo.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        codigo.setForeground(new java.awt.Color(2, 30, 115));
+        codigo.setText("Código");
+
+        quantidade.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        quantidade.setForeground(new java.awt.Color(2, 30, 115));
+        quantidade.setText("Quantidade");
+
+        btnbuscaproduto.setText("Pesquisar");
+        btnbuscaproduto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnbuscaproduto.setkBackGroundColor(new java.awt.Color(145, 176, 217));
+        btnbuscaproduto.setkEndColor(new java.awt.Color(75, 97, 166));
+        btnbuscaproduto.setkHoverEndColor(new java.awt.Color(75, 97, 166));
+        btnbuscaproduto.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        btnbuscaproduto.setkHoverStartColor(new java.awt.Color(75, 97, 166));
+        btnbuscaproduto.setkPressedColor(new java.awt.Color(75, 97, 166));
+        btnbuscaproduto.setkSelectedColor(new java.awt.Color(145, 176, 217));
+        btnbuscaproduto.setkStartColor(new java.awt.Color(52, 55, 115));
+        btnbuscaproduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscaprodutoActionPerformed(evt);
+            }
+        });
+
+        txtcodigo.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        txtcodigo.setForeground(new java.awt.Color(2, 30, 115));
         txtcodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcodigoActionPerformed(evt);
@@ -235,212 +576,630 @@ public class FrmVendas extends javax.swing.JFrame {
             }
         });
 
-        txtdescricao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtdescricao.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        txtdescricao.setForeground(new java.awt.Color(2, 30, 115));
         txtdescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtdescricaoActionPerformed(evt);
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel7.setText("Produto:");
+        nomepreco.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        nomepreco.setForeground(new java.awt.Color(2, 30, 115));
+        nomepreco.setText("Preço");
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel9.setText("Preço");
-
-        txtpreco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtpreco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtprecoActionPerformed(evt);
-            }
-        });
-
-        txtqtd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtqtd.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        txtqtd.setForeground(new java.awt.Color(2, 30, 115));
         txtqtd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtqtdActionPerformed(evt);
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel10.setText("Qtd:");
+        txtpreco.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        txtpreco.setForeground(new java.awt.Color(2, 30, 115));
+        txtpreco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtprecoActionPerformed(evt);
+            }
+        });
 
-        btnadd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        javax.swing.GroupLayout dadosprodutoLayout = new javax.swing.GroupLayout(dadosproduto);
+        dadosproduto.setLayout(dadosprodutoLayout);
+        dadosprodutoLayout.setHorizontalGroup(
+            dadosprodutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dadosprodutoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dadosprodutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(produto)
+                    .addGroup(dadosprodutoLayout.createSequentialGroup()
+                        .addGroup(dadosprodutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtdescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dadosprodutoLayout.createSequentialGroup()
+                                .addGroup(dadosprodutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(dadosprodutoLayout.createSequentialGroup()
+                                        .addComponent(codigo)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(txtcodigo))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(dadosprodutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(quantidade)
+                                    .addComponent(txtqtd, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(12, 12, 12)
+                        .addGroup(dadosprodutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtpreco, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                            .addComponent(nomepreco)
+                            .addComponent(btnbuscaproduto, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        dadosprodutoLayout.setVerticalGroup(
+            dadosprodutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dadosprodutoLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(dadosprodutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(codigo, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(quantidade, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(nomepreco))
+                .addGap(5, 5, 5)
+                .addGroup(dadosprodutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtcodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(txtqtd)
+                    .addComponent(txtpreco))
+                .addGap(18, 18, 18)
+                .addComponent(produto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(dadosprodutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnbuscaproduto, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtdescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        carrinhocompras.setBackground(new java.awt.Color(245, 245, 245));
+        carrinhocompras.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 0, 0, new java.awt.Color(155, 171, 191)), "Carrinho de compras", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Light", 0, 12), new java.awt.Color(2, 30, 115))); // NOI18N
+        carrinhocompras.setForeground(new java.awt.Color(2, 30, 115));
+        carrinhocompras.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+
+        scrollTabela.setBackground(new java.awt.Color(255, 255, 255));
+
+        tabelaItens.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        tabelaItens.setForeground(new java.awt.Color(52, 55, 115));
+        tabelaItens.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Código", "Produto", "Qtd", "Preço", "Subtotal"
+            }
+        ));
+        tabelaItens.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        tabelaItens.setAutoscrolls(false);
+        tabelaItens.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tabelaItens.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        tabelaItens.setGridColor(new java.awt.Color(255, 255, 255));
+        tabelaItens.setSelectionBackground(new java.awt.Color(69, 99, 191));
+        tabelaItens.setShowVerticalLines(false);
+        tabelaItens.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaItensMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tabelaItensMouseEntered(evt);
+            }
+        });
+        scrollTabela.setViewportView(tabelaItens);
+
+        javax.swing.GroupLayout carrinhocomprasLayout = new javax.swing.GroupLayout(carrinhocompras);
+        carrinhocompras.setLayout(carrinhocomprasLayout);
+        carrinhocomprasLayout.setHorizontalGroup(
+            carrinhocomprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(carrinhocomprasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        carrinhocomprasLayout.setVerticalGroup(
+            carrinhocomprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, carrinhocomprasLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(scrollTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(107, 107, 107))
+        );
+
+        totalvenda.setBackground(new java.awt.Color(245, 245, 245));
+        totalvenda.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 0, 0, new java.awt.Color(155, 171, 191)), "Total da venda\n", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Light", 0, 12), new java.awt.Color(2, 30, 115))); // NOI18N
+        totalvenda.setForeground(new java.awt.Color(2, 30, 115));
+        totalvenda.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+
+        txttotal.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        txttotal.setForeground(new java.awt.Color(2, 30, 115));
+        txttotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txttotalActionPerformed(evt);
+            }
+        });
+        txttotal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txttotalKeyPressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout totalvendaLayout = new javax.swing.GroupLayout(totalvenda);
+        totalvenda.setLayout(totalvendaLayout);
+        totalvendaLayout.setHorizontalGroup(
+            totalvendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, totalvendaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        totalvendaLayout.setVerticalGroup(
+            totalvendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, totalvendaLayout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
         btnadd.setText("Adicionar Item");
+        btnadd.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnadd.setkBackGroundColor(new java.awt.Color(145, 176, 217));
+        btnadd.setkEndColor(new java.awt.Color(75, 97, 166));
+        btnadd.setkHoverEndColor(new java.awt.Color(75, 97, 166));
+        btnadd.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        btnadd.setkHoverStartColor(new java.awt.Color(75, 97, 166));
+        btnadd.setkPressedColor(new java.awt.Color(75, 97, 166));
+        btnadd.setkSelectedColor(new java.awt.Color(145, 176, 217));
+        btnadd.setkStartColor(new java.awt.Color(52, 55, 115));
         btnadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnaddActionPerformed(evt);
             }
         });
 
-        txtbuscaproduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtbuscaproduto.setText("Pesquisar");
-        txtbuscaproduto.addActionListener(new java.awt.event.ActionListener() {
+        btnpagamento.setText("Pagamento");
+        btnpagamento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnpagamento.setkBackGroundColor(new java.awt.Color(145, 176, 217));
+        btnpagamento.setkEndColor(new java.awt.Color(75, 97, 166));
+        btnpagamento.setkHoverEndColor(new java.awt.Color(75, 97, 166));
+        btnpagamento.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        btnpagamento.setkHoverStartColor(new java.awt.Color(75, 97, 166));
+        btnpagamento.setkPressedColor(new java.awt.Color(75, 97, 166));
+        btnpagamento.setkSelectedColor(new java.awt.Color(145, 176, 217));
+        btnpagamento.setkStartColor(new java.awt.Color(52, 55, 115));
+        btnpagamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtbuscaprodutoActionPerformed(evt);
+                btnpagamentoActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtdescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtpreco, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtqtd, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                            .addGap(7, 7, 7)
-                            .addComponent(jLabel6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtbuscaproduto, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtbuscaproduto))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtdescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtpreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtqtd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Carrinho de compras"));
-
-        tabelaItens.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Código", "Produto", "Qtd", "Preço", "Subtotal"
+        btncancelar.setText("Cancelar Pagamento");
+        btncancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btncancelar.setkBackGroundColor(new java.awt.Color(145, 176, 217));
+        btncancelar.setkEndColor(new java.awt.Color(75, 97, 166));
+        btncancelar.setkHoverEndColor(new java.awt.Color(75, 97, 166));
+        btncancelar.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        btncancelar.setkHoverStartColor(new java.awt.Color(75, 97, 166));
+        btncancelar.setkPressedColor(new java.awt.Color(75, 97, 166));
+        btncancelar.setkSelectedColor(new java.awt.Color(145, 176, 217));
+        btncancelar.setkStartColor(new java.awt.Color(52, 55, 115));
+        btncancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncancelarActionPerformed(evt);
             }
-        ));
-        jScrollPane1.setViewportView(tabelaItens);
+        });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+        javax.swing.GroupLayout consultaLayout = new javax.swing.GroupLayout(consulta);
+        consulta.setLayout(consultaLayout);
+        consultaLayout.setHorizontalGroup(
+            consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(consultaLayout.createSequentialGroup()
+                .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(consultaLayout.createSequentialGroup()
+                        .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(dadoscliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dadosproduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(carrinhocompras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(totalvenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(opcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 42, Short.MAX_VALUE))
+            .addGroup(consultaLayout.createSequentialGroup()
+                .addContainerGap(255, Short.MAX_VALUE)
+                .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnpagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(253, 253, 253))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+        consultaLayout.setVerticalGroup(
+            consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(consultaLayout.createSequentialGroup()
+                .addComponent(opcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(consultaLayout.createSequentialGroup()
+                        .addComponent(dadoscliente, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dadosproduto, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(consultaLayout.createSequentialGroup()
+                        .addComponent(carrinhocompras, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(totalvenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(45, 45, 45)
+                .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnpagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(53, Short.MAX_VALUE))
+        );
+
+        abadetalhevendas.add(consulta, "card2");
+
+        painelinferior.add(abadetalhevendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 590));
+
+        telapdv.add(painelinferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 950, 590));
+
+        titulo.setBackground(new java.awt.Color(145, 163, 217));
+        titulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        titulovendas.setFont(new java.awt.Font("Segoe UI Light", 0, 48)); // NOI18N
+        titulovendas.setForeground(new java.awt.Color(52, 55, 115));
+        titulovendas.setText("Ponto de Vendas");
+        titulo.add(titulovendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 33, -1, -1));
+
+        slogan.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        slogan.setForeground(new java.awt.Color(52, 55, 115));
+        slogan.setText(" Confira os dados da venda");
+        titulo.add(slogan, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 103, -1, -1));
+
+        telapdv.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 950, 170));
+
+        navbar.setBackground(new java.awt.Color(52, 55, 115));
+        navbar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                navbarMouseExited(evt);
+            }
+        });
+
+        arealogo.setBackground(new java.awt.Color(52, 55, 115));
+        arealogo.setMinimumSize(new java.awt.Dimension(150, 150));
+
+        logo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        logo.setForeground(new java.awt.Color(242, 242, 242));
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/shopping-cart-check.png"))); // NOI18N
+
+        javax.swing.GroupLayout arealogoLayout = new javax.swing.GroupLayout(arealogo);
+        arealogo.setLayout(arealogoLayout);
+        arealogoLayout.setHorizontalGroup(
+            arealogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, arealogoLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(logo)
+                .addContainerGap(75, Short.MAX_VALUE))
+        );
+        arealogoLayout.setVerticalGroup(
+            arealogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, arealogoLayout.createSequentialGroup()
+                .addContainerGap(61, Short.MAX_VALUE)
+                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
+
+        navbar.add(arealogo);
+
+        btninicio.setBackground(new java.awt.Color(52, 55, 115));
+        btninicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btninicio.setPreferredSize(new java.awt.Dimension(250, 44));
+        btninicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btninicioMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btninicioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btninicioMouseExited(evt);
+            }
+        });
+        btninicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        inicio.setBackground(new java.awt.Color(57, 77, 191));
+        inicio.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        inicio.setForeground(new java.awt.Color(242, 242, 242));
+        inicio.setText("Início");
+        btninicio.add(inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 94, 24));
+
+        iconinicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/home.png"))); // NOI18N
+        btninicio.add(iconinicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+
+        navbar.add(btninicio);
+
+        btnclientes.setBackground(new java.awt.Color(52, 55, 115));
+        btnclientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnclientes.setPreferredSize(new java.awt.Dimension(250, 44));
+        btnclientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnclientesMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnclientesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnclientesMouseExited(evt);
+            }
+        });
+        btnclientes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        clientes.setBackground(new java.awt.Color(57, 77, 191));
+        clientes.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        clientes.setForeground(new java.awt.Color(242, 242, 242));
+        clientes.setText("Clientes");
+        btnclientes.add(clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 94, 24));
+
+        iconclientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/user.png"))); // NOI18N
+        btnclientes.add(iconclientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+
+        navbar.add(btnclientes);
+
+        btnfuncionarios.setBackground(new java.awt.Color(52, 55, 115));
+        btnfuncionarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnfuncionarios.setPreferredSize(new java.awt.Dimension(250, 44));
+        btnfuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnfuncionariosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnfuncionariosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnfuncionariosMouseExited(evt);
+            }
+        });
+        btnfuncionarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        funcionarios.setBackground(new java.awt.Color(57, 77, 191));
+        funcionarios.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        funcionarios.setForeground(new java.awt.Color(242, 242, 242));
+        funcionarios.setText("Funcionários");
+        btnfuncionarios.add(funcionarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 164, 24));
+
+        iconfuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/id-badge.png"))); // NOI18N
+        btnfuncionarios.add(iconfuncionarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+
+        navbar.add(btnfuncionarios);
+
+        btnfornecedores.setBackground(new java.awt.Color(52, 55, 115));
+        btnfornecedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnfornecedores.setPreferredSize(new java.awt.Dimension(250, 44));
+        btnfornecedores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnfornecedoresMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnfornecedoresMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnfornecedoresMouseExited(evt);
+            }
+        });
+        btnfornecedores.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        fornecedores.setBackground(new java.awt.Color(57, 77, 191));
+        fornecedores.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        fornecedores.setForeground(new java.awt.Color(242, 242, 242));
+        fornecedores.setText("Fornecedores");
+        btnfornecedores.add(fornecedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 164, 24));
+
+        iconfornecedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/truck-side.png"))); // NOI18N
+        btnfornecedores.add(iconfornecedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+
+        navbar.add(btnfornecedores);
+
+        btnprodutos.setBackground(new java.awt.Color(52, 55, 115));
+        btnprodutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnprodutos.setPreferredSize(new java.awt.Dimension(250, 44));
+        btnprodutos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnprodutosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnprodutosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnprodutosMouseExited(evt);
+            }
+        });
+        btnprodutos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        produtos.setBackground(new java.awt.Color(57, 77, 191));
+        produtos.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        produtos.setForeground(new java.awt.Color(242, 242, 242));
+        produtos.setText("Produtos");
+        btnprodutos.add(produtos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 164, 24));
+
+        iconprodutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/shopping-bag.png"))); // NOI18N
+        btnprodutos.add(iconprodutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+
+        navbar.add(btnprodutos);
+
+        btnvendas.setBackground(new java.awt.Color(52, 55, 115));
+        btnvendas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnvendas.setPreferredSize(new java.awt.Dimension(250, 44));
+        btnvendas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnvendasMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnvendasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnvendasMouseExited(evt);
+            }
+        });
+        btnvendas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        clientes5.setBackground(new java.awt.Color(57, 77, 191));
+        clientes5.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        clientes5.setForeground(new java.awt.Color(242, 242, 242));
+        clientes5.setText("Vendas");
+        btnvendas.add(clientes5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 164, 24));
+
+        iconclientes5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dollar.png"))); // NOI18N
+        btnvendas.add(iconclientes5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+
+        navbar.add(btnvendas);
+
+        btnconfigurações.setBackground(new java.awt.Color(52, 55, 115));
+        btnconfigurações.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnconfigurações.setPreferredSize(new java.awt.Dimension(250, 44));
+        btnconfigurações.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnconfiguraçõesMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnconfiguraçõesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnconfiguraçõesMouseExited(evt);
+            }
+        });
+        btnconfigurações.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        configurações.setBackground(new java.awt.Color(57, 77, 191));
+        configurações.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        configurações.setForeground(new java.awt.Color(242, 242, 242));
+        configurações.setText("Configurações");
+        btnconfigurações.add(configurações, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 110, 24));
+
+        iconconfigurações.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/settings.png"))); // NOI18N
+        btnconfigurações.add(iconconfigurações, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+
+        navbar.add(btnconfigurações);
+
+        btnsair.setBackground(new java.awt.Color(52, 55, 115));
+        btnsair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnsair.setPreferredSize(new java.awt.Dimension(250, 44));
+        btnsair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnsairMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnsairMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnsairMouseExited(evt);
+            }
+        });
+        btnsair.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        sair.setBackground(new java.awt.Color(57, 77, 191));
+        sair.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        sair.setForeground(new java.awt.Color(242, 242, 242));
+        sair.setText("Sair");
+        btnsair.add(sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 164, 24));
+
+        iconsair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/arrow-to-left (2).png"))); // NOI18N
+        btnsair.add(iconsair, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+
+        navbar.add(btnsair);
+
+        telapdv.add(navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 800));
+
+        painelsuperior.setBackground(new java.awt.Color(245, 245, 245));
+
+        iconusuario.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        iconusuario.setForeground(new java.awt.Color(52, 55, 115));
+        iconusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/mode-portrait.png"))); // NOI18N
+        iconusuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        feedbacks.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        feedbacks.setForeground(new java.awt.Color(52, 55, 115));
+        feedbacks.setText("FeedBacks");
+        feedbacks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        lblusuario.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        lblusuario.setForeground(new java.awt.Color(52, 55, 115));
+
+        iconusuario1.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        iconusuario1.setForeground(new java.awt.Color(52, 55, 115));
+        iconusuario1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/comment (1).png"))); // NOI18N
+        iconusuario1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        usuario1.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        usuario1.setForeground(new java.awt.Color(52, 55, 115));
+        usuario1.setText("Usuário Logado:");
+
+        javax.swing.GroupLayout painelsuperiorLayout = new javax.swing.GroupLayout(painelsuperior);
+        painelsuperior.setLayout(painelsuperiorLayout);
+        painelsuperiorLayout.setHorizontalGroup(
+            painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelsuperiorLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(iconusuario)
+                .addGap(10, 10, 10)
+                .addComponent(usuario1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 423, Short.MAX_VALUE)
+                .addComponent(iconusuario1)
+                .addGap(12, 12, 12)
+                .addComponent(feedbacks)
                 .addContainerGap())
         );
-
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Total da Venda"));
-
-        txttotal.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        txttotal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txttotalActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setText("TOTAL DA VENDA:");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel8)
-                .addGap(18, 18, 18)
-                .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+        painelsuperiorLayout.setVerticalGroup(
+            painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelsuperiorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(iconusuario)
+                        .addGroup(painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(painelsuperiorLayout.createSequentialGroup()
+                        .addGroup(painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(iconusuario1)
+                            .addComponent(feedbacks, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(3, 3, 3)))
+                .addGap(20, 20, 20))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel8)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+
+        telapdv.add(painelsuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 950, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnpagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+            .addComponent(telapdv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnpagamento, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-                    .addComponent(btncancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(43, Short.MAX_VALUE))
+            .addComponent(telapdv, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
 
         pack();
@@ -458,101 +1217,166 @@ public class FrmVendas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowActivated
 
-    private void btnpagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpagamentoActionPerformed
-       //botao pagamento
-       FrmPagamentos telap = new FrmPagamentos();
-       telap.txttotal.setText(String.valueOf(total));
-       
-       telap.cliente = obj;
-       telap.carrinho = carrinho;
-       
-       telap.setVisible(true);
-       this.dispose();
+    private void btnestoqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnestoqueMouseClicked
+        // TODO add your handling code here
+        FrmEstoque tela = new FrmEstoque();
+        tela.setVisible(true);
+        abaprodutos.setSize(0,0);
+    }//GEN-LAST:event_btnestoqueMouseClicked
 
-    }//GEN-LAST:event_btnpagamentoActionPerformed
+    private void btnestoqueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnestoqueMouseEntered
+        // TODO add your handling code here:
+        btnestoque.setForeground(new Color(52, 55, 115));
+    }//GEN-LAST:event_btnestoqueMouseEntered
 
-    private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
-        // botao cancelar venda
+    private void btnestoqueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnestoqueMouseExited
+        // TODO add your handling code here:
+        btnestoque.setForeground(new Color(242,242,242));
+    }//GEN-LAST:event_btnestoqueMouseExited
 
+    private void btncontrolprodutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncontrolprodutosMouseClicked
+        // TODO add your handling code here:
+        FrmProdutos tela = new FrmProdutos();
+        //tela.jTabbedPane1.setSelectedIndex(1);
+        tela.setVisible(true);
+        abaprodutos.setSize(0,0);
+    }//GEN-LAST:event_btncontrolprodutosMouseClicked
 
-    }//GEN-LAST:event_btncancelarActionPerformed
+    private void btncontrolprodutosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncontrolprodutosMouseEntered
+        // TODO add your handling code here:
+        btncontrolprodutos.setForeground(new Color(52, 55, 115));
+    }//GEN-LAST:event_btncontrolprodutosMouseEntered
+
+    private void btncontrolprodutosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncontrolprodutosMouseExited
+        // TODO add your handling code here:
+        btncontrolprodutos.setForeground(new Color(242,242,242));
+    }//GEN-LAST:event_btncontrolprodutosMouseExited
+
+    private void abaprodutosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abaprodutosMouseEntered
+        // TODO add your handling code here:
+        abaprodutos.setSize(170,88);
+    }//GEN-LAST:event_abaprodutosMouseEntered
+
+    private void abaprodutosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abaprodutosMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_abaprodutosMouseExited
+
+    private void btntotalvendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntotalvendasMouseClicked
+        // TODO add your handling code here:
+
+        FrmTotalVendas tela = new FrmTotalVendas();
+        tela.setVisible(true);
+        abavendas.setSize(0,0);
+    }//GEN-LAST:event_btntotalvendasMouseClicked
+
+    private void btntotalvendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntotalvendasMouseEntered
+        // TODO add your handling code here:
+        btntotalvendas.setForeground(new Color(52, 55, 115));
+    }//GEN-LAST:event_btntotalvendasMouseEntered
+
+    private void btntotalvendasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntotalvendasMouseExited
+        // TODO add your handling code here:
+        btntotalvendas.setForeground(new Color(242,242,242));
+    }//GEN-LAST:event_btntotalvendasMouseExited
+
+    private void btnpdvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpdvMouseClicked
+        // TODO add your handling code here:
+        FrmVendas tela = new FrmVendas();
+        tela.setVisible(true);
+        abavendas.setSize(0,0);
+    }//GEN-LAST:event_btnpdvMouseClicked
+
+    private void btnpdvMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpdvMouseEntered
+        // TODO add your handling code here:
+        btnpdv.setForeground(new Color(52, 55, 115));
+    }//GEN-LAST:event_btnpdvMouseEntered
+
+    private void btnpdvMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpdvMouseExited
+        // TODO add your handling code here:
+        btnpdv.setForeground(new Color(242,242,242));
+    }//GEN-LAST:event_btnpdvMouseExited
+
+    private void btncontrolevendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncontrolevendasMouseClicked
+        // TODO add your handling code here:
+        FrmHistorico tela = new FrmHistorico();
+        tela.setVisible(true);
+        abavendas.setSize(0,0);
+    }//GEN-LAST:event_btncontrolevendasMouseClicked
+
+    private void btncontrolevendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncontrolevendasMouseEntered
+        // TODO add your handling code here:
+        btncontrolevendas.setForeground(new Color(52, 55, 115));
+    }//GEN-LAST:event_btncontrolevendasMouseEntered
+
+    private void btncontrolevendasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncontrolevendasMouseExited
+        // TODO add your handling code here:
+        btncontrolevendas.setForeground(new Color(242,242,242));
+    }//GEN-LAST:event_btncontrolevendasMouseExited
+
+    private void abavendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abavendasMouseEntered
+        // TODO add your handling code here:
+        abavendas.setSize(170, 132);
+    }//GEN-LAST:event_abavendasMouseEntered
+
+    private void abavendasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abavendasMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_abavendasMouseExited
+
+    private void btnlogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoMouseClicked
+        // TODO add your handling code here:
+        abaconfigurações.setSize(0,0);
+    }//GEN-LAST:event_btnlogoMouseClicked
+
+    private void btnlogoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoMouseEntered
+        // TODO add your handling code here:
+        btnlogo.setForeground(new Color(52, 55, 115));
+    }//GEN-LAST:event_btnlogoMouseEntered
+
+    private void btnlogoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoMouseExited
+        // TODO add your handling code here:
+        btnlogo.setForeground(new Color(242,242,242));
+    }//GEN-LAST:event_btnlogoMouseExited
+
+    private void btntrocaruserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntrocaruserMouseClicked
+        // TODO add your handling code here:
+        abaconfigurações.setSize(0,0);
+    }//GEN-LAST:event_btntrocaruserMouseClicked
+
+    private void btntrocaruserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntrocaruserMouseEntered
+        // TODO add your handling code here:
+        btntrocaruser.setForeground(new Color(52, 55, 115));
+    }//GEN-LAST:event_btntrocaruserMouseEntered
+
+    private void btntrocaruserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntrocaruserMouseExited
+        // TODO add your handling code here:
+        btntrocaruser.setForeground(new Color(242,242,242));
+    }//GEN-LAST:event_btntrocaruserMouseExited
+
+    private void abaconfiguraçõesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abaconfiguraçõesMouseEntered
+        // TODO add your handling code here:
+        abaconfigurações.setSize(170,88);
+    }//GEN-LAST:event_abaconfiguraçõesMouseEntered
+
+    private void abaconfiguraçõesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abaconfiguraçõesMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_abaconfiguraçõesMouseExited
+
+    private void consulteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consulteMouseClicked
+        // TODO add your handling code here:
+        opcoes.setVisible(true);
+        consulta.setVisible(true);
+
+        consulte.setForeground(new Color(63, 106, 191));
+    }//GEN-LAST:event_consulteMouseClicked
 
     private void txtnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnomeActionPerformed
 
-    private void txtdataatualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdataatualActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtdataatualActionPerformed
-
-    private void txtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtcodigoActionPerformed
-
-    private void txtdescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdescricaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtdescricaoActionPerformed
-
-    private void txtprecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtprecoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtprecoActionPerformed
-
-    private void txtqtdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtqtdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtqtdActionPerformed
-
-    private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
-        // botao add item
-        qtd = Integer.parseInt(txtqtd.getText());
-        preco = Double.parseDouble(txtpreco.getText());
-        
-        subtotal = qtd * preco;
-        
-        total += subtotal;
-        txttotal.setText(String.valueOf(total));
-        
-        //Adicionar o produto no carrinho        
-        carrinho = (DefaultTableModel) tabelaItens.getModel();
-        
-         carrinho.addRow(new Object[]{
-             txtcodigo.getText(),
-             txtdescricao.getText(),
-             txtqtd.getText(),
-             txtpreco.getText(),
-             subtotal           
-            });
-      
-    }//GEN-LAST:event_btnaddActionPerformed
-
-    private void btnbuscaclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaclienteActionPerformed
-
-        Clientes obj = new Clientes();
-        ClientesDAO dao = new ClientesDAO();
-
-        obj = dao.buscaporcpf(txtcpf.getText());
-
-        txtnome.setText(obj.getNome());
-    }//GEN-LAST:event_btnbuscaclienteActionPerformed
-
-    private void txtbuscaprodutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbuscaprodutoActionPerformed
-        Produtos objs = new Produtos();
-        ProdutosDAO dao = new ProdutosDAO();
-
-        objs = dao.buscaPorCodigo(Integer.parseInt(txtcodigo.getText()));
-
-        txtdescricao.setText(objs.getDescricao());
-        txtpreco.setText(String.valueOf(objs.getPreco()));
-    }//GEN-LAST:event_txtbuscaprodutoActionPerformed
-
-    private void txttotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttotalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txttotalActionPerformed
-
     private void txtcpfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcpfKeyPressed
         // busca cliente por cpf
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
-        
             ClientesDAO dao = new ClientesDAO();
 
             obj = dao.buscaporcpf(txtcpf.getText());
@@ -560,9 +1384,37 @@ public class FrmVendas extends javax.swing.JFrame {
             txtnome.setText(obj.getNome());
 
         }
-
-
     }//GEN-LAST:event_txtcpfKeyPressed
+
+    private void txtdataatualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdataatualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtdataatualActionPerformed
+
+    private void btnbuscaclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaclienteActionPerformed
+        // TODO add your handling code here:
+        Clientes obj = new Clientes();
+        ClientesDAO dao = new ClientesDAO();
+
+        obj = dao.buscaporcpf(txtcpf.getText());
+
+        txtnome.setText(obj.getNome());
+
+    }//GEN-LAST:event_btnbuscaclienteActionPerformed
+
+    private void btnbuscaprodutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaprodutoActionPerformed
+        // TODO add your handling code here:
+        Produtos objs = new Produtos();
+        ProdutosDAO dao = new ProdutosDAO();
+
+        objs = dao.buscaPorCodigo(Integer.parseInt(txtcodigo.getText()));
+
+        txtdescricao.setText(objs.getDescricao());
+        txtpreco.setText(String.valueOf(objs.getPreco()));
+    }//GEN-LAST:event_btnbuscaprodutoActionPerformed
+
+    private void txtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcodigoActionPerformed
 
     private void txtcodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcodigoKeyPressed
         // Busca Produto por Codigo
@@ -577,6 +1429,247 @@ public class FrmVendas extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_txtcodigoKeyPressed
+
+    private void txtdescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdescricaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtdescricaoActionPerformed
+
+    private void txtqtdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtqtdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtqtdActionPerformed
+
+    private void txtprecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtprecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtprecoActionPerformed
+
+    private void tabelaItensMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaItensMouseClicked
+
+    }//GEN-LAST:event_tabelaItensMouseClicked
+
+    private void tabelaItensMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaItensMouseEntered
+        // TODO add your handling code here:
+        abaprodutos.setSize(0,0);
+        abavendas.setSize(0,0);
+        abaconfigurações.setSize(0,0);
+    }//GEN-LAST:event_tabelaItensMouseEntered
+
+    private void txttotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txttotalActionPerformed
+
+    private void txttotalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttotalKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txttotalKeyPressed
+
+    private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
+        // TODO add your handling code here:
+        // botao add item
+        qtd = Integer.parseInt(txtqtd.getText());
+        preco = Double.parseDouble(txtpreco.getText());
+
+        subtotal = qtd * preco;
+
+        total += subtotal;
+        txttotal.setText(String.valueOf(total));
+
+        //Adicionar o produto no carrinho
+        carrinho = (DefaultTableModel) tabelaItens.getModel();
+
+        carrinho.addRow(new Object[]{
+            txtcodigo.getText(),
+            txtdescricao.getText(),
+            txtqtd.getText(),
+            txtpreco.getText(),
+            subtotal
+        });
+
+    }//GEN-LAST:event_btnaddActionPerformed
+
+    private void btnpagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpagamentoActionPerformed
+        // TODO add your handling code here:
+        //botao pagamento
+        FrmPagamentos telap = new FrmPagamentos();
+        telap.txttotal.setText(String.valueOf(total));
+
+        telap.cliente = obj;
+        telap.carrinho = carrinho;
+
+        telap.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_btnpagamentoActionPerformed
+
+    private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btncancelarActionPerformed
+
+    private void painelinferiorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelinferiorMouseEntered
+        // TODO add your handling code here:
+        abaprodutos.setSize(0,0);
+        abavendas.setSize(0,0);
+        abaconfigurações.setSize(0,0);
+    }//GEN-LAST:event_painelinferiorMouseEntered
+
+    private void btninicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btninicioMouseClicked
+        // TODO add your handling code here:
+        Frmmenu tela = new Frmmenu();
+        tela.setVisible(true);
+    }//GEN-LAST:event_btninicioMouseClicked
+
+    private void btninicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btninicioMouseEntered
+        // TODO add your handling code here:
+        btninicio.setBackground(new Color(75, 97, 166));
+        abaprodutos.setSize(0,0);
+        abavendas.setSize(0,0);
+        abaconfigurações.setSize(0,0);
+    }//GEN-LAST:event_btninicioMouseEntered
+
+    private void btninicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btninicioMouseExited
+        // TODO add your handling code here:
+        btninicio.setBackground(new Color(52,55,115));
+    }//GEN-LAST:event_btninicioMouseExited
+
+    private void btnclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclientesMouseClicked
+        // TODO add your handling code here:
+        Frmclientes tela = new Frmclientes();
+        tela.setVisible(true);
+    }//GEN-LAST:event_btnclientesMouseClicked
+
+    private void btnclientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclientesMouseEntered
+        // TODO add your handling code here:
+        btnclientes.setBackground(new Color(75, 97, 166));
+        abaprodutos.setSize(0,0);
+        abavendas.setSize(0,0);
+    }//GEN-LAST:event_btnclientesMouseEntered
+
+    private void btnclientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclientesMouseExited
+        // TODO add your handling code here:
+        btnclientes.setBackground(new Color(52,55,115));
+    }//GEN-LAST:event_btnclientesMouseExited
+
+    private void btnfuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfuncionariosMouseClicked
+        // TODO add your handling code here:
+        FrmFuncionarios tela = new FrmFuncionarios();
+        tela.setVisible(true);
+    }//GEN-LAST:event_btnfuncionariosMouseClicked
+
+    private void btnfuncionariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfuncionariosMouseEntered
+        // TODO add your handling code here:
+        btnfuncionarios.setBackground(new Color(75, 97, 166));
+        abaprodutos.setSize(0,0);
+        abavendas.setSize(0,0);
+    }//GEN-LAST:event_btnfuncionariosMouseEntered
+
+    private void btnfuncionariosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfuncionariosMouseExited
+        // TODO add your handling code here:
+        btnfuncionarios.setBackground(new Color(52,55,115));
+    }//GEN-LAST:event_btnfuncionariosMouseExited
+
+    private void btnfornecedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfornecedoresMouseClicked
+        // TODO add your handling code here:
+        FrmFornecedorres tela = new FrmFornecedorres();
+        tela.setVisible(true);
+    }//GEN-LAST:event_btnfornecedoresMouseClicked
+
+    private void btnfornecedoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfornecedoresMouseEntered
+        // TODO add your handling code here:
+
+        btnfornecedores.setBackground(new Color(75, 97, 166));
+        abaprodutos.setSize(0,0);
+        abavendas.setSize(0,0);
+        abaconfigurações.setSize(0,0);
+    }//GEN-LAST:event_btnfornecedoresMouseEntered
+
+    private void btnfornecedoresMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfornecedoresMouseExited
+        // TODO add your handling code here:
+        btnfornecedores.setBackground(new Color(52,55,115));
+    }//GEN-LAST:event_btnfornecedoresMouseExited
+
+    private void btnprodutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnprodutosMouseClicked
+
+    }//GEN-LAST:event_btnprodutosMouseClicked
+
+    private void btnprodutosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnprodutosMouseEntered
+        // TODO add your handling code here:
+
+        btnprodutos.setBackground(new Color(75, 97, 166));
+        abaprodutos.setSize(170,88);
+        abavendas.setSize(0,0);
+        abaconfigurações.setSize(0,0);
+    }//GEN-LAST:event_btnprodutosMouseEntered
+
+    private void btnprodutosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnprodutosMouseExited
+        // TODO add your handling code here:
+        btnprodutos.setBackground(new Color(52,55,115));
+        abaprodutos.setSize(170,88);
+    }//GEN-LAST:event_btnprodutosMouseExited
+
+    private void btnvendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvendasMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnvendasMouseClicked
+
+    private void btnvendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvendasMouseEntered
+        // TODO add your handling code here:
+        btnvendas.setBackground(new Color(75, 97, 166));
+        abavendas.setSize(170,132);
+        abaprodutos.setSize(0,0);
+        abaconfigurações.setSize(0,0);
+    }//GEN-LAST:event_btnvendasMouseEntered
+
+    private void btnvendasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvendasMouseExited
+        // TODO add your handling code here:
+        btnvendas.setBackground(new Color(52,55,115));
+        abavendas.setSize(170,132);
+    }//GEN-LAST:event_btnvendasMouseExited
+
+    private void btnconfiguraçõesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnconfiguraçõesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnconfiguraçõesMouseClicked
+
+    private void btnconfiguraçõesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnconfiguraçõesMouseEntered
+        // TODO add your handling code here:
+        btnconfigurações.setBackground(new Color(75, 97, 166));
+        abaconfigurações.setSize(170,88);
+        abaprodutos.setSize(0,0);
+        abavendas.setSize(0,0);
+    }//GEN-LAST:event_btnconfiguraçõesMouseEntered
+
+    private void btnconfiguraçõesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnconfiguraçõesMouseExited
+        // TODO add your handling code here:
+        btnconfigurações.setBackground(new Color(52,55,115));
+        abaconfigurações.setSize(170,88);
+    }//GEN-LAST:event_btnconfiguraçõesMouseExited
+
+    private void btnsairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsairMouseClicked
+        // TODO add your handling code here:
+        int op;
+
+        op = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja sair?");
+
+        if (op == 0) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btnsairMouseClicked
+
+    private void btnsairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsairMouseEntered
+        // TODO add your handling code here:
+        btnsair.setBackground(new Color(75, 97, 166));
+        abaprodutos.setSize(0,0);
+        abavendas.setSize(0,0);
+        abaconfigurações.setSize(0,0);
+    }//GEN-LAST:event_btnsairMouseEntered
+
+    private void btnsairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsairMouseExited
+        // TODO add your handling code here:
+        btnsair.setBackground(new Color(52,55,115));
+    }//GEN-LAST:event_btnsairMouseExited
+
+    private void navbarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navbarMouseExited
+        // TODO add your handling code here:
+        abaprodutos.setSize(0,0);
+        abavendas.setSize(0,0);
+        abaconfigurações.setSize(0,0);
+    }//GEN-LAST:event_navbarMouseExited
 
     /**
      * @param args the command line arguments
@@ -617,34 +1710,84 @@ public class FrmVendas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnadd;
-    private javax.swing.JButton btnbuscacliente;
-    private javax.swing.JButton btncancelar;
-    private javax.swing.JButton btnpagamento;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel abaconfigurações;
+    private javax.swing.JPanel abadetalhevendas;
+    private javax.swing.JPanel abaprodutos;
+    private javax.swing.JPanel abavendas;
+    private javax.swing.JPanel arealogo;
+    private com.k33ptoo.components.KButton btnadd;
+    private com.k33ptoo.components.KButton btnbuscacliente;
+    private com.k33ptoo.components.KButton btnbuscaproduto;
+    private com.k33ptoo.components.KButton btncancelar;
+    private javax.swing.JPanel btnclientes;
+    private javax.swing.JPanel btnconfigurações;
+    private javax.swing.JLabel btncontrolevendas;
+    private javax.swing.JLabel btncontrolprodutos;
+    private javax.swing.JLabel btnestoque;
+    private javax.swing.JPanel btnfornecedores;
+    private javax.swing.JPanel btnfuncionarios;
+    private javax.swing.JPanel btninicio;
+    private javax.swing.JLabel btnlogo;
+    private com.k33ptoo.components.KButton btnpagamento;
+    private javax.swing.JLabel btnpdv;
+    private javax.swing.JPanel btnprodutos;
+    private javax.swing.JPanel btnsair;
+    private javax.swing.JLabel btntotalvendas;
+    private javax.swing.JLabel btntrocaruser;
+    private javax.swing.JPanel btnvendas;
+    private javax.swing.JPanel carrinhocompras;
+    private javax.swing.JLabel clientes;
+    private javax.swing.JLabel clientes5;
+    private javax.swing.JLabel codigo;
+    private javax.swing.JLabel configurações;
+    private javax.swing.JPanel consulta;
+    private javax.swing.JLabel consulte;
+    private javax.swing.JLabel cpfcliente;
+    private javax.swing.JPanel dadoscliente;
+    private javax.swing.JPanel dadosproduto;
+    private javax.swing.JLabel dataatual;
+    private javax.swing.JLabel feedbacks;
+    private javax.swing.JLabel fornecedores;
+    private javax.swing.JLabel funcionarios;
+    private javax.swing.JLabel iconclientes;
+    private javax.swing.JLabel iconclientes5;
+    private javax.swing.JLabel iconconfigurações;
+    private javax.swing.JLabel iconfornecedores;
+    private javax.swing.JLabel iconfuncionarios;
+    private javax.swing.JLabel iconinicio;
+    private javax.swing.JLabel iconprodutos;
+    private javax.swing.JLabel iconsair;
+    private javax.swing.JLabel iconusuario;
+    private javax.swing.JLabel iconusuario1;
+    private javax.swing.JLabel inicio;
+    private javax.swing.JLabel lblusuario;
+    private javax.swing.JLabel logo;
+    private javax.swing.JPanel navbar;
+    private javax.swing.JLabel nomecliente;
+    private javax.swing.JLabel nomepreco;
+    private javax.swing.JPanel opcoes;
+    private javax.swing.JPanel painelinferior;
+    private javax.swing.JPanel painelsuperior;
+    private javax.swing.JLabel produto;
+    private javax.swing.JLabel produtos;
+    private javax.swing.JLabel quantidade;
+    private javax.swing.JLabel sair;
+    private javax.swing.JScrollPane scrollTabela;
+    private javax.swing.JSeparator separator;
+    private javax.swing.JLabel slogan;
     private javax.swing.JTable tabelaItens;
-    private javax.swing.JButton txtbuscaproduto;
+    private javax.swing.JPanel telapdv;
+    private javax.swing.JPanel titulo;
+    private javax.swing.JLabel titulovendas;
+    private javax.swing.JPanel totalvenda;
     private javax.swing.JTextField txtcodigo;
     private javax.swing.JFormattedTextField txtcpf;
     private javax.swing.JTextField txtdataatual;
     private javax.swing.JTextField txtdescricao;
-    private javax.swing.JTextField txtnome;
+    public javax.swing.JTextField txtnome;
     private javax.swing.JTextField txtpreco;
     private javax.swing.JTextField txtqtd;
     private javax.swing.JTextField txttotal;
+    private javax.swing.JLabel usuario1;
     // End of variables declaration//GEN-END:variables
 }
