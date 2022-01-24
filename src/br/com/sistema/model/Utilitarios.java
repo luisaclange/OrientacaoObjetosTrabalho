@@ -5,7 +5,7 @@
  */
 package br.com.sistema.model;
 
-import br.com.sistema.view.FrmMenu;
+import br.com.sistema.view.Frmmenu;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;

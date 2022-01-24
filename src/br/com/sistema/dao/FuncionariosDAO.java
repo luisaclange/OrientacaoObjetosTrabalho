@@ -9,7 +9,7 @@ import br.com.sistema.jdbc.ConnectionFactory;
 
 import br.com.sistema.model.Funcionarios;
 import br.com.sistema.view.FrmLogin;
-import br.com.sistema.view.FrmMenu;
+import br.com.sistema.view.Frmmenu;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -303,7 +303,7 @@ public class FuncionariosDAO {
                 if (rs.getString("nivel_acesso").equals("Administrador")) {
 
                     JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema");
-                    FrmMenu tela = new FrmMenu();
+                    Frmmenu tela = new Frmmenu();
                     tela.setUsuarioLogado(rs.getString("nome"));
                     
                     tela.setVisible(true);
@@ -313,7 +313,7 @@ public class FuncionariosDAO {
                 else if (rs.getString("nivel_acesso").equals("Usuário")) {
                     
                     JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema");
-                    FrmMenu tela = new FrmMenu();
+                    Frmmenu tela = new Frmmenu();
                     tela.setUsuarioLogado(rs.getString("nome"));
                     
                     //Desabilitar os menus
