@@ -115,6 +115,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela de Pagamentos");
+        setResizable(false);
 
         telapdv.setBackground(new java.awt.Color(245, 245, 245));
         telapdv.setPreferredSize(new java.awt.Dimension(1200, 700));
@@ -924,7 +925,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
     private void btntotalvendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntotalvendasMouseClicked
         // TODO add your handling code here:
 
-        FrmTotalVendas tela = new FrmTotalVendas();
+        FrmTotalVenda tela = new FrmTotalVenda();
         tela.setVisible(true);
         abavendas.setSize(0,0);
     }//GEN-LAST:event_btntotalvendasMouseClicked
@@ -1169,7 +1170,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
 
     private void btnfornecedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfornecedoresMouseClicked
         // TODO add your handling code here:
-        FrmFornecedorres tela = new FrmFornecedorres();
+        FrmFornecedores tela = new FrmFornecedores();
         tela.setVisible(true);
     }//GEN-LAST:event_btnfornecedoresMouseClicked
 

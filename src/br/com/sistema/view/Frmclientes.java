@@ -180,6 +180,7 @@ public class Frmclientes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Clientes");
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -1413,7 +1414,7 @@ public class Frmclientes extends javax.swing.JFrame {
     private void btntotalvendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntotalvendasMouseClicked
         // TODO add your handling code here:
 
-        FrmTotalVendas tela = new FrmTotalVendas();
+        FrmTotalVenda tela = new FrmTotalVenda();
         tela.setVisible(true);
         abavendas.setSize(0,0);
     }//GEN-LAST:event_btntotalvendasMouseClicked
@@ -1941,7 +1942,7 @@ public class Frmclientes extends javax.swing.JFrame {
 
     private void btnfornecedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfornecedoresMouseClicked
         // TODO add your handling code here:
-        FrmFornecedorres tela = new FrmFornecedorres();
+        FrmFornecedores tela = new FrmFornecedores();
         tela.setVisible(true);
     }//GEN-LAST:event_btnfornecedoresMouseClicked
 
