@@ -10,12 +10,14 @@ import br.com.sistema.dao.FeedbackDAO;
 import br.com.sistema.dao.ClientesDAO;
 import br.com.sistema.model.Utilitarios;
 import br.com.sistema.model.Clientes;
+import java.awt.Color;
 import java.util.List;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,6 +25,29 @@ import javax.swing.table.DefaultTableModel;
  * @author Alunos
  */
 public class FrmFeedback extends javax.swing.JFrame {
+
+    //Metodo Listar na tabela
+    public void listar() {
+
+        FeedbackDAO dao = new FeedbackDAO();
+        List<Feedback> lista = dao.listarFeedbacks();
+        DefaultTableModel dados = (DefaultTableModel) tabelaFeedback.getModel();
+        dados.setNumRows(0);
+
+        for (Feedback c : lista) {
+            dados.addRow(new Object[]{
+                c.getData_feedback(),
+                c.getId(),
+                c.getCliente().getId(),
+                c.getCliente().getNome(),
+                c.getCliente().getEmail(),
+                c.getCliente().getTelefone(),
+                c.getDescricao()
+            });
+
+        }
+
+    }
 
     DefaultListModel MODELO;
     int enter = 0;
@@ -35,6 +60,15 @@ public class FrmFeedback extends javax.swing.JFrame {
         ListaNomes.setVisible(false);
         MODELO = new DefaultListModel();
         ListaNomes.setModel(MODELO);
+        this.getContentPane().setBackground(Color.WHITE);
+
+        DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
+        headerRenderer.setBackground(Color.gray);
+        headerRenderer.setForeground(Color.WHITE);
+
+        for (int i = 0; i < tabelaFeedback.getModel().getColumnCount(); i++) {
+            tabelaFeedback.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
+        }
     }
 
     /**
@@ -65,16 +99,22 @@ public class FrmFeedback extends javax.swing.JFrame {
         txttel = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
         txtemail = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
         txtdescricao = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
         txtnome = new javax.swing.JTextField();
-        txtid = new javax.swing.JTextField();
+        txtidcliente = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        txtidfeedback = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -125,8 +165,18 @@ public class FrmFeedback extends javax.swing.JFrame {
         jTabbedPane1.setForeground(new java.awt.Color(0, 0, 0));
         jTabbedPane1.setFocusable(false);
         jTabbedPane1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
+            }
+        });
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
+        });
         jPanel4.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 jPanel4ComponentShown(evt);
@@ -139,11 +189,11 @@ public class FrmFeedback extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Data", "Código", "Nome", "E-mail", "Telefone", "Descrição"
+                "Data", "Id feedback", "Id cliente", "Nome", "E-mail", "Telefone", "Descrição"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -169,10 +219,11 @@ public class FrmFeedback extends javax.swing.JFrame {
             tabelaFeedback.getColumnModel().getColumn(3).setResizable(false);
             tabelaFeedback.getColumnModel().getColumn(4).setResizable(false);
             tabelaFeedback.getColumnModel().getColumn(5).setResizable(false);
+            tabelaFeedback.getColumnModel().getColumn(6).setResizable(false);
         }
 
         jLabel16.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel16.setText("Data:");
+        jLabel16.setText("Nome:");
 
         txtpesquisa.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtpesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -233,6 +284,8 @@ public class FrmFeedback extends javax.swing.JFrame {
         });
         painel_dados.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        ListaNomes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ListaNomes.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         ListaNomes.setMinimumSize(null);
         ListaNomes.setPreferredSize(new java.awt.Dimension(200, 100));
         ListaNomes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -240,7 +293,7 @@ public class FrmFeedback extends javax.swing.JFrame {
                 ListaNomesMousePressed(evt);
             }
         });
-        painel_dados.add(ListaNomes, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 400, -1));
+        painel_dados.add(ListaNomes, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 400, 150));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel3.setText("Nome:");
@@ -250,6 +303,7 @@ public class FrmFeedback extends javax.swing.JFrame {
         jLabel2.setText("Telefone:");
         painel_dados.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 170, -1));
 
+        txttel.setEditable(false);
         try {
             txttel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) ##### - ####")));
         } catch (java.text.ParseException ex) {
@@ -267,6 +321,7 @@ public class FrmFeedback extends javax.swing.JFrame {
         jLabel4.setText("Email:");
         painel_dados.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 70, 157, -1));
 
+        txtemail.setEditable(false);
         txtemail.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtemail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -277,9 +332,8 @@ public class FrmFeedback extends javax.swing.JFrame {
 
         txtdescricao.setColumns(20);
         txtdescricao.setRows(5);
-        jScrollPane2.setViewportView(txtdescricao);
-
-        painel_dados.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 1050, 253));
+        txtdescricao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(69, 73, 74)));
+        painel_dados.add(txtdescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 1050, 240));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel5.setText("Descrição:");
@@ -298,12 +352,22 @@ public class FrmFeedback extends javax.swing.JFrame {
         });
         painel_dados.add(txtnome, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 403, -1));
 
-        txtid.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        painel_dados.add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 180, -1));
+        txtidcliente.setEditable(false);
+        txtidcliente.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txtidcliente.setOpaque(true);
+        painel_dados.add(txtidcliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 180, -1));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel6.setText("Código:");
+        jLabel6.setText("Código Cliente:");
         painel_dados.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
+        txtidfeedback.setEditable(false);
+        txtidfeedback.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        painel_dados.add(txtidfeedback, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 180, -1));
+
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel7.setText("Código Feedback:");
+        painel_dados.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
 
         jTabbedPane1.addTab("Sugestão e Feedback", painel_dados);
 
@@ -345,11 +409,11 @@ public class FrmFeedback extends javax.swing.JFrame {
             Feedback obj = new Feedback();
             ClientesDAO cd = new ClientesDAO();
             Date agora = new Date();
-            SimpleDateFormat dataBr = new SimpleDateFormat("dd/MM/yyyy");
-            String dataformatada = dataBr.format(agora);
+            SimpleDateFormat dataEUA = new SimpleDateFormat("yyyy-MM-dd");
+            String datamysql = dataEUA.format(agora);
 
-            obj.setCliente(cd.buscaporid(Integer.parseInt(txtid.getText())));
-            obj.setData_feedback(dataformatada);
+            obj.setCliente(cd.buscaporid(Integer.parseInt(txtidcliente.getText())));
+            obj.setData_feedback(datamysql);
             obj.setDescricao(txtdescricao.getText());
 
             FeedbackDAO dao = new FeedbackDAO();
@@ -368,13 +432,15 @@ public class FrmFeedback extends javax.swing.JFrame {
         // botao editar
 
         Feedback obj = new Feedback();
-        SimpleDateFormat dataBr = new SimpleDateFormat("dd/MM/yyyy");
-        Clientes c = new Clientes();
         ClientesDAO cd = new ClientesDAO();
+        Date agora = new Date();
+        SimpleDateFormat dataEUA = new SimpleDateFormat("yyyy-MM-dd");
+        String datamysql = dataEUA.format(agora);
 
+        obj.setCliente(cd.buscaporid(Integer.parseInt(txtidcliente.getText())));
+        obj.setData_feedback(datamysql);
         obj.setDescricao(txtdescricao.getText());
-        obj.setData_feedback(dataBr.format(LocalDateTime.now().toString()));
-        obj.setCliente(cd.buscaporid(Integer.parseInt(txtid.getText())));
+        obj.setId(Integer.parseInt(txtidfeedback.getText()));
 
         FeedbackDAO dao = new FeedbackDAO();
 
@@ -388,7 +454,7 @@ public class FrmFeedback extends javax.swing.JFrame {
 
         Feedback obj = new Feedback();
 
-        obj.setId(Integer.parseInt(txtid.getText()));
+        obj.setId(Integer.parseInt(txtidcliente.getText()));
 
         FeedbackDAO dao = new FeedbackDAO();
 
@@ -405,18 +471,19 @@ public class FrmFeedback extends javax.swing.JFrame {
         //Pega os dados
         jTabbedPane1.setSelectedIndex(1);
 
-        txtid.setText(tabelaFeedback.getValueAt(tabelaFeedback.getSelectedRow(), 1).toString());
-        txtnome.setText(tabelaFeedback.getValueAt(tabelaFeedback.getSelectedRow(), 2).toString());
-        txtemail.setText(tabelaFeedback.getValueAt(tabelaFeedback.getSelectedRow(), 3).toString());
-        txttel.setText(tabelaFeedback.getValueAt(tabelaFeedback.getSelectedRow(), 4).toString());
-        txtdescricao.setText(tabelaFeedback.getValueAt(tabelaFeedback.getSelectedRow(), 5).toString());
+        txtidfeedback.setText(tabelaFeedback.getValueAt(tabelaFeedback.getSelectedRow(), 1).toString());
+        txtidcliente.setText(tabelaFeedback.getValueAt(tabelaFeedback.getSelectedRow(), 2).toString());
+        txtnome.setText(tabelaFeedback.getValueAt(tabelaFeedback.getSelectedRow(), 3).toString());
+        txtemail.setText(tabelaFeedback.getValueAt(tabelaFeedback.getSelectedRow(), 4).toString());
+        txttel.setText(tabelaFeedback.getValueAt(tabelaFeedback.getSelectedRow(), 5).toString());
+        txtdescricao.setText(tabelaFeedback.getValueAt(tabelaFeedback.getSelectedRow(), 6).toString());
     }//GEN-LAST:event_tabelaFeedbackMouseClicked
 
     private void txtpesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyPressed
-        String data = "%" + txtpesquisa.getText() + "%";
+        String nome = "%" + txtpesquisa.getText() + "%";
 
         FeedbackDAO dao = new FeedbackDAO();
-        List<Feedback> lista = dao.listarFeedbacksPorData(data);
+        List<Feedback> lista = dao.listarFeedbacksPorNome(nome);
 
         DefaultTableModel dados = (DefaultTableModel) tabelaFeedback.getModel();
         dados.setNumRows(0);
@@ -435,10 +502,10 @@ public class FrmFeedback extends javax.swing.JFrame {
 
     private void btnpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarActionPerformed
         // Botao pesquisar
-        String data = "%" + txtpesquisa.getText() + "%";
+        String nome = "%" + txtpesquisa.getText() + "%";
 
         FeedbackDAO dao = new FeedbackDAO();
-        List<Feedback> lista = dao.listarFeedbacksPorData(data);
+        List<Feedback> lista = dao.listarFeedbacksPorNome(nome);
 
         DefaultTableModel dados = (DefaultTableModel) tabelaFeedback.getModel();
         dados.setNumRows(0);
@@ -446,6 +513,7 @@ public class FrmFeedback extends javax.swing.JFrame {
         for (Feedback c : lista) {
             dados.addRow(new Object[]{
                 c.getData_feedback(),
+                c.getId(),
                 c.getCliente().getId(),
                 c.getCliente().getNome(),
                 c.getCliente().getEmail(),
@@ -465,7 +533,7 @@ public class FrmFeedback extends javax.swing.JFrame {
 
     private void painel_dadosComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_painel_dadosComponentShown
         // TODO add your handling code here:
-        if (txtid.getText().equals("")) {
+        if (txtidcliente.getText().equals("")) {
             btnsalvar.setEnabled(true);// habilita o botão salvar
             btneditar.setEnabled(false);// desabilita o botão editar
             btnexcluir.setEnabled(false);// desabilita o botão escluir
@@ -524,14 +592,27 @@ public class FrmFeedback extends javax.swing.JFrame {
         ListaNomes.setVisible(false);
         Clientes c = new Clientes();
         ClientesDAO dao = new ClientesDAO();
-        
+
         c = dao.consultaPorNome(ListaNomes.getSelectedValue().toString());
-        
-        txtid.setText(String.valueOf(c.getId()));
+
+        txtidcliente.setText(String.valueOf(c.getId()));
         txtnome.setText(c.getNome());
         txttel.setText(c.getTelefone());
         txtemail.setText(c.getEmail());
     }//GEN-LAST:event_ListaNomesMousePressed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        listar();
+    }//GEN-LAST:event_formWindowActivated
+
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        new Utilitarios().LimpaTela(painel_dados);
+        listar();
+    }//GEN-LAST:event_jPanel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -582,17 +663,18 @@ public class FrmFeedback extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel painel_dados;
     private javax.swing.JTable tabelaFeedback;
     private javax.swing.JTextArea txtdescricao;
     private javax.swing.JTextField txtemail;
-    private javax.swing.JTextField txtid;
+    private javax.swing.JTextField txtidcliente;
+    private javax.swing.JTextField txtidfeedback;
     private javax.swing.JTextField txtnome;
     private javax.swing.JTextField txtpesquisa;
     private javax.swing.JFormattedTextField txttel;

@@ -60,7 +60,7 @@ public class FeedbackDAO {
         try {
 
             //1 passo  - criar o comando sql
-            String sql = "delete from tb_feedback where id = ?";
+            String sql = "delete from tb_feedback where cliente_id = ?";
 
             //2 passo - conectar o banco de dados e organizar o comando sql
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -74,7 +74,6 @@ public class FeedbackDAO {
 
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro: " + erro);
-
         }
 
     }
@@ -84,7 +83,7 @@ public class FeedbackDAO {
         try {
 
             //1 passo  - criar o comando sql
-            String sql = "update tb_feedback set id_cliente=?, data_id=?, descricao=? where id =?";
+            String sql = "update tb_feedback set cliente_id=?, data_feedback=?, descricao=? where id =?";
 
             //2 passo - conectar o banco de dados e organizar o comando sql
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -114,7 +113,7 @@ public class FeedbackDAO {
             List<Feedback> lista = new ArrayList<>();
 
             //2 passo - criar o sql , organizar e executar.
-            String sql = "select date_format(f.data_id,'%d/%m/%Y') as data_formatada, c.id, c.nome, c.telefone, c.email, f.descricao from tb_feedback as f"
+            String sql = "select date_format(f.data_feedback,'%d/%m/%Y') as data_formatada, c.id, c.nome, c.telefone, c.email, f.descricao from tb_feedback as f"
                     +" inner join tb_clientes as c on (f.cliente_id = c.id)";
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
@@ -145,15 +144,15 @@ public class FeedbackDAO {
     }
      
      //Metodo listarFornecedores
-     public List<Feedback> listarFeedbacksPorData(String data) {
+     public List<Feedback> listarFeedbacksPorNome(String nome) {
         try {
 
             //1 passo criar a lista
             List<Feedback> lista = new ArrayList<>();
 
             //2 passo - criar o sql , organizar e executar.
-            String sql = "select date_format(f.data_id,'%d/%m/%Y') as data_formatada, c.id, c.nome, c.telefone, c.email, f.descricao from tb_feedback as f"
-                    +" inner join tb_clientes as c on (f.cliente_id = c.id) where f.data like "+data+";";
+            String sql = "select date_format(f.data_id,'%d/%m/%Y') as data_formatada, c.id, f.id, c.nome, c.telefone, c.email, f.descricao from tb_feedback as f"
+                    +" inner join tb_clientes as c on (f.cliente_id = c.id) where c.nome like "+nome+";";
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 
@@ -165,6 +164,7 @@ public class FeedbackDAO {
                 c.setNome(rs.getString("c.nome"));
                 c.setTelefone(rs.getString("c.telefone"));
                 c.setEmail(rs.getString("c.email"));
+                obj.setId(rs.getInt("f.id"));
                 obj.setData_feedback(rs.getString("data_formatada"));
                 obj.setDescricao(rs.getString("f.descricao"));
                 obj.setCliente(c);

@@ -104,4 +104,15 @@ CREATE TABLE tb_itensvendas (
 );
 /*****************/
 
+
+/***** TABELA FEEDBACK E SUGESTÕES *****/
+CREATE TABLE tb_feedback (
+	id int auto_increment primary key,
+    data_feedback datetime,
+    descricao text,
+    cliente_id int,
+    
+    FOREIGN KEY (cliente_id) REFERENCES tb_clientes(id)
+);
+
 select * from tb_clientes where nome like 'a%';
