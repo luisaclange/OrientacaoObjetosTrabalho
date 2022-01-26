@@ -5,14 +5,29 @@
  */
 package br.com.sistema.model;
 
+import br.com.sistema.view.FrmTema;
 import br.com.sistema.view.Frmmenu;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JColorChooser;
 import javax.swing.JDesktopPane;
+import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 /**
  *
@@ -20,7 +35,7 @@ import javax.swing.JTextField;
  */
 public class Utilitarios {
 
-    //metodo limparCampos
+    // Método para limpar campos das telas
     
     public void LimpaTela(JPanel container) {
         Component components[] = container.getComponents();
@@ -32,17 +47,114 @@ public class Utilitarios {
         }
     }
     
-    //Metodo para adicionar imagem de fundo JDesktopPane
-//    public void adicionaImagem() {
-//
-//        ImageIcon icon = new ImageIcon(Frmmenu.class.getResource("br.com.projeto.images/fundo.jpg"));
-//        Image img = icon.getImage();
-//
-//        JDesktopPane painel = new JDesktopPane() {
-//            public void paintComponent(Graphics g) {
-//                g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
-//            }
-//
-//        }
-                
-                }
+    // Método e atributos para escolher imagem para o sistema
+    
+    public void escolheImagem(FrmTema tema, JTextField txtFile){
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Procurar imagem");
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Imagem","jpg","png");
+
+        fileChooser.setFileFilter(filter);
+
+        int retorno = fileChooser.showOpenDialog(tema);
+
+        if(retorno == JFileChooser.APPROVE_OPTION){
+
+            File file = fileChooser.getSelectedFile();
+            txtFile.setText(file.getPath());
+        }
+    }
+    
+    
+    // Gerenciamento de tema do sistema
+    
+    public String[] getConfigJson() {
+        JSONObject jsonObject;
+        JSONParser parser = new JSONParser();
+        
+        String arquivo = "./src/config/config.json";
+        String[] tema = new String[4];
+        try {
+            try (FileReader f = new FileReader(arquivo)) {
+                jsonObject = (JSONObject) parser.parse(f);
+            }
+            tema[0] = (String) jsonObject.get("Fundo");
+            /*tema[1] = (String) jsonObject.get("Logo");
+            tema[2] = (String) jsonObject.get("CorPrimaria");
+            tema[3] = (String) jsonObject.get("CorSecundaria");*/
+            
+            return tema;
+            
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException | org.json.simple.parser.ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    // public static void setConfigJson(String fundo, String logo, Color corPrimaria, Color corSecundaria){
+    public void setConfigJson(String fundo){
+        FileWriter writeJson = null;
+        String arquivo = "./src/config/config.json";
+        JSONObject jsonObject = new JSONObject();
+        
+        try {
+            //preenche o objeto com os campos do tema
+            jsonObject.put("Fundo", "./src/imagens/" + fundo);
+            // jsonObject.put("Logo", logo); 
+            // jsonObject.put("CorPrincipal", String.valueOf(corPrimaria));
+            // jsonObject.put("CorSecundaria", String.valueOf(corSecundaria));
+            writeJson = new FileWriter(arquivo);
+            writeJson.write(jsonObject.toString());
+        } catch (IOException ex) {
+            Logger.getLogger(Utilitarios.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                writeJson.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Utilitarios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+    }
+    
+    /*
+    
+    // Métodos para alterar cores do sistema
+    
+    private static Color corPrimaria;
+    private static Color corSecundaria;
+    
+    public String getCorPrimaria(){
+        return corPrimaria.toString();
+    }    
+
+    public void setCorPrimaria(){
+        JColorChooser escolheCor = new JColorChooser();
+        
+        this.corPrimaria = JColorChooser.showDialog(null, "Escolha a cor principal do sistema", Color.blue);
+    }
+    
+    public String getCorSecundaria(){
+        return corSecundaria.toString();
+    }
+    
+    public void setCorSecundaria(){
+        JColorChooser escolheCor = new JColorChooser();
+        
+        this.corSecundaria = JColorChooser.showDialog(null, "Escolha a cor secundária do sistema", Color.black);
+    }
+    
+    public static void setAllCorPrimaria(Color color){
+        corPrimaria = color;
+    }
+    
+    public static void setAllCorSecundaria(Color color){
+        corSecundaria = color;
+    }
+    */
+    
+}

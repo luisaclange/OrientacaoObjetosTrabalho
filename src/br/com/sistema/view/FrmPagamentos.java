@@ -34,6 +34,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
         txtdinheiro.setText("0");
         txtcheque.setText("0");
         txttroco.setText("0");
+        
     }
 
     /**

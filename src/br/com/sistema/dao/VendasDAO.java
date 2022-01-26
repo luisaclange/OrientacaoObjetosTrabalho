@@ -77,7 +77,7 @@ public class VendasDAO {
         }
 
     }
-
+    
     //Metodo que filtra Vendas por Datas
     public List<Vendas> listarVendasPorPeriodo(LocalDate data_inicio, LocalDate data_fim) {
         try {
@@ -93,6 +93,45 @@ public class VendasDAO {
             stmt.setString(1, data_inicio.toString());
             stmt.setString(2, data_fim.toString());
 
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vendas obj = new Vendas();
+                Clientes c = new Clientes();
+
+                obj.setId(rs.getInt("v.id"));
+                obj.setData_venda(rs.getString("data_formatada"));
+                c.setNome(rs.getString("c.nome"));
+                obj.setTotal_venda(rs.getDouble("v.total_venda"));
+                obj.setObs(rs.getString("v.observacoes"));
+
+                obj.setCliente(c);
+
+                lista.add(obj);
+            }
+
+            return lista;
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "Erro :" + erro);
+            return null;
+        }
+
+    }
+
+    //Metodo que retorna todas as Vendas
+    public List<Vendas> listarVendas() {
+        try {
+
+            //1 passo criar a lista
+            List<Vendas> lista = new ArrayList<>();
+
+            //2 passo - criar o sql , organizar e executar.
+            String sql = "select v.id ,  date_format(v.data_venda,'%d/%m/%Y') as data_formatada , c.nome, v.total_venda, v.observacoes  from tb_vendas as v  "
+                    + " inner join tb_clientes as c on(v.cliente_id = c.id)";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {

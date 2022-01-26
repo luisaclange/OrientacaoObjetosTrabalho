@@ -29,7 +29,7 @@ public class FrmHistorico extends javax.swing.JFrame {
     public FrmHistorico() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1092,8 +1092,8 @@ public class FrmHistorico extends javax.swing.JFrame {
         try {
             //Receber as datas
             DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-            LocalDate data_inicio = LocalDate.parse(txtdatainicio.getText(), formato);
+            
+            LocalDate data_inicio = LocalDate.parse(txtdatainicio.getText(), formato);;
             LocalDate data_fim = LocalDate.parse(txtdatafim.getText(), formato);
 
             VendasDAO dao = new VendasDAO();
@@ -1286,6 +1286,34 @@ public class FrmHistorico extends javax.swing.JFrame {
         abavendas.setSize(0,0);
         abaconfigurações.setSize(0,0);
     }//GEN-LAST:event_navbarMouseExited
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // botao buscar venda por periodo
+        try {
+            //Receber as datas
+            DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            
+            VendasDAO dao = new VendasDAO();
+            List<Vendas> lista = dao.listarVendas();
+
+            DefaultTableModel dados = (DefaultTableModel) tabelaHistorico.getModel();
+            dados.setNumRows(0);
+
+            for (Vendas v : lista) {
+                dados.addRow(new Object[]{
+                    v.getId(),
+                    v.getData_venda(),
+                    v.getCliente().getNome(),
+                    v.getTotal_venda(),
+                    v.getObs()
+                });
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Digite duas datas como intervalo!");
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

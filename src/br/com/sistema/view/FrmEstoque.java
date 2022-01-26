@@ -1146,6 +1146,10 @@ public class FrmEstoque extends javax.swing.JFrame {
             dao.adicionarEstoque(idproduto, qtd_nova);
 
             JOptionPane.showMessageDialog(null, "Estoque do Produto Atualizado");
+            
+            txtestoque.setText("");
+            txtqtd.setText("");
+            txtpesquisa.setText("");
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Selecione o produto ou informe a nova qtd." + e);
@@ -1327,6 +1331,38 @@ public class FrmEstoque extends javax.swing.JFrame {
         tela.setVisible(true);
 
     }//GEN-LAST:event_feedbacksMouseClicked
+
+    private void btnrmvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrmvActionPerformed
+        try {
+            int qtd_estoque, qtd;
+
+            qtd_estoque = Integer.parseInt(txtestoque.getText());
+
+            qtd = Integer.parseInt(txtqtd.getText());
+            
+            if(qtd_estoque >= qtd){
+                qtd_nova = qtd_estoque - qtd;
+
+                ProdutosDAO dao = new ProdutosDAO();
+
+                dao.removerEstoque(idproduto, qtd_nova);
+
+                JOptionPane.showMessageDialog(null, "Estoque do Produto Atualizado");
+            
+                txtestoque.setText("");
+                txtqtd.setText("");
+                txtpesquisa.setText("");
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "Favor inserir uma quantidade válida");
+            }
+            
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Selecione o produto ou informe a nova qtd." + e);
+
+        }
+    }//GEN-LAST:event_btnrmvActionPerformed
 
     /**
      * @param args the command line arguments

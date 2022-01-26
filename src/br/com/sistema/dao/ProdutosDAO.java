@@ -294,6 +294,27 @@ public class ProdutosDAO {
 
     }
     
+    public void removerEstoque(int id, int qtd_nova) {
+        try {
+
+            String sql = "update tb_produtos  set qtd_estoque= ?  where id=?";
+            //2 passo - conectar o banco de dados e organizar o comando sql
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            stmt.setInt(1, qtd_nova);
+            stmt.setInt(2, id);
+            stmt.execute();
+            stmt.close();
+
+           // JOptionPane.showMessageDialog(null, "Produto Alterardo com Sucesso!");
+
+        } catch (Exception erro) {
+
+            JOptionPane.showMessageDialog(null, "Erro : " + erro);
+
+        }
+    }
+    
     //Metodo que retorna o estoque atual de um produto
     public int retornaEstoqueAtual(int id) {
         try {

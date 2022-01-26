@@ -21,9 +21,8 @@ public class Frmmenu extends javax.swing.JFrame {
     
     public Frmmenu() {
         initComponents();
-
     }
-    
+        
     public void setUsuarioLogado(String nome) {
         lblusuario.setText(nome);
     }

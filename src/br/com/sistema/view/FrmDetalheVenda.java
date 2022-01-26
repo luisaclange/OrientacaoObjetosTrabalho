@@ -22,6 +22,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmDetalheVenda extends javax.swing.JFrame {
 
+    Color corPrimaria;
+    
     /**
      * Creates new form FrmHistorico
      */
