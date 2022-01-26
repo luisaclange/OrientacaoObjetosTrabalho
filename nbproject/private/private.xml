@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< .merge_file_a13488
             <file>file:/C:/Users/Usuário/Documents/Code/Java/OrientacaoObjetosTrabalho/src/br/com/sistema/view/FrmFeedback.java</file>
+=======
+            <file>file:/C:/Users/Usuário/Documents/Code/Java/OrientacaoObjetosTrabalho/src/br/com/sistema/dao/VendasDAO.java</file>
+            <file>file:/C:/Users/Usuário/Documents/Code/Java/OrientacaoObjetosTrabalho/src/br/com/sistema/view/FrmHistorico.java</file>
+>>>>>>> .merge_file_a13408
         </group>
     </open-files>
 </project-private>

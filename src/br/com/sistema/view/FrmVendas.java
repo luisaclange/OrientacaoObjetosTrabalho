@@ -463,6 +463,10 @@ public class FrmVendas extends javax.swing.JFrame {
        FrmPagamentos telap = new FrmPagamentos();
        telap.txttotal.setText(String.valueOf(total));
        
+       ClientesDAO dao = new ClientesDAO();
+       
+       obj = dao.consultaPorNome(txtnome.getText());
+       
        telap.cliente = obj;
        telap.carrinho = carrinho;
        

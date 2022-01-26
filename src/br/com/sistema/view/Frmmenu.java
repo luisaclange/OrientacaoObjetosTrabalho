@@ -9,6 +9,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import br.com.sistema.model.Utilitarios;
 
 /**
  *
@@ -19,9 +20,8 @@ public class Frmmenu extends javax.swing.JFrame {
     
     public Frmmenu() {
         initComponents();
-
     }
-    
+        
     public void setUsuarioLogado(String nome) {
         lblusuario.setText(nome);
     }
@@ -34,7 +34,9 @@ public class Frmmenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ImageIcon icon = new ImageIcon(getClass().getResource("/imagens/fundo.jpg"));
+        String[] tema = new Utilitarios().getConfigJson();
+        // Image fundo = getClass().getResource();
+        ImageIcon icon = new ImageIcon(tema[0]);
 
         Image image = icon.getImage();
         painel_desktop = new javax.swing.JDesktopPane(){
@@ -109,7 +111,7 @@ public class Frmmenu extends javax.swing.JFrame {
         painel_desktopLayout.setVerticalGroup(
             painel_desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painel_desktopLayout.createSequentialGroup()
-                .addGap(0, 392, Short.MAX_VALUE)
+                .addGap(0, 382, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
