@@ -91,7 +91,6 @@ public class FrmLogin extends javax.swing.JFrame {
 
         txtsenha.setBackground(new java.awt.Color(242, 242, 242));
         txtsenha.setForeground(new java.awt.Color(63, 106, 197));
-        txtsenha.setText("jPasswordField1");
         txtsenha.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(63, 106, 191)));
 
         btnentrar.setText("Entrar");
@@ -232,7 +231,7 @@ public class FrmLogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fundo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, Short.MAX_VALUE)
+            .addComponent(fundo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1214, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
