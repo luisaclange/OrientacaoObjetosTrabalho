@@ -1721,20 +1721,34 @@ public class FrmFornecedores extends javax.swing.JFrame {
         }
 
         if (lib == 0){
-            Fornecedores obj = new Fornecedores();
-
-            obj.setNome(txtnome.getText());
-            obj.setCnpj(txtcnpj.getText());
-            obj.setEmail(txtemail.getText());
-            obj.setTelefone(txtfixo.getText());
-            obj.setCelular(txtcel.getText());
-            obj.setCep(txtcep.getText());
-            obj.setEndereco(txtend.getText());
-            obj.setNumero(Integer.parseInt(txtnumero.getText()));
-            obj.setComplemento(txtcomplemento.getText());
-            obj.setBairro(txtbairro.getText());
-            obj.setCidade(txtcidade.getText());
-            obj.setUf(cbuf.getSelectedItem().toString());
+            
+        Fornecedores obj = new Fornecedores();
+        ValidaCPFeCNPJ model = new ValidaCPFeCNPJ();
+        
+        
+        if (model.isCNPJ(txtcnpj.getText()) == false) {//Verifica se o CNPJ é Valido se for false...
+            JOptionPane.showMessageDialog(null, "CNPJ Inválido");
+            txtcnpj.setText(obj.getCnpj());//seta null no campo CNPJ
+            return;
+        } 
+        if (obj.equalsCnpj(txtcnpj.getText())) {// Verifica se o CNPJ já está cadastrado se for false...
+            JOptionPane.showMessageDialog(null, "CNPJ Já Cadastrado");
+            txtcnpj.setText(obj.getCnpj());//seta null no campo CNPJ
+            return;
+        }
+        
+        obj.setNome(txtnome.getText());
+        obj.setCnpj(txtcnpj.getText());     
+        obj.setEmail(txtemail.getText());
+        obj.setTelefone(txtfixo.getText());
+        obj.setCelular(txtcel.getText());
+        obj.setCep(txtcep.getText());
+        obj.setEndereco(txtend.getText());
+        obj.setNumero(Integer.parseInt(txtnumero.getText()));
+        obj.setComplemento(txtcomplemento.getText());
+        obj.setBairro(txtbairro.getText());
+        obj.setCidade(txtcidade.getText());
+        obj.setUf(cbuf.getSelectedItem().toString());
 
             FornecedoresDAO dao = new FornecedoresDAO();
 
@@ -1744,13 +1758,61 @@ public class FrmFornecedores extends javax.swing.JFrame {
             msg += "\n\n Estão Vazios.";
             JOptionPane.showMessageDialog(null, msg, "ERRO AO CADASTRAR ", HEIGHT);
 
+        dao.cadastrarFornecedores(obj);
+        new Utilitarios().LimpaTela(painel_dados);
+        }else{
+            msg += "\n\n Estão Vazios.";
+        JOptionPane.showMessageDialog(null, msg, "ERRO AO CADASTRAR ", HEIGHT);
+        return;
         }
 
     }//GEN-LAST:event_btnsalvarActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
-        // TODO add your handling code here:
+        // botao editar
+        int lib = 0;  
+        String msg = "Os Campos: \n";
+        
+        if(txtnome.getText().equals("")){//campo nome vazio
+            msg += "\n Nome ";
+            lib++;
+        }
+        if(txtcnpj.getText().equals("  .   .   /    -  ")){//campo cpf vazio
+            msg += "\n CNPJ ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo CPF está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+        if(txtcep.getText().equals("     -   ")){//campo cep vazio
+            msg += "\n CEP ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo CEP está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+        if(txtcel.getText().equals("(  )        -     ")){//campo celular vazio
+            msg += "\n Celular ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo Celular está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+       if (txtnumero.getText().equals("")){//se o numero da residencia estiver nulo seta 0
+            txtnumero.setText("0");
+        }
+
+        if (lib == 0){
+            
         Fornecedores obj = new Fornecedores();
+        ValidaCPFeCNPJ model = new ValidaCPFeCNPJ();
+        
+        
+        if (model.isCNPJ(txtcnpj.getText()) == false) {//Verifica se o CNPJ é Valido se for false...
+            JOptionPane.showMessageDialog(null, "CNPJ Inválido");
+            txtcnpj.setText(obj.getCnpj());//seta null no campo CNPJ
+            return;
+        } 
+        if (obj.equalsCnpjIn(txtcnpj.getText(), (Integer.parseInt(txtcodigo.getText())))) {// Verifica se o CNPJ já está cadastrado se for false...
+            JOptionPane.showMessageDialog(null, "CNPJ Já Cadastrado");
+            txtcnpj.setText(obj.getCnpj());//seta null no campo CNPJ
+            return;
+        }
+        
 
         obj.setNome(txtnome.getText());
         obj.setCnpj(txtcnpj.getText());
@@ -1772,7 +1834,13 @@ public class FrmFornecedores extends javax.swing.JFrame {
         dao.alterarFornecedor(obj);
 
         new Utilitarios().LimpaTela(cadastro);
-
+        
+        }else{
+              msg += "\n\n Estão Vazios.";
+        JOptionPane.showMessageDialog(null, msg, "ERRO AO CADASTRAR ", HEIGHT);
+        return;
+        }
+        
         btnsalvar.setEnabled( true );// habilita o botão salvar
         btneditar.setEnabled( false );// desabilita o botão editar
         btnexcluir.setEnabled( false );// desabilita o botão escluir

@@ -1215,10 +1215,6 @@ public class FrmProdutos extends javax.swing.JFrame {
         abaprodutos.setSize(170,88);
     }//GEN-LAST:event_abaprodutosMouseEntered
 
-    private void abaprodutosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abaprodutosMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_abaprodutosMouseExited
-
     private void btntotalvendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntotalvendasMouseClicked
         // TODO add your handling code here:
 
@@ -1712,6 +1708,27 @@ public class FrmProdutos extends javax.swing.JFrame {
         abavendas.setSize(0,0);
         abaconfigurações.setSize(0,0);
     }//GEN-LAST:event_navbarMouseExited
+
+    private void jPanel4ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel4ComponentShown
+        // TODO add your handling code here:
+        btnsalvar.setEnabled( false );// desabilita o botão escluir
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btnexcluir.setEnabled( false );// desabilita o botão escluir
+        btnnovo.setEnabled( false );// desabilita o botão escluir
+    }//GEN-LAST:event_jPanel4ComponentShown
+
+    private void painel_dadosComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_painel_dadosComponentShown
+        // TODO add your handling code here:
+        if (txtdescricao.getText().equals("")){
+            
+        btnsalvar.setEnabled( true );// Habilita o botão escluir
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btnexcluir.setEnabled( false );// desabilita o botão escluir
+        btnnovo.setEnabled( true );// Habilita o botão escluir
+        }
+        
+        
+    }//GEN-LAST:event_painel_dadosComponentShown
 
     /**
      * @param args the command line arguments

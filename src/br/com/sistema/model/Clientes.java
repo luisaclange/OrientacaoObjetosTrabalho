@@ -143,12 +143,22 @@ public class Clientes {
         this.uf = uf;
     }
     
-    public Boolean equalsCpf(String CPF){//verifica se ja existe pessoas com esse cpf
+    public boolean equalsCpf(String CPF){//verifica se ja existe pessoas com esse cpf
         
         ClientesDAO dao = new ClientesDAO();//cria conexão com o banco de dados
         List<Clientes> lista = dao.listarClientes();// cria lista dos clientes 
         for (Clientes c : lista) {//percorre a lista
             if(CPF.equals(c.getCpf())){ //se encontrar o mesmo cpf retorna true
+                return true;
+            }
+        } return false;       
+    }
+    public boolean equalsCpfId(String CPF, int id){//verifica se ja existe pessoas com esse cpf
+        
+        ClientesDAO dao = new ClientesDAO();//cria conexão com o banco de dados
+        List<Clientes> lista = dao.listarClientes();// cria lista dos clientes 
+        for (Clientes c : lista) {//percorre a lista
+            if(CPF.equals(c.getCpf()) && id != c.getId() ){ //se encontrar o mesmo cpf retorna true
                 return true;
             }
         } return false;       
