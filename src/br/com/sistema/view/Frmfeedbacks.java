@@ -12,12 +12,12 @@ import javax.swing.JOptionPane;
  *
  * @author Alunos
  */
-public class Frmfeedbacks extends javax.swing.JFrame {
+public class FrmFeedbacks extends javax.swing.JFrame {
 
     /**
      * Creates new form Frmfeedbacks
      */
-    public Frmfeedbacks() {
+    public FrmFeedbacks() {
         initComponents();
     }
 
@@ -840,7 +840,7 @@ public class Frmfeedbacks extends javax.swing.JFrame {
 
     private void btnlogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoMouseClicked
         // TODO add your handling code here:
-        Frmtema tela = new Frmtema();
+        FrmTema tela = new FrmTema();
         tela.setVisible(true);
         abaconfigurações.setSize(0,0);
     }//GEN-LAST:event_btnlogoMouseClicked
@@ -903,7 +903,7 @@ public class Frmfeedbacks extends javax.swing.JFrame {
 
     private void btninicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btninicioMouseClicked
         // TODO add your handling code here:
-        Frmmenu tela = new Frmmenu();
+        FrmMenu tela = new FrmMenu();
         tela.setVisible(true);
     }//GEN-LAST:event_btninicioMouseClicked
 
@@ -922,7 +922,7 @@ public class Frmfeedbacks extends javax.swing.JFrame {
 
     private void btnclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclientesMouseClicked
         // TODO add your handling code here:
-        Frmclientes tela = new Frmclientes();
+        FrmClientes tela = new FrmClientes();
         tela.setVisible(true);
     }//GEN-LAST:event_btnclientesMouseClicked
 
@@ -1064,7 +1064,7 @@ public class Frmfeedbacks extends javax.swing.JFrame {
 
     private void feedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_feedbacksMouseClicked
         // TODO add your handling code here:
-        Frmfeedbacks tela = new Frmfeedbacks();
+        FrmFeedbacks tela = new FrmFeedbacks();
         tela.setVisible(true);
     }//GEN-LAST:event_feedbacksMouseClicked
 
@@ -1085,20 +1085,21 @@ public class Frmfeedbacks extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Frmfeedbacks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmFeedbacks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Frmfeedbacks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmFeedbacks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Frmfeedbacks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmFeedbacks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Frmfeedbacks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmFeedbacks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Frmfeedbacks().setVisible(true);
+                new FrmFeedbacks().setVisible(true);
             }
         });
     }

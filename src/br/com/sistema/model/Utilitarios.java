@@ -6,7 +6,7 @@
 package br.com.sistema.model;
 
 import br.com.sistema.view.FrmTema;
-import br.com.sistema.view.Frmmenu;
+import br.com.sistema.view.FrmMenu;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;

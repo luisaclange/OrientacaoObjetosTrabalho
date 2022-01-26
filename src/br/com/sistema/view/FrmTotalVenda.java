@@ -1039,7 +1039,7 @@ public class FrmTotalVenda extends javax.swing.JFrame {
 
     private void btninicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btninicioMouseClicked
         // TODO add your handling code here:
-        Frmmenu tela = new Frmmenu();
+        FrmMenu tela = new FrmMenu();
         tela.setVisible(true);
     }//GEN-LAST:event_btninicioMouseClicked
 
@@ -1058,7 +1058,7 @@ public class FrmTotalVenda extends javax.swing.JFrame {
 
     private void btnclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclientesMouseClicked
         // TODO add your handling code here:
-        Frmclientes tela = new Frmclientes();
+        FrmClientes tela = new FrmClientes();
         tela.setVisible(true);
     }//GEN-LAST:event_btnclientesMouseClicked
 

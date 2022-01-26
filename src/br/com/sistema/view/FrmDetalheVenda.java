@@ -1004,7 +1004,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
 
     private void btnlogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoMouseClicked
         // TODO add your handling code here:
-        Frmtema tela = new Frmtema();
+        FrmTema tela = new FrmTema();
         tela.setVisible(true);
         abaconfigurações.setSize(0,0);
     }//GEN-LAST:event_btnlogoMouseClicked
@@ -1078,7 +1078,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
 
     private void btninicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btninicioMouseClicked
         // TODO add your handling code here:
-        Frmmenu tela = new Frmmenu();
+        FrmMenu tela = new FrmMenu();
         tela.setVisible(true);
     }//GEN-LAST:event_btninicioMouseClicked
 
@@ -1097,7 +1097,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
 
     private void btnclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclientesMouseClicked
         // TODO add your handling code here:
-        Frmclientes tela = new Frmclientes();
+        FrmClientes tela = new FrmClientes();
         tela.setVisible(true);
     }//GEN-LAST:event_btnclientesMouseClicked
 
@@ -1239,7 +1239,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
 
     private void feedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_feedbacksMouseClicked
         // TODO add your handling code here:
-        Frmfeedbacks tela = new Frmfeedbacks();
+        FrmFeedbacks tela = new FrmFeedbacks();
         tela.setVisible(true);
     }//GEN-LAST:event_feedbacksMouseClicked
 
