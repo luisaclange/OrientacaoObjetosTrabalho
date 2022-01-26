@@ -3,15 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Usuário/Documents/Code/Java/OrientacaoObjetosTrabalho/src/br/com/sistema/view/FrmEstoque.java</file>
-            <file>file:/C:/Users/Usuário/Documents/Code/Java/OrientacaoObjetosTrabalho/src/br/com/sistema/view/FrmMenu.java</file>
-            <file>file:/C:/Users/Usuário/Documents/Code/Java/OrientacaoObjetosTrabalho/src/br/com/sistema/view/FrmTema.java</file>
-            <file>file:/C:/Users/Usuário/Documents/Code/Java/OrientacaoObjetosTrabalho/src/br/com/sistema/view/FrmProdutos.java</file>
             <file>file:/C:/Users/Usuário/Documents/Code/Java/OrientacaoObjetosTrabalho/src/br/com/sistema/view/FrmLogin.java</file>
-            <file>file:/C:/Users/Usuário/Documents/Code/Java/OrientacaoObjetosTrabalho/src/br/com/sistema/view/FrmClientes.java</file>
-            <file>file:/C:/Users/Usuário/Documents/Code/Java/OrientacaoObjetosTrabalho/src/br/com/sistema/view/FrmDetalheVenda.java</file>
-            <file>file:/C:/Users/Usuário/Documents/Code/Java/OrientacaoObjetosTrabalho/src/br/com/sistema/view/FrmVendas.java</file>
-            <file>file:/C:/Users/Usuário/Documents/Code/Java/OrientacaoObjetosTrabalho/src/br/com/sistema/view/FrmPagamentos.java</file>
+            <file>file:/C:/Users/Usuário/Documents/Code/Java/OrientacaoObjetosTrabalho/src/br/com/sistema/dao/FuncionariosDAO.java</file>
         </group>
     </open-files>
 </project-private>

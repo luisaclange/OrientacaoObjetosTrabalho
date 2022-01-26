@@ -1433,6 +1433,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         // TODO add your handling code here
         FrmEstoque tela = new FrmEstoque();
         tela.setVisible(true);
+        this.dispose();
         abaprodutos.setSize(0,0);
     }//GEN-LAST:event_btnestoqueMouseClicked
 
@@ -1451,6 +1452,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         FrmProdutos tela = new FrmProdutos();
         //tela.jTabbedPane1.setSelectedIndex(1);
         tela.setVisible(true);
+        this.dispose();
         abaprodutos.setSize(0,0);
     }//GEN-LAST:event_btncontrolprodutosMouseClicked
 
@@ -1478,6 +1480,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         FrmTotalVenda tela = new FrmTotalVenda ();
         tela.setVisible(true);
+        this.dispose();
         abavendas.setSize(0,0);
     }//GEN-LAST:event_btntotalvendasMouseClicked
 
@@ -1495,6 +1498,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         // TODO add your handling code here:
         FrmVendas tela = new FrmVendas();
         tela.setVisible(true);
+        this.dispose();
         abavendas.setSize(0,0);
     }//GEN-LAST:event_btnpdvMouseClicked
 
@@ -1512,6 +1516,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         // TODO add your handling code here:
         FrmHistorico tela = new FrmHistorico();
         tela.setVisible(true);
+        this.dispose();
         abavendas.setSize(0,0);
     }//GEN-LAST:event_btncontrolevendasMouseClicked
 
@@ -1538,6 +1543,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         // TODO add your handling code here:
         FrmTema tela = new FrmTema();
         tela.setVisible(true);
+        this.dispose();
         abaconfigurações.setSize(0,0);
     }//GEN-LAST:event_btnlogoMouseClicked
 
@@ -1956,6 +1962,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         // TODO add your handling code here:
         FrmMenu tela = new FrmMenu();
         tela.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btninicioMouseClicked
 
     private void btninicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btninicioMouseEntered
@@ -1975,6 +1982,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         // TODO add your handling code here:
         FrmClientes tela = new FrmClientes();
         tela.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnclientesMouseClicked
 
     private void btnclientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclientesMouseEntered
@@ -1993,6 +2001,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         // TODO add your handling code here:
         FrmFuncionarios tela = new FrmFuncionarios();
         tela.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnfuncionariosMouseClicked
 
     private void btnfuncionariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfuncionariosMouseEntered
@@ -2011,6 +2020,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         // TODO add your handling code here:
         FrmFornecedores tela = new FrmFornecedores();
         tela.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnfornecedoresMouseClicked
 
     private void btnfornecedoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfornecedoresMouseEntered

@@ -1371,6 +1371,7 @@ public class FrmClientes extends javax.swing.JFrame {
         FrmEstoque tela = new FrmEstoque();
         tela.setVisible(true);
         abaprodutos.setSize(0,0);
+        this.dispose();
     }//GEN-LAST:event_btnestoqueMouseClicked
 
     private void btnestoqueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnestoqueMouseEntered
@@ -1389,6 +1390,7 @@ public class FrmClientes extends javax.swing.JFrame {
         //tela.jTabbedPane1.setSelectedIndex(1);
         tela.setVisible(true);
         abaprodutos.setSize(0,0);
+        this.dispose();
     }//GEN-LAST:event_btncontrolprodutosMouseClicked
 
     private void btncontrolprodutosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncontrolprodutosMouseEntered
@@ -1416,6 +1418,7 @@ public class FrmClientes extends javax.swing.JFrame {
         FrmTotalVenda tela = new FrmTotalVenda();
         tela.setVisible(true);
         abavendas.setSize(0,0);
+        this.dispose();
     }//GEN-LAST:event_btntotalvendasMouseClicked
 
     private void btntotalvendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntotalvendasMouseEntered
@@ -1434,6 +1437,7 @@ public class FrmClientes extends javax.swing.JFrame {
         FrmVendas tela = new FrmVendas();
         tela.setVisible(true);
         abavendas.setSize(0,0);
+        this.dispose();
     }//GEN-LAST:event_btnpdvMouseClicked
 
     private void btnpdvMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpdvMouseEntered
@@ -1451,6 +1455,7 @@ public class FrmClientes extends javax.swing.JFrame {
         FrmHistorico tela = new FrmHistorico();
         tela.setVisible(true);
         abavendas.setSize(0,0);
+        this.dispose();
     }//GEN-LAST:event_btncontrolevendasMouseClicked
 
     private void btncontrolevendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncontrolevendasMouseEntered
@@ -1478,7 +1483,7 @@ public class FrmClientes extends javax.swing.JFrame {
         abaconfigurações.setSize(0,0);
         FrmTema tela = new FrmTema();
         tela.setVisible(true);
-
+        this.dispose();
     }//GEN-LAST:event_btnlogoMouseClicked
 
     private void btnlogoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoMouseEntered
@@ -1888,6 +1893,7 @@ public class FrmClientes extends javax.swing.JFrame {
         // TODO add your handling code here:
         FrmMenu tela = new FrmMenu();
         tela.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btninicioMouseClicked
 
     private void btninicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btninicioMouseEntered
@@ -1907,6 +1913,7 @@ public class FrmClientes extends javax.swing.JFrame {
         // TODO add your handling code here:
         FrmClientes tela = new FrmClientes();
         tela.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnclientesMouseClicked
 
     private void btnclientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclientesMouseEntered
@@ -1925,6 +1932,7 @@ public class FrmClientes extends javax.swing.JFrame {
         // TODO add your handling code here:
         FrmFuncionarios tela = new FrmFuncionarios();
         tela.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnfuncionariosMouseClicked
 
     private void btnfuncionariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfuncionariosMouseEntered
@@ -1943,6 +1951,7 @@ public class FrmClientes extends javax.swing.JFrame {
         // TODO add your handling code here:
         FrmFornecedores tela = new FrmFornecedores();
         tela.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnfornecedoresMouseClicked
 
     private void btnfornecedoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfornecedoresMouseEntered
@@ -2049,7 +2058,7 @@ public class FrmClientes extends javax.swing.JFrame {
         // TODO add your handling code here:
         FrmFeedbacks tela = new FrmFeedbacks();
         tela.setVisible(true);
-
+        this.dispose(); 
     }//GEN-LAST:event_feedbacksMouseClicked
 
     /**
@@ -2077,6 +2086,254 @@ public class FrmClientes extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FrmClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
