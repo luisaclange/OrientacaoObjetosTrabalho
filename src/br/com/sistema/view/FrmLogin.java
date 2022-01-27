@@ -8,6 +8,7 @@ package br.com.sistema.view;
 
 import br.com.sistema.dao.FuncionariosDAO;
 import br.com.sistema.jdbc.ConnectionFactory;
+import br.com.sistema.model.Utilitarios;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -262,7 +263,7 @@ public class FrmLogin extends javax.swing.JFrame {
             //senha = txtsenha.getText();
             senha = new String(txtsenha.getPassword());
 
-            FuncionariosDAO dao = new FuncionariosDAO();
+            FuncionariosDAO dao = new FuncionariosDAO(); 
 
             if(dao.efetuaLogin(email, senha)){
                 this.dispose();
@@ -325,6 +326,13 @@ public class FrmLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                Utilitarios util = new Utilitarios();
+                String [] tema = util.getConfigJson();
+                if(tema[1].equals("")){
+                    String nome = JOptionPane.showInputDialog("Primeiro acesso! digite o nome da empresa", "");
+                    util.setConfigJson("shopping-cart-check.png", nome);
+                }
+                
                 new FrmLogin().setVisible(true);
             }
         });

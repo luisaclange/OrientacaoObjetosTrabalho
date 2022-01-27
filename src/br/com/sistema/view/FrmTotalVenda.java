@@ -6,10 +6,14 @@
 package br.com.sistema.view;
 
 import br.com.sistema.dao.VendasDAO;
+import br.com.sistema.model.Utilitarios;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -57,8 +61,16 @@ public class FrmTotalVenda extends javax.swing.JFrame {
         dataatual = new javax.swing.JLabel();
         totalvendas = new javax.swing.JLabel();
         navbar = new javax.swing.JPanel();
-        arealogo = new javax.swing.JPanel();
-        logo = new javax.swing.JLabel();
+        String[] tema = new Utilitarios().getConfigJson();
+
+        ImageIcon icon = new ImageIcon(tema[0]);
+
+        Image image = icon.getImage();
+        arealogo = new javax.swing.JPanel(){
+            public void paintComponent(Graphics g){
+                g.drawImage(image, 0,0, getWidth(),getHeight(),this);
+            }
+        };
         btninicio = new javax.swing.JPanel();
         inicio = new javax.swing.JLabel();
         iconinicio = new javax.swing.JLabel();
@@ -510,25 +522,15 @@ public class FrmTotalVenda extends javax.swing.JFrame {
         arealogo.setBackground(new java.awt.Color(52, 55, 115));
         arealogo.setMinimumSize(new java.awt.Dimension(150, 150));
 
-        logo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        logo.setForeground(new java.awt.Color(242, 242, 242));
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/shopping-cart-check.png"))); // NOI18N
-
         javax.swing.GroupLayout arealogoLayout = new javax.swing.GroupLayout(arealogo);
         arealogo.setLayout(arealogoLayout);
         arealogoLayout.setHorizontalGroup(
             arealogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, arealogoLayout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(logo)
-                .addContainerGap(75, Short.MAX_VALUE))
+            .addGap(0, 214, Short.MAX_VALUE)
         );
         arealogoLayout.setVerticalGroup(
             arealogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, arealogoLayout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
-                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+            .addGap(0, 217, Short.MAX_VALUE)
         );
 
         navbar.add(arealogo);
@@ -1285,7 +1287,6 @@ public class FrmTotalVenda extends javax.swing.JFrame {
     private javax.swing.JLabel iconusuario1;
     private javax.swing.JLabel inicio;
     private javax.swing.JLabel lblusuario;
-    private javax.swing.JLabel logo;
     private javax.swing.JPanel navbar;
     private javax.swing.JPanel opcoes;
     private javax.swing.JPanel painelinferior5;

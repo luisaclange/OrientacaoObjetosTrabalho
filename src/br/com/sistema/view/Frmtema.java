@@ -5,7 +5,18 @@
  */
 package br.com.sistema.view;
 
+import br.com.sistema.model.Utilitarios;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -52,9 +63,19 @@ public class FrmTema extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnaplicar = new com.k33ptoo.components.KButton();
         btncancelar = new com.k33ptoo.components.KButton();
+        txtlogo = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         navbar = new javax.swing.JPanel();
-        arealogo = new javax.swing.JPanel();
-        logo = new javax.swing.JLabel();
+        String[] tema = new Utilitarios().getConfigJson();
+
+        ImageIcon icon = new ImageIcon(tema[0]);
+
+        Image image = icon.getImage();
+        arealogo = new javax.swing.JPanel(){
+            public void paintComponent(Graphics g){
+                g.drawImage(image, 0,0, getWidth(),getHeight(),this);
+            }
+        };
         btninicio = new javax.swing.JPanel();
         inicio = new javax.swing.JLabel();
         iconinicio = new javax.swing.JLabel();
@@ -373,6 +394,11 @@ public class FrmTema extends javax.swing.JFrame {
 
         upload.setBackground(new java.awt.Color(206, 215, 242));
         upload.setForeground(new java.awt.Color(2, 30, 115));
+        upload.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                uploadMouseClicked(evt);
+            }
+        });
 
         iconeup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/upload.png"))); // NOI18N
 
@@ -414,13 +440,18 @@ public class FrmTema extends javax.swing.JFrame {
         btnaplicar.setkPressedColor(new java.awt.Color(75, 97, 166));
         btnaplicar.setkSelectedColor(new java.awt.Color(145, 176, 217));
         btnaplicar.setkStartColor(new java.awt.Color(52, 55, 115));
+        btnaplicar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnaplicarMouseClicked(evt);
+            }
+        });
         btnaplicar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnaplicarActionPerformed(evt);
             }
         });
 
-        btncancelar.setText("Salvar");
+        btncancelar.setText("Cancelar");
         btncancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btncancelar.setkBackGroundColor(new java.awt.Color(145, 176, 217));
         btncancelar.setkEndColor(new java.awt.Color(75, 97, 166));
@@ -430,11 +461,29 @@ public class FrmTema extends javax.swing.JFrame {
         btncancelar.setkPressedColor(new java.awt.Color(75, 97, 166));
         btncancelar.setkSelectedColor(new java.awt.Color(145, 176, 217));
         btncancelar.setkStartColor(new java.awt.Color(52, 55, 115));
+        btncancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btncancelarMouseClicked(evt);
+            }
+        });
         btncancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncancelarActionPerformed(evt);
             }
         });
+
+        txtlogo.setEditable(false);
+        txtlogo.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        txtlogo.setForeground(new java.awt.Color(2, 30, 115));
+        txtlogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtlogoActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(63, 106, 197));
+        jLabel2.setText("Imagem selecionada:");
 
         javax.swing.GroupLayout cardlogoLayout = new javax.swing.GroupLayout(cardlogo);
         cardlogo.setLayout(cardlogoLayout);
@@ -444,13 +493,17 @@ public class FrmTema extends javax.swing.JFrame {
                 .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(opcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(cardlogoLayout.createSequentialGroup()
-                        .addGap(328, 328, 328)
-                        .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(cardlogoLayout.createSequentialGroup()
+                        .addGap(211, 211, 211)
+                        .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cardlogoLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtlogo))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cardlogoLayout.createSequentialGroup()
                                 .addComponent(btnaplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(upload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(upload, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         cardlogoLayout.setVerticalGroup(
@@ -459,7 +512,11 @@ public class FrmTema extends javax.swing.JFrame {
                 .addComponent(opcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
                 .addComponent(upload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addGap(8, 8, 8)
+                .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtlogo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnaplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -482,25 +539,15 @@ public class FrmTema extends javax.swing.JFrame {
         arealogo.setBackground(new java.awt.Color(52, 55, 115));
         arealogo.setMinimumSize(new java.awt.Dimension(150, 150));
 
-        logo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        logo.setForeground(new java.awt.Color(242, 242, 242));
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/shopping-cart-check.png"))); // NOI18N
-
         javax.swing.GroupLayout arealogoLayout = new javax.swing.GroupLayout(arealogo);
         arealogo.setLayout(arealogoLayout);
         arealogoLayout.setHorizontalGroup(
             arealogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, arealogoLayout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(logo)
-                .addContainerGap(75, Short.MAX_VALUE))
+            .addGap(0, 214, Short.MAX_VALUE)
         );
         arealogoLayout.setVerticalGroup(
             arealogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, arealogoLayout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
-                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+            .addGap(0, 217, Short.MAX_VALUE)
         );
 
         navbar.add(arealogo);
@@ -962,24 +1009,6 @@ public class FrmTema extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_abaconfiguraçõesMouseExited
 
-    private void consulteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consulteMouseClicked
-        // TODO add your handling code here:
-        opcoes.setVisible(true);
-        cardlogo.setVisible(true);
-
-        consulte.setForeground(new Color(63, 106, 191));
-    }//GEN-LAST:event_consulteMouseClicked
-
-    private void btnaplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaplicarActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_btnaplicarActionPerformed
-
-    private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_btncancelarActionPerformed
-
     private void painelinferiorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelinferiorMouseEntered
         // TODO add your handling code here:
         abaprodutos.setSize(0,0);
@@ -1152,6 +1181,54 @@ public class FrmTema extends javax.swing.JFrame {
         abaconfigurações.setSize(0,0);
     }//GEN-LAST:event_navbarMouseExited
 
+    private void txtlogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlogoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtlogoActionPerformed
+
+    private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btncancelarActionPerformed
+
+    private void btncancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncancelarMouseClicked
+        FrmMenu menu = new FrmMenu();
+
+        menu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btncancelarMouseClicked
+
+    private void btnaplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaplicarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnaplicarActionPerformed
+
+    private void btnaplicarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnaplicarMouseClicked
+        try {
+            Utilitarios util = new Utilitarios();
+
+            Path fundo = Paths.get(txtlogo.getText()); // Armazena a imagem selecionada pelo usuário
+
+            Path diretorioImagens = Paths.get("./src/imagens/"  + fundo.getFileName()); // Escolhe o novo diretório da imagem
+
+            Files.copy(fundo, diretorioImagens, StandardCopyOption.REPLACE_EXISTING); // Copia e, se necessário, substitui a imagen
+
+            util.setConfigJson(fundo.getFileName().toString(),"SEM SISTEMAS"); // Altera a configuração de inicialização no JSON
+
+        } catch (IOException ex) {
+            Logger.getLogger(FrmTema.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnaplicarMouseClicked
+
+    private void uploadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uploadMouseClicked
+        new Utilitarios().escolheImagem(this, txtlogo);
+    }//GEN-LAST:event_uploadMouseClicked
+
+    private void consulteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consulteMouseClicked
+        // TODO add your handling code here:
+        opcoes.setVisible(true);
+        cardlogo.setVisible(true);
+
+        consulte.setForeground(new Color(63, 106, 191));
+    }//GEN-LAST:event_consulteMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1231,8 +1308,8 @@ public class FrmTema extends javax.swing.JFrame {
     private javax.swing.JLabel iconusuario1;
     private javax.swing.JLabel inicio;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblusuario;
-    private javax.swing.JLabel logo;
     private javax.swing.JPanel navbar;
     private javax.swing.JPanel opcoes;
     private javax.swing.JPanel painelinferior;
@@ -1244,6 +1321,7 @@ public class FrmTema extends javax.swing.JFrame {
     private javax.swing.JPanel telatema;
     private javax.swing.JPanel titulo;
     private javax.swing.JLabel titulototalvendas;
+    private javax.swing.JTextField txtlogo;
     private javax.swing.JPanel upload;
     private javax.swing.JLabel usuario1;
     // End of variables declaration//GEN-END:variables

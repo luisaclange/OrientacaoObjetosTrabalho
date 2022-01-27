@@ -80,10 +80,8 @@ public class Utilitarios {
             try (FileReader f = new FileReader(arquivo)) {
                 jsonObject = (JSONObject) parser.parse(f);
             }
-            tema[0] = (String) jsonObject.get("Fundo");
-            /*tema[1] = (String) jsonObject.get("Logo");
-            tema[2] = (String) jsonObject.get("CorPrimaria");
-            tema[3] = (String) jsonObject.get("CorSecundaria");*/
+            tema[0] = (String) jsonObject.get("Logo");
+            tema[1] = (String) jsonObject.get("Nome");
             
             return tema;
             
@@ -96,17 +94,15 @@ public class Utilitarios {
     }
     
     // public static void setConfigJson(String fundo, String logo, Color corPrimaria, Color corSecundaria){
-    public void setConfigJson(String fundo){
+    public void setConfigJson(String fundo, String nome){
         FileWriter writeJson = null;
         String arquivo = "./src/config/config.json";
         JSONObject jsonObject = new JSONObject();
         
         try {
             //preenche o objeto com os campos do tema
-            jsonObject.put("Fundo", "./src/imagens/" + fundo);
-            // jsonObject.put("Logo", logo); 
-            // jsonObject.put("CorPrincipal", String.valueOf(corPrimaria));
-            // jsonObject.put("CorSecundaria", String.valueOf(corSecundaria));
+            jsonObject.put("Logo", "./src/imagens/" + fundo);
+            jsonObject.put("Nome", nome); // ADICIONAR PRA TROCAR NOME DO USUARIO DO SISTEMA
             writeJson = new FileWriter(arquivo);
             writeJson.write(jsonObject.toString());
         } catch (IOException ex) {

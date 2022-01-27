@@ -5,6 +5,7 @@
  */
 package br.com.sistema.view;
 
+import br.com.sistema.model.Utilitarios;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -37,7 +38,16 @@ public class FrmMenu extends javax.swing.JFrame {
 
         tela = new javax.swing.JPanel();
         navbar = new javax.swing.JPanel();
-        arealogo = new javax.swing.JPanel();
+        String[] tema = new Utilitarios().getConfigJson();
+
+        ImageIcon icon = new ImageIcon(tema[0]);
+
+        Image image = icon.getImage();
+        arealogo = new javax.swing.JPanel(){
+            public void paintComponent(Graphics g){
+                g.drawImage(image, 0,0, getWidth(),getHeight(),this);
+            }
+        };
         logo = new javax.swing.JLabel();
         btninicio = new javax.swing.JPanel();
         inicio = new javax.swing.JLabel();
@@ -76,8 +86,10 @@ public class FrmMenu extends javax.swing.JFrame {
         btnlogo = new javax.swing.JLabel();
         btntrocaruser = new javax.swing.JLabel();
         titulo = new javax.swing.JPanel();
+
         sem = new javax.swing.JLabel();
-        sistemas = new javax.swing.JLabel();
+
+        sem.setText(tema[1]);
         versao = new javax.swing.JLabel();
         slogan = new javax.swing.JLabel();
         painelsuperior = new javax.swing.JPanel();
@@ -112,7 +124,6 @@ public class FrmMenu extends javax.swing.JFrame {
 
         logo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         logo.setForeground(new java.awt.Color(242, 242, 242));
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/shopping-cart-check.png"))); // NOI18N
 
         javax.swing.GroupLayout arealogoLayout = new javax.swing.GroupLayout(arealogo);
         arealogo.setLayout(arealogoLayout);
@@ -598,18 +609,13 @@ public class FrmMenu extends javax.swing.JFrame {
 
         sem.setFont(new java.awt.Font("Segoe UI Light", 1, 48)); // NOI18N
         sem.setForeground(new java.awt.Color(52, 55, 115));
-        sem.setText("SEM");
-
-        sistemas.setFont(new java.awt.Font("Segoe UI Light", 1, 48)); // NOI18N
-        sistemas.setForeground(new java.awt.Color(52, 55, 115));
-        sistemas.setText("SISTEMAS");
 
         versao.setFont(new java.awt.Font("Segoe UI Light", 0, 48)); // NOI18N
         versao.setForeground(new java.awt.Color(52, 55, 115));
 
         slogan.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         slogan.setForeground(new java.awt.Color(52, 55, 115));
-        slogan.setText("O melhor software de gerenciamento para o seu mercado");
+        slogan.setText("Desenvolvido por SEM Sistemas - O melhor software de gerenciamento para o seu mercado");
 
         javax.swing.GroupLayout tituloLayout = new javax.swing.GroupLayout(titulo);
         titulo.setLayout(tituloLayout);
@@ -622,13 +628,11 @@ public class FrmMenu extends javax.swing.JFrame {
                         .addComponent(versao))
                     .addGroup(tituloLayout.createSequentialGroup()
                         .addGap(73, 73, 73)
-                        .addComponent(sem)
-                        .addGap(18, 18, 18)
-                        .addComponent(sistemas, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(sem))
                     .addGroup(tituloLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
+                        .addGap(59, 59, 59)
                         .addComponent(slogan)))
-                .addGap(427, 427, 427))
+                .addContainerGap())
         );
         tituloLayout.setVerticalGroup(
             tituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -636,11 +640,10 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(versao)
                 .addGap(3, 3, 3)
-                .addGroup(tituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sem)
-                    .addComponent(sistemas))
-                .addGap(6, 6, 6)
-                .addComponent(slogan))
+                .addComponent(sem)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addComponent(slogan)
+                .addContainerGap())
         );
 
         tela.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 950, 170));
@@ -1019,7 +1022,10 @@ public class FrmMenu extends javax.swing.JFrame {
 
     private void btnlogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoMouseClicked
         // TODO add your handling code here:
-        abaconfigurações.setSize(0,0);
+        FrmTema tema = new FrmTema();
+        
+        tema.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnlogoMouseClicked
 
     private void btnlogoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoMouseEntered
@@ -1273,7 +1279,6 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel produtos;
     private javax.swing.JLabel sair;
     private javax.swing.JLabel sem;
-    private javax.swing.JLabel sistemas;
     private javax.swing.JLabel slogan;
     private javax.swing.JPanel tela;
     private javax.swing.JPanel titulo;

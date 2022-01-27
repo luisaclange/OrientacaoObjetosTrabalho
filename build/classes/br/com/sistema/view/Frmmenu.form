@@ -81,6 +81,10 @@
                   <Dimension value="[150, 150]"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel(){&#xa;    public void paintComponent(Graphics g){&#xa;        g.drawImage(image, 0,0, getWidth(),getHeight(),this);&#xa;    }&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="String[] tema = new Utilitarios().getConfigJson();&#xa;&#xa;ImageIcon icon = new ImageIcon(tema[0]);&#xa;        &#xa;Image image = icon.getImage();"/>
+              </AuxValues>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -110,9 +114,6 @@
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f2" green="f2" red="f2" type="rgb"/>
-                    </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagens/shopping-cart-check.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -932,7 +933,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="380" pref="380" max="-2" attributes="0"/>
@@ -941,15 +942,13 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="73" pref="73" max="-2" attributes="0"/>
                               <Component id="sem" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="sistemas" min="-2" pref="220" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="73" pref="73" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                               <Component id="slogan" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="427" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -959,12 +958,10 @@
                       <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
                       <Component id="versao" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="sem" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="sistemas" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                      <Component id="sem" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="100" max="32767" attributes="0"/>
                       <Component id="slogan" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -978,19 +975,11 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="73" green="37" red="34" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="SEM"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="sistemas">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI Light" size="48" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="73" green="37" red="34" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="SISTEMAS"/>
-              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JLabel();&#xd;&#xa;        &#xd;&#xa;sem.setText(tema[1]);"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="&#xd;&#xa;"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="versao">
               <Properties>
@@ -1010,7 +999,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="73" green="37" red="34" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="O melhor software de gerenciamento para o seu mercado"/>
+                <Property name="text" type="java.lang.String" value="Desenvolvido por SEM Sistemas - O melhor software de gerenciamento para o seu mercado"/>
               </Properties>
             </Component>
           </SubComponents>
