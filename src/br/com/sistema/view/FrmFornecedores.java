@@ -63,6 +63,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
     public FrmFornecedores() {
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
 
         DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
@@ -178,6 +179,8 @@ public class FrmFornecedores extends javax.swing.JFrame {
         btnconfigurações = new javax.swing.JPanel();
         configurações = new javax.swing.JLabel();
         iconconfigurações = new javax.swing.JLabel();
+        btnfeedbacks = new javax.swing.JPanel();
+        configurações1 = new javax.swing.JLabel();
         btnsair = new javax.swing.JPanel();
         sair = new javax.swing.JLabel();
         iconsair = new javax.swing.JLabel();
@@ -189,7 +192,8 @@ public class FrmFornecedores extends javax.swing.JFrame {
         usuario1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Clientes");
+        setTitle("Cadastro de Fornecedores");
+        setPreferredSize(new java.awt.Dimension(20000, 20000));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -198,7 +202,8 @@ public class FrmFornecedores extends javax.swing.JFrame {
         });
 
         telafornecedores.setBackground(new java.awt.Color(245, 245, 245));
-        telafornecedores.setPreferredSize(new java.awt.Dimension(1200, 700));
+        telafornecedores.setMinimumSize(new java.awt.Dimension(1200, 700));
+        telafornecedores.setPreferredSize(new java.awt.Dimension(20000, 20000));
         telafornecedores.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         painelinferior.setBackground(new java.awt.Color(245, 245, 245));
@@ -514,7 +519,6 @@ public class FrmFornecedores extends javax.swing.JFrame {
         tabelaFornecedores.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         tabelaFornecedores.setGridColor(new java.awt.Color(255, 255, 255));
         tabelaFornecedores.setSelectionBackground(new java.awt.Color(69, 99, 191));
-        tabelaFornecedores.setShowVerticalLines(false);
         tabelaFornecedores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelaFornecedoresMouseClicked(evt);
@@ -603,8 +607,8 @@ public class FrmFornecedores extends javax.swing.JFrame {
                         .addGap(1, 1, 1)
                         .addComponent(btnpesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(21, 21, 21)
-                .addComponent(scrollTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addComponent(scrollTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         abafornecedores.add(consulta, "card2");
@@ -915,15 +919,6 @@ public class FrmFornecedores extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(txtcidade, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(cadastroLayout.createSequentialGroup()
-                .addGap(275, 275, 275)
-                .addComponent(btnnovo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(cadastroLayout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addGroup(cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cadastroLayout.createSequentialGroup()
@@ -942,6 +937,15 @@ public class FrmFornecedores extends javax.swing.JFrame {
                 .addGroup(cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cnpj)
                     .addComponent(txtcnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(cadastroLayout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(btnnovo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         cadastroLayout.setVerticalGroup(
             cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -990,20 +994,20 @@ public class FrmFornecedores extends javax.swing.JFrame {
                     .addComponent(cbuf, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtcnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(122, 122, 122)
+                .addGap(55, 55, 55)
                 .addGroup(cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnnovo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         abafornecedores.add(cadastro, "card3");
 
         painelinferior.add(abafornecedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 590));
 
-        telafornecedores.add(painelinferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 950, 590));
+        telafornecedores.add(painelinferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 20000, 20000));
 
         titulo.setBackground(new java.awt.Color(145, 163, 217));
         titulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1018,7 +1022,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
         slogan.setText(" Cadastre e consulte seus fornecedores");
         titulo.add(slogan, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 103, -1, -1));
 
-        telafornecedores.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 950, 170));
+        telafornecedores.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 20000, 170));
 
         navbar.setBackground(new java.awt.Color(52, 55, 115));
         navbar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1232,6 +1236,30 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
         navbar.add(btnconfigurações);
 
+        btnfeedbacks.setBackground(new java.awt.Color(52, 55, 115));
+        btnfeedbacks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnfeedbacks.setPreferredSize(new java.awt.Dimension(250, 44));
+        btnfeedbacks.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnfeedbacksMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnfeedbacksMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnfeedbacksMouseExited(evt);
+            }
+        });
+        btnfeedbacks.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        configurações1.setBackground(new java.awt.Color(57, 77, 191));
+        configurações1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        configurações1.setForeground(new java.awt.Color(242, 242, 242));
+        configurações1.setText("Feedbacks");
+        btnfeedbacks.add(configurações1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 110, 24));
+
+        navbar.add(btnfeedbacks);
+
         btnsair.setBackground(new java.awt.Color(52, 55, 115));
         btnsair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnsair.setPreferredSize(new java.awt.Dimension(250, 44));
@@ -1259,7 +1287,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
         navbar.add(btnsair);
 
-        telafornecedores.add(navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 800));
+        telafornecedores.add(navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 20000));
 
         painelsuperior.setBackground(new java.awt.Color(245, 245, 245));
 
@@ -1301,7 +1329,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
                 .addComponent(usuario1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 423, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19480, Short.MAX_VALUE)
                 .addComponent(iconusuario1)
                 .addGap(12, 12, 12)
                 .addComponent(feedbacks)
@@ -1325,17 +1353,17 @@ public class FrmFornecedores extends javax.swing.JFrame {
                 .addGap(20, 20, 20))
         );
 
-        telafornecedores.add(painelsuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 950, 50));
+        telafornecedores.add(painelsuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 20000, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telafornecedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(telafornecedores, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telafornecedores, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(telafornecedores, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
 
         pack();
@@ -1594,16 +1622,15 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
     private void consulteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consulteMouseClicked
         // TODO add your handling code here:
-        opcoes.setVisible(true);
+        /*opcoes.setVisible(true);
         consulta.setVisible(true);
         cadastro.setVisible(false);
         consulte.setForeground(new Color(63, 106, 191));
-        cadastre.setForeground(new Color(52, 55, 115));
+        cadastre.setForeground(new Color(52, 55, 115));*/
     }//GEN-LAST:event_consulteMouseClicked
 
     private void cadastreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastreMouseClicked
         // TODO add your handling code here:
-        opcoes.setVisible(true);
         consulta.setVisible(false);
         cadastro.setVisible(true);
         cadastre.setForeground(new Color(63, 106, 191));
@@ -1864,8 +1891,6 @@ public class FrmFornecedores extends javax.swing.JFrame {
     private void consulte1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consulte1MouseClicked
         // TODO add your handling code here:
         consulta.setVisible(true);
-        opcoes.setVisible(true);
-        consulta.setVisible(true);
         cadastro.setVisible(false);
         consulte.setForeground(new Color(63, 106, 191));
         cadastre.setForeground(new Color(52, 55, 115));
@@ -2094,6 +2119,24 @@ public class FrmFornecedores extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_feedbacksMouseClicked
 
+    private void btnfeedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseClicked
+        FrmFeedbacks tela = new FrmFeedbacks();
+        tela.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnfeedbacksMouseClicked
+
+    private void btnfeedbacksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseEntered
+        btnfeedbacks.setBackground(new Color(75, 97, 166));
+        abaprodutos.setSize(0, 0);
+        abavendas.setSize(0, 0);
+        abaconfigurações.setSize(0, 0);
+    }//GEN-LAST:event_btnfeedbacksMouseEntered
+
+    private void btnfeedbacksMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseExited
+        // TODO add your handling code here:
+        btnfeedbacks.setBackground(new Color(52,55,115));
+    }//GEN-LAST:event_btnfeedbacksMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -2145,6 +2188,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton btneditar;
     private javax.swing.JLabel btnestoque;
     private com.k33ptoo.components.KButton btnexcluir;
+    private javax.swing.JPanel btnfeedbacks;
     private javax.swing.JPanel btnfornecedores;
     private javax.swing.JPanel btnfuncionarios;
     private javax.swing.JPanel btninicio;
@@ -2171,6 +2215,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
     private javax.swing.JLabel codigo;
     private javax.swing.JLabel complemento;
     private javax.swing.JLabel configurações;
+    private javax.swing.JLabel configurações1;
     private javax.swing.JPanel consulta;
     private javax.swing.JLabel consulte;
     private javax.swing.JLabel consulte1;

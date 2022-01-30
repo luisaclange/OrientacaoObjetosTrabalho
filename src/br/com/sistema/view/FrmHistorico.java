@@ -31,7 +31,9 @@ public class FrmHistorico extends javax.swing.JFrame {
      * Creates new form FrmHistorico
      */
     public FrmHistorico() {
+        
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
     }
     
     /**
@@ -102,6 +104,8 @@ public class FrmHistorico extends javax.swing.JFrame {
         btnconfigurações = new javax.swing.JPanel();
         configurações = new javax.swing.JLabel();
         iconconfigurações = new javax.swing.JLabel();
+        btnfeedbacks = new javax.swing.JPanel();
+        configurações1 = new javax.swing.JLabel();
         btnsair = new javax.swing.JPanel();
         sair = new javax.swing.JLabel();
         iconsair = new javax.swing.JLabel();
@@ -114,7 +118,9 @@ public class FrmHistorico extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Histórico de Vendas");
+        setPreferredSize(new java.awt.Dimension(20000, 20000));
         setResizable(false);
+        setSize(new java.awt.Dimension(20000, 20000));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -122,7 +128,7 @@ public class FrmHistorico extends javax.swing.JFrame {
         });
 
         telahistorico.setBackground(new java.awt.Color(245, 245, 245));
-        telahistorico.setPreferredSize(new java.awt.Dimension(1200, 700));
+        telahistorico.setPreferredSize(new java.awt.Dimension(20000, 20000));
         telahistorico.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         painelinferior.setBackground(new java.awt.Color(245, 245, 245));
@@ -407,7 +413,6 @@ public class FrmHistorico extends javax.swing.JFrame {
         tabelaHistorico.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         tabelaHistorico.setGridColor(new java.awt.Color(255, 255, 255));
         tabelaHistorico.setSelectionBackground(new java.awt.Color(69, 99, 191));
-        tabelaHistorico.setShowVerticalLines(false);
         tabelaHistorico.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelaHistoricoMouseClicked(evt);
@@ -547,15 +552,15 @@ public class FrmHistorico extends javax.swing.JFrame {
                         .addComponent(btnpesquisar3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtdatainicio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
-                .addComponent(scrollTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addComponent(scrollTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(149, Short.MAX_VALUE))
         );
 
         abadeprodutos.add(consulta, "card2");
 
         painelinferior.add(abadeprodutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 590));
 
-        telahistorico.add(painelinferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 950, 590));
+        telahistorico.add(painelinferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 20000, 20000));
 
         titulo.setBackground(new java.awt.Color(145, 163, 217));
         titulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -570,7 +575,7 @@ public class FrmHistorico extends javax.swing.JFrame {
         slogan.setText(" Consulte seu histórico de vendas");
         titulo.add(slogan, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 103, -1, -1));
 
-        telahistorico.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 950, 170));
+        telahistorico.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 20000, 170));
 
         navbar.setBackground(new java.awt.Color(52, 55, 115));
         navbar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -784,6 +789,30 @@ public class FrmHistorico extends javax.swing.JFrame {
 
         navbar.add(btnconfigurações);
 
+        btnfeedbacks.setBackground(new java.awt.Color(52, 55, 115));
+        btnfeedbacks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnfeedbacks.setPreferredSize(new java.awt.Dimension(250, 44));
+        btnfeedbacks.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnfeedbacksMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnfeedbacksMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnfeedbacksMouseExited(evt);
+            }
+        });
+        btnfeedbacks.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        configurações1.setBackground(new java.awt.Color(57, 77, 191));
+        configurações1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        configurações1.setForeground(new java.awt.Color(242, 242, 242));
+        configurações1.setText("Feedbacks");
+        btnfeedbacks.add(configurações1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 110, 24));
+
+        navbar.add(btnfeedbacks);
+
         btnsair.setBackground(new java.awt.Color(52, 55, 115));
         btnsair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnsair.setPreferredSize(new java.awt.Dimension(250, 44));
@@ -811,7 +840,7 @@ public class FrmHistorico extends javax.swing.JFrame {
 
         navbar.add(btnsair);
 
-        telahistorico.add(navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 800));
+        telahistorico.add(navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 20000));
 
         painelsuperior.setBackground(new java.awt.Color(245, 245, 245));
 
@@ -848,7 +877,7 @@ public class FrmHistorico extends javax.swing.JFrame {
                 .addComponent(usuario1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 423, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19480, Short.MAX_VALUE)
                 .addComponent(iconusuario1)
                 .addGap(12, 12, 12)
                 .addComponent(feedbacks)
@@ -872,17 +901,17 @@ public class FrmHistorico extends javax.swing.JFrame {
                 .addGap(20, 20, 20))
         );
 
-        telahistorico.add(painelsuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 950, 50));
+        telahistorico.add(painelsuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 20000, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telahistorico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(telahistorico, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telahistorico, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(telahistorico, javax.swing.GroupLayout.PREFERRED_SIZE, 700, Short.MAX_VALUE)
         );
 
         pack();
@@ -1332,6 +1361,23 @@ public class FrmHistorico extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowOpened
 
+    private void btnfeedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseClicked
+        FrmFeedbacks tela = new FrmFeedbacks();
+        tela.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnfeedbacksMouseClicked
+
+    private void btnfeedbacksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseEntered
+        btnfeedbacks.setBackground(new Color(75, 97, 166));
+        abaprodutos.setSize(0, 0);
+        abavendas.setSize(0, 0);
+        abaconfigurações.setSize(0, 0);
+    }//GEN-LAST:event_btnfeedbacksMouseEntered
+
+    private void btnfeedbacksMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseExited
+        btnfeedbacks.setBackground(new Color(52,55,115));
+    }//GEN-LAST:event_btnfeedbacksMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -1378,6 +1424,7 @@ public class FrmHistorico extends javax.swing.JFrame {
     private javax.swing.JLabel btncontrolevendas;
     private javax.swing.JLabel btncontrolprodutos;
     private javax.swing.JLabel btnestoque;
+    private javax.swing.JPanel btnfeedbacks;
     private javax.swing.JPanel btnfornecedores;
     private javax.swing.JPanel btnfuncionarios;
     private javax.swing.JPanel btninicio;
@@ -1392,6 +1439,7 @@ public class FrmHistorico extends javax.swing.JFrame {
     private javax.swing.JLabel clientes;
     private javax.swing.JLabel clientes5;
     private javax.swing.JLabel configurações;
+    private javax.swing.JLabel configurações1;
     private javax.swing.JPanel consulta;
     private javax.swing.JLabel consulte;
     private javax.swing.JLabel detalhedata;

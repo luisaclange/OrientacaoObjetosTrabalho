@@ -28,6 +28,7 @@ public class FrmLogin extends javax.swing.JFrame {
     public FrmLogin() {
         this.con = new ConnectionFactory().getConnection();
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -55,7 +56,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Seja bem vindo ao Sistema - Autenticação");
-        setPreferredSize(new java.awt.Dimension(1200, 800));
+        setPreferredSize(new java.awt.Dimension(1200, 700));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -64,7 +65,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
         fundo.setkEndColor(new java.awt.Color(52, 55, 115));
         fundo.setkStartColor(new java.awt.Color(63, 106, 191));
-        fundo.setPreferredSize(new java.awt.Dimension(1200, 800));
+        fundo.setPreferredSize(new java.awt.Dimension(1214, 800));
 
         panellogin.setBackground(new java.awt.Color(242, 242, 242));
 
@@ -82,11 +83,9 @@ public class FrmLogin extends javax.swing.JFrame {
         nomesistema.setForeground(new java.awt.Color(63, 106, 191));
         nomesistema.setText("SEM SISTEMAS");
 
-        email.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         email.setForeground(new java.awt.Color(109, 142, 242));
         email.setText("e-mail");
 
-        senha.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         senha.setForeground(new java.awt.Color(109, 142, 242));
         senha.setText("senha");
 
@@ -129,7 +128,6 @@ public class FrmLogin extends javax.swing.JFrame {
             }
         });
 
-        esquecisenha.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         esquecisenha.setForeground(new java.awt.Color(109, 142, 242));
         esquecisenha.setText("Esqueci minha senha");
         esquecisenha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -202,17 +200,18 @@ public class FrmLogin extends javax.swing.JFrame {
         fundoLayout.setHorizontalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoLayout.createSequentialGroup()
-                .addGap(138, 138, 138)
+                .addGap(130, 130, 130)
                 .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textoinferior)
-                    .addComponent(textosuperior))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoLayout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(figura)
-                .addGap(89, 89, 89)
-                .addComponent(panellogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(137, 137, 137))
+                    .addGroup(fundoLayout.createSequentialGroup()
+                        .addComponent(figura)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                        .addComponent(panellogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(130, 130, 130))
+                    .addGroup(fundoLayout.createSequentialGroup()
+                        .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textoinferior)
+                            .addComponent(textosuperior))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         fundoLayout.setVerticalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,7 +231,7 @@ public class FrmLogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fundo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1214, Short.MAX_VALUE)
+            .addComponent(fundo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

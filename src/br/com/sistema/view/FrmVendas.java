@@ -43,6 +43,7 @@ public class FrmVendas extends javax.swing.JFrame {
 
     public FrmVendas() {
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
 
     }
@@ -134,6 +135,8 @@ public class FrmVendas extends javax.swing.JFrame {
         btnconfigurações = new javax.swing.JPanel();
         configurações = new javax.swing.JLabel();
         iconconfigurações = new javax.swing.JLabel();
+        btnfeedbacks = new javax.swing.JPanel();
+        configurações1 = new javax.swing.JLabel();
         btnsair = new javax.swing.JPanel();
         sair = new javax.swing.JLabel();
         iconsair = new javax.swing.JLabel();
@@ -146,6 +149,7 @@ public class FrmVendas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela de vendas");
+        setPreferredSize(new java.awt.Dimension(1200, 700));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -154,11 +158,11 @@ public class FrmVendas extends javax.swing.JFrame {
         });
 
         telapdv.setBackground(new java.awt.Color(245, 245, 245));
-        telapdv.setPreferredSize(new java.awt.Dimension(1200, 700));
+        telapdv.setPreferredSize(new java.awt.Dimension(20000, 20000));
         telapdv.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         painelinferior.setBackground(new java.awt.Color(245, 245, 245));
-        painelinferior.setPreferredSize(new java.awt.Dimension(950, 480));
+        painelinferior.setPreferredSize(new java.awt.Dimension(20000, 20000));
         painelinferior.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 painelinferiorMouseEntered(evt);
@@ -712,7 +716,6 @@ public class FrmVendas extends javax.swing.JFrame {
         tabelaItens.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         tabelaItens.setGridColor(new java.awt.Color(255, 255, 255));
         tabelaItens.setSelectionBackground(new java.awt.Color(69, 99, 191));
-        tabelaItens.setShowVerticalLines(false);
         tabelaItens.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelaItensMouseClicked(evt);
@@ -839,20 +842,20 @@ public class FrmVendas extends javax.swing.JFrame {
                             .addComponent(totalvenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(opcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 42, Short.MAX_VALUE))
-            .addGroup(consultaLayout.createSequentialGroup()
-                .addContainerGap(255, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, consultaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnpagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(253, 253, 253))
+                .addGap(53, 53, 53))
         );
         consultaLayout.setVerticalGroup(
             consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(consultaLayout.createSequentialGroup()
                 .addComponent(opcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(consultaLayout.createSequentialGroup()
                         .addComponent(dadoscliente, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -862,21 +865,22 @@ public class FrmVendas extends javax.swing.JFrame {
                         .addComponent(carrinhocompras, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(totalvenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(45, 45, 45)
+                .addGap(5, 5, 5)
                 .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnpagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
         abadetalhevendas.add(consulta, "card2");
 
         painelinferior.add(abadetalhevendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 590));
 
-        telapdv.add(painelinferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 950, 590));
+        telapdv.add(painelinferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 20000, 20000));
 
         titulo.setBackground(new java.awt.Color(145, 163, 217));
+        titulo.setPreferredSize(new java.awt.Dimension(2000, 128));
         titulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titulovendas.setFont(new java.awt.Font("Segoe UI Light", 0, 48)); // NOI18N
@@ -889,7 +893,7 @@ public class FrmVendas extends javax.swing.JFrame {
         slogan.setText(" Confira os dados da venda");
         titulo.add(slogan, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 103, -1, -1));
 
-        telapdv.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 950, 170));
+        telapdv.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 20000, 170));
 
         navbar.setBackground(new java.awt.Color(52, 55, 115));
         navbar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1103,6 +1107,30 @@ public class FrmVendas extends javax.swing.JFrame {
 
         navbar.add(btnconfigurações);
 
+        btnfeedbacks.setBackground(new java.awt.Color(52, 55, 115));
+        btnfeedbacks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnfeedbacks.setPreferredSize(new java.awt.Dimension(250, 44));
+        btnfeedbacks.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnfeedbacksMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnfeedbacksMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnfeedbacksMouseExited(evt);
+            }
+        });
+        btnfeedbacks.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        configurações1.setBackground(new java.awt.Color(57, 77, 191));
+        configurações1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        configurações1.setForeground(new java.awt.Color(242, 242, 242));
+        configurações1.setText("Feedbacks");
+        btnfeedbacks.add(configurações1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 110, 24));
+
+        navbar.add(btnfeedbacks);
+
         btnsair.setBackground(new java.awt.Color(52, 55, 115));
         btnsair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnsair.setPreferredSize(new java.awt.Dimension(250, 44));
@@ -1130,7 +1158,7 @@ public class FrmVendas extends javax.swing.JFrame {
 
         navbar.add(btnsair);
 
-        telapdv.add(navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 800));
+        telapdv.add(navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 200000));
 
         painelsuperior.setBackground(new java.awt.Color(245, 245, 245));
 
@@ -1167,7 +1195,7 @@ public class FrmVendas extends javax.swing.JFrame {
                 .addComponent(usuario1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 423, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19480, Short.MAX_VALUE)
                 .addComponent(iconusuario1)
                 .addGap(12, 12, 12)
                 .addComponent(feedbacks)
@@ -1191,17 +1219,17 @@ public class FrmVendas extends javax.swing.JFrame {
                 .addGap(20, 20, 20))
         );
 
-        telapdv.add(painelsuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 950, 50));
+        telapdv.add(painelsuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 20000, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telapdv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(telapdv, javax.swing.GroupLayout.DEFAULT_SIZE, 20250, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telapdv, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(telapdv, javax.swing.GroupLayout.PREFERRED_SIZE, 700, Short.MAX_VALUE)
         );
 
         pack();
@@ -1684,6 +1712,24 @@ public class FrmVendas extends javax.swing.JFrame {
         abaconfigurações.setSize(0,0);
     }//GEN-LAST:event_navbarMouseExited
 
+    private void btnfeedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseClicked
+        FrmFeedbacks tela = new FrmFeedbacks();
+        tela.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnfeedbacksMouseClicked
+
+    private void btnfeedbacksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseEntered
+        btnfeedbacks.setBackground(new Color(75, 97, 166));
+        abaprodutos.setSize(0, 0);
+        abavendas.setSize(0, 0);
+        abaconfigurações.setSize(0, 0);
+    }//GEN-LAST:event_btnfeedbacksMouseEntered
+
+    private void btnfeedbacksMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseExited
+        // TODO add your handling code here:
+        btnfeedbacks.setBackground(new Color(52,55,115));
+    }//GEN-LAST:event_btnfeedbacksMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -1737,6 +1783,7 @@ public class FrmVendas extends javax.swing.JFrame {
     private javax.swing.JLabel btncontrolevendas;
     private javax.swing.JLabel btncontrolprodutos;
     private javax.swing.JLabel btnestoque;
+    private javax.swing.JPanel btnfeedbacks;
     private javax.swing.JPanel btnfornecedores;
     private javax.swing.JPanel btnfuncionarios;
     private javax.swing.JPanel btninicio;
@@ -1753,6 +1800,7 @@ public class FrmVendas extends javax.swing.JFrame {
     private javax.swing.JLabel clientes5;
     private javax.swing.JLabel codigo;
     private javax.swing.JLabel configurações;
+    private javax.swing.JLabel configurações1;
     private javax.swing.JPanel consulta;
     private javax.swing.JLabel consulte;
     private javax.swing.JLabel cpfcliente;

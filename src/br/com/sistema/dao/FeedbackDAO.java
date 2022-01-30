@@ -50,7 +50,6 @@ public class FeedbackDAO {
 
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro: " + erro);
-
         }
 
     }
@@ -60,7 +59,7 @@ public class FeedbackDAO {
         try {
 
             //1 passo  - criar o comando sql
-            String sql = "delete from tb_feedback where cliente_id = ?";
+            String sql = "delete from tb_feedback where id = ?";
 
             //2 passo - conectar o banco de dados e organizar o comando sql
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -113,7 +112,7 @@ public class FeedbackDAO {
             List<Feedback> lista = new ArrayList<>();
 
             //2 passo - criar o sql , organizar e executar.
-            String sql = "select date_format(f.data_feedback,'%d/%m/%Y') as data_formatada, c.id, c.nome, c.telefone, c.email, f.descricao from tb_feedback as f"
+            String sql = "select date_format(f.data_feedback,'%d/%m/%Y') as data_formatada, f.id, c.id, c.nome, c.telefone, c.email, f.descricao from tb_feedback as f"
                     +" inner join tb_clientes as c on (f.cliente_id = c.id)";
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
@@ -122,6 +121,7 @@ public class FeedbackDAO {
                 Feedback obj = new Feedback();
                 Clientes c = new Clientes();
                 
+                obj.setId(rs.getInt("f.id"));
                 c.setId(rs.getInt("c.id"));
                 c.setNome(rs.getString("c.nome"));
                 c.setTelefone(rs.getString("c.telefone"));

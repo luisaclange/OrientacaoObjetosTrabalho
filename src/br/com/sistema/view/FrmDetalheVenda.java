@@ -33,6 +33,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
      */
     public FrmDetalheVenda() {
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
         
         this.getContentPane().setBackground(Color.WHITE);
 
@@ -83,9 +84,6 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
         observacoes = new javax.swing.JLabel();
         scrollTabela = new javax.swing.JScrollPane();
         tabelaItensVendido = new javax.swing.JTable();
-        titulo = new javax.swing.JPanel();
-        titulovendas = new javax.swing.JLabel();
-        slogan = new javax.swing.JLabel();
         navbar = new javax.swing.JPanel();
         String[] tema = new Utilitarios().getConfigJson();
 
@@ -118,14 +116,17 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
         btnconfigurações = new javax.swing.JPanel();
         configurações = new javax.swing.JLabel();
         iconconfigurações = new javax.swing.JLabel();
+        btnfeedbacks = new javax.swing.JPanel();
+        feedbacks = new javax.swing.JLabel();
         btnsair = new javax.swing.JPanel();
         sair = new javax.swing.JLabel();
         iconsair = new javax.swing.JLabel();
+        titulo = new javax.swing.JPanel();
+        titulovendas = new javax.swing.JLabel();
+        slogan = new javax.swing.JLabel();
         painelsuperior = new javax.swing.JPanel();
         iconusuario = new javax.swing.JLabel();
-        feedbacks = new javax.swing.JLabel();
         lblusuario = new javax.swing.JLabel();
-        iconusuario1 = new javax.swing.JLabel();
         usuario1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -133,11 +134,12 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
         setResizable(false);
 
         teladetalhevendas.setBackground(new java.awt.Color(245, 245, 245));
-        teladetalhevendas.setPreferredSize(new java.awt.Dimension(1200, 700));
+        teladetalhevendas.setMinimumSize(new java.awt.Dimension(1200, 700));
+        teladetalhevendas.setPreferredSize(new java.awt.Dimension(20000, 20000));
         teladetalhevendas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         painelinferior.setBackground(new java.awt.Color(245, 245, 245));
-        painelinferior.setPreferredSize(new java.awt.Dimension(950, 480));
+        painelinferior.setPreferredSize(new java.awt.Dimension(20000, 20000));
         painelinferior.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 painelinferiorMouseEntered(evt);
@@ -552,32 +554,18 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
                             .addComponent(txtotalvenda, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(ScrollObs, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
-                .addComponent(scrollTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addComponent(scrollTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
         abadetalhevendas.add(consulta, "card2");
 
         painelinferior.add(abadetalhevendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 590));
 
-        teladetalhevendas.add(painelinferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 950, 590));
-
-        titulo.setBackground(new java.awt.Color(145, 163, 217));
-        titulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        titulovendas.setFont(new java.awt.Font("Segoe UI Light", 0, 48)); // NOI18N
-        titulovendas.setForeground(new java.awt.Color(52, 55, 115));
-        titulovendas.setText("Vendas");
-        titulo.add(titulovendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 33, -1, -1));
-
-        slogan.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        slogan.setForeground(new java.awt.Color(52, 55, 115));
-        slogan.setText(" Consulte suas vendas de forma detalhada");
-        titulo.add(slogan, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 103, -1, -1));
-
-        teladetalhevendas.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 950, 170));
+        teladetalhevendas.add(painelinferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, -1, -1));
 
         navbar.setBackground(new java.awt.Color(52, 55, 115));
+        navbar.setPreferredSize(new java.awt.Dimension(2519, 20000));
         navbar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 navbarMouseExited(evt);
@@ -789,6 +777,35 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
 
         navbar.add(btnconfigurações);
 
+        btnfeedbacks.setBackground(new java.awt.Color(52, 55, 115));
+        btnfeedbacks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnfeedbacks.setPreferredSize(new java.awt.Dimension(250, 44));
+        btnfeedbacks.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnfeedbacksMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnfeedbacksMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnfeedbacksMouseExited(evt);
+            }
+        });
+        btnfeedbacks.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        feedbacks.setBackground(new java.awt.Color(57, 77, 191));
+        feedbacks.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        feedbacks.setForeground(new java.awt.Color(242, 242, 242));
+        feedbacks.setText("Feedbacks");
+        feedbacks.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                feedbacksMouseClicked(evt);
+            }
+        });
+        btnfeedbacks.add(feedbacks, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 110, 24));
+
+        navbar.add(btnfeedbacks);
+
         btnsair.setBackground(new java.awt.Color(52, 55, 115));
         btnsair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnsair.setPreferredSize(new java.awt.Dimension(250, 44));
@@ -816,32 +833,34 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
 
         navbar.add(btnsair);
 
-        teladetalhevendas.add(navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 800));
+        teladetalhevendas.add(navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 700));
+
+        titulo.setBackground(new java.awt.Color(145, 163, 217));
+        titulo.setPreferredSize(new java.awt.Dimension(20000, 128));
+        titulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        titulovendas.setFont(new java.awt.Font("Segoe UI Light", 0, 48)); // NOI18N
+        titulovendas.setForeground(new java.awt.Color(52, 55, 115));
+        titulovendas.setText("Vendas");
+        titulo.add(titulovendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 33, -1, -1));
+
+        slogan.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        slogan.setForeground(new java.awt.Color(52, 55, 115));
+        slogan.setText(" Consulte suas vendas de forma detalhada");
+        titulo.add(slogan, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 103, -1, -1));
+
+        teladetalhevendas.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, -1, 170));
 
         painelsuperior.setBackground(new java.awt.Color(245, 245, 245));
+        painelsuperior.setPreferredSize(new java.awt.Dimension(20000, 53));
 
         iconusuario.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         iconusuario.setForeground(new java.awt.Color(52, 55, 115));
         iconusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/mode-portrait.png"))); // NOI18N
         iconusuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        feedbacks.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        feedbacks.setForeground(new java.awt.Color(52, 55, 115));
-        feedbacks.setText("FeedBacks");
-        feedbacks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        feedbacks.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                feedbacksMouseClicked(evt);
-            }
-        });
-
         lblusuario.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         lblusuario.setForeground(new java.awt.Color(52, 55, 115));
-
-        iconusuario1.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        iconusuario1.setForeground(new java.awt.Color(52, 55, 115));
-        iconusuario1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/comment (1).png"))); // NOI18N
-        iconusuario1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         usuario1.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         usuario1.setForeground(new java.awt.Color(52, 55, 115));
@@ -858,41 +877,33 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
                 .addComponent(usuario1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 423, Short.MAX_VALUE)
-                .addComponent(iconusuario1)
-                .addGap(12, 12, 12)
-                .addComponent(feedbacks)
-                .addContainerGap())
+                .addContainerGap(19583, Short.MAX_VALUE))
         );
         painelsuperiorLayout.setVerticalGroup(
             painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelsuperiorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(iconusuario)
-                        .addGroup(painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(painelsuperiorLayout.createSequentialGroup()
-                        .addGroup(painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(iconusuario1)
-                            .addComponent(feedbacks, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(3, 3, 3)))
+                .addGap(9, 9, 9)
+                .addGroup(painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(iconusuario)
+                    .addGroup(painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20))
         );
 
-        teladetalhevendas.add(painelsuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 950, 50));
+        teladetalhevendas.add(painelsuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, -1, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(teladetalhevendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(teladetalhevendas, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(teladetalhevendas, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(teladetalhevendas, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -1084,139 +1095,25 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
         abaconfigurações.setSize(0,0);
     }//GEN-LAST:event_painelinferiorMouseEntered
 
-    private void btninicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btninicioMouseClicked
+    private void navbarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navbarMouseExited
         // TODO add your handling code here:
-        FrmMenu tela = new FrmMenu();
-        tela.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btninicioMouseClicked
-
-    private void btninicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btninicioMouseEntered
-        // TODO add your handling code here:
-        btninicio.setBackground(new Color(75, 97, 166));
         abaprodutos.setSize(0,0);
         abavendas.setSize(0,0);
         abaconfigurações.setSize(0,0);
-    }//GEN-LAST:event_btninicioMouseEntered
+    }//GEN-LAST:event_navbarMouseExited
 
-    private void btninicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btninicioMouseExited
+    private void btnsairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsairMouseExited
         // TODO add your handling code here:
-        btninicio.setBackground(new Color(52,55,115));
-    }//GEN-LAST:event_btninicioMouseExited
+        btnsair.setBackground(new Color(52,55,115));
+    }//GEN-LAST:event_btnsairMouseExited
 
-    private void btnclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclientesMouseClicked
+    private void btnsairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsairMouseEntered
         // TODO add your handling code here:
-        FrmClientes tela = new FrmClientes();
-        tela.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnclientesMouseClicked
-
-    private void btnclientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclientesMouseEntered
-        // TODO add your handling code here:
-        btnclientes.setBackground(new Color(75, 97, 166));
-        abaprodutos.setSize(0,0);
-        abavendas.setSize(0,0);
-    }//GEN-LAST:event_btnclientesMouseEntered
-
-    private void btnclientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclientesMouseExited
-        // TODO add your handling code here:
-        btnclientes.setBackground(new Color(52,55,115));
-    }//GEN-LAST:event_btnclientesMouseExited
-
-    private void btnfuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfuncionariosMouseClicked
-        // TODO add your handling code here:
-        FrmFuncionarios tela = new FrmFuncionarios();
-        tela.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnfuncionariosMouseClicked
-
-    private void btnfuncionariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfuncionariosMouseEntered
-        // TODO add your handling code here:
-        btnfuncionarios.setBackground(new Color(75, 97, 166));
-        abaprodutos.setSize(0,0);
-        abavendas.setSize(0,0);
-    }//GEN-LAST:event_btnfuncionariosMouseEntered
-
-    private void btnfuncionariosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfuncionariosMouseExited
-        // TODO add your handling code here:
-        btnfuncionarios.setBackground(new Color(52,55,115));
-    }//GEN-LAST:event_btnfuncionariosMouseExited
-
-    private void btnfornecedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfornecedoresMouseClicked
-        // TODO add your handling code here:
-        FrmFornecedores tela = new FrmFornecedores ();
-        tela.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnfornecedoresMouseClicked
-
-    private void btnfornecedoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfornecedoresMouseEntered
-        // TODO add your handling code here:
-
-        btnfornecedores.setBackground(new Color(75, 97, 166));
+        btnsair.setBackground(new Color(75, 97, 166));
         abaprodutos.setSize(0,0);
         abavendas.setSize(0,0);
         abaconfigurações.setSize(0,0);
-    }//GEN-LAST:event_btnfornecedoresMouseEntered
-
-    private void btnfornecedoresMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfornecedoresMouseExited
-        // TODO add your handling code here:
-        btnfornecedores.setBackground(new Color(52,55,115));
-    }//GEN-LAST:event_btnfornecedoresMouseExited
-
-    private void btnprodutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnprodutosMouseClicked
-
-    }//GEN-LAST:event_btnprodutosMouseClicked
-
-    private void btnprodutosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnprodutosMouseEntered
-        // TODO add your handling code here:
-
-        btnprodutos.setBackground(new Color(75, 97, 166));
-        abaprodutos.setSize(170,88);
-        abavendas.setSize(0,0);
-        abaconfigurações.setSize(0,0);
-    }//GEN-LAST:event_btnprodutosMouseEntered
-
-    private void btnprodutosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnprodutosMouseExited
-        // TODO add your handling code here:
-        btnprodutos.setBackground(new Color(52,55,115));
-        abaprodutos.setSize(170,88);
-    }//GEN-LAST:event_btnprodutosMouseExited
-
-    private void btnvendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvendasMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnvendasMouseClicked
-
-    private void btnvendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvendasMouseEntered
-        // TODO add your handling code here:
-        btnvendas.setBackground(new Color(75, 97, 166));
-        abavendas.setSize(170,132);
-        abaprodutos.setSize(0,0);
-        abaconfigurações.setSize(0,0);
-    }//GEN-LAST:event_btnvendasMouseEntered
-
-    private void btnvendasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvendasMouseExited
-        // TODO add your handling code here:
-        btnvendas.setBackground(new Color(52,55,115));
-        abavendas.setSize(170,132);
-    }//GEN-LAST:event_btnvendasMouseExited
-
-    private void btnconfiguraçõesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnconfiguraçõesMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnconfiguraçõesMouseClicked
-
-    private void btnconfiguraçõesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnconfiguraçõesMouseEntered
-        // TODO add your handling code here:
-        btnconfigurações.setBackground(new Color(75, 97, 166));
-        abaconfigurações.setSize(170,88);
-        abaprodutos.setSize(0,0);
-        abavendas.setSize(0,0);
-    }//GEN-LAST:event_btnconfiguraçõesMouseEntered
-
-    private void btnconfiguraçõesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnconfiguraçõesMouseExited
-        // TODO add your handling code here:
-        btnconfigurações.setBackground(new Color(52,55,115));
-        abaconfigurações.setSize(170,88);
-    }//GEN-LAST:event_btnconfiguraçõesMouseExited
+    }//GEN-LAST:event_btnsairMouseEntered
 
     private void btnsairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsairMouseClicked
         // TODO add your handling code here:
@@ -1229,28 +1126,159 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnsairMouseClicked
 
-    private void btnsairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsairMouseEntered
+    private void btnfeedbacksMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseExited
         // TODO add your handling code here:
-        btnsair.setBackground(new Color(75, 97, 166));
+        btnfeedbacks.setBackground(new Color(52,55,115));
+    }//GEN-LAST:event_btnfeedbacksMouseExited
+
+    private void btnfeedbacksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseEntered
+        btnfeedbacks.setBackground(new Color(75, 97, 166));
+        abaprodutos.setSize(0, 0);
+        abavendas.setSize(0, 0);
+        abaconfigurações.setSize(0, 0);
+    }//GEN-LAST:event_btnfeedbacksMouseEntered
+
+    private void btnfeedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseClicked
+        FrmFeedbacks tela = new FrmFeedbacks();
+        tela.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnfeedbacksMouseClicked
+
+    private void btnconfiguraçõesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnconfiguraçõesMouseExited
+        // TODO add your handling code here:
+        btnconfigurações.setBackground(new Color(52,55,115));
+        abaconfigurações.setSize(170,88);
+    }//GEN-LAST:event_btnconfiguraçõesMouseExited
+
+    private void btnconfiguraçõesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnconfiguraçõesMouseEntered
+        // TODO add your handling code here:
+        btnconfigurações.setBackground(new Color(75, 97, 166));
+        abaconfigurações.setSize(170,88);
+        abaprodutos.setSize(0,0);
+        abavendas.setSize(0,0);
+    }//GEN-LAST:event_btnconfiguraçõesMouseEntered
+
+    private void btnconfiguraçõesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnconfiguraçõesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnconfiguraçõesMouseClicked
+
+    private void btnvendasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvendasMouseExited
+        // TODO add your handling code here:
+        btnvendas.setBackground(new Color(52,55,115));
+        abavendas.setSize(170,132);
+    }//GEN-LAST:event_btnvendasMouseExited
+
+    private void btnvendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvendasMouseEntered
+        // TODO add your handling code here:
+        btnvendas.setBackground(new Color(75, 97, 166));
+        abavendas.setSize(170,132);
+        abaprodutos.setSize(0,0);
+        abaconfigurações.setSize(0,0);
+    }//GEN-LAST:event_btnvendasMouseEntered
+
+    private void btnvendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvendasMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnvendasMouseClicked
+
+    private void btnprodutosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnprodutosMouseExited
+        // TODO add your handling code here:
+        btnprodutos.setBackground(new Color(52,55,115));
+        abaprodutos.setSize(170,88);
+    }//GEN-LAST:event_btnprodutosMouseExited
+
+    private void btnprodutosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnprodutosMouseEntered
+        // TODO add your handling code here:
+
+        btnprodutos.setBackground(new Color(75, 97, 166));
+        abaprodutos.setSize(170,88);
+        abavendas.setSize(0,0);
+        abaconfigurações.setSize(0,0);
+    }//GEN-LAST:event_btnprodutosMouseEntered
+
+    private void btnprodutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnprodutosMouseClicked
+
+    }//GEN-LAST:event_btnprodutosMouseClicked
+
+    private void btnfornecedoresMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfornecedoresMouseExited
+        // TODO add your handling code here:
+        btnfornecedores.setBackground(new Color(52,55,115));
+    }//GEN-LAST:event_btnfornecedoresMouseExited
+
+    private void btnfornecedoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfornecedoresMouseEntered
+        // TODO add your handling code here:
+
+        btnfornecedores.setBackground(new Color(75, 97, 166));
         abaprodutos.setSize(0,0);
         abavendas.setSize(0,0);
         abaconfigurações.setSize(0,0);
-    }//GEN-LAST:event_btnsairMouseEntered
+    }//GEN-LAST:event_btnfornecedoresMouseEntered
 
-    private void btnsairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsairMouseExited
+    private void btnfornecedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfornecedoresMouseClicked
         // TODO add your handling code here:
-        btnsair.setBackground(new Color(52,55,115));
-    }//GEN-LAST:event_btnsairMouseExited
+        FrmFornecedores tela = new FrmFornecedores ();
+        tela.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnfornecedoresMouseClicked
 
-    private void navbarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navbarMouseExited
+    private void btnfuncionariosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfuncionariosMouseExited
         // TODO add your handling code here:
+        btnfuncionarios.setBackground(new Color(52,55,115));
+    }//GEN-LAST:event_btnfuncionariosMouseExited
+
+    private void btnfuncionariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfuncionariosMouseEntered
+        // TODO add your handling code here:
+        btnfuncionarios.setBackground(new Color(75, 97, 166));
+        abaprodutos.setSize(0,0);
+        abavendas.setSize(0,0);
+    }//GEN-LAST:event_btnfuncionariosMouseEntered
+
+    private void btnfuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfuncionariosMouseClicked
+        // TODO add your handling code here:
+        FrmFuncionarios tela = new FrmFuncionarios();
+        tela.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnfuncionariosMouseClicked
+
+    private void btnclientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclientesMouseExited
+        // TODO add your handling code here:
+        btnclientes.setBackground(new Color(52,55,115));
+    }//GEN-LAST:event_btnclientesMouseExited
+
+    private void btnclientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclientesMouseEntered
+        // TODO add your handling code here:
+        btnclientes.setBackground(new Color(75, 97, 166));
+        abaprodutos.setSize(0,0);
+        abavendas.setSize(0,0);
+    }//GEN-LAST:event_btnclientesMouseEntered
+
+    private void btnclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclientesMouseClicked
+        // TODO add your handling code here:
+        FrmClientes tela = new FrmClientes();
+        tela.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnclientesMouseClicked
+
+    private void btninicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btninicioMouseExited
+        // TODO add your handling code here:
+        btninicio.setBackground(new Color(52,55,115));
+    }//GEN-LAST:event_btninicioMouseExited
+
+    private void btninicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btninicioMouseEntered
+        // TODO add your handling code here:
+        btninicio.setBackground(new Color(75, 97, 166));
         abaprodutos.setSize(0,0);
         abavendas.setSize(0,0);
         abaconfigurações.setSize(0,0);
-    }//GEN-LAST:event_navbarMouseExited
+    }//GEN-LAST:event_btninicioMouseEntered
+
+    private void btninicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btninicioMouseClicked
+        // TODO add your handling code here:
+        FrmMenu tela = new FrmMenu();
+        tela.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btninicioMouseClicked
 
     private void feedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_feedbacksMouseClicked
-        // TODO add your handling code here:
         FrmFeedbacks tela = new FrmFeedbacks();
         tela.setVisible(true);
         this.dispose();
@@ -1304,6 +1332,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
     private javax.swing.JLabel btncontrolevendas;
     private javax.swing.JLabel btncontrolprodutos;
     private javax.swing.JLabel btnestoque;
+    private javax.swing.JPanel btnfeedbacks;
     private javax.swing.JPanel btnfornecedores;
     private javax.swing.JPanel btnfuncionarios;
     private javax.swing.JPanel btninicio;
@@ -1334,7 +1363,6 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
     private javax.swing.JLabel iconprodutos;
     private javax.swing.JLabel iconsair;
     private javax.swing.JLabel iconusuario;
-    private javax.swing.JLabel iconusuario1;
     private javax.swing.JLabel inicio;
     private javax.swing.JLabel lblusuario;
     private javax.swing.JPanel navbar;

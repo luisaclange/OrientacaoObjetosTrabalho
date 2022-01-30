@@ -72,6 +72,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
     public FrmFuncionarios() {
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
         
         DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
@@ -195,6 +196,8 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         btnconfigurações = new javax.swing.JPanel();
         configurações = new javax.swing.JLabel();
         iconconfigurações = new javax.swing.JLabel();
+        btnfeedbacks = new javax.swing.JPanel();
+        feedback = new javax.swing.JLabel();
         btnsair = new javax.swing.JPanel();
         sair = new javax.swing.JLabel();
         iconsair = new javax.swing.JLabel();
@@ -207,6 +210,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Funcionários");
+        setPreferredSize(new java.awt.Dimension(20000, 20000));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -215,6 +219,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         });
 
         telafuncionarios.setBackground(new java.awt.Color(245, 245, 245));
+        telafuncionarios.setPreferredSize(new java.awt.Dimension(20000, 20000));
         telafuncionarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         painelinferior.setBackground(new java.awt.Color(245, 245, 245));
@@ -526,7 +531,6 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         tabelaFuncionarios.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         tabelaFuncionarios.setGridColor(new java.awt.Color(255, 255, 255));
         tabelaFuncionarios.setSelectionBackground(new java.awt.Color(69, 99, 191));
-        tabelaFuncionarios.setShowVerticalLines(false);
         tabelaFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelaFuncionariosMouseClicked(evt);
@@ -615,8 +619,8 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                         .addGap(1, 1, 1)
                         .addComponent(btnpesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26)
-                .addComponent(scrollTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addComponent(scrollTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         abafuncionarios.add(consulta, "card2");
@@ -1088,7 +1092,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         painelinferior.add(abafuncionarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 590));
 
-        telafuncionarios.add(painelinferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 950, 590));
+        telafuncionarios.add(painelinferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 20000, 20000));
 
         titulo.setBackground(new java.awt.Color(145, 163, 217));
         titulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1103,7 +1107,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         slogan.setText(" Cadastre e consulte seus funcionários");
         titulo.add(slogan, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 103, -1, -1));
 
-        telafuncionarios.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 950, 170));
+        telafuncionarios.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 20000, 170));
 
         navbar.setBackground(new java.awt.Color(52, 55, 115));
         navbar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1317,6 +1321,30 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         navbar.add(btnconfigurações);
 
+        btnfeedbacks.setBackground(new java.awt.Color(52, 55, 115));
+        btnfeedbacks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnfeedbacks.setPreferredSize(new java.awt.Dimension(250, 44));
+        btnfeedbacks.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnfeedbacksMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnfeedbacksMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnfeedbacksMouseExited(evt);
+            }
+        });
+        btnfeedbacks.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        feedback.setBackground(new java.awt.Color(57, 77, 191));
+        feedback.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        feedback.setForeground(new java.awt.Color(242, 242, 242));
+        feedback.setText("Feedbacks");
+        btnfeedbacks.add(feedback, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 110, 24));
+
+        navbar.add(btnfeedbacks);
+
         btnsair.setBackground(new java.awt.Color(52, 55, 115));
         btnsair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnsair.setPreferredSize(new java.awt.Dimension(250, 44));
@@ -1344,7 +1372,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         navbar.add(btnsair);
 
-        telafuncionarios.add(navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 800));
+        telafuncionarios.add(navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 200000));
 
         painelsuperior.setBackground(new java.awt.Color(245, 245, 245));
 
@@ -1381,7 +1409,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 .addComponent(usuario1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 423, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, Short.MAX_VALUE, Short.MAX_VALUE)
                 .addComponent(iconusuario1)
                 .addGap(12, 12, 12)
                 .addComponent(feedbacks)
@@ -1405,13 +1433,13 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 .addGap(20, 20, 20))
         );
 
-        telafuncionarios.add(painelsuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 950, 50));
+        telafuncionarios.add(painelsuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 200000, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telafuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(telafuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1687,16 +1715,15 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
     private void consulteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consulteMouseClicked
         // TODO add your handling code here:
-        opcoes.setVisible(true);
+        /*opcoes.setVisible(true);
         consulta.setVisible(true);
         cadastro.setVisible(false);
         consulte.setForeground(new Color(63, 106, 191));
-        cadastre.setForeground(new Color(52, 55, 115));
+        cadastre.setForeground(new Color(52, 55, 115));*/
     }//GEN-LAST:event_consulteMouseClicked
 
     private void cadastreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastreMouseClicked
         // TODO add your handling code here:
-        opcoes.setVisible(true);
         consulta.setVisible(false);
         cadastro.setVisible(true);
         cadastre.setForeground(new Color(63, 106, 191));
@@ -1920,8 +1947,6 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     private void consulte1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consulte1MouseClicked
         // TODO add your handling code here:
         consulta.setVisible(true);
-        opcoes.setVisible(true);
-        consulta.setVisible(true);
         cadastro.setVisible(false);
         consulte.setForeground(new Color(63, 106, 191));
         cadastre.setForeground(new Color(52, 55, 115));
@@ -2122,6 +2147,24 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         abaconfigurações.setSize(0,0);
     }//GEN-LAST:event_navbarMouseExited
 
+    private void btnfeedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseClicked
+        FrmFeedbacks tela = new FrmFeedbacks();
+        tela.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnfeedbacksMouseClicked
+
+    private void btnfeedbacksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseEntered
+        btnfeedbacks.setBackground(new Color(75, 97, 166));
+        abaprodutos.setSize(0, 0);
+        abavendas.setSize(0, 0);
+        abaconfigurações.setSize(0, 0);
+    }//GEN-LAST:event_btnfeedbacksMouseEntered
+
+    private void btnfeedbacksMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseExited
+        // TODO add your handling code here:
+        btnfeedbacks.setBackground(new Color(52,55,115));
+    }//GEN-LAST:event_btnfeedbacksMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -2173,6 +2216,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton btneditar;
     private javax.swing.JLabel btnestoque;
     private com.k33ptoo.components.KButton btnexcluir;
+    private javax.swing.JPanel btnfeedbacks;
     private javax.swing.JPanel btnfornecedores;
     private javax.swing.JPanel btnfuncionarios;
     private javax.swing.JPanel btninicio;
@@ -2206,6 +2250,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     private javax.swing.JLabel cpf;
     private javax.swing.JLabel email;
     private javax.swing.JLabel endereco;
+    private javax.swing.JLabel feedback;
     private javax.swing.JLabel feedbacks;
     private javax.swing.JLabel fixo;
     private javax.swing.JLabel fornecedores;
