@@ -41,7 +41,7 @@ public class Fornecedores extends  Clientes {
             }
         } return false;       
     }
-    public boolean equalsCnpjIn(String CNPJ, int id){//verifica se ja existe pessoas com esse cpf
+    public boolean equalsCnpjId(String CNPJ, int id){//verifica se ja existe pessoas com esse cpf
         
         FornecedoresDAO dao = new FornecedoresDAO();//cria conexão com o banco de dados
         List<Fornecedores> lista = dao.listarFornecedores();// cria lista dos clientes 

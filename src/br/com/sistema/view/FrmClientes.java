@@ -855,6 +855,7 @@ public class FrmClientes extends javax.swing.JFrame {
         });
 
         btnexcluir.setText("Excluir");
+        btnexcluir.setEnabled(false);
         btnexcluir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnexcluir.setkBackGroundColor(new java.awt.Color(145, 176, 217));
         btnexcluir.setkEndColor(new java.awt.Color(75, 97, 166));
@@ -1775,23 +1776,7 @@ public class FrmClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_txtendActionPerformed
 
     private void txtcpfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtcpfFocusLost
-        // TODO add your handling code here:
-        ValidaCPFeCNPJ model = new ValidaCPFeCNPJ();
-        Clientes obj = new Clientes();
-        Utilitarios verifica = new Utilitarios();
-
-        if (txtcpf.getText().equals("   .   .   -  ")) {// compara se a txtcpf está vazia
-        } else {
-            if (obj.equalsCpf(txtcpf.getText())) {// se for false...
-                JOptionPane.showMessageDialog(null, "CPF Já Cadastrado");
-            } else {
-                boolean testecpf = model.isCPF(txtcpf.getText());// envia o cpf para a validação
-                if (testecpf == false) {// se for false...
-                    JOptionPane.showMessageDialog(null, "CPF Inválido");
-                    txtcpf.setText(obj.getCpf());//seta null no campo cpf
-                }
-            }
-        }
+        // TODO add your handling code here:  
     }//GEN-LAST:event_txtcpfFocusLost
 
     private void txtcpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcpfActionPerformed
@@ -1799,16 +1784,6 @@ public class FrmClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_txtcpfActionPerformed
 
     private void txtcpfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcpfKeyPressed
-        /*if (evt.getKeyCode() == KeyEvent.VK_ENTER) {// se apertar Enter
-            ValidaCPFeCNPJ obj = new ValidaCPFeCNPJ();
-            //ClientesDAO dao = new ClientesDAO();
-            boolean testecpf = obj.isCPF(txtcpf.getText());// envia o cpf para a validação
-
-            if (testecpf == false) {// se for false...
-                JOptionPane.showMessageDialog(null, "CPF Inválido");
-
-            }
-        }*/
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcpfKeyPressed
 
@@ -1869,7 +1844,21 @@ public class FrmClientes extends javax.swing.JFrame {
 
         if (lib == 0) {
 
-            Clientes obj = new Clientes();
+            
+        Clientes obj = new Clientes();
+        Clientes limpa = new Clientes();// utilizado para setar o cpf nulo
+        ValidaCPFeCNPJ model = new ValidaCPFeCNPJ();
+        
+        if (model.isCPF(txtcpf.getText()) == false) {//Verifica se o Cpf é Valido se for false...
+            JOptionPane.showMessageDialog(null, "CPF Inválido");
+            txtcpf.setText(limpa.getCpf());//seta null no campo cpf
+            return;
+        } 
+        if (obj.equalsCpf(txtcpf.getText())) {// Verifica se o Cpf já está cadastrado se for false...
+            JOptionPane.showMessageDialog(null, "CPF Já Cadastrado");
+            txtcpf.setText(limpa.getCpf());//seta null no campo cpf
+            return;
+        }
 
             obj.setNome(txtnome.getText());
             obj.setRg(txtrg.getText());
@@ -1902,7 +1891,48 @@ public class FrmClientes extends javax.swing.JFrame {
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
 
         // botao editar
+       int lib = 0;  
+        String msg = "Os Campos: \n";
+        
+        if(txtnome.getText().equals("")){//campo nome vazio
+            msg += "\n Nome ";
+            lib++;
+        }
+        if(txtcpf.getText().equals("   .   .   -  ")){//campo cpf vazio
+            msg += "\n CPF ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo CPF está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+        if(txtcep.getText().equals("     -   ")){//campo cep vazio
+            msg += "\n CEP ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo CEP está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+        if(txtcel.getText().equals("(  )        -     ")){//campo celular vazio
+            msg += "\n Celular ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo Celular está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+       if (txtnumero.getText().equals("")){//se o numero da residencia estiver nulo seta 0
+            txtnumero.setText("0");
+        }
+
+        if (lib == 0){
+          
         Clientes obj = new Clientes();
+        ValidaCPFeCNPJ model = new ValidaCPFeCNPJ();
+        Utilitarios verifica = new Utilitarios();
+        
+        if (model.isCPF(txtcpf.getText()) == false) {//Verifica se o Cpf é Valido se for false...
+            JOptionPane.showMessageDialog(null, "CPF Inválido");
+            txtcpf.setText(obj.getCpf());//seta null no campo cpf
+            return;
+        } 
+        if (obj.equalsCpfId(txtcpf.getText(),(Integer.parseInt(txtcodigo.getText())))) {// Verifica se o Cpf já está cadastrado é o mesmo que está no id...
+            JOptionPane.showMessageDialog(null, "CPF Já Cadastrado");
+            txtcpf.setText(obj.getCpf());//seta null no campo cpf
+            return;
+        }
 
         obj.setNome(txtnome.getText());
         obj.setRg(txtrg.getText());
@@ -1925,6 +1955,17 @@ public class FrmClientes extends javax.swing.JFrame {
         dao.alterarCliente(obj);
 
         new Utilitarios().LimpaTela(cadastro);
+        
+        }else{
+              msg += "\n\n Estão Vazios.";
+        JOptionPane.showMessageDialog(null, msg, "ERRO AO EDITAR ", HEIGHT);
+        return;
+        }
+         
+        btnsalvar.setEnabled( true );// habilita o botão salvar
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btnexcluir.setEnabled( false );// desabilita o botão escluir
+        btnnovo.setEnabled( true );// habilita o botão escluir
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void btnexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluirActionPerformed

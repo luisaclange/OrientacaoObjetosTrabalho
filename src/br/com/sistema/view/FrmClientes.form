@@ -1403,7 +1403,7 @@
                     </Component>
                     <Component class="com.k33ptoo.components.KButton" name="btnexcluir">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Excluir"/>
+                        <Property name="text" type="java.lang.String" value="Excluir" postCode="btnexcluir.setEnabled(false);"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="14" style="0"/>
                         </Property>

@@ -1729,20 +1729,17 @@ public class FrmFornecedores extends javax.swing.JFrame {
             msg += "\n Nome ";
             lib++;
         }
-        if(txtcnpj.getText().equals("  .   .   /    -  ")){//campo cpf vazio
+        if(txtcnpj.getText().equals("  .   .   /    -  ")){//campo cnpj vazio
             msg += "\n CNPJ ";
-            lib++;
-            //JOptionPane.showMessageDialog(null, " Campo CPF está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+            lib++;           
         }
         if(txtcep.getText().equals("     -   ")){//campo cep vazio
             msg += "\n CEP ";
             lib++;
-            //JOptionPane.showMessageDialog(null, " Campo CEP está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
         }
         if(txtcel.getText().equals("(  )        -     ")){//campo celular vazio
             msg += "\n Celular ";
             lib++;
-            //JOptionPane.showMessageDialog(null, " Campo Celular está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
         }
         if (txtnumero.getText().equals("")){//se o numero da residencia estiver nulo seta 0
             txtnumero.setText("0");
@@ -1751,17 +1748,18 @@ public class FrmFornecedores extends javax.swing.JFrame {
         if (lib == 0){
             
         Fornecedores obj = new Fornecedores();
+        Fornecedores limpa = new Fornecedores();
         ValidaCPFeCNPJ model = new ValidaCPFeCNPJ();
         
         
         if (model.isCNPJ(txtcnpj.getText()) == false) {//Verifica se o CNPJ é Valido se for false...
             JOptionPane.showMessageDialog(null, "CNPJ Inválido");
-            txtcnpj.setText(obj.getCnpj());//seta null no campo CNPJ
+            txtcnpj.setText(limpa.getCnpj());//seta null no campo CNPJ
             return;
         } 
         if (obj.equalsCnpj(txtcnpj.getText())) {// Verifica se o CNPJ já está cadastrado se for false...
             JOptionPane.showMessageDialog(null, "CNPJ Já Cadastrado");
-            txtcnpj.setText(obj.getCnpj());//seta null no campo CNPJ
+            txtcnpj.setText(limpa.getCnpj());//seta null no campo CNPJ
             return;
         }
         
@@ -1830,7 +1828,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
             txtcnpj.setText(obj.getCnpj());//seta null no campo CNPJ
             return;
         } 
-        if (obj.equalsCnpjIn(txtcnpj.getText(), (Integer.parseInt(txtcodigo.getText())))) {// Verifica se o CNPJ já está cadastrado se for false...
+        if (obj.equalsCnpjId(txtcnpj.getText(), (Integer.parseInt(txtcodigo.getText())))) {// Verifica se o CNPJ já está cadastrado é o mesmo que está no id...
             JOptionPane.showMessageDialog(null, "CNPJ Já Cadastrado");
             txtcnpj.setText(obj.getCnpj());//seta null no campo CNPJ
             return;
@@ -1860,7 +1858,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
         
         }else{
               msg += "\n\n Estão Vazios.";
-        JOptionPane.showMessageDialog(null, msg, "ERRO AO CADASTRAR ", HEIGHT);
+        JOptionPane.showMessageDialog(null, msg, "ERRO AO EDITAR ", HEIGHT);
         return;
         }
         
@@ -1901,23 +1899,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastre1MouseClicked
 
     private void txtcnpjFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtcnpjFocusLost
-        // TODO add your handling code here:
-        // ao sair do jtextfield verifica se o CNPJ é valid
-        ValidaCPFeCNPJ model = new ValidaCPFeCNPJ();
-        Fornecedores obj = new Fornecedores();
-        if(txtcnpj.getText().equals("  .   .   /    -  ")){// compara se a txtCNPJ está vazia
-        }
-        else{
-            if (obj.equalsCpf(txtcnpj.getText())) {// se for false...
-                JOptionPane.showMessageDialog(null, "CNPJ Já Cadastrado");
-            }else{
-                boolean testecpf = model.isCNPJ(txtcnpj.getText());// envia o CNPJ para a validação
-                if (testecpf == false) {// se for false...
-                    JOptionPane.showMessageDialog(null, "CNPJ Inválido");
-                    txtcnpj.setText(obj.getCpf());//seta null no campo cpf
-                }
-            }
-        }
+        // TODO add your handling code here:        
     }//GEN-LAST:event_txtcnpjFocusLost
 
     private void txtcnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcnpjActionPerformed

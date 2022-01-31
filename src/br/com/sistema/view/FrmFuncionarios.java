@@ -1775,23 +1775,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_txtendActionPerformed
 
     private void txtcpfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtcpfFocusLost
-        ValidaCPFeCNPJ model = new ValidaCPFeCNPJ();
-        Funcionarios obj = new Funcionarios();
-        Utilitarios verifica = new Utilitarios();
-
-        if(txtcpf.getText().equals("   .   .   -  ")){// compara se a txtcpf está vazia
-        }
-        else{
-            if (obj.equalsCpf(txtcpf.getText())) {// se for false...
-                JOptionPane.showMessageDialog(null, "CPF Já Cadastrado");
-            }else{
-                boolean testecpf = model.isCPF(txtcpf.getText());// envia o cpf para a validação
-                if (testecpf == false) {// se for false...
-                    JOptionPane.showMessageDialog(null, "CPF Inválido");
-                    txtcpf.setText(obj.getCpf());//seta null no campo cpf
-                }
-            }
-        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_txtcpfFocusLost
 
     private void txtcpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcpfActionPerformed
@@ -1859,6 +1843,19 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         if (lib == 0){
 
             Funcionarios obj = new Funcionarios();
+            Funcionarios limpa = new Funcionarios();// utilizado para setar o cpf nulo
+            ValidaCPFeCNPJ model = new ValidaCPFeCNPJ();
+        
+        if (model.isCPF(txtcpf.getText()) == false) {//Verifica se o Cpf é Valido se for false...
+            JOptionPane.showMessageDialog(null, "CPF Inválido");
+            txtcpf.setText(limpa.getCpf());//seta null no campo cpf
+            return;
+        } 
+        if (obj.equalsCpf(txtcpf.getText())) {// Verifica se o Cpf já está cadastrado se for false...
+            JOptionPane.showMessageDialog(null, "CPF Já Cadastrado");
+            txtcpf.setText(limpa.getCpf());//seta null no campo cpf
+            return;
+        }
 
             obj.setNome(txtnome.getText());
             obj.setRg(txtrg.getText());
@@ -1895,7 +1892,49 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         // TODO add your handling code here:
         // botao editar
 
+        int lib = 0;  
+        String msg = "Os Campos: \n";
+        
+        if(txtnome.getText().equals("")){//campo nome vazio
+            msg += "\n Nome ";
+            lib++;
+        }
+        if(txtcpf.getText().equals("   .   .   -  ")){//campo cpf vazio
+            msg += "\n CPF ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo CPF está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+        if(txtcep.getText().equals("     -   ")){//campo cep vazio
+            msg += "\n CEP ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo CEP está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+        if(txtcel.getText().equals("(  )        -     ")){//campo celular vazio
+            msg += "\n Celular ";
+            lib++;
+            //JOptionPane.showMessageDialog(null, " Campo Celular está Vazio ", "ERRO AO CADASTRAR ", HEIGHT);
+        }
+       if (txtnumero.getText().equals("")){//se o numero da residencia estiver nulo seta 0
+            txtnumero.setText("0");
+        }
+
+        if (lib == 0){
+            
+        
         Funcionarios obj = new Funcionarios();
+        ValidaCPFeCNPJ model = new ValidaCPFeCNPJ();
+        
+        
+        if (model.isCPF(txtcpf.getText()) == false) {//Verifica se o Cpf é Valido se for false...
+            JOptionPane.showMessageDialog(null, "CPF Inválido");
+            txtcpf.setText(obj.getCpf());//seta null no campo cpf
+            return;
+        } 
+        if (obj.equalsCpfId(txtcpf.getText(),(Integer.parseInt(txtcodigo.getText())))) {// Verifica se o Cpf já está cadastrado é o mesmo que está no id...
+            JOptionPane.showMessageDialog(null, "CPF Já Cadastrado");
+            txtcpf.setText(obj.getCpf());//seta null no campo cpf
+            return;
+        }
 
         obj.setNome(txtnome.getText());
         obj.setRg(txtrg.getText());
@@ -1921,8 +1960,19 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         FuncionariosDAO dao = new FuncionariosDAO();
 
         dao.alterarFuncionario(obj);
+        
+        }else{
+              msg += "\n\n Estão Vazios.";
+        JOptionPane.showMessageDialog(null, msg, "ERRO AO EDITAR ", HEIGHT);
+        return;
+        }
 
         new Utilitarios().LimpaTela(cadastro);
+      
+        btnsalvar.setEnabled( true );// habilita o botão salvar
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btnexcluir.setEnabled( false );// desabilita o botão escluir
+        btnnovo.setEnabled( true );// habilita o botão escluir
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void btnexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluirActionPerformed
