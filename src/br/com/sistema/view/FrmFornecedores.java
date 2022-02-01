@@ -2096,13 +2096,13 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
     private void feedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_feedbacksMouseClicked
         // TODO add your handling code here:
-        FrmFeedbacks tela = new FrmFeedbacks();
+        Frmfeedbacks tela = new Frmfeedbacks();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_feedbacksMouseClicked
 
     private void btnfeedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseClicked
-        FrmFeedbacks tela = new FrmFeedbacks();
+        Frmfeedbacks tela = new Frmfeedbacks();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnfeedbacksMouseClicked

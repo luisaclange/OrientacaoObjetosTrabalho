@@ -2198,7 +2198,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_navbarMouseExited
 
     private void btnfeedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseClicked
-        FrmFeedbacks tela = new FrmFeedbacks();
+        Frmfeedbacks tela = new Frmfeedbacks();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnfeedbacksMouseClicked

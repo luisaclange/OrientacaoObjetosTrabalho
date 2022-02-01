@@ -1373,7 +1373,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
     private void feedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_feedbacksMouseClicked
         // TODO add your handling code here:
-        FrmFeedbacks tela = new FrmFeedbacks();
+        Frmfeedbacks tela = new Frmfeedbacks();
         tela.setVisible(true);
         this.dispose();
 
@@ -1412,7 +1412,7 @@ public class FrmEstoque extends javax.swing.JFrame {
     }//GEN-LAST:event_btnrmvActionPerformed
 
     private void btnfeedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseClicked
-        FrmFeedbacks tela = new FrmFeedbacks();
+        Frmfeedbacks tela = new Frmfeedbacks();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnfeedbacksMouseClicked
@@ -1429,7 +1429,7 @@ public class FrmEstoque extends javax.swing.JFrame {
     }//GEN-LAST:event_btnfeedbacksMouseExited
 
     private void configurações1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_configurações1MouseClicked
-        FrmFeedbacks tela = new FrmFeedbacks();
+        Frmfeedbacks tela = new Frmfeedbacks();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_configurações1MouseClicked

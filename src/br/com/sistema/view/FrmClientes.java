@@ -2176,7 +2176,7 @@ public class FrmClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_navbarMouseExited
 
     private void btnfeedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseClicked
-        FrmFeedbacks tela = new FrmFeedbacks();
+        Frmfeedbacks tela = new Frmfeedbacks();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnfeedbacksMouseClicked
@@ -2207,7 +2207,7 @@ public class FrmClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_consulte1MouseClicked
 
     private void feedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_feedbacksMouseClicked
-        FrmFeedbacks tela = new FrmFeedbacks();
+        Frmfeedbacks tela = new Frmfeedbacks();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_feedbacksMouseClicked

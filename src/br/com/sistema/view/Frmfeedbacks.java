@@ -26,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Alunos
  */
-public class FrmFeedbacks extends javax.swing.JFrame {
+public class Frmfeedbacks extends javax.swing.JFrame {
 
     /**
      * Creates new form Frmfeedbacks
@@ -54,10 +54,33 @@ public class FrmFeedbacks extends javax.swing.JFrame {
 
     }
 
+    public void buttonIsEnabled() {
+        if (btnsalvar.isEnabled() == false) {
+            btnsalvar.setkStartColor(new java.awt.Color(75, 97, 166));
+        } else {
+            btnsalvar.setkStartColor(new java.awt.Color(52, 55, 115));
+        }
+        if (btnexcluir.isEnabled() == false) {
+            btnexcluir.setkStartColor(new java.awt.Color(75, 97, 166));
+        } else {
+            btnexcluir.setkStartColor(new java.awt.Color(52, 55, 115));
+        }
+        if (btneditar.isEnabled() == false) {
+            btneditar.setkStartColor(new java.awt.Color(75, 97, 166));
+        } else {
+            btneditar.setkStartColor(new java.awt.Color(52, 55, 115));
+        }
+        if (btnnovo.isEnabled() == false) {
+            btnnovo.setkStartColor(new java.awt.Color(75, 97, 166));
+        } else {
+            btnnovo.setkStartColor(new java.awt.Color(52, 55, 115));
+        }
+    }
+
     DefaultListModel MODELO;
     int enter = 0;
 
-    public FrmFeedbacks() {
+    public Frmfeedbacks() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
         ListaNomes.setVisible(false);
@@ -1509,7 +1532,7 @@ public class FrmFeedbacks extends javax.swing.JFrame {
 
     private void feedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_feedbacksMouseClicked
         // TODO add your handling code here:
-        FrmFeedbacks tela = new FrmFeedbacks();
+        Frmfeedbacks tela = new Frmfeedbacks();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_feedbacksMouseClicked
@@ -1533,6 +1556,7 @@ public class FrmFeedbacks extends javax.swing.JFrame {
                 c.getDescricao()
             });
         }
+        buttonIsEnabled();
     }//GEN-LAST:event_txtpesquisaKeyPressed
 
     private void btnpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarActionPerformed
@@ -1556,6 +1580,7 @@ public class FrmFeedbacks extends javax.swing.JFrame {
                 c.getDescricao()
             });
         }
+        buttonIsEnabled();
     }//GEN-LAST:event_btnpesquisarActionPerformed
 
     private void consulteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consulteMouseClicked
@@ -1574,6 +1599,7 @@ public class FrmFeedbacks extends javax.swing.JFrame {
         cadastro.setVisible(true);
         cadastre.setForeground(new Color(63, 106, 191));
         consulte.setForeground(new Color(52, 55, 115));
+        buttonIsEnabled();
     }//GEN-LAST:event_cadastreMouseClicked
 
     private void consulte1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consulte1MouseClicked
@@ -1585,6 +1611,7 @@ public class FrmFeedbacks extends javax.swing.JFrame {
         cadastro.setVisible(false);
         consulte.setForeground(new Color(63, 106, 191));
         cadastre.setForeground(new Color(52, 55, 115));
+        buttonIsEnabled();
     }//GEN-LAST:event_consulte1MouseClicked
 
     private void cadastre1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastre1MouseClicked
@@ -1598,11 +1625,13 @@ public class FrmFeedbacks extends javax.swing.JFrame {
             btneditar.setEnabled(false);// desabilita o botão editar
             btnexcluir.setEnabled(false);// desabilita o botão escluir
             btnnovo.setEnabled(true);// habilita o botão escluir
+            buttonIsEnabled();
         } else {
             btnsalvar.setEnabled(false);// desabilita o botão salvar
             btneditar.setEnabled(true);// habilita o botão editar
             btnexcluir.setEnabled(true);// habilita o botão escluir
             btnnovo.setEnabled(true);// habilita o botão escluir
+            buttonIsEnabled();
         }
     }//GEN-LAST:event_cadastroComponentShown
 
@@ -1636,6 +1665,7 @@ public class FrmFeedbacks extends javax.swing.JFrame {
         btneditar.setEnabled(false);// desabilita o botão editar
         btnexcluir.setEnabled(false);// desabilita o botão escluir
         btnnovo.setEnabled(true);// habilita o botão escluir
+        buttonIsEnabled();
     }//GEN-LAST:event_btnexcluirActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
@@ -1703,6 +1733,7 @@ public class FrmFeedbacks extends javax.swing.JFrame {
         btneditar.setEnabled(false);// desabilita o botão editar
         btnexcluir.setEnabled(false);// desabilita o botão escluir
         btnnovo.setEnabled(true);// habilita o botão escluir
+        buttonIsEnabled();
     }//GEN-LAST:event_btnnovoActionPerformed
 
     private void txtemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailActionPerformed
@@ -1773,7 +1804,7 @@ public class FrmFeedbacks extends javax.swing.JFrame {
     }//GEN-LAST:event_ListaNomesMouseExited
 
     private void btnfeedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseClicked
-        FrmFeedbacks tela = new FrmFeedbacks();
+        Frmfeedbacks tela = new Frmfeedbacks();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnfeedbacksMouseClicked
@@ -1811,14 +1842,238 @@ public class FrmFeedbacks extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmFeedbacks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frmfeedbacks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmFeedbacks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frmfeedbacks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmFeedbacks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frmfeedbacks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmFeedbacks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frmfeedbacks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -1855,7 +2110,7 @@ public class FrmFeedbacks extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmFeedbacks().setVisible(true);
+                new Frmfeedbacks().setVisible(true);
             }
         });
     }

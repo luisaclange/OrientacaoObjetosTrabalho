@@ -1139,7 +1139,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
     }//GEN-LAST:event_btnfeedbacksMouseEntered
 
     private void btnfeedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseClicked
-        FrmFeedbacks tela = new FrmFeedbacks();
+        Frmfeedbacks tela = new Frmfeedbacks();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnfeedbacksMouseClicked
@@ -1279,7 +1279,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
     }//GEN-LAST:event_btninicioMouseClicked
 
     private void feedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_feedbacksMouseClicked
-        FrmFeedbacks tela = new FrmFeedbacks();
+        Frmfeedbacks tela = new Frmfeedbacks();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_feedbacksMouseClicked
