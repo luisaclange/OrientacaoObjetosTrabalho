@@ -23,3 +23,8 @@ hs_err_pid*
 
 # Config files
 *.json
+
+# Not needed folders
+build
+dist
+nbproject
