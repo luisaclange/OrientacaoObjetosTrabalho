@@ -635,7 +635,7 @@ public class Frmfeedbacks extends javax.swing.JFrame {
                 ListaNomesMousePressed(evt);
             }
         });
-        cadastro.add(ListaNomes, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 270, 150));
+        cadastro.add(ListaNomes, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 270, 150));
 
         name.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         name.setForeground(new java.awt.Color(2, 30, 115));
@@ -1765,7 +1765,7 @@ public class Frmfeedbacks extends javax.swing.JFrame {
     private void txtnomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnomeKeyReleased
         if (enter == 0) {
             String nome = "%" + txtnome.getText() + "%";
-            FeedbackDAO dao = new FeedbackDAO();
+            ClientesDAO dao = new ClientesDAO();
             MODELO = new DefaultListModel();
             ListaNomes.setModel(MODELO);
             MODELO.removeAllElements();
