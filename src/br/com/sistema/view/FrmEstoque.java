@@ -18,6 +18,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -53,6 +54,15 @@ public class FrmEstoque extends javax.swing.JFrame {
     public FrmEstoque() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
+        this.getContentPane().setBackground(Color.WHITE);
+
+        DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
+        headerRenderer.setBackground(new Color( 145, 163, 217));
+        headerRenderer.setForeground(Color.WHITE);
+
+        for (int i = 0; i < tabelaProdutos.getModel().getColumnCount(); i++) {
+            tabelaProdutos.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
+        }
     }
 
     /**
@@ -128,6 +138,7 @@ public class FrmEstoque extends javax.swing.JFrame {
         iconconfigurações = new javax.swing.JLabel();
         btnfeedbacks = new javax.swing.JPanel();
         configurações1 = new javax.swing.JLabel();
+        iconconfigurações1 = new javax.swing.JLabel();
         btnsair = new javax.swing.JPanel();
         sair = new javax.swing.JLabel();
         iconsair = new javax.swing.JLabel();
@@ -844,6 +855,9 @@ public class FrmEstoque extends javax.swing.JFrame {
         });
         btnfeedbacks.add(configurações1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 110, 24));
 
+        iconconfigurações1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/comment.png"))); // NOI18N
+        btnfeedbacks.add(iconconfigurações1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+
         navbar.add(btnfeedbacks);
 
         btnsair.setBackground(new java.awt.Color(52, 55, 115));
@@ -946,11 +960,11 @@ public class FrmEstoque extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telaestoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(telaestoque, javax.swing.GroupLayout.DEFAULT_SIZE, 1920, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telaestoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(telaestoque, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
         );
 
         pack();
@@ -1510,6 +1524,7 @@ public class FrmEstoque extends javax.swing.JFrame {
     private javax.swing.JLabel iconclientes;
     private javax.swing.JLabel iconclientes5;
     private javax.swing.JLabel iconconfigurações;
+    private javax.swing.JLabel iconconfigurações1;
     private javax.swing.JLabel iconfornecedores;
     private javax.swing.JLabel iconfuncionarios;
     private javax.swing.JLabel iconinicio;

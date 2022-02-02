@@ -73,6 +73,7 @@ public class FrmMenu extends javax.swing.JFrame {
         iconconfigurações = new javax.swing.JLabel();
         btnfeedbacks = new javax.swing.JPanel();
         configurações1 = new javax.swing.JLabel();
+        iconconfigurações1 = new javax.swing.JLabel();
         btnsair = new javax.swing.JPanel();
         sair = new javax.swing.JLabel();
         iconsair = new javax.swing.JLabel();
@@ -356,6 +357,9 @@ public class FrmMenu extends javax.swing.JFrame {
         configurações1.setForeground(new java.awt.Color(242, 242, 242));
         configurações1.setText("Feedbacks");
         btnfeedbacks.add(configurações1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 110, 24));
+
+        iconconfigurações1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/comment.png"))); // NOI18N
+        btnfeedbacks.add(iconconfigurações1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
 
         navbar.add(btnfeedbacks);
 
@@ -643,7 +647,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
         slogan.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         slogan.setForeground(new java.awt.Color(52, 55, 115));
-        slogan.setText("Desenvolvido por SEM Sistemas - O melhor software de gerenciamento para o seu mercado");
+        slogan.setText("Desenvolvido por Sem Sistemas - O melhor software de gerenciamento para o seu mercado");
 
         javax.swing.GroupLayout tituloLayout = new javax.swing.GroupLayout(titulo);
         titulo.setLayout(tituloLayout);
@@ -658,7 +662,7 @@ public class FrmMenu extends javax.swing.JFrame {
                         .addGap(73, 73, 73)
                         .addComponent(sem))
                     .addGroup(tituloLayout.createSequentialGroup()
-                        .addGap(59, 59, 59)
+                        .addGap(73, 73, 73)
                         .addComponent(slogan)))
                 .addContainerGap())
         );
@@ -669,9 +673,9 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addComponent(versao)
                 .addGap(3, 3, 3)
                 .addComponent(sem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(slogan)
-                .addContainerGap())
+                .addGap(42, 42, 42))
         );
 
         tela.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 20000, 170));
@@ -722,12 +726,12 @@ public class FrmMenu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(tela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tela, javax.swing.GroupLayout.DEFAULT_SIZE, 1920, Short.MAX_VALUE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tela, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
         );
 
         pack();
@@ -1658,6 +1662,7 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel iconclientes;
     private javax.swing.JLabel iconclientes5;
     private javax.swing.JLabel iconconfigurações;
+    private javax.swing.JLabel iconconfigurações1;
     private javax.swing.JLabel iconfornecedores;
     private javax.swing.JLabel iconfuncionarios;
     private javax.swing.JLabel iconinicio;

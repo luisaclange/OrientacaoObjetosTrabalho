@@ -118,6 +118,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
         iconconfigurações = new javax.swing.JLabel();
         btnfeedbacks = new javax.swing.JPanel();
         feedbacks = new javax.swing.JLabel();
+        iconconfigurações1 = new javax.swing.JLabel();
         btnsair = new javax.swing.JPanel();
         sair = new javax.swing.JLabel();
         iconsair = new javax.swing.JLabel();
@@ -804,6 +805,9 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
         });
         btnfeedbacks.add(feedbacks, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 110, 24));
 
+        iconconfigurações1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/comment.png"))); // NOI18N
+        btnfeedbacks.add(iconconfigurações1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+
         navbar.add(btnfeedbacks);
 
         btnsair.setBackground(new java.awt.Color(52, 55, 115));
@@ -833,7 +837,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
 
         navbar.add(btnsair);
 
-        teladetalhevendas.add(navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 700));
+        teladetalhevendas.add(navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 1080));
 
         titulo.setBackground(new java.awt.Color(145, 163, 217));
         titulo.setPreferredSize(new java.awt.Dimension(20000, 128));
@@ -897,13 +901,13 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(teladetalhevendas, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
+            .addComponent(teladetalhevendas, javax.swing.GroupLayout.DEFAULT_SIZE, 1920, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(teladetalhevendas, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(teladetalhevendas, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -1357,6 +1361,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
     private javax.swing.JLabel iconclientes;
     private javax.swing.JLabel iconclientes5;
     private javax.swing.JLabel iconconfigurações;
+    private javax.swing.JLabel iconconfigurações1;
     private javax.swing.JLabel iconfornecedores;
     private javax.swing.JLabel iconfuncionarios;
     private javax.swing.JLabel iconinicio;

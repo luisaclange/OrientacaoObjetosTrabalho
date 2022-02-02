@@ -26,6 +26,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -46,6 +47,13 @@ public class FrmVendas extends javax.swing.JFrame {
         setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
 
+        DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
+        headerRenderer.setBackground(new Color( 145, 163, 217));
+        headerRenderer.setForeground(Color.WHITE);
+
+        for (int i = 0; i < tabelaItens.getModel().getColumnCount(); i++) {
+            tabelaItens.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
+        }
     }
 
     /**
@@ -137,6 +145,7 @@ public class FrmVendas extends javax.swing.JFrame {
         iconconfigurações = new javax.swing.JLabel();
         btnfeedbacks = new javax.swing.JPanel();
         configurações1 = new javax.swing.JLabel();
+        iconconfigurações1 = new javax.swing.JLabel();
         btnsair = new javax.swing.JPanel();
         sair = new javax.swing.JLabel();
         iconsair = new javax.swing.JLabel();
@@ -845,11 +854,11 @@ public class FrmVendas extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, consultaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnpagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
+                .addGap(235, 235, 235))
         );
         consultaLayout.setVerticalGroup(
             consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -865,12 +874,12 @@ public class FrmVendas extends javax.swing.JFrame {
                         .addComponent(carrinhocompras, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(totalvenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(5, 5, 5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnpagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addGap(34, 34, 34))
         );
 
         abadetalhevendas.add(consulta, "card2");
@@ -1129,6 +1138,9 @@ public class FrmVendas extends javax.swing.JFrame {
         configurações1.setText("Feedbacks");
         btnfeedbacks.add(configurações1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 110, 24));
 
+        iconconfigurações1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/comment.png"))); // NOI18N
+        btnfeedbacks.add(iconconfigurações1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+
         navbar.add(btnfeedbacks);
 
         btnsair.setBackground(new java.awt.Color(52, 55, 115));
@@ -1225,11 +1237,11 @@ public class FrmVendas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telapdv, javax.swing.GroupLayout.DEFAULT_SIZE, 20250, Short.MAX_VALUE)
+            .addComponent(telapdv, javax.swing.GroupLayout.PREFERRED_SIZE, 1920, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telapdv, javax.swing.GroupLayout.PREFERRED_SIZE, 700, Short.MAX_VALUE)
+            .addComponent(telapdv, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, Short.MAX_VALUE)
         );
 
         pack();
@@ -1813,6 +1825,7 @@ public class FrmVendas extends javax.swing.JFrame {
     private javax.swing.JLabel iconclientes;
     private javax.swing.JLabel iconclientes5;
     private javax.swing.JLabel iconconfigurações;
+    private javax.swing.JLabel iconconfigurações1;
     private javax.swing.JLabel iconfornecedores;
     private javax.swing.JLabel iconfuncionarios;
     private javax.swing.JLabel iconinicio;

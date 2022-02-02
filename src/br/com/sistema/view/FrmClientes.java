@@ -66,7 +66,7 @@ public class FrmClientes extends javax.swing.JFrame {
         this.getContentPane().setBackground(Color.WHITE);
 
         DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
-        headerRenderer.setBackground(Color.gray);
+        headerRenderer.setBackground(new Color( 145, 163, 217));
         headerRenderer.setForeground(Color.WHITE);
 
         for (int i = 0; i < tabelaClientes.getModel().getColumnCount(); i++) {
@@ -1290,7 +1290,7 @@ public class FrmClientes extends javax.swing.JFrame {
         });
         btnfeedbacks.add(feedbacks, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 110, 24));
 
-        iconconfigurações1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/comment (1).png"))); // NOI18N
+        iconconfigurações1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/comment.png"))); // NOI18N
         btnfeedbacks.add(iconconfigurações1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
 
         navbar.add(btnfeedbacks);
@@ -1389,14 +1389,15 @@ public class FrmClientes extends javax.swing.JFrame {
         );
         telaclientesLayout.setVerticalGroup(
             telaclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(navbar, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(telaclientesLayout.createSequentialGroup()
                 .addGroup(telaclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(telaclientesLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(painelsuperior, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addComponent(painelinferior, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(painelinferior, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(280, Short.MAX_VALUE))
+            .addComponent(navbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1407,7 +1408,7 @@ public class FrmClientes extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telaclientes, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+            .addComponent(telaclientes, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
         );
 
         pack();

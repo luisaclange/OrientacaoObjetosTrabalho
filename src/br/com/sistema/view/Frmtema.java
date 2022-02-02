@@ -64,8 +64,16 @@ public class FrmTema extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnaplicar = new com.k33ptoo.components.KButton();
         btncancelar = new com.k33ptoo.components.KButton();
+        txtcorpback = new javax.swing.JTextField();
+        img = new javax.swing.JLabel();
+        corprimaria = new javax.swing.JLabel();
         txtlogo = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        corsecundaria = new javax.swing.JLabel();
+        txtcorsback = new javax.swing.JTextField();
+        corprimaria2 = new javax.swing.JLabel();
+        txtcorpletra = new javax.swing.JTextField();
+        corsecundaria2 = new javax.swing.JLabel();
+        txtcorsletra = new javax.swing.JTextField();
         navbar = new javax.swing.JPanel();
         String[] tema = new Utilitarios().getConfigJson();
 
@@ -100,6 +108,7 @@ public class FrmTema extends javax.swing.JFrame {
         iconconfigurações = new javax.swing.JLabel();
         btnfeedbacks = new javax.swing.JPanel();
         configurações1 = new javax.swing.JLabel();
+        iconconfigurações1 = new javax.swing.JLabel();
         btnsair = new javax.swing.JPanel();
         sair = new javax.swing.JLabel();
         iconsair = new javax.swing.JLabel();
@@ -108,9 +117,7 @@ public class FrmTema extends javax.swing.JFrame {
         slogan = new javax.swing.JLabel();
         painelsuperior = new javax.swing.JPanel();
         iconusuario = new javax.swing.JLabel();
-        feedbacks = new javax.swing.JLabel();
         lblusuario = new javax.swing.JLabel();
-        iconusuario1 = new javax.swing.JLabel();
         usuario1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -397,6 +404,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         upload.setBackground(new java.awt.Color(206, 215, 242));
         upload.setForeground(new java.awt.Color(2, 30, 115));
+        upload.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         upload.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 uploadMouseClicked(evt);
@@ -414,23 +422,23 @@ public class FrmTema extends javax.swing.JFrame {
         uploadLayout.setHorizontalGroup(
             uploadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(uploadLayout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
+                .addContainerGap(52, Short.MAX_VALUE)
                 .addGroup(uploadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, uploadLayout.createSequentialGroup()
                         .addComponent(iconeup)
-                        .addGap(134, 134, 134))
+                        .addGap(132, 132, 132))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, uploadLayout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(44, 44, 44))))
+                        .addGap(36, 36, 36))))
         );
         uploadLayout.setVerticalGroup(
             uploadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(uploadLayout.createSequentialGroup()
-                .addGap(103, 103, 103)
+                .addGap(47, 47, 47)
                 .addComponent(iconeup)
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         btnaplicar.setText("Aplicar");
@@ -475,6 +483,23 @@ public class FrmTema extends javax.swing.JFrame {
             }
         });
 
+        txtcorpback.setEditable(false);
+        txtcorpback.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        txtcorpback.setForeground(new java.awt.Color(2, 30, 115));
+        txtcorpback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcorpbackActionPerformed(evt);
+            }
+        });
+
+        img.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        img.setForeground(new java.awt.Color(63, 106, 197));
+        img.setText("Imagem selecionada:");
+
+        corprimaria.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        corprimaria.setForeground(new java.awt.Color(63, 106, 197));
+        corprimaria.setText("Cor primária background:");
+
         txtlogo.setEditable(false);
         txtlogo.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         txtlogo.setForeground(new java.awt.Color(2, 30, 115));
@@ -484,53 +509,119 @@ public class FrmTema extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(63, 106, 197));
-        jLabel2.setText("Imagem selecionada:");
+        corsecundaria.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        corsecundaria.setForeground(new java.awt.Color(63, 106, 197));
+        corsecundaria.setText("Cor secundária background:");
+
+        txtcorsback.setEditable(false);
+        txtcorsback.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        txtcorsback.setForeground(new java.awt.Color(2, 30, 115));
+        txtcorsback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcorsbackActionPerformed(evt);
+            }
+        });
+
+        corprimaria2.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        corprimaria2.setForeground(new java.awt.Color(63, 106, 197));
+        corprimaria2.setText("Cor primária letra:");
+
+        txtcorpletra.setEditable(false);
+        txtcorpletra.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        txtcorpletra.setForeground(new java.awt.Color(2, 30, 115));
+        txtcorpletra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcorpletraActionPerformed(evt);
+            }
+        });
+
+        corsecundaria2.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        corsecundaria2.setForeground(new java.awt.Color(63, 106, 197));
+        corsecundaria2.setText("Cor secundária letra:");
+
+        txtcorsletra.setEditable(false);
+        txtcorsletra.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        txtcorsletra.setForeground(new java.awt.Color(2, 30, 115));
+        txtcorsletra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcorsletraActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout cardlogoLayout = new javax.swing.GroupLayout(cardlogo);
         cardlogo.setLayout(cardlogoLayout);
         cardlogoLayout.setHorizontalGroup(
             cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardlogoLayout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
                 .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(opcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(cardlogoLayout.createSequentialGroup()
-                        .addGap(320, 320, 320)
-                        .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cardlogoLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtlogo))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cardlogoLayout.createSequentialGroup()
-                                .addComponent(btnaplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(upload, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardlogoLayout.createSequentialGroup()
+                        .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(opcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(cardlogoLayout.createSequentialGroup()
+                                .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(corprimaria)
+                                    .addComponent(corsecundaria)
+                                    .addComponent(corprimaria2)
+                                    .addComponent(corsecundaria2)
+                                    .addComponent(txtcorpletra, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                                    .addComponent(txtcorsback)
+                                    .addComponent(txtcorpback)
+                                    .addComponent(txtcorsletra))
+                                .addGap(158, 158, 158)
+                                .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(upload, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(img)
+                                        .addComponent(txtlogo, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(28, 28, 28)))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardlogoLayout.createSequentialGroup()
+                        .addComponent(btnaplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(268, 268, 268))))
         );
         cardlogoLayout.setVerticalGroup(
             cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardlogoLayout.createSequentialGroup()
                 .addComponent(opcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(upload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
-                .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtlogo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(27, 27, 27)
+                .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(cardlogoLayout.createSequentialGroup()
+                        .addComponent(upload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(img)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtlogo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(cardlogoLayout.createSequentialGroup()
+                        .addComponent(corprimaria)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtcorpback, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(corsecundaria)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtcorsback, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(corprimaria2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtcorpletra, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(corsecundaria2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtcorsletra, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnaplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addGap(77, 77, 77))
         );
 
         abalogo.add(cardlogo, "card2");
 
         painelinferior.add(abalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 590));
 
-        telatema.add(painelinferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 20000, 20000));
+        telatema.add(painelinferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 20000, 1080));
 
         navbar.setBackground(new java.awt.Color(52, 55, 115));
         navbar.setPreferredSize(new java.awt.Dimension(2519, 20000));
@@ -767,6 +858,9 @@ public class FrmTema extends javax.swing.JFrame {
         configurações1.setText("Feedbacks");
         btnfeedbacks.add(configurações1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 110, 24));
 
+        iconconfigurações1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/comment.png"))); // NOI18N
+        btnfeedbacks.add(iconconfigurações1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+
         navbar.add(btnfeedbacks);
 
         btnsair.setBackground(new java.awt.Color(52, 55, 115));
@@ -796,7 +890,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         navbar.add(btnsair);
 
-        telatema.add(navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 20000));
+        telatema.add(navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 1080));
 
         titulo.setBackground(new java.awt.Color(145, 163, 217));
         titulo.setPreferredSize(new java.awt.Dimension(20000, 128));
@@ -821,18 +915,8 @@ public class FrmTema extends javax.swing.JFrame {
         iconusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/mode-portrait.png"))); // NOI18N
         iconusuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        feedbacks.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        feedbacks.setForeground(new java.awt.Color(52, 55, 115));
-        feedbacks.setText("FeedBacks");
-        feedbacks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         lblusuario.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         lblusuario.setForeground(new java.awt.Color(52, 55, 115));
-
-        iconusuario1.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        iconusuario1.setForeground(new java.awt.Color(52, 55, 115));
-        iconusuario1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/comment (1).png"))); // NOI18N
-        iconusuario1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         usuario1.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         usuario1.setForeground(new java.awt.Color(52, 55, 115));
@@ -849,27 +933,17 @@ public class FrmTema extends javax.swing.JFrame {
                 .addComponent(usuario1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19480, Short.MAX_VALUE)
-                .addComponent(iconusuario1)
-                .addGap(12, 12, 12)
-                .addComponent(feedbacks)
-                .addContainerGap())
+                .addContainerGap(19581, Short.MAX_VALUE))
         );
         painelsuperiorLayout.setVerticalGroup(
             painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelsuperiorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(iconusuario)
-                        .addGroup(painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(painelsuperiorLayout.createSequentialGroup()
-                        .addGroup(painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(iconusuario1)
-                            .addComponent(feedbacks, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(3, 3, 3)))
+                .addGap(14, 14, 14)
+                .addGroup(painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(iconusuario)
+                    .addGroup(painelsuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20))
         );
 
@@ -879,11 +953,15 @@ public class FrmTema extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telatema, javax.swing.GroupLayout.DEFAULT_SIZE, 20250, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(telatema, javax.swing.GroupLayout.PREFERRED_SIZE, 1920, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telatema, javax.swing.GroupLayout.PREFERRED_SIZE, 700, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(telatema, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -1210,9 +1288,9 @@ public class FrmTema extends javax.swing.JFrame {
         abaconfigurações.setSize(0,0);
     }//GEN-LAST:event_navbarMouseExited
 
-    private void txtlogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlogoActionPerformed
+    private void txtcorpbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcorpbackActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtlogoActionPerformed
+    }//GEN-LAST:event_txtcorpbackActionPerformed
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
         // TODO add your handling code here:
@@ -1276,6 +1354,22 @@ public class FrmTema extends javax.swing.JFrame {
         btnfeedbacks.setBackground(new Color(52,55,115));
     }//GEN-LAST:event_btnfeedbacksMouseExited
 
+    private void txtlogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlogoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtlogoActionPerformed
+
+    private void txtcorsbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcorsbackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcorsbackActionPerformed
+
+    private void txtcorpletraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcorpletraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcorpletraActionPerformed
+
+    private void txtcorsletraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcorsletraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcorsletraActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1287,7 +1381,7 @@ public class FrmTema extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -1348,12 +1442,16 @@ public class FrmTema extends javax.swing.JFrame {
     private javax.swing.JLabel configurações;
     private javax.swing.JLabel configurações1;
     private javax.swing.JLabel consulte;
-    private javax.swing.JLabel feedbacks;
+    private javax.swing.JLabel corprimaria;
+    private javax.swing.JLabel corprimaria2;
+    private javax.swing.JLabel corsecundaria;
+    private javax.swing.JLabel corsecundaria2;
     private javax.swing.JLabel fornecedores;
     private javax.swing.JLabel funcionarios;
     private javax.swing.JLabel iconclientes;
     private javax.swing.JLabel iconclientes5;
     private javax.swing.JLabel iconconfigurações;
+    private javax.swing.JLabel iconconfigurações1;
     private javax.swing.JLabel iconeup;
     private javax.swing.JLabel iconfornecedores;
     private javax.swing.JLabel iconfuncionarios;
@@ -1361,10 +1459,9 @@ public class FrmTema extends javax.swing.JFrame {
     private javax.swing.JLabel iconprodutos;
     private javax.swing.JLabel iconsair;
     private javax.swing.JLabel iconusuario;
-    private javax.swing.JLabel iconusuario1;
+    private javax.swing.JLabel img;
     private javax.swing.JLabel inicio;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblusuario;
     private javax.swing.JPanel navbar;
     private javax.swing.JPanel opcoes;
@@ -1377,6 +1474,10 @@ public class FrmTema extends javax.swing.JFrame {
     private javax.swing.JPanel telatema;
     private javax.swing.JPanel titulo;
     private javax.swing.JLabel titulototalvendas;
+    private javax.swing.JTextField txtcorpback;
+    private javax.swing.JTextField txtcorpletra;
+    private javax.swing.JTextField txtcorsback;
+    private javax.swing.JTextField txtcorsletra;
     private javax.swing.JTextField txtlogo;
     private javax.swing.JPanel upload;
     private javax.swing.JLabel usuario1;

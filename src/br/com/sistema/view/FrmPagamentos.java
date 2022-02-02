@@ -119,6 +119,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
         iconconfigurações = new javax.swing.JLabel();
         btnfeedbacks = new javax.swing.JPanel();
         configurações1 = new javax.swing.JLabel();
+        iconconfigurações1 = new javax.swing.JLabel();
         btnsair = new javax.swing.JPanel();
         sair = new javax.swing.JLabel();
         iconsair = new javax.swing.JLabel();
@@ -441,24 +442,29 @@ public class FrmPagamentos extends javax.swing.JFrame {
         observacoes1.setForeground(new java.awt.Color(2, 30, 115));
         observacoes1.setText("Dinheiro");
 
-        txtdinheiro.setFont(new java.awt.Font("Tahoma", 0, 26)); // NOI18N
+        txtdinheiro.setFont(new java.awt.Font("Segoe UI Light", 1, 26)); // NOI18N
+        txtdinheiro.setForeground(new java.awt.Color(2, 30, 115));
         txtdinheiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtdinheiroActionPerformed(evt);
             }
         });
 
-        txtcartao.setFont(new java.awt.Font("Tahoma", 0, 26)); // NOI18N
+        txtcartao.setFont(new java.awt.Font("Segoe UI Light", 1, 26)); // NOI18N
+        txtcartao.setForeground(new java.awt.Color(2, 30, 115));
 
-        txtcheque.setFont(new java.awt.Font("Tahoma", 0, 26)); // NOI18N
+        txtcheque.setFont(new java.awt.Font("Segoe UI Light", 1, 26)); // NOI18N
+        txtcheque.setForeground(new java.awt.Color(2, 30, 115));
 
         txttroco.setEditable(false);
         txttroco.setBackground(new java.awt.Color(255, 255, 255));
-        txttroco.setFont(new java.awt.Font("Tahoma", 0, 26)); // NOI18N
+        txttroco.setFont(new java.awt.Font("Segoe UI Light", 1, 26)); // NOI18N
+        txttroco.setForeground(new java.awt.Color(2, 30, 115));
 
         txttotal.setEditable(false);
         txttotal.setBackground(new java.awt.Color(255, 255, 255));
-        txttotal.setFont(new java.awt.Font("Tahoma", 0, 26)); // NOI18N
+        txttotal.setFont(new java.awt.Font("Segoe UI Light", 1, 26)); // NOI18N
+        txttotal.setForeground(new java.awt.Color(2, 30, 115));
 
         observacoes2.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         observacoes2.setForeground(new java.awt.Color(2, 30, 115));
@@ -539,7 +545,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
                         .addComponent(scrollObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(btnfinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         abadetalhevendas.add(consulta, "card2");
@@ -797,6 +803,9 @@ public class FrmPagamentos extends javax.swing.JFrame {
         configurações1.setText("Feedbacks");
         btnfeedbacks.add(configurações1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 110, 24));
 
+        iconconfigurações1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/comment.png"))); // NOI18N
+        btnfeedbacks.add(iconconfigurações1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+
         navbar.add(btnfeedbacks);
 
         btnsair.setBackground(new java.awt.Color(52, 55, 115));
@@ -893,11 +902,11 @@ public class FrmPagamentos extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telapdv, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, Short.MAX_VALUE)
+            .addComponent(telapdv, javax.swing.GroupLayout.PREFERRED_SIZE, 1920, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telapdv, javax.swing.GroupLayout.PREFERRED_SIZE, 700, Short.MAX_VALUE)
+            .addComponent(telapdv, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, Short.MAX_VALUE)
         );
 
         pack();
@@ -1397,6 +1406,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
     private javax.swing.JLabel iconclientes;
     private javax.swing.JLabel iconclientes5;
     private javax.swing.JLabel iconconfigurações;
+    private javax.swing.JLabel iconconfigurações1;
     private javax.swing.JLabel iconfornecedores;
     private javax.swing.JLabel iconfuncionarios;
     private javax.swing.JLabel iconinicio;

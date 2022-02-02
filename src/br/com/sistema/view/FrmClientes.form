@@ -36,7 +36,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="telaclientes" alignment="0" pref="700" max="32767" attributes="0"/>
+          <Component id="telaclientes" alignment="0" pref="1080" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -72,7 +72,6 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="navbar" min="-2" pref="800" max="-2" attributes="0"/>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -82,7 +81,9 @@
                       <Component id="painelsuperior" min="-2" pref="50" max="-2" attributes="0"/>
                   </Group>
                   <Component id="painelinferior" min="-2" pref="590" max="-2" attributes="0"/>
+                  <EmptySpace pref="280" max="32767" attributes="0"/>
               </Group>
+              <Component id="navbar" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -1995,7 +1996,7 @@
                 <Component class="javax.swing.JLabel" name="iconconfigura&#xe7;&#xf5;es1">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagens/comment (1).png"/>
+                      <Image iconType="3" name="/imagens/comment.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
