@@ -393,6 +393,11 @@ public class FrmEstoque extends javax.swing.JFrame {
         consulta.setBackground(new java.awt.Color(245, 245, 245));
         consulta.setPreferredSize(new java.awt.Dimension(910, 530));
 
+        tabelaProdutos = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tabelaProdutos.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         tabelaProdutos.setForeground(new java.awt.Color(52, 55, 115));
         tabelaProdutos.setModel(new javax.swing.table.DefaultTableModel(
@@ -1122,10 +1127,13 @@ public class FrmEstoque extends javax.swing.JFrame {
 
     private void tabelaProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaProdutosMouseClicked
         //Pega os dados
+                        if (evt.getClickCount() == 2){
+
         idproduto = Integer.parseInt(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 0).toString());
         txtpesquisa.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 1).toString());
 
         txtestoque.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 3).toString());
+                        }
     }//GEN-LAST:event_tabelaProdutosMouseClicked
 
     private void tabelaProdutosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaProdutosMouseEntered
@@ -1174,6 +1182,11 @@ public class FrmEstoque extends javax.swing.JFrame {
 
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
         // TODO add your handling code here:
+        int op;
+
+        op = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja adicionar?");
+
+        if (op == 0) {        
         try {
             int qtd_estoque, qtd;
 
@@ -1196,6 +1209,7 @@ public class FrmEstoque extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Selecione o produto ou informe a nova qtd." + e);
 
+        }
         }
     }//GEN-LAST:event_btnaddActionPerformed
 

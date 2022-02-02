@@ -466,6 +466,11 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
         observacoes.setForeground(new java.awt.Color(2, 30, 115));
         observacoes.setText("Observações");
 
+        tabelaItensVendido = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tabelaItensVendido.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         tabelaItensVendido.setForeground(new java.awt.Color(52, 55, 115));
         tabelaItensVendido.setModel(new javax.swing.table.DefaultTableModel(

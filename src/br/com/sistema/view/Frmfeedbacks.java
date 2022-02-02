@@ -530,6 +530,11 @@ public class Frmfeedbacks extends javax.swing.JFrame {
                 .addComponent(separator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        tabelaFeedback = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tabelaFeedback.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         tabelaFeedback.setForeground(new java.awt.Color(52, 55, 115));
         tabelaFeedback.setModel(new javax.swing.table.DefaultTableModel(

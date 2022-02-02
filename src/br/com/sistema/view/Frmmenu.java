@@ -13,11 +13,14 @@ import javax.swing.JOptionPane;
 import java.awt.Color;
 
 
+
 /**
  *
  * @author Tampelini
  */
+@SuppressWarnings("serial")
 public class FrmMenu extends javax.swing.JFrame {
+
     
     
     public FrmMenu() {
