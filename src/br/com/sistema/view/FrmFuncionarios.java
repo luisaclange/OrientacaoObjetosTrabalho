@@ -1805,10 +1805,14 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     private void btnnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnovoActionPerformed
         // TODO add your handling code here:
         new Utilitarios().LimpaTela(cadastro);
-        btnsalvar.setEnabled( true );// habilita o botão salvar
-        btneditar.setEnabled( false );// desabilita o botão editar
-        btnexcluir.setEnabled( false );// desabilita o botão escluir
         btnnovo.setEnabled( true );// habilita o botão escluir
+        btnnovo.setkFillButton( true );// habilita o preenchimento de cor
+        btnsalvar.setEnabled( true );// habilita o botão salvar
+        btnsalvar.setkFillButton( true );// habilita o preenchimento de cor
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btneditar.setkFillButton( false ); // desabilita o preenchimento de cor       
+        btnexcluir.setEnabled( false );// desabilita o botão escluir
+        btnexcluir.setkFillButton( false ); // desabilita o preenchimento de cor
     }//GEN-LAST:event_btnnovoActionPerformed
 
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
@@ -1886,6 +1890,14 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             msg += "\n\n Estão Vazios.";
             JOptionPane.showMessageDialog(null, msg, "ERRO AO CADASTRAR ", HEIGHT);
         }
+        btnnovo.setEnabled( true );// habilita o botão escluir
+        btnnovo.setkFillButton( true );// habilita o preenchimento de cor
+        btnsalvar.setEnabled( true );// habilita o botão salvar
+        btnsalvar.setkFillButton( true );// habilita o preenchimento de cor
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btneditar.setkFillButton( false ); // desabilita o preenchimento de cor       
+        btnexcluir.setEnabled( false );// desabilita o botão escluir
+        btnexcluir.setkFillButton( false ); // desabilita o preenchimento de cor
     }//GEN-LAST:event_btnsalvarActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
@@ -1969,10 +1981,14 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         new Utilitarios().LimpaTela(cadastro);
       
-        btnsalvar.setEnabled( true );// habilita o botão salvar
-        btneditar.setEnabled( false );// desabilita o botão editar
-        btnexcluir.setEnabled( false );// desabilita o botão escluir
         btnnovo.setEnabled( true );// habilita o botão escluir
+        btnnovo.setkFillButton( true );// habilita o preenchimento de cor
+        btnsalvar.setEnabled( true );// habilita o botão salvar
+        btnsalvar.setkFillButton( true );// habilita o preenchimento de cor
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btneditar.setkFillButton( false ); // desabilita o preenchimento de cor       
+        btnexcluir.setEnabled( false );// desabilita o botão escluir
+        btnexcluir.setkFillButton( false ); // desabilita o preenchimento de cor
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void btnexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluirActionPerformed
@@ -1987,11 +2003,15 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         dao.excluirFuncionario(obj);
         new Utilitarios().LimpaTela(cadastro);
-
-        btnsalvar.setEnabled( true );// habilita o botão salvar
-        btneditar.setEnabled( false );// desabilita o botão editar
-        btnexcluir.setEnabled( false );// desabilita o botão escluir
+        
         btnnovo.setEnabled( true );// habilita o botão escluir
+        btnnovo.setkFillButton( true );// habilita o preenchimento de cor
+        btnsalvar.setEnabled( true );// habilita o botão salvar
+        btnsalvar.setkFillButton( true );// habilita o preenchimento de cor
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btneditar.setkFillButton( false ); // desabilita o preenchimento de cor       
+        btnexcluir.setEnabled( false );// desabilita o botão escluir
+        btnexcluir.setkFillButton( false ); // desabilita o preenchimento de cor
     }//GEN-LAST:event_btnexcluirActionPerformed
 
     private void consulte1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consulte1MouseClicked
@@ -2013,15 +2033,23 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     private void cadastroComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_cadastroComponentShown
         // TODO add your handling code here:
         if(txtcodigo.getText().equals("")){
+            btnnovo.setEnabled( true );// habilita o botão escluir
+            btnnovo.setkFillButton( true );// habilita o preenchimento de cor
             btnsalvar.setEnabled( true );// habilita o botão salvar
+            btnsalvar.setkFillButton( true );// habilita o preenchimento de cor
             btneditar.setEnabled( false );// desabilita o botão editar
+            btneditar.setkFillButton( false ); // desabilita o preenchimento de cor       
             btnexcluir.setEnabled( false );// desabilita o botão escluir
-            btnnovo.setEnabled( true );// habilita o botão escluir
+            btnexcluir.setkFillButton( false ); // desabilita o preenchimento de cor
         }else{
-            btnsalvar.setEnabled( false );// desabilita o botão salvar
-            btneditar.setEnabled( true );// habilita o botão editar
-            btnexcluir.setEnabled( true );// habilita o botão escluir
-            btnnovo.setEnabled( true );// habilita o botão escluir
+            btnsalvar.setEnabled(false);// desabilita o botão salvar
+            btnsalvar.setkFillButton( false ); // desabilita o preenchimento de cor
+            btneditar.setEnabled(true);// habilita o botão editar
+            btneditar.setkFillButton( true ); // habilita o preenchimento de cor
+            btnexcluir.setEnabled(true);// habilita o botão escluir
+            btnexcluir.setkFillButton( true );// habilita o preenchimento de cor
+            btnnovo.setEnabled(true);// habilita o botão escluir
+            btnnovo.setkFillButton( true );// habilita o preenchimento de cor
         }
     }//GEN-LAST:event_cadastroComponentShown
 
