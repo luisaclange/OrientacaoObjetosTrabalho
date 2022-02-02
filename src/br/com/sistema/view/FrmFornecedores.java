@@ -481,6 +481,11 @@ public class FrmFornecedores extends javax.swing.JFrame {
             }
         });
 
+        tabelaFornecedores = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tabelaFornecedores.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         tabelaFornecedores.setForeground(new java.awt.Color(52, 55, 115));
         tabelaFornecedores.setModel(new javax.swing.table.DefaultTableModel(
@@ -1600,7 +1605,10 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
     private void tabelaFornecedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFornecedoresMouseClicked
         //Pega os dados
-        //jTabbedPane1.setSelectedIndex(1);
+        
+        if (evt.getClickCount() == 2){
+        consulta.setVisible(false);
+        cadastro.setVisible(true);
 
         txtcodigo.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 0).toString());
         txtnome.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 1).toString());
@@ -1615,6 +1623,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
         txtbairro.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 10).toString());
         txtcidade.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 11).toString());
         cbuf.setSelectedItem(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 12).toString());
+        }
     }//GEN-LAST:event_tabelaFornecedoresMouseClicked
 
     private void tabelaFornecedoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFornecedoresMouseEntered
@@ -1879,6 +1888,12 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
     private void btnexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluirActionPerformed
         // TODO add your handling code here:
+        int op;
+
+        op = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja excluir?");
+
+        if (op == 0) {
+        
         Fornecedores obj = new Fornecedores();
 
         obj.setId(Integer.parseInt(txtcodigo.getText()));
@@ -1896,6 +1911,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
         btneditar.setkFillButton( false ); // desabilita o preenchimento de cor       
         btnexcluir.setEnabled( false );// desabilita o botão escluir
         btnexcluir.setkFillButton( false ); // desabilita o preenchimento de cor
+        }
     }//GEN-LAST:event_btnexcluirActionPerformed
 
     private void consulte1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consulte1MouseClicked
@@ -1920,7 +1936,8 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
     private void cadastroComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_cadastroComponentShown
         // TODO add your handling code here:
-        if(txtcodigo.getText().equals("")){
+
+       if(txtcodigo.getText().equals("")){
             btnnovo.setEnabled( true );// habilita o botão escluir
             btnnovo.setkFillButton( true );// habilita o preenchimento de cor
             btnsalvar.setEnabled( true );// habilita o botão salvar
@@ -1939,6 +1956,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
             btnnovo.setEnabled(true);// habilita o botão escluir
             btnnovo.setkFillButton( true );// habilita o preenchimento de cor
         }
+        
     }//GEN-LAST:event_cadastroComponentShown
 
     private void painelinferiorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelinferiorMouseEntered

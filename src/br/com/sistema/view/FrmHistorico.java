@@ -385,6 +385,11 @@ public class FrmHistorico extends javax.swing.JFrame {
 
         scrollTabela.setBackground(new java.awt.Color(255, 255, 255));
 
+        tabelaHistorico = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tabelaHistorico.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         tabelaHistorico.setForeground(new java.awt.Color(52, 55, 115));
         tabelaHistorico.setModel(new javax.swing.table.DefaultTableModel(

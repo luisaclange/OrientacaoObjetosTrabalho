@@ -559,6 +559,9 @@
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tabelaProdutosMouseClicked"/>
                             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tabelaProdutosMouseEntered"/>
                           </Events>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="tabelaProdutos = new javax.swing.JTable(){&#xa;        public boolean isCellEditable(int rowIndex, int colIndex){&#xa;            return false;&#xa;        }       &#xa;};"/>
+                          </AuxValues>
                         </Component>
                       </SubComponents>
                     </Container>

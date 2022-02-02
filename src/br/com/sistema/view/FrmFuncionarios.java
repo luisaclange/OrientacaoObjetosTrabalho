@@ -22,6 +22,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -491,6 +492,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             }
         });
 
+        tabelaFuncionarios = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tabelaFuncionarios.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         tabelaFuncionarios.setForeground(new java.awt.Color(52, 55, 115));
         tabelaFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
@@ -1689,7 +1695,12 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
     private void tabelaFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFuncionariosMouseClicked
         //Pega os dados
-        //jTabbedPane1.setSelectedIndex(1);
+        
+        if (evt.getClickCount() == 2){
+
+        consulta.setVisible(false);
+        cadastro.setVisible(true);
+
 
         txtcodigo.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 0).toString());
         txtnome.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 1).toString());
@@ -1708,6 +1719,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         txtbairro.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 14).toString());
         txtcidade.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 15).toString());
         cbuf.setSelectedItem(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 16).toString());
+        }
     }//GEN-LAST:event_tabelaFuncionariosMouseClicked
 
     private void tabelaFuncionariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFuncionariosMouseEntered
@@ -1998,7 +2010,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     private void btnexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluirActionPerformed
         // TODO add your handling code here:
         // botao excluir
+        int op;
 
+        op = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja excluir?");
+
+        if (op == 0) {
         Funcionarios obj = new Funcionarios();
 
         obj.setId(Integer.parseInt(txtcodigo.getText()));
@@ -2016,6 +2032,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         btneditar.setkFillButton( false ); // desabilita o preenchimento de cor       
         btnexcluir.setEnabled( false );// desabilita o botão escluir
         btnexcluir.setkFillButton( false ); // desabilita o preenchimento de cor
+        }
     }//GEN-LAST:event_btnexcluirActionPerformed
 
     private void consulte1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consulte1MouseClicked

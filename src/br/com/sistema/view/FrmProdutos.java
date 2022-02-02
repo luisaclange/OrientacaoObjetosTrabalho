@@ -457,6 +457,11 @@ public class FrmProdutos extends javax.swing.JFrame {
             }
         });
 
+        tabelaProdutos = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tabelaProdutos.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         tabelaProdutos.setForeground(new java.awt.Color(52, 55, 115));
         tabelaProdutos.setModel(new javax.swing.table.DefaultTableModel(
@@ -1416,7 +1421,10 @@ public class FrmProdutos extends javax.swing.JFrame {
 
     private void tabelaProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaProdutosMouseClicked
         //Pega os dados
-        //jTabbedPane1.setSelectedIndex(0);
+        if (evt.getClickCount() == 2){
+        
+        consulta.setVisible(false);
+        cadastro.setVisible(true);
 
         txtcodigo.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 0).toString());
         txtdescricao.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 1).toString());
@@ -1430,6 +1438,7 @@ public class FrmProdutos extends javax.swing.JFrame {
 
         cbfornecedor.removeAllItems();
         cbfornecedor.getModel().setSelectedItem(f);
+        }
     }//GEN-LAST:event_tabelaProdutosMouseClicked
 
     private void tabelaProdutosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaProdutosMouseEntered

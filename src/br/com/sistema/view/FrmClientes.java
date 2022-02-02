@@ -475,6 +475,11 @@ public class FrmClientes extends javax.swing.JFrame {
             }
         });
 
+        tabelaClientes = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tabelaClientes.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         tabelaClientes.setForeground(new java.awt.Color(52, 55, 115));
         tabelaClientes.setModel(new javax.swing.table.DefaultTableModel(
@@ -1647,7 +1652,8 @@ public class FrmClientes extends javax.swing.JFrame {
 
     private void tabelaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaClientesMouseClicked
         //Pega os dados
-        //abaclientes.setSelectedIndex(1); duvida
+                if (evt.getClickCount() == 2){
+
         consulta.setVisible(false);
         cadastro.setVisible(true);
 
@@ -1708,6 +1714,7 @@ public class FrmClientes extends javax.swing.JFrame {
         txtbairro.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 11).toString());
         txtcidade.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 12).toString());
         cbuf.setSelectedItem(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 13).toString());*/
+                }
     }//GEN-LAST:event_tabelaClientesMouseClicked
 
     private void tabelaClientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaClientesMouseEntered
@@ -1985,6 +1992,12 @@ public class FrmClientes extends javax.swing.JFrame {
     private void btnexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluirActionPerformed
         // TODO add your handling code here:
         // botao excluir
+        
+        int op;
+
+        op = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja excluir?");
+
+        if (op == 0) {
 
         Clientes obj = new Clientes();
 
@@ -2003,6 +2016,7 @@ public class FrmClientes extends javax.swing.JFrame {
         btneditar.setkFillButton( false ); // desabilita o preenchimento de cor       
         btnexcluir.setEnabled( false );// desabilita o botão escluir
         btnexcluir.setkFillButton( false ); // desabilita o preenchimento de cor
+        }
     }//GEN-LAST:event_btnexcluirActionPerformed
 
     private void cadastroComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_cadastroComponentShown
