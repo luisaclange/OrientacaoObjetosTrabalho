@@ -581,6 +581,11 @@ public class FrmProdutos extends javax.swing.JFrame {
 
         cadastro.setBackground(new java.awt.Color(245, 245, 245));
         cadastro.setForeground(new java.awt.Color(37, 33, 64));
+        cadastro.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                cadastroComponentShown(evt);
+            }
+        });
 
         descricao.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         descricao.setForeground(new java.awt.Color(2, 30, 115));
@@ -1495,6 +1500,15 @@ public class FrmProdutos extends javax.swing.JFrame {
         dao.cadastrar(obj);
 
         new Utilitarios().LimpaTela(cadastro);
+        
+        btnnovo.setEnabled( true );// habilita o botão escluir
+        btnnovo.setkFillButton( true );// habilita o preenchimento de cor
+        btnsalvar.setEnabled( true );// habilita o botão salvar
+        btnsalvar.setkFillButton( true );// habilita o preenchimento de cor
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btneditar.setkFillButton( false ); // desabilita o preenchimento de cor       
+        btnexcluir.setEnabled( false );// desabilita o botão escluir
+        btnexcluir.setkFillButton( false ); // desabilita o preenchimento de cor 
     }//GEN-LAST:event_btnsalvarActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
@@ -1515,6 +1529,15 @@ public class FrmProdutos extends javax.swing.JFrame {
         dao.alterar(obj);
 
         new Utilitarios().LimpaTela(cadastro);
+        
+        btnnovo.setEnabled( true );// habilita o botão escluir
+        btnnovo.setkFillButton( true );// habilita o preenchimento de cor
+        btnsalvar.setEnabled( true );// habilita o botão salvar
+        btnsalvar.setkFillButton( true );// habilita o preenchimento de cor
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btneditar.setkFillButton( false ); // desabilita o preenchimento de cor       
+        btnexcluir.setEnabled( false );// desabilita o botão escluir
+        btnexcluir.setkFillButton( false ); // desabilita o preenchimento de cor 
 
     }//GEN-LAST:event_btneditarActionPerformed
 
@@ -1529,6 +1552,15 @@ public class FrmProdutos extends javax.swing.JFrame {
         dao.excluir(obj);
 
         new Utilitarios().LimpaTela(cadastro);
+        
+        btnnovo.setEnabled( true );// habilita o botão escluir
+        btnnovo.setkFillButton( true );// habilita o preenchimento de cor
+        btnsalvar.setEnabled( true );// habilita o botão salvar
+        btnsalvar.setkFillButton( true );// habilita o preenchimento de cor
+        btneditar.setEnabled( false );// desabilita o botão editar
+        btneditar.setkFillButton( false ); // desabilita o preenchimento de cor       
+        btnexcluir.setEnabled( false );// desabilita o botão escluir
+        btnexcluir.setkFillButton( false ); // desabilita o preenchimento de cor 
     }//GEN-LAST:event_btnexcluirActionPerformed
 
     private void consulte1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consulte1MouseClicked
@@ -1778,6 +1810,29 @@ public class FrmProdutos extends javax.swing.JFrame {
         // TODO add your handling code here:
         btnfeedbacks.setBackground(new Color(52,55,115));
     }//GEN-LAST:event_btnfeedbacksMouseExited
+
+    private void cadastroComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_cadastroComponentShown
+        // TODO add your handling code here:
+        if(txtcodigo.getText().equals("")){
+            btnnovo.setEnabled( true );// habilita o botão escluir
+            btnnovo.setkFillButton( true );// habilita o preenchimento de cor
+            btnsalvar.setEnabled( true );// habilita o botão salvar
+            btnsalvar.setkFillButton( true );// habilita o preenchimento de cor
+            btneditar.setEnabled( false );// desabilita o botão editar
+            btneditar.setkFillButton( false ); // desabilita o preenchimento de cor       
+            btnexcluir.setEnabled( false );// desabilita o botão escluir
+            btnexcluir.setkFillButton( false ); // desabilita o preenchimento de cor
+        }else{
+            btnsalvar.setEnabled(false);// desabilita o botão salvar
+            btnsalvar.setkFillButton( false ); // desabilita o preenchimento de cor
+            btneditar.setEnabled(true);// habilita o botão editar
+            btneditar.setkFillButton( true ); // habilita o preenchimento de cor
+            btnexcluir.setEnabled(true);// habilita o botão escluir
+            btnexcluir.setkFillButton( true );// habilita o preenchimento de cor
+            btnnovo.setEnabled(true);// habilita o botão escluir
+            btnnovo.setkFillButton( true );// habilita o preenchimento de cor
+        }  
+    }//GEN-LAST:event_cadastroComponentShown
 
     /**
      * @param args the command line arguments
