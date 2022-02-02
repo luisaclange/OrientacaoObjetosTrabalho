@@ -1049,6 +1049,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
         btninicio.setBackground(new java.awt.Color(52, 55, 115));
         btninicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btninicio.setOpaque(false);
         btninicio.setPreferredSize(new java.awt.Dimension(250, 44));
         btninicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1076,6 +1077,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
         btnclientes.setBackground(new java.awt.Color(52, 55, 115));
         btnclientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnclientes.setOpaque(false);
         btnclientes.setPreferredSize(new java.awt.Dimension(250, 44));
         btnclientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1103,6 +1105,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
         btnfuncionarios.setBackground(new java.awt.Color(52, 55, 115));
         btnfuncionarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnfuncionarios.setOpaque(false);
         btnfuncionarios.setPreferredSize(new java.awt.Dimension(250, 44));
         btnfuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1130,6 +1133,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
         btnfornecedores.setBackground(new java.awt.Color(52, 55, 115));
         btnfornecedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnfornecedores.setOpaque(false);
         btnfornecedores.setPreferredSize(new java.awt.Dimension(250, 44));
         btnfornecedores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1157,6 +1161,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
         btnprodutos.setBackground(new java.awt.Color(52, 55, 115));
         btnprodutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnprodutos.setOpaque(false);
         btnprodutos.setPreferredSize(new java.awt.Dimension(250, 44));
         btnprodutos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1184,6 +1189,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
         btnvendas.setBackground(new java.awt.Color(52, 55, 115));
         btnvendas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnvendas.setOpaque(false);
         btnvendas.setPreferredSize(new java.awt.Dimension(250, 44));
         btnvendas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1211,6 +1217,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
         btnconfigurações.setBackground(new java.awt.Color(52, 55, 115));
         btnconfigurações.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnconfigurações.setOpaque(false);
         btnconfigurações.setPreferredSize(new java.awt.Dimension(250, 44));
         btnconfigurações.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1238,6 +1245,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
         btnfeedbacks.setBackground(new java.awt.Color(52, 55, 115));
         btnfeedbacks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnfeedbacks.setOpaque(false);
         btnfeedbacks.setPreferredSize(new java.awt.Dimension(250, 44));
         btnfeedbacks.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1262,6 +1270,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
         btnsair.setBackground(new java.awt.Color(52, 55, 115));
         btnsair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnsair.setOpaque(false);
         btnsair.setPreferredSize(new java.awt.Dimension(250, 44));
         btnsair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
