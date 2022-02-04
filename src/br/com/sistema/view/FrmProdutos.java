@@ -17,8 +17,10 @@ import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.text.NumberFormat;
 
 import java.util.List;
+import java.util.Locale;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -126,7 +128,7 @@ public class FrmProdutos extends javax.swing.JFrame {
         separator1 = new javax.swing.JSeparator();
         txtqtdestoque = new javax.swing.JTextField();
         cbfornecedor = new javax.swing.JComboBox();
-        txtpreco = new javax.swing.JTextField();
+        txtpreco = new javax.swing.JFormattedTextField();
         titulo = new javax.swing.JPanel();
         tituloclientes = new javax.swing.JLabel();
         slogan = new javax.swing.JLabel();
@@ -766,7 +768,11 @@ public class FrmProdutos extends javax.swing.JFrame {
             }
         });
 
-        txtpreco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtpreco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtprecoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout cadastroLayout = new javax.swing.GroupLayout(cadastro);
         cadastro.setLayout(cadastroLayout);
@@ -783,9 +789,9 @@ public class FrmProdutos extends javax.swing.JFrame {
                                 .addGap(83, 83, 83)
                                 .addComponent(descricao))
                             .addGroup(cadastroLayout.createSequentialGroup()
-                                .addGroup(cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtcodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                    .addComponent(txtpreco))
+                                .addGroup(cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtpreco, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(28, 28, 28)
                                 .addGroup(cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(cadastroLayout.createSequentialGroup()
@@ -835,10 +841,13 @@ public class FrmProdutos extends javax.swing.JFrame {
                         .addGroup(cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(preco)
                             .addComponent(qtdestoque))
-                        .addGap(7, 7, 7)
                         .addGroup(cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtqtdestoque, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                            .addComponent(txtpreco)))
+                            .addGroup(cadastroLayout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addComponent(txtqtdestoque, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(cadastroLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtpreco))))
                     .addGroup(cadastroLayout.createSequentialGroup()
                         .addComponent(fornecedor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1294,7 +1303,7 @@ public class FrmProdutos extends javax.swing.JFrame {
 
     private void btnpdvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpdvMouseClicked
         // TODO add your handling code here:
-        FrmVendas tela = new FrmVendas();
+        FrmVendas2 tela = new FrmVendas2();
         tela.setVisible(true);
         this.dispose();
         abavendas.setSize(0,0);
@@ -1857,6 +1866,24 @@ public class FrmProdutos extends javax.swing.JFrame {
         }  
     }//GEN-LAST:event_cadastroComponentShown
 
+    private void txtprecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtprecoActionPerformed
+
+            Locale locBR = new Locale ("pt"); 
+        float valor = Float.parseFloat(txtpreco.getText());
+        NumberFormat[] nfa = new NumberFormat[4];
+        nfa[0]= NumberFormat.getInstance();
+        nfa[1]= NumberFormat.getInstance(locBR);
+        nfa[2]= NumberFormat.getCurrencyInstance(); 
+        nfa[3]= NumberFormat.getCurrencyInstance(locBR);
+        for (NumberFormat nf: nfa){
+            System.out.println(nf.format(valor));
+            
+        }
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtprecoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1972,7 +1999,7 @@ public class FrmProdutos extends javax.swing.JFrame {
     private javax.swing.JTextField txtcodigo;
     private javax.swing.JTextField txtdescricao;
     private javax.swing.JTextField txtpesquisa;
-    private javax.swing.JTextField txtpreco;
+    private javax.swing.JFormattedTextField txtpreco;
     private javax.swing.JTextField txtqtdestoque;
     private javax.swing.JLabel usuario1;
     // End of variables declaration//GEN-END:variables

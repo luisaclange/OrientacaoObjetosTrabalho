@@ -79,7 +79,7 @@ public class Frmfeedbacks extends javax.swing.JFrame {
 
     DefaultListModel MODELO;
     int enter = 0;
-
+    
     public Frmfeedbacks() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
@@ -531,16 +531,12 @@ public class Frmfeedbacks extends javax.swing.JFrame {
                 .addComponent(separator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-<<<<<<< HEAD
-        tabelaFeedback.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-=======
         tabelaFeedback = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
                 return false;
             }
         };
-        tabelaFeedback.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
->>>>>>> cb3c3e5930f2d195f7f06e307f9aecc1ed815143
+        tabelaFeedback.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         tabelaFeedback.setForeground(new java.awt.Color(52, 55, 115));
         tabelaFeedback.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1278,7 +1274,7 @@ public class Frmfeedbacks extends javax.swing.JFrame {
 
     private void btnpdvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpdvMouseClicked
         // TODO add your handling code here:
-        FrmVendas tela = new FrmVendas();
+        FrmVendas2 tela = new FrmVendas2();
         tela.setVisible(true);
         this.dispose();
         abavendas.setSize(0, 0);
@@ -1756,19 +1752,6 @@ public class Frmfeedbacks extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtidfeedbackKeyPressed
 
-    private void ListaNomesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaNomesMousePressed
-        ListaNomes.setVisible(false);
-        Clientes c = new Clientes();
-        ClientesDAO dao = new ClientesDAO();
-
-        c = dao.consultaPorNome(ListaNomes.getSelectedValue().toString());
-
-        txtidcliente.setText(String.valueOf(c.getId()));
-        txtnome.setText(c.getNome());
-        txttel.setText(c.getTelefone());
-        txtemail.setText(c.getEmail());
-    }//GEN-LAST:event_ListaNomesMousePressed
-
     private void txtnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnomeActionPerformed
         ListaNomes.setVisible(false);
         enter = 1;
@@ -1807,14 +1790,6 @@ public class Frmfeedbacks extends javax.swing.JFrame {
         listar();
     }//GEN-LAST:event_formWindowActivated
 
-    private void ListaNomesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaNomesMouseEntered
-
-    }//GEN-LAST:event_ListaNomesMouseEntered
-
-    private void ListaNomesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaNomesMouseExited
-
-    }//GEN-LAST:event_ListaNomesMouseExited
-
     private void btnfeedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseClicked
         Frmfeedbacks tela = new Frmfeedbacks();
         tela.setVisible(true);
@@ -1836,6 +1811,27 @@ public class Frmfeedbacks extends javax.swing.JFrame {
     private void configurações1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_configurações1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_configurações1MouseClicked
+
+    private void ListaNomesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaNomesMouseEntered
+
+    }//GEN-LAST:event_ListaNomesMouseEntered
+
+    private void ListaNomesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaNomesMouseExited
+
+    }//GEN-LAST:event_ListaNomesMouseExited
+
+    private void ListaNomesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaNomesMousePressed
+        ListaNomes.setVisible(false);
+        Clientes c = new Clientes();
+        ClientesDAO dao = new ClientesDAO();
+
+        c = dao.consultaPorNome(ListaNomes.getSelectedValue().toString());
+
+        txtidcliente.setText(String.valueOf(c.getId()));
+        txtnome.setText(c.getNome());
+        txttel.setText(c.getTelefone());
+        txtemail.setText(c.getEmail());
+    }//GEN-LAST:event_ListaNomesMousePressed
 
     /**
      * @param args the command line arguments

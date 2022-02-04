@@ -12,9 +12,11 @@ import br.com.sistema.model.Vendas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Locale;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -77,13 +79,13 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
         detalhedata = new javax.swing.JLabel();
         detalhecliente = new javax.swing.JLabel();
         txtcliente = new javax.swing.JTextField();
-        txtdatavenda = new javax.swing.JTextField();
-        txtotalvenda = new javax.swing.JTextField();
         ScrollObs = new javax.swing.JScrollPane();
         txtobsvenda = new javax.swing.JTextArea();
         observacoes = new javax.swing.JLabel();
         scrollTabela = new javax.swing.JScrollPane();
         tabelaItensVendido = new javax.swing.JTable();
+        txtdatavenda = new javax.swing.JFormattedTextField();
+        txttotalvenda = new javax.swing.JFormattedTextField();
         navbar = new javax.swing.JPanel();
         String[] tema = new Utilitarios().getConfigJson();
 
@@ -436,26 +438,6 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
             }
         });
 
-        txtdatavenda.setEditable(false);
-        txtdatavenda.setBackground(new java.awt.Color(255, 255, 255));
-        txtdatavenda.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        txtdatavenda.setForeground(new java.awt.Color(2, 30, 115));
-        txtdatavenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtdatavendaActionPerformed(evt);
-            }
-        });
-
-        txtotalvenda.setEditable(false);
-        txtotalvenda.setBackground(new java.awt.Color(255, 255, 255));
-        txtotalvenda.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        txtotalvenda.setForeground(new java.awt.Color(2, 30, 115));
-        txtotalvenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtotalvendaActionPerformed(evt);
-            }
-        });
-
         txtobsvenda.setEditable(false);
         txtobsvenda.setColumns(20);
         txtobsvenda.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
@@ -508,6 +490,24 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
         tabelaItensVendido.setSelectionBackground(new java.awt.Color(69, 99, 191));
         scrollTabela.setViewportView(tabelaItensVendido);
 
+        try {
+            txtdatavenda.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtdatavenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtdatavendaActionPerformed(evt);
+            }
+        });
+
+        txttotalvenda.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        txttotalvenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txttotalvendaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout consultaLayout = new javax.swing.GroupLayout(consulta);
         consulta.setLayout(consultaLayout);
         consultaLayout.setHorizontalGroup(
@@ -517,26 +517,25 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
                     .addComponent(opcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(consultaLayout.createSequentialGroup()
                         .addGap(81, 81, 81)
-                        .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(consultaLayout.createSequentialGroup()
-                                .addComponent(detalhecliente)
-                                .addGap(324, 324, 324)
-                                .addComponent(observacoes))
+                        .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(scrollTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 849, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(consultaLayout.createSequentialGroup()
                                 .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(detalhecliente)
                                     .addComponent(txtcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(consultaLayout.createSequentialGroup()
-                                        .addComponent(detalhedata)
-                                        .addGap(130, 130, 130)
-                                        .addComponent(detalhetotalvenda))
-                                    .addGroup(consultaLayout.createSequentialGroup()
-                                        .addComponent(txtdatavenda, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(txtotalvenda, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(detalhedata)
+                                            .addComponent(txtdatavenda, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(29, 29, 29)
+                                        .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txttotalvenda, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(detalhetotalvenda))))
                                 .addGap(51, 51, 51)
-                                .addComponent(ScrollObs, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(scrollTabela))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                                .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ScrollObs, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(observacoes))))))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         consultaLayout.setVerticalGroup(
             consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -554,10 +553,10 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
                         .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(detalhedata)
                             .addComponent(detalhetotalvenda))
-                        .addGap(7, 7, 7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtdatavenda, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtotalvenda, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txttotalvenda, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(ScrollObs, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(scrollTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -986,7 +985,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
 
     private void btnpdvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpdvMouseClicked
         // TODO add your handling code here:
-        FrmVendas tela = new FrmVendas();
+        FrmVendas2 tela = new FrmVendas2();
         tela.setVisible(true);
         this.dispose();
         abavendas.setSize(0,0);
@@ -1088,14 +1087,6 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
     private void txtclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtclienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtclienteActionPerformed
-
-    private void txtdatavendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdatavendaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtdatavendaActionPerformed
-
-    private void txtotalvendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtotalvendaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtotalvendaActionPerformed
 
     private void painelinferiorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelinferiorMouseEntered
         // TODO add your handling code here:
@@ -1293,6 +1284,29 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_feedbacksMouseClicked
 
+    private void txtdatavendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdatavendaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtdatavendaActionPerformed
+
+    private void txttotalvendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttotalvendaActionPerformed
+        Locale locBR = new Locale ("pt"); 
+        float valor = Float.parseFloat(txttotalvenda.getText());
+        NumberFormat[] nfa = new NumberFormat[4];
+        nfa[0]= NumberFormat.getInstance();
+        nfa[1]= NumberFormat.getInstance(locBR);
+        nfa[2]= NumberFormat.getCurrencyInstance(); 
+        nfa[3]= NumberFormat.getCurrencyInstance(locBR);
+        for (NumberFormat nf: nfa){
+            System.out.println(nf.format(valor));
+            
+        }
+        
+        
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txttotalvendaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1390,9 +1404,9 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
     private javax.swing.JPanel titulo;
     private javax.swing.JLabel titulovendas;
     public javax.swing.JTextField txtcliente;
-    public javax.swing.JTextField txtdatavenda;
+    public javax.swing.JFormattedTextField txtdatavenda;
     public javax.swing.JTextArea txtobsvenda;
-    public javax.swing.JTextField txtotalvenda;
+    public javax.swing.JFormattedTextField txttotalvenda;
     private javax.swing.JLabel usuario1;
     // End of variables declaration//GEN-END:variables
 }

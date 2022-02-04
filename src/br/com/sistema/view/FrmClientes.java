@@ -1494,7 +1494,7 @@ public class FrmClientes extends javax.swing.JFrame {
 
     private void btnpdvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpdvMouseClicked
         // TODO add your handling code here:
-        FrmVendas tela = new FrmVendas();
+        FrmVendas2 tela = new FrmVendas2();
         tela.setVisible(true);
         abavendas.setSize(0, 0);
         this.dispose();
