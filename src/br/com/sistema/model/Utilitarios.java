@@ -47,6 +47,20 @@ public class Utilitarios {
         }
     }
     
+    public double converterVirgulaParaPontoReturn (String pString){
+        String retorno = new String();
+        int tamanhoString = pString.length();
+        for (int i=0; i < tamanhoString;i++){
+            if (pString.charAt (i) == ','){
+                retorno += '.';
+            }else {
+                retorno += pString.charAt(i);
+            }
+        }
+    
+        return (float) Double.parseDouble(retorno);
+    }
+    
     // Método e atributos para escolher imagem para o sistema
     
     public void escolheImagem(FrmTema tema, JTextField txtFile){

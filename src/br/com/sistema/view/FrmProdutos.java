@@ -5,29 +5,22 @@
  */
 package br.com.sistema.view;
 
-import br.com.sistema.dao.ClientesDAO;
 import br.com.sistema.dao.FornecedoresDAO;
 import br.com.sistema.dao.ProdutosDAO;
-import br.com.sistema.model.Clientes;
 import br.com.sistema.model.Fornecedores;
 import br.com.sistema.model.Produtos;
 import br.com.sistema.model.Utilitarios;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.event.KeyEvent;
-import java.text.NumberFormat;
 
 import java.util.List;
-import java.util.Locale;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+
+
 
 /**
  *
@@ -35,6 +28,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmProdutos extends javax.swing.JFrame {
 
+    
+    
+    
     //Metodo Listar na tabela
     public void listar() {
 
@@ -54,10 +50,6 @@ public class FrmProdutos extends javax.swing.JFrame {
             });
 
         }
-
-    }
-
-    public void carregaCombobox() {
 
     }
 
@@ -1516,11 +1508,18 @@ public class FrmProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnovoActionPerformed
 
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
+            
+
+        
+       Utilitarios formatador = new Utilitarios (); 
+        
+                
+       
         // TODO add your handling code here:
         // boto salvar
         Produtos obj = new Produtos();
         obj.setDescricao(txtdescricao.getText());
-        obj.setPreco(Double.parseDouble(txtpreco.getText()));
+        obj.setPreco(formatador.converterVirgulaParaPontoReturn(txtpreco.getText()));
         obj.setQtd_estoque(Integer.parseInt(txtqtdestoque.getText()));
 
         //Criar um objeto de Fornecedor
@@ -1805,24 +1804,11 @@ public class FrmProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_navbarMouseExited
 
     private void jPanel4ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel4ComponentShown
-        // TODO add your handling code here:
-        btnsalvar.setEnabled( false );// desabilita o botão escluir
-        btneditar.setEnabled( false );// desabilita o botão editar
-        btnexcluir.setEnabled( false );// desabilita o botão escluir
-        btnnovo.setEnabled( false );// desabilita o botão escluir
+        
     }//GEN-LAST:event_jPanel4ComponentShown
 
     private void painel_dadosComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_painel_dadosComponentShown
-        // TODO add your handling code here:
-        if (txtdescricao.getText().equals("")){
-            
-        btnsalvar.setEnabled( true );// Habilita o botão escluir
-        btneditar.setEnabled( false );// desabilita o botão editar
-        btnexcluir.setEnabled( false );// desabilita o botão escluir
-        btnnovo.setEnabled( true );// Habilita o botão escluir
-        }
-        
-        
+                
     }//GEN-LAST:event_painel_dadosComponentShown
 
     private void btnfeedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseClicked
@@ -1867,18 +1853,9 @@ public class FrmProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastroComponentShown
 
     private void txtprecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtprecoActionPerformed
-
-            Locale locBR = new Locale ("pt"); 
-        float valor = Float.parseFloat(txtpreco.getText());
-        NumberFormat[] nfa = new NumberFormat[4];
-        nfa[0]= NumberFormat.getInstance();
-        nfa[1]= NumberFormat.getInstance(locBR);
-        nfa[2]= NumberFormat.getCurrencyInstance(); 
-        nfa[3]= NumberFormat.getCurrencyInstance(locBR);
-        for (NumberFormat nf: nfa){
-            System.out.println(nf.format(valor));
-            
-        }
+            double n1 = Double.parseDouble(txtpreco.getText().replaceAll(",", "."));            
+        
+        
 
 
         // TODO add your handling code here:
