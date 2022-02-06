@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -26,7 +27,27 @@ import javax.swing.JOptionPane;
 @SuppressWarnings("serial")
 public class FrmTema extends javax.swing.JFrame {
 
+    public static Color stringToColor(final String value) {
+    if (value == null) {
+      return Color.black;
+    }
+    try {
+      // get color by hex or octal value
+      return Color.decode(value);
+    } catch (NumberFormatException nfe) {
+      // if we can't decode lets try to get it by name
+      try {
+        // try to get a color by name using reflection
+        final Field f = Color.class.getField(value);
 
+        return (Color) f.get(null);
+      } catch (Exception ce) {
+        // if we can't get any color return black
+        return Color.black;
+      }
+    }
+  }
+    
     /**
      * Creates new form Frmtema
      */
@@ -44,6 +65,15 @@ public class FrmTema extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        String[] tema = new Utilitarios().getConfigJson();
+
+        ImageIcon icon = new ImageIcon(tema[0]);
+
+        Image image = icon.getImage();
+        Color corPrimaria = stringToColor(tema[2]);
+        Color corSecundaria = stringToColor(tema[3]);
+        Color letraPrimaria = stringToColor(tema[4]);
+        Color letraSecundaria = stringToColor(tema[5]);
         telatema = new javax.swing.JPanel();
         painelinferior = new javax.swing.JPanel();
         abaprodutos = new javax.swing.JPanel();
@@ -76,12 +106,15 @@ public class FrmTema extends javax.swing.JFrame {
         txtcorpletra = new javax.swing.JTextField();
         corsecundaria2 = new javax.swing.JLabel();
         txtcorsletra = new javax.swing.JTextField();
+        btnLetraSecundaria = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        btnLetraPrimaria = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        btnCorPrimaria = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        btnCorSecundaria = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         navbar = new javax.swing.JPanel();
-        String[] tema = new Utilitarios().getConfigJson();
-
-        ImageIcon icon = new ImageIcon(tema[0]);
-
-        Image image = icon.getImage();
         arealogo = new javax.swing.JPanel(){
             public void paintComponent(Graphics g){
                 g.drawImage(image, 0,0, getWidth(),getHeight(),this);
@@ -373,8 +406,8 @@ public class FrmTema extends javax.swing.JFrame {
         opcoes.setBackground(new java.awt.Color(245, 245, 245));
 
         consulte.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        consulte.setForeground(new java.awt.Color(63, 106, 191));
-        consulte.setText("Logo");
+        consulte.setForeground(letraSecundaria);
+        consulte.setText("Tema");
         consulte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         consulte.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -404,7 +437,7 @@ public class FrmTema extends javax.swing.JFrame {
                 .addComponent(separator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        upload.setBackground(new java.awt.Color(206, 215, 242));
+        upload.setBackground(corSecundaria);
         upload.setForeground(new java.awt.Color(2, 30, 115));
         upload.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         upload.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -416,7 +449,7 @@ public class FrmTema extends javax.swing.JFrame {
         iconeup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/upload.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(63, 106, 197));
+        jLabel1.setForeground(letraSecundaria);
         jLabel1.setText("Faça o upload de sua logo clicando aqui");
 
         javax.swing.GroupLayout uploadLayout = new javax.swing.GroupLayout(upload);
@@ -424,7 +457,7 @@ public class FrmTema extends javax.swing.JFrame {
         uploadLayout.setHorizontalGroup(
             uploadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(uploadLayout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(49, Short.MAX_VALUE)
                 .addGroup(uploadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, uploadLayout.createSequentialGroup()
                         .addComponent(iconeup)
@@ -435,12 +468,12 @@ public class FrmTema extends javax.swing.JFrame {
         );
         uploadLayout.setVerticalGroup(
             uploadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(uploadLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, uploadLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(iconeup)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addGap(61, 61, 61))
         );
 
         btnaplicar.setText("Aplicar");
@@ -495,12 +528,12 @@ public class FrmTema extends javax.swing.JFrame {
         });
 
         img.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        img.setForeground(new java.awt.Color(63, 106, 197));
+        img.setForeground(letraSecundaria);
         img.setText("Imagem selecionada:");
 
         corprimaria.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        corprimaria.setForeground(new java.awt.Color(63, 106, 197));
-        corprimaria.setText("Cor primária background:");
+        corprimaria.setForeground(letraSecundaria);
+        corprimaria.setText("Cor da barra lateral:");
 
         txtlogo.setEditable(false);
         txtlogo.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
@@ -512,8 +545,8 @@ public class FrmTema extends javax.swing.JFrame {
         });
 
         corsecundaria.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        corsecundaria.setForeground(new java.awt.Color(63, 106, 197));
-        corsecundaria.setText("Cor secundária background:");
+        corsecundaria.setForeground(letraSecundaria);
+        corsecundaria.setText("Cor da barra superior:");
 
         txtcorsback.setEditable(false);
         txtcorsback.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
@@ -525,8 +558,8 @@ public class FrmTema extends javax.swing.JFrame {
         });
 
         corprimaria2.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        corprimaria2.setForeground(new java.awt.Color(63, 106, 197));
-        corprimaria2.setText("Cor primária letra:");
+        corprimaria2.setForeground(letraSecundaria);
+        corprimaria2.setText("Cor da letra primária:");
 
         txtcorpletra.setEditable(false);
         txtcorpletra.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
@@ -538,8 +571,8 @@ public class FrmTema extends javax.swing.JFrame {
         });
 
         corsecundaria2.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        corsecundaria2.setForeground(new java.awt.Color(63, 106, 197));
-        corsecundaria2.setText("Cor secundária letra:");
+        corsecundaria2.setForeground(letraSecundaria);
+        corsecundaria2.setText("Cor da letra secundária:");
 
         txtcorsletra.setEditable(false);
         txtcorsletra.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
@@ -550,32 +583,152 @@ public class FrmTema extends javax.swing.JFrame {
             }
         });
 
+        btnLetraSecundaria.setBackground(corSecundaria);
+        btnLetraSecundaria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLetraSecundaria.setPreferredSize(new java.awt.Dimension(160, 25));
+        btnLetraSecundaria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLetraSecundariaMouseClicked(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        jLabel5.setForeground(letraSecundaria);
+        jLabel5.setText("Escolher cor");
+
+        javax.swing.GroupLayout btnLetraSecundariaLayout = new javax.swing.GroupLayout(btnLetraSecundaria);
+        btnLetraSecundaria.setLayout(btnLetraSecundariaLayout);
+        btnLetraSecundariaLayout.setHorizontalGroup(
+            btnLetraSecundariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnLetraSecundariaLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jLabel5)
+                .addGap(40, 40, 40))
+        );
+        btnLetraSecundariaLayout.setVerticalGroup(
+            btnLetraSecundariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+        );
+
+        btnLetraPrimaria.setBackground(corSecundaria);
+        btnLetraPrimaria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLetraPrimaria.setPreferredSize(new java.awt.Dimension(160, 25));
+        btnLetraPrimaria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLetraPrimariaMouseClicked(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        jLabel4.setForeground(letraSecundaria);
+        jLabel4.setText("Escolher cor");
+
+        javax.swing.GroupLayout btnLetraPrimariaLayout = new javax.swing.GroupLayout(btnLetraPrimaria);
+        btnLetraPrimaria.setLayout(btnLetraPrimariaLayout);
+        btnLetraPrimariaLayout.setHorizontalGroup(
+            btnLetraPrimariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnLetraPrimariaLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jLabel4)
+                .addGap(42, 42, 42))
+        );
+        btnLetraPrimariaLayout.setVerticalGroup(
+            btnLetraPrimariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        btnCorPrimaria.setBackground(corSecundaria);
+        btnCorPrimaria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCorPrimaria.setPreferredSize(new java.awt.Dimension(160, 25));
+        btnCorPrimaria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCorPrimariaMouseClicked(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        jLabel2.setForeground(letraSecundaria);
+        jLabel2.setText("Escolher cor");
+
+        javax.swing.GroupLayout btnCorPrimariaLayout = new javax.swing.GroupLayout(btnCorPrimaria);
+        btnCorPrimaria.setLayout(btnCorPrimariaLayout);
+        btnCorPrimariaLayout.setHorizontalGroup(
+            btnCorPrimariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnCorPrimariaLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jLabel2)
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+        btnCorPrimariaLayout.setVerticalGroup(
+            btnCorPrimariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        btnCorSecundaria.setBackground(corSecundaria);
+        btnCorSecundaria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCorSecundaria.setPreferredSize(new java.awt.Dimension(160, 25));
+        btnCorSecundaria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCorSecundariaMouseClicked(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        jLabel3.setForeground(letraSecundaria);
+        jLabel3.setText("Escolher cor");
+
+        javax.swing.GroupLayout btnCorSecundariaLayout = new javax.swing.GroupLayout(btnCorSecundaria);
+        btnCorSecundaria.setLayout(btnCorSecundariaLayout);
+        btnCorSecundariaLayout.setHorizontalGroup(
+            btnCorSecundariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnCorSecundariaLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jLabel3)
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+        btnCorSecundariaLayout.setVerticalGroup(
+            btnCorSecundariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout cardlogoLayout = new javax.swing.GroupLayout(cardlogo);
         cardlogo.setLayout(cardlogoLayout);
         cardlogoLayout.setHorizontalGroup(
             cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardlogoLayout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardlogoLayout.createSequentialGroup()
                         .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(opcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(cardlogoLayout.createSequentialGroup()
                                 .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(corprimaria)
-                                    .addComponent(corsecundaria)
-                                    .addComponent(corprimaria2)
-                                    .addComponent(corsecundaria2)
-                                    .addComponent(txtcorpletra, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                                    .addGroup(cardlogoLayout.createSequentialGroup()
+                                        .addComponent(corprimaria)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnCorPrimaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(cardlogoLayout.createSequentialGroup()
+                                        .addComponent(corsecundaria)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnCorSecundaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(cardlogoLayout.createSequentialGroup()
+                                        .addComponent(corprimaria2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnLetraPrimaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(cardlogoLayout.createSequentialGroup()
+                                        .addComponent(corsecundaria2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnLetraSecundaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtcorpletra)
                                     .addComponent(txtcorsback)
                                     .addComponent(txtcorpback)
-                                    .addComponent(txtcorsletra))
-                                .addGap(158, 158, 158)
-                                .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(upload, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtcorsletra, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(86, 86, 86)
+                                .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(img)
-                                        .addComponent(txtlogo, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(txtlogo, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(upload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(28, 28, 28)))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardlogoLayout.createSequentialGroup()
@@ -591,28 +744,36 @@ public class FrmTema extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(cardlogoLayout.createSequentialGroup()
-                        .addComponent(upload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(upload, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(img)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtlogo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(cardlogoLayout.createSequentialGroup()
-                        .addComponent(corprimaria)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(corprimaria, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                            .addComponent(btnCorPrimaria, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtcorpback, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(corsecundaria)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnCorSecundaria, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(corsecundaria))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtcorsback, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(corprimaria2)
+                        .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(corprimaria2, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                            .addComponent(btnLetraPrimaria, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtcorpletra, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(corsecundaria2)
+                        .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnLetraSecundaria, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(corsecundaria2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtcorsletra, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addGap(72, 72, 72)
                 .addGroup(cardlogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnaplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -625,7 +786,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         telatema.add(painelinferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 20000, 1080));
 
-        navbar.setBackground(new java.awt.Color(52, 55, 115));
+        navbar.setBackground(corPrimaria);
         navbar.setPreferredSize(new java.awt.Dimension(2519, 20000));
         navbar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -635,6 +796,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         arealogo.setBackground(new java.awt.Color(52, 55, 115));
         arealogo.setMinimumSize(new java.awt.Dimension(150, 150));
+        arealogo.setOpaque(false);
 
         javax.swing.GroupLayout arealogoLayout = new javax.swing.GroupLayout(arealogo);
         arealogo.setLayout(arealogoLayout);
@@ -651,6 +813,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         btninicio.setBackground(new java.awt.Color(52, 55, 115));
         btninicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btninicio.setOpaque(false);
         btninicio.setPreferredSize(new java.awt.Dimension(250, 44));
         btninicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -667,7 +830,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         inicio.setBackground(new java.awt.Color(57, 77, 191));
         inicio.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        inicio.setForeground(new java.awt.Color(242, 242, 242));
+        inicio.setForeground(letraPrimaria);
         inicio.setText("Início");
         btninicio.add(inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 94, 24));
 
@@ -678,6 +841,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         btnclientes.setBackground(new java.awt.Color(52, 55, 115));
         btnclientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnclientes.setOpaque(false);
         btnclientes.setPreferredSize(new java.awt.Dimension(250, 44));
         btnclientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -694,7 +858,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         clientes.setBackground(new java.awt.Color(57, 77, 191));
         clientes.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        clientes.setForeground(new java.awt.Color(242, 242, 242));
+        clientes.setForeground(letraPrimaria);
         clientes.setText("Clientes");
         btnclientes.add(clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 94, 24));
 
@@ -705,6 +869,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         btnfuncionarios.setBackground(new java.awt.Color(52, 55, 115));
         btnfuncionarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnfuncionarios.setOpaque(false);
         btnfuncionarios.setPreferredSize(new java.awt.Dimension(250, 44));
         btnfuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -721,7 +886,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         funcionarios.setBackground(new java.awt.Color(57, 77, 191));
         funcionarios.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        funcionarios.setForeground(new java.awt.Color(242, 242, 242));
+        funcionarios.setForeground(letraPrimaria);
         funcionarios.setText("Funcionários");
         btnfuncionarios.add(funcionarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 164, 24));
 
@@ -732,6 +897,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         btnfornecedores.setBackground(new java.awt.Color(52, 55, 115));
         btnfornecedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnfornecedores.setOpaque(false);
         btnfornecedores.setPreferredSize(new java.awt.Dimension(250, 44));
         btnfornecedores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -748,7 +914,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         fornecedores.setBackground(new java.awt.Color(57, 77, 191));
         fornecedores.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        fornecedores.setForeground(new java.awt.Color(242, 242, 242));
+        fornecedores.setForeground(letraPrimaria);
         fornecedores.setText("Fornecedores");
         btnfornecedores.add(fornecedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 164, 24));
 
@@ -759,6 +925,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         btnprodutos.setBackground(new java.awt.Color(52, 55, 115));
         btnprodutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnprodutos.setOpaque(false);
         btnprodutos.setPreferredSize(new java.awt.Dimension(250, 44));
         btnprodutos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -775,7 +942,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         produtos.setBackground(new java.awt.Color(57, 77, 191));
         produtos.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        produtos.setForeground(new java.awt.Color(242, 242, 242));
+        produtos.setForeground(letraPrimaria);
         produtos.setText("Produtos");
         btnprodutos.add(produtos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 164, 24));
 
@@ -786,6 +953,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         btnvendas.setBackground(new java.awt.Color(52, 55, 115));
         btnvendas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnvendas.setOpaque(false);
         btnvendas.setPreferredSize(new java.awt.Dimension(250, 44));
         btnvendas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -802,7 +970,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         clientes5.setBackground(new java.awt.Color(57, 77, 191));
         clientes5.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        clientes5.setForeground(new java.awt.Color(242, 242, 242));
+        clientes5.setForeground(letraPrimaria);
         clientes5.setText("Vendas");
         btnvendas.add(clientes5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 164, 24));
 
@@ -813,6 +981,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         btnconfigurações.setBackground(new java.awt.Color(52, 55, 115));
         btnconfigurações.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnconfigurações.setOpaque(false);
         btnconfigurações.setPreferredSize(new java.awt.Dimension(250, 44));
         btnconfigurações.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -829,7 +998,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         configurações.setBackground(new java.awt.Color(57, 77, 191));
         configurações.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        configurações.setForeground(new java.awt.Color(242, 242, 242));
+        configurações.setForeground(letraPrimaria);
         configurações.setText("Configurações");
         btnconfigurações.add(configurações, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 110, 24));
 
@@ -840,6 +1009,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         btnfeedbacks.setBackground(new java.awt.Color(52, 55, 115));
         btnfeedbacks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnfeedbacks.setOpaque(false);
         btnfeedbacks.setPreferredSize(new java.awt.Dimension(250, 44));
         btnfeedbacks.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -856,7 +1026,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         configurações1.setBackground(new java.awt.Color(57, 77, 191));
         configurações1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        configurações1.setForeground(new java.awt.Color(242, 242, 242));
+        configurações1.setForeground(letraPrimaria);
         configurações1.setText("Feedbacks");
         btnfeedbacks.add(configurações1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 110, 24));
 
@@ -867,6 +1037,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         btnsair.setBackground(new java.awt.Color(52, 55, 115));
         btnsair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnsair.setOpaque(false);
         btnsair.setPreferredSize(new java.awt.Dimension(250, 44));
         btnsair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -883,7 +1054,7 @@ public class FrmTema extends javax.swing.JFrame {
 
         sair.setBackground(new java.awt.Color(57, 77, 191));
         sair.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        sair.setForeground(new java.awt.Color(242, 242, 242));
+        sair.setForeground(letraPrimaria);
         sair.setText("Sair");
         btnsair.add(sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 164, 24));
 
@@ -894,17 +1065,17 @@ public class FrmTema extends javax.swing.JFrame {
 
         telatema.add(navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 1080));
 
-        titulo.setBackground(new java.awt.Color(145, 163, 217));
+        titulo.setBackground(corSecundaria);
         titulo.setPreferredSize(new java.awt.Dimension(20000, 128));
         titulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titulototalvendas.setFont(new java.awt.Font("Segoe UI Light", 0, 48)); // NOI18N
-        titulototalvendas.setForeground(new java.awt.Color(52, 55, 115));
+        titulototalvendas.setForeground(letraSecundaria);
         titulototalvendas.setText("Personalizar");
         titulo.add(titulototalvendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 33, -1, -1));
 
         slogan.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        slogan.setForeground(new java.awt.Color(52, 55, 115));
+        slogan.setForeground(letraSecundaria);
         slogan.setText(" Insira a logo do seu mercado por aqui");
         titulo.add(slogan, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 103, -1, -1));
 
@@ -921,7 +1092,7 @@ public class FrmTema extends javax.swing.JFrame {
         lblusuario.setForeground(new java.awt.Color(52, 55, 115));
 
         usuario1.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        usuario1.setForeground(new java.awt.Color(52, 55, 115));
+        usuario1.setForeground(letraSecundaria);
         usuario1.setText("Usuário Logado:");
 
         javax.swing.GroupLayout painelsuperiorLayout = new javax.swing.GroupLayout(painelsuperior);
@@ -1312,22 +1483,61 @@ public class FrmTema extends javax.swing.JFrame {
     private void btnaplicarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnaplicarMouseClicked
         try {
             Utilitarios util = new Utilitarios();
+            
+            String logo, corPrimaria, corSecundaria, letraPrimaria, letraSecundaria;
 
-            Path fundo = Paths.get(txtlogo.getText()); // Armazena a imagem selecionada pelo usuário
+            if(!txtlogo.getText().equals("")){ // Seta logo
+                Path fundo = Paths.get(txtlogo.getText()); // Armazena a imagem selecionada pelo usuário
 
-            Path diretorioImagens = Paths.get("./src/imagens/"  + fundo.getFileName()); // Escolhe o novo diretório da imagem
+                Path diretorioImagens = Paths.get("./src/imagens/"  + fundo.getFileName()); // Escolhe o novo diretório da imagem
 
-            Files.copy(fundo, diretorioImagens, StandardCopyOption.REPLACE_EXISTING); // Copia e, se necessário, substitui a imagen
+                logo = diretorioImagens.toString();
+                
+                Files.copy(fundo, diretorioImagens, StandardCopyOption.REPLACE_EXISTING); // Copia e, se necessário, substitui a imagen
+            }else{
+                logo = util.getConfigJson()[0];
+            }
+            
+            if(!txtcorpback.getText().equals("")){ // Seta cor primária
+                corPrimaria = "0x"+txtcorpback.getText();
+            }else{
+                corPrimaria = util.getConfigJson()[2];
+            }
+            
+            
+            if(!txtcorsback.getText().equals("")){ // Seta cor secundária
+                corSecundaria = "0x"+txtcorsback.getText();
+            }else{
+                corSecundaria = util.getConfigJson()[3];
+            }
+            
+            
+            if(!txtcorpletra.getText().equals("")){ // Seta letra primária
+                letraPrimaria = "0x"+txtcorpletra.getText();
+            }else{
+                letraPrimaria = util.getConfigJson()[4];
+            }
+            
+            
+            if(!txtcorsletra.getText().equals("")){ // Seta letra secundária
+                letraSecundaria = "0x"+txtcorsletra.getText();
+            }else{
+                letraSecundaria = util.getConfigJson()[5];
+            }
+            
+            util.setConfigJson(logo,util.getConfigJson()[1], corPrimaria, 
+                                corSecundaria, letraPrimaria, letraSecundaria); // Altera a configuração de inicialização no JSON
 
-            util.setConfigJson(fundo.getFileName().toString(),"SEM SISTEMAS"); // Altera a configuração de inicialização no JSON
-
+            this.dispose();
+            FrmTema novaTela = new FrmTema();
+            novaTela.setVisible(true);
         } catch (IOException ex) {
             Logger.getLogger(FrmTema.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnaplicarMouseClicked
 
     private void uploadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uploadMouseClicked
-        new Utilitarios().escolheImagem(this, txtlogo);
+        new Utilitarios().escolheImagem(txtlogo);
     }//GEN-LAST:event_uploadMouseClicked
 
     private void consulteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consulteMouseClicked
@@ -1360,17 +1570,33 @@ public class FrmTema extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtlogoActionPerformed
 
-    private void txtcorsbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcorsbackActionPerformed
+    private void txtcorsletraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcorsletraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtcorsbackActionPerformed
+    }//GEN-LAST:event_txtcorsletraActionPerformed
 
     private void txtcorpletraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcorpletraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcorpletraActionPerformed
 
-    private void txtcorsletraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcorsletraActionPerformed
+    private void txtcorsbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcorsbackActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtcorsletraActionPerformed
+    }//GEN-LAST:event_txtcorsbackActionPerformed
+
+    private void btnCorPrimariaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCorPrimariaMouseClicked
+        new Utilitarios().escolheCor(txtcorpback);
+    }//GEN-LAST:event_btnCorPrimariaMouseClicked
+
+    private void btnCorSecundariaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCorSecundariaMouseClicked
+        new Utilitarios().escolheCor(txtcorsback);
+    }//GEN-LAST:event_btnCorSecundariaMouseClicked
+
+    private void btnLetraPrimariaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLetraPrimariaMouseClicked
+        new Utilitarios().escolheCor(txtcorpletra);
+    }//GEN-LAST:event_btnLetraPrimariaMouseClicked
+
+    private void btnLetraSecundariaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLetraSecundariaMouseClicked
+        new Utilitarios().escolheCor(txtcorsletra);
+    }//GEN-LAST:event_btnLetraSecundariaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1399,12 +1625,6 @@ public class FrmTema extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1420,6 +1640,10 @@ public class FrmTema extends javax.swing.JFrame {
     private javax.swing.JPanel abaprodutos;
     private javax.swing.JPanel abavendas;
     private javax.swing.JPanel arealogo;
+    private javax.swing.JPanel btnCorPrimaria;
+    private javax.swing.JPanel btnCorSecundaria;
+    private javax.swing.JPanel btnLetraPrimaria;
+    private javax.swing.JPanel btnLetraSecundaria;
     private com.k33ptoo.components.KButton btnaplicar;
     private com.k33ptoo.components.KButton btncancelar;
     private javax.swing.JPanel btnclientes;
@@ -1464,6 +1688,45 @@ public class FrmTema extends javax.swing.JFrame {
     private javax.swing.JLabel img;
     private javax.swing.JLabel inicio;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
+    private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel29;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel30;
+    private javax.swing.JPanel jPanel31;
+    private javax.swing.JPanel jPanel32;
+    private javax.swing.JPanel jPanel33;
+    private javax.swing.JPanel jPanel34;
+    private javax.swing.JPanel jPanel35;
+    private javax.swing.JPanel jPanel36;
+    private javax.swing.JPanel jPanel37;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel lblusuario;
     private javax.swing.JPanel navbar;
     private javax.swing.JPanel opcoes;

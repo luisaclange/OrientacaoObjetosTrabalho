@@ -329,7 +329,7 @@ public class FrmLogin extends javax.swing.JFrame {
                 String [] tema = util.getConfigJson();
                 if(tema[1].equals("")){
                     String nome = JOptionPane.showInputDialog("Primeiro acesso! digite o nome da empresa", "");
-                    util.setConfigJson("shopping-cart-check.png", nome);
+                    util.setConfigJson(tema[0], nome, tema[2],tema[3],tema[4],tema[5]);
                 }
                 
                 new FrmLogin().setVisible(true);
