@@ -6,6 +6,7 @@
 package br.com.sistema.view;
 
 import br.com.sistema.dao.ClientesDAO;
+import br.com.sistema.dao.FeedbackDAO;
 import br.com.sistema.dao.FornecedoresDAO;
 import br.com.sistema.dao.ProdutosDAO;
 import br.com.sistema.model.Clientes;
@@ -21,6 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import java.util.List;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -40,12 +42,17 @@ public class FrmVendas2 extends javax.swing.JFrame {
     int qtd;
     
     DefaultTableModel carrinho;
-    /**
-     * Creates new form FrmVendas2
-     */
+    
+    DefaultListModel MODELO;
+    int enter = 0;
+
     public FrmVendas2() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
+        ListaNomes.setVisible(false);
+        MODELO = new DefaultListModel();
+        ListaNomes.setModel(MODELO);
+        
         this.getContentPane().setBackground(Color.WHITE);
     }
 
@@ -71,6 +78,7 @@ public class FrmVendas2 extends javax.swing.JFrame {
         btntrocaruser = new javax.swing.JLabel();
         abadetalhevendas = new javax.swing.JPanel();
         consulta = new javax.swing.JPanel();
+        ListaNomes = new javax.swing.JList<>();
         opcoes = new javax.swing.JPanel();
         consulte = new javax.swing.JLabel();
         separator = new javax.swing.JSeparator();
@@ -388,6 +396,28 @@ public class FrmVendas2 extends javax.swing.JFrame {
 
         consulta.setBackground(new java.awt.Color(245, 245, 245));
         consulta.setPreferredSize(new java.awt.Dimension(910, 530));
+        consulta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ListaNomes.setBackground(new java.awt.Color(255, 255, 255));
+        ListaNomes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        ListaNomes.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        ListaNomes.setForeground(new java.awt.Color(52, 55, 115));
+        ListaNomes.setMinimumSize(null);
+        ListaNomes.setPreferredSize(new java.awt.Dimension(200, 100));
+        ListaNomes.setSelectionBackground(new java.awt.Color(69, 99, 191));
+        ListaNomes.setSelectionForeground(new java.awt.Color(52, 55, 115));
+        ListaNomes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ListaNomesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ListaNomesMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ListaNomesMousePressed(evt);
+            }
+        });
+        consulta.add(ListaNomes, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 235, 230, 150));
 
         opcoes.setBackground(new java.awt.Color(245, 245, 245));
 
@@ -423,18 +453,24 @@ public class FrmVendas2 extends javax.swing.JFrame {
                 .addComponent(separator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        consulta.add(opcoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         dadoscliente.setBackground(new java.awt.Color(245, 245, 245));
         dadoscliente.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 0, 0, new java.awt.Color(155, 171, 191)), "Dados do cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Light", 0, 12), new java.awt.Color(2, 30, 115))); // NOI18N
         dadoscliente.setForeground(new java.awt.Color(2, 30, 115));
         dadoscliente.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
 
-        txtnome.setEditable(false);
         txtnome.setBackground(new java.awt.Color(255, 255, 255));
         txtnome.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         txtnome.setForeground(new java.awt.Color(2, 30, 115));
         txtnome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnomeActionPerformed(evt);
+            }
+        });
+        txtnome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtnomeKeyReleased(evt);
             }
         });
 
@@ -532,6 +568,8 @@ public class FrmVendas2 extends javax.swing.JFrame {
                     .addComponent(btnbuscacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(86, 86, 86))
         );
+
+        consulta.add(dadoscliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 56, 357, 191));
 
         dadosproduto.setBackground(new java.awt.Color(245, 245, 245));
         dadosproduto.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 0, 0, new java.awt.Color(155, 171, 191)), "Dados do produto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Light", 0, 12), new java.awt.Color(2, 30, 115))); // NOI18N
@@ -657,6 +695,8 @@ public class FrmVendas2 extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        consulta.add(dadosproduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 253, -1, 186));
+
         carrinhocompras.setBackground(new java.awt.Color(245, 245, 245));
         carrinhocompras.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 0, 0, new java.awt.Color(155, 171, 191)), "Carrinho de compras", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Light", 0, 12), new java.awt.Color(2, 30, 115))); // NOI18N
         carrinhocompras.setForeground(new java.awt.Color(2, 30, 115));
@@ -730,6 +770,8 @@ public class FrmVendas2 extends javax.swing.JFrame {
                 .addGap(107, 107, 107))
         );
 
+        consulta.add(carrinhocompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(468, 56, -1, 293));
+
         totalvenda.setBackground(new java.awt.Color(245, 245, 245));
         totalvenda.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 0, 0, new java.awt.Color(155, 171, 191)), "Total da venda\n", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Light", 0, 12), new java.awt.Color(2, 30, 115))); // NOI18N
         totalvenda.setForeground(new java.awt.Color(2, 30, 115));
@@ -765,6 +807,8 @@ public class FrmVendas2 extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        consulta.add(totalvenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(468, 355, 440, -1));
+
         btnadd.setText("Adicionar Item");
         btnadd.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnadd.setkBackGroundColor(new java.awt.Color(145, 176, 217));
@@ -780,6 +824,7 @@ public class FrmVendas2 extends javax.swing.JFrame {
                 btnaddActionPerformed(evt);
             }
         });
+        consulta.add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 444, 138, 36));
 
         btnpagamento.setText("Pagamento");
         btnpagamento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -796,6 +841,7 @@ public class FrmVendas2 extends javax.swing.JFrame {
                 btnpagamentoActionPerformed(evt);
             }
         });
+        consulta.add(btnpagamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(609, 444, 138, 36));
 
         btncancelar.setText("Cancelar Pagamento");
         btncancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -887,6 +933,7 @@ public class FrmVendas2 extends javax.swing.JFrame {
 
         arealogo.setBackground(new java.awt.Color(52, 55, 115));
         arealogo.setMinimumSize(new java.awt.Dimension(150, 150));
+        arealogo.setOpaque(false);
 
         javax.swing.GroupLayout arealogoLayout = new javax.swing.GroupLayout(arealogo);
         arealogo.setLayout(arealogoLayout);
@@ -903,6 +950,7 @@ public class FrmVendas2 extends javax.swing.JFrame {
 
         btninicio.setBackground(new java.awt.Color(52, 55, 115));
         btninicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btninicio.setOpaque(false);
         btninicio.setPreferredSize(new java.awt.Dimension(250, 44));
         btninicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -930,6 +978,7 @@ public class FrmVendas2 extends javax.swing.JFrame {
 
         btnclientes.setBackground(new java.awt.Color(52, 55, 115));
         btnclientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnclientes.setOpaque(false);
         btnclientes.setPreferredSize(new java.awt.Dimension(250, 44));
         btnclientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -957,6 +1006,7 @@ public class FrmVendas2 extends javax.swing.JFrame {
 
         btnfuncionarios.setBackground(new java.awt.Color(52, 55, 115));
         btnfuncionarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnfuncionarios.setOpaque(false);
         btnfuncionarios.setPreferredSize(new java.awt.Dimension(250, 44));
         btnfuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -984,6 +1034,7 @@ public class FrmVendas2 extends javax.swing.JFrame {
 
         btnfornecedores.setBackground(new java.awt.Color(52, 55, 115));
         btnfornecedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnfornecedores.setOpaque(false);
         btnfornecedores.setPreferredSize(new java.awt.Dimension(250, 44));
         btnfornecedores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1011,6 +1062,7 @@ public class FrmVendas2 extends javax.swing.JFrame {
 
         btnprodutos.setBackground(new java.awt.Color(52, 55, 115));
         btnprodutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnprodutos.setOpaque(false);
         btnprodutos.setPreferredSize(new java.awt.Dimension(250, 44));
         btnprodutos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1038,6 +1090,7 @@ public class FrmVendas2 extends javax.swing.JFrame {
 
         btnvendas.setBackground(new java.awt.Color(52, 55, 115));
         btnvendas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnvendas.setOpaque(false);
         btnvendas.setPreferredSize(new java.awt.Dimension(250, 44));
         btnvendas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1065,6 +1118,7 @@ public class FrmVendas2 extends javax.swing.JFrame {
 
         btnconfigurações.setBackground(new java.awt.Color(52, 55, 115));
         btnconfigurações.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnconfigurações.setOpaque(false);
         btnconfigurações.setPreferredSize(new java.awt.Dimension(250, 44));
         btnconfigurações.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1092,6 +1146,7 @@ public class FrmVendas2 extends javax.swing.JFrame {
 
         btnfeedbacks.setBackground(new java.awt.Color(52, 55, 115));
         btnfeedbacks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnfeedbacks.setOpaque(false);
         btnfeedbacks.setPreferredSize(new java.awt.Dimension(250, 44));
         btnfeedbacks.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1116,6 +1171,7 @@ public class FrmVendas2 extends javax.swing.JFrame {
 
         btnsair.setBackground(new java.awt.Color(52, 55, 115));
         btnsair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnsair.setOpaque(false);
         btnsair.setPreferredSize(new java.awt.Dimension(250, 44));
         btnsair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1332,7 +1388,8 @@ public class FrmVendas2 extends javax.swing.JFrame {
     }//GEN-LAST:event_consulteMouseClicked
 
     private void txtnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnomeActionPerformed
-        // TODO add your handling code here:
+        ListaNomes.setVisible(false);
+        enter = 1;
     }//GEN-LAST:event_txtnomeActionPerformed
 
     private void txtcpfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcpfKeyPressed
@@ -1659,6 +1716,58 @@ public class FrmVendas2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_formKeyReleased
 
+    private void ListaNomesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaNomesMouseEntered
+
+    }//GEN-LAST:event_ListaNomesMouseEntered
+
+    private void ListaNomesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaNomesMouseExited
+
+    }//GEN-LAST:event_ListaNomesMouseExited
+
+    private void ListaNomesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaNomesMousePressed
+        ListaNomes.setVisible(false);
+        Clientes c = new Clientes();
+        ClientesDAO dao = new ClientesDAO();
+
+        c = dao.consultaPorNome(ListaNomes.getSelectedValue().toString());
+
+        txtnome.setText(c.getNome());
+        txtcpf.setText(c.getCpf());
+    }//GEN-LAST:event_ListaNomesMousePressed
+
+    private void txtnomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnomeKeyReleased
+        if (enter == 0) {
+            String nome = "%" + txtnome.getText() + "%";
+            ClientesDAO dao = new ClientesDAO();
+            MODELO = new DefaultListModel();
+            ListaNomes.setModel(MODELO);
+            MODELO.removeAllElements();
+            int v = 0;
+
+            List<Clientes> lista = dao.listarNomes(nome);
+
+            for (Clientes c : lista) {
+                MODELO.addElement(c.getNome());
+                v++;
+                if (v == 4) {
+                    break;
+                }
+            }
+            if (v > 0) {
+                ListaNomes.setVisible(true);
+            } else {
+                ListaNomes.setVisible(false);
+            }
+
+        } else {
+            enter = 0;
+        }
+        
+        if(txtnome.getText().equals("")){
+                ListaNomes.setVisible(false);            
+        }
+    }//GEN-LAST:event_txtnomeKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -1695,6 +1804,7 @@ public class FrmVendas2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList<String> ListaNomes;
     private javax.swing.JPanel abaconfigurações;
     private javax.swing.JPanel abadetalhevendas;
     private javax.swing.JPanel abaprodutos;

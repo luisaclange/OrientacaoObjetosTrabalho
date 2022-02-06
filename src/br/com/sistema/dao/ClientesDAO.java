@@ -400,5 +400,36 @@ public class ClientesDAO {
 
     }
     
+      //Metodo listarFornecedores
+     public List<Clientes> listarNomes(String nome) {
+        try {
+
+            //1 passo criar a lista
+            List<Clientes> lista = new ArrayList<>();
+
+            //2 passo - criar o sql , organizar e executar.
+            String sql = "select nome from tb_clientes where nome like ?;";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, nome);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Clientes c = new Clientes();
+                
+                c.setNome(rs.getString("nome"));
+
+                lista.add(c);
+            }
+
+            return lista;
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "Erro :" + erro);
+            return null;
+        }
+
+    }
+    
    
 }
