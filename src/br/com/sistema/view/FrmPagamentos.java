@@ -1159,6 +1159,9 @@ public class FrmPagamentos extends javax.swing.JFrame {
         /***********************************************************************/
 
         JOptionPane.showMessageDialog(null, "Venda Registrada com Sucesso!");
+        this.dispose();
+        FrmVendas2 novaTela = new FrmVendas2();
+        novaTela.setVisible(true);
     }//GEN-LAST:event_btnfinalizarActionPerformed
 
     private void painelinferiorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelinferiorMouseEntered
