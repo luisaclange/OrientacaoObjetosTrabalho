@@ -1133,7 +1133,7 @@
                               <Color blue="73" green="37" red="34" type="rgb"/>
                             </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="5" rowCount="24">
+                              <Table columnCount="5" rowCount="0">
                                 <Column editable="true" title="C&#xf3;digo" type="java.lang.Object"/>
                                 <Column editable="true" title="Produto" type="java.lang.Object"/>
                                 <Column editable="true" title="Qtd" type="java.lang.Object"/>
@@ -1153,6 +1153,7 @@
                             <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="bf" green="63" red="45" type="rgb"/>
                             </Property>
+                            <Property name="showGrid" type="boolean" value="true"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
