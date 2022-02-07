@@ -101,6 +101,7 @@ public class FrmEstoque extends javax.swing.JFrame {
         qtd = new javax.swing.JLabel();
         estoqueatual = new javax.swing.JLabel();
         descricao1 = new javax.swing.JLabel();
+        btnremover = new com.k33ptoo.components.KButton();
         titulo = new javax.swing.JPanel();
         tituloestoque = new javax.swing.JLabel();
         slogan = new javax.swing.JLabel();
@@ -550,6 +551,22 @@ public class FrmEstoque extends javax.swing.JFrame {
         descricao1.setForeground(new java.awt.Color(2, 30, 115));
         descricao1.setText("Descrição");
 
+        btnremover.setText("Remover");
+        btnremover.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnremover.setkBackGroundColor(new java.awt.Color(145, 176, 217));
+        btnremover.setkEndColor(new java.awt.Color(75, 97, 166));
+        btnremover.setkHoverEndColor(new java.awt.Color(75, 97, 166));
+        btnremover.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        btnremover.setkHoverStartColor(new java.awt.Color(75, 97, 166));
+        btnremover.setkPressedColor(new java.awt.Color(75, 97, 166));
+        btnremover.setkSelectedColor(new java.awt.Color(145, 176, 217));
+        btnremover.setkStartColor(new java.awt.Color(52, 55, 115));
+        btnremover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnremoverActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout consultaLayout = new javax.swing.GroupLayout(consulta);
         consulta.setLayout(consultaLayout);
         consultaLayout.setHorizontalGroup(
@@ -572,7 +589,9 @@ public class FrmEstoque extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(txtqtd, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
-                        .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(btnremover, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(scrollTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 829, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         consultaLayout.setVerticalGroup(
@@ -593,7 +612,9 @@ public class FrmEstoque extends javax.swing.JFrame {
                 .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtestoque, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtqtd, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnremover, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26)
                 .addComponent(scrollTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(136, Short.MAX_VALUE))
@@ -1211,29 +1232,29 @@ public class FrmEstoque extends javax.swing.JFrame {
         op = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja adicionar?");
 
         if (op == 0) {        
-        try {
-            int qtd_estoque, qtd;
+            try {
+                int qtd_estoque, qtd;
 
-            qtd_estoque = Integer.parseInt(txtestoque.getText());
+                qtd_estoque = Integer.parseInt(txtestoque.getText());
 
-            qtd = Integer.parseInt(txtqtd.getText());
+                qtd = Integer.parseInt(txtqtd.getText());
 
-            qtd_nova = qtd_estoque + qtd;
+                qtd_nova = qtd_estoque + qtd;
 
-            ProdutosDAO dao = new ProdutosDAO();
+                ProdutosDAO dao = new ProdutosDAO();
 
-            dao.adicionarEstoque(idproduto, qtd_nova);
+                dao.adicionarEstoque(idproduto, qtd_nova);
 
-            JOptionPane.showMessageDialog(null, "Estoque do Produto Atualizado");
-            
-            txtestoque.setText("");
-            txtqtd.setText("");
-            txtpesquisa.setText("");
+                JOptionPane.showMessageDialog(null, "Estoque do Produto Atualizado");
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Selecione o produto ou informe a nova qtd." + e);
+                txtestoque.setText("");
+                txtqtd.setText("");
+                txtpesquisa.setText("");
 
-        }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Selecione o produto ou informe a nova qtd." + e);
+
+            }
         }
     }//GEN-LAST:event_btnaddActionPerformed
 
@@ -1411,13 +1432,13 @@ public class FrmEstoque extends javax.swing.JFrame {
 
     private void feedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_feedbacksMouseClicked
         // TODO add your handling code here:
-        Frmfeedbacks tela = new Frmfeedbacks();
+        FrmFeedbacks tela = new FrmFeedbacks();
         tela.setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_feedbacksMouseClicked
 
-    private void btnrmvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrmvActionPerformed
+    private void btnremoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnremoverActionPerformed
         try {
             int qtd_estoque, qtd;
 
@@ -1447,10 +1468,10 @@ public class FrmEstoque extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Selecione o produto ou informe a nova qtd." + e);
 
         }
-    }//GEN-LAST:event_btnrmvActionPerformed
+    }//GEN-LAST:event_btnremoverActionPerformed
 
     private void btnfeedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseClicked
-        Frmfeedbacks tela = new Frmfeedbacks();
+        FrmFeedbacks tela = new FrmFeedbacks();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnfeedbacksMouseClicked
@@ -1467,10 +1488,42 @@ public class FrmEstoque extends javax.swing.JFrame {
     }//GEN-LAST:event_btnfeedbacksMouseExited
 
     private void configurações1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_configurações1MouseClicked
-        Frmfeedbacks tela = new Frmfeedbacks();
+        FrmFeedbacks tela = new FrmFeedbacks();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_configurações1MouseClicked
+
+    private void btnrmvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadd1ActionPerformed
+        try {
+            int qtd_estoque, qtd;
+
+            qtd_estoque = Integer.parseInt(txtestoque.getText());
+
+            qtd = Integer.parseInt(txtqtd.getText());
+            
+            if(qtd_estoque >= qtd){
+                qtd_nova = qtd_estoque - qtd;
+
+                ProdutosDAO dao = new ProdutosDAO();
+
+                dao.removerEstoque(idproduto, qtd_nova);
+
+                JOptionPane.showMessageDialog(null, "Estoque do Produto Atualizado");
+            
+                txtestoque.setText("");
+                txtqtd.setText("");
+                txtpesquisa.setText("");
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "Favor inserir uma quantidade válida");
+            }
+            
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Selecione o produto ou informe a nova qtd." + e);
+
+        }
+    }//GEN-LAST:event_btnadd1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1530,6 +1583,7 @@ public class FrmEstoque extends javax.swing.JFrame {
     private javax.swing.JLabel btnpdv;
     private com.k33ptoo.components.KButton btnpesquisar3;
     private javax.swing.JPanel btnprodutos;
+    private com.k33ptoo.components.KButton btnremover;
     private javax.swing.JPanel btnsair;
     private javax.swing.JLabel btntotalvendas;
     private javax.swing.JLabel btntrocaruser;

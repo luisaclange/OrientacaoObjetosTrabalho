@@ -1070,7 +1070,7 @@ public class FrmTotalVenda extends javax.swing.JFrame {
             VendasDAO dao = new VendasDAO();
             total_venda = dao.retornaTotalVendaPorData(data_venda);
 
-            txtotalvenda.setText(String.valueOf(total_venda));
+            txtotalvenda.setText(String.valueOf((int)total_venda));
 
         } catch (Exception e) {
 
@@ -1252,7 +1252,7 @@ public class FrmTotalVenda extends javax.swing.JFrame {
     }//GEN-LAST:event_navbarMouseExited
 
     private void btnfeedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseClicked
-        Frmfeedbacks tela = new Frmfeedbacks();
+        FrmFeedbacks tela = new FrmFeedbacks();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnfeedbacksMouseClicked

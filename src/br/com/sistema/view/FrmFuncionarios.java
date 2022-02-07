@@ -463,6 +463,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         consulta.setBackground(new java.awt.Color(245, 245, 245));
         consulta.setPreferredSize(new java.awt.Dimension(910, 530));
+        consulta.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                consultaComponentShown(evt);
+            }
+        });
 
         nome.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         nome.setForeground(new java.awt.Color(2, 30, 115));
@@ -473,6 +478,9 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         txtpesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtpesquisaKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtpesquisaKeyReleased(evt);
             }
         });
 
@@ -544,6 +552,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 tabelaFuncionariosMouseEntered(evt);
+            }
+        });
+        tabelaFuncionarios.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                tabelaFuncionariosComponentShown(evt);
             }
         });
         scrollTabela.setViewportView(tabelaFuncionarios);
@@ -1626,36 +1639,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_abaconfiguraçõesMouseExited
 
     private void txtpesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyPressed
-        String nome = "%" + txtpesquisa.getText() + "%";
-
-        FuncionariosDAO dao = new FuncionariosDAO();
-        List<Funcionarios> lista = dao.listarFuncionariosPorNome(nome);
-
-        DefaultTableModel dados = (DefaultTableModel) tabelaFuncionarios.getModel();
-        dados.setNumRows(0);
-
-        for (Funcionarios c : lista) {
-            dados.addRow(new Object[]{
-                c.getId(),
-                c.getNome(),
-                c.getRg(),
-                c.getCpf(),
-                c.getEmail(),
-                c.getSenha(),
-                c.getCargo(),
-                c.getNivel_acesso(),
-                c.getTelefone(),
-                c.getCelular(),
-                c.getCep(),
-                c.getEndereco(),
-                c.getNumero(),
-                c.getComplemento(),
-                c.getBairro(),
-                c.getCidade(),
-                c.getUf()
-            });
-
-        }
+        
     }//GEN-LAST:event_txtpesquisaKeyPressed
 
     private void btnpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarActionPerformed
@@ -2247,7 +2231,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_navbarMouseExited
 
     private void btnfeedbacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseClicked
-        Frmfeedbacks tela = new Frmfeedbacks();
+        FrmFeedbacks tela = new FrmFeedbacks();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnfeedbacksMouseClicked
@@ -2263,6 +2247,47 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         // TODO add your handling code here:
         btnfeedbacks.setBackground(new Color(52,55,115));
     }//GEN-LAST:event_btnfeedbacksMouseExited
+
+    private void txtpesquisaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyReleased
+        String nome = "%" + txtpesquisa.getText() + "%";
+
+        FuncionariosDAO dao = new FuncionariosDAO();
+        List<Funcionarios> lista = dao.listarFuncionariosPorNome(nome);
+
+        DefaultTableModel dados = (DefaultTableModel) tabelaFuncionarios.getModel();
+        dados.setNumRows(0);
+
+        for (Funcionarios c : lista) {
+            dados.addRow(new Object[]{
+                c.getId(),
+                c.getNome(),
+                c.getRg(),
+                c.getCpf(),
+                c.getEmail(),
+                c.getSenha(),
+                c.getCargo(),
+                c.getNivel_acesso(),
+                c.getTelefone(),
+                c.getCelular(),
+                c.getCep(),
+                c.getEndereco(),
+                c.getNumero(),
+                c.getComplemento(),
+                c.getBairro(),
+                c.getCidade(),
+                c.getUf()
+            });
+
+        }
+    }//GEN-LAST:event_txtpesquisaKeyReleased
+
+    private void consultaComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_consultaComponentShown
+        listar();
+    }//GEN-LAST:event_consultaComponentShown
+
+    private void tabelaFuncionariosComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tabelaFuncionariosComponentShown
+        
+    }//GEN-LAST:event_tabelaFuncionariosComponentShown
 
     /**
      * @param args the command line arguments

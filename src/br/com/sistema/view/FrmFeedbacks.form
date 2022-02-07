@@ -424,7 +424,7 @@
                                       <Component id="nome" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                                       <Component id="txtpesquisa" min="-2" pref="316" max="-2" attributes="0"/>
-                                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                      <EmptySpace pref="346" max="32767" attributes="0"/>
                                       <Component id="btnpesquisar" min="-2" pref="138" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
