@@ -733,6 +733,11 @@ public class FrmVendas2 extends javax.swing.JFrame {
 
         scrollTabela.setBackground(new java.awt.Color(255, 255, 255));
 
+        tabelaItens = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tabelaItens.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         tabelaItens.setForeground(new java.awt.Color(52, 55, 115));
         tabelaItens.setModel(new javax.swing.table.DefaultTableModel(
