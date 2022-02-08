@@ -27,26 +27,7 @@ import javax.swing.JOptionPane;
 @SuppressWarnings("serial")
 public class FrmTema extends javax.swing.JFrame {
 
-    public static Color stringToColor(final String value) {
-    if (value == null) {
-      return Color.black;
-    }
-    try {
-      // get color by hex or octal value
-      return Color.decode(value);
-    } catch (NumberFormatException nfe) {
-      // if we can't decode lets try to get it by name
-      try {
-        // try to get a color by name using reflection
-        final Field f = Color.class.getField(value);
-
-        return (Color) f.get(null);
-      } catch (Exception ce) {
-        // if we can't get any color return black
-        return Color.black;
-      }
-    }
-  }
+    
     
     /**
      * Creates new form Frmtema
@@ -65,15 +46,16 @@ public class FrmTema extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        String[] tema = new Utilitarios().getConfigJson();
+        Utilitarios util = new Utilitarios();
+        String[] tema = util.getConfigJson();
 
         ImageIcon icon = new ImageIcon(tema[0]);
 
         Image image = icon.getImage();
-        Color corPrimaria = stringToColor(tema[2]);
-        Color corSecundaria = stringToColor(tema[3]);
-        Color letraPrimaria = stringToColor(tema[4]);
-        Color letraSecundaria = stringToColor(tema[5]);
+        Color corPrimaria = util.stringToColor(tema[2]);
+        Color corSecundaria = util.stringToColor(tema[3]);
+        Color letraPrimaria = util.stringToColor(tema[4]);
+        Color letraSecundaria = util.stringToColor(tema[5]);
         telatema = new javax.swing.JPanel();
         painelinferior = new javax.swing.JPanel();
         abaprodutos = new javax.swing.JPanel();
@@ -343,7 +325,7 @@ public class FrmTema extends javax.swing.JFrame {
         btnlogo.setBackground(new java.awt.Color(57, 77, 191));
         btnlogo.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         btnlogo.setForeground(new java.awt.Color(242, 242, 242));
-        btnlogo.setText("           Inserir logo");
+        btnlogo.setText("          Personalizar Tema ");
         btnlogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnlogo.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btnlogo.setPreferredSize(new java.awt.Dimension(170, 44));
@@ -657,7 +639,7 @@ public class FrmTema extends javax.swing.JFrame {
             .addGroup(btnCorPrimariaLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(jLabel2)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         btnCorPrimariaLayout.setVerticalGroup(
             btnCorPrimariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -684,7 +666,7 @@ public class FrmTema extends javax.swing.JFrame {
             .addGroup(btnCorSecundariaLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(jLabel3)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         btnCorSecundariaLayout.setVerticalGroup(
             btnCorSecundariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1298,7 +1280,7 @@ public class FrmTema extends javax.swing.JFrame {
 
     private void btninicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btninicioMouseClicked
         // TODO add your handling code here:
-        FrmMenu tela = new FrmMenu();
+        Frmmenu tela = new Frmmenu();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btninicioMouseClicked
@@ -1470,7 +1452,7 @@ public class FrmTema extends javax.swing.JFrame {
     }//GEN-LAST:event_btncancelarActionPerformed
 
     private void btncancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncancelarMouseClicked
-        FrmMenu menu = new FrmMenu();
+        Frmmenu menu = new Frmmenu();
 
         menu.setVisible(true);
         this.dispose();
@@ -1623,6 +1605,118 @@ public class FrmTema extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FrmTema.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

@@ -47,6 +47,9 @@
           <Dimension value="[20000, 20000]"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="Utilitarios util = new Utilitarios();&#xd;&#xa;String[] tema = util.getConfigJson();&#xd;&#xa;&#xd;&#xa;ImageIcon icon = new ImageIcon(tema[0]);&#xd;&#xa;        &#xd;&#xa;Image image = icon.getImage();&#xd;&#xa;Color corPrimaria = util.stringToColor(tema[2]);&#xd;&#xa;Color corSecundaria = util.stringToColor(tema[3]);&#xd;&#xa;Color letraPrimaria = util.stringToColor(tema[4]);&#xd;&#xa;Color letraSecundaria = util.stringToColor(tema[5]);"/>
+      </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
         <Property name="useNullLayout" type="boolean" value="false"/>
@@ -346,7 +349,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f2" green="f2" red="f2" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="           Inserir logo"/>
+                    <Property name="text" type="java.lang.String" value="          Personalizar Tema"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
                     </Property>
@@ -473,8 +476,8 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI Light" size="14" style="0"/>
                         </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="73" green="1e" red="2" type="rgb"/>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="letraSecundaria" type="code"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Nome:"/>
                       </Properties>
@@ -569,8 +572,8 @@
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI Light" size="14" style="1"/>
                             </Property>
-                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="bf" green="6a" red="3f" type="rgb"/>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                              <Connection code="letraSecundaria" type="code"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Consulta"/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -586,8 +589,8 @@
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI Light" size="14" style="1"/>
                             </Property>
-                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="73" green="37" red="34" type="rgb"/>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                              <Connection code="letraSecundaria" type="code"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Cadastro"/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1203,8 +1206,8 @@
         </Container>
         <Container class="javax.swing.JPanel" name="navbar">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="73" green="37" red="34" type="rgb"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="corPrimaria" type="code"/>
             </Property>
           </Properties>
           <Events>
@@ -1230,7 +1233,6 @@
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel(){&#xa;    public void paintComponent(Graphics g){&#xa;        g.drawImage(image, 0,0, getWidth(),getHeight(),this);&#xa;    }&#xa;}"/>
-                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="String[] tema = new Utilitarios().getConfigJson();&#xa;&#xa;ImageIcon icon = new ImageIcon(tema[0]);&#xa;        &#xa;Image image = icon.getImage();"/>
               </AuxValues>
 
               <Layout>
@@ -1277,8 +1279,8 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Light" size="14" style="1"/>
                     </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f2" green="f2" red="f2" type="rgb"/>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="letraPrimaria" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="In&#xed;cio"/>
                   </Properties>
@@ -1333,8 +1335,8 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Light" size="14" style="1"/>
                     </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f2" green="f2" red="f2" type="rgb"/>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="letraPrimaria" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Clientes"/>
                   </Properties>
@@ -1389,8 +1391,8 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Light" size="14" style="1"/>
                     </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f2" green="f2" red="f2" type="rgb"/>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="letraPrimaria" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Funcion&#xe1;rios"/>
                   </Properties>
@@ -1445,8 +1447,8 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Light" size="14" style="1"/>
                     </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f2" green="f2" red="f2" type="rgb"/>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="letraPrimaria" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Fornecedores"/>
                   </Properties>
@@ -1501,8 +1503,8 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Light" size="14" style="1"/>
                     </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f2" green="f2" red="f2" type="rgb"/>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="letraPrimaria" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Produtos"/>
                   </Properties>
@@ -1557,8 +1559,8 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Light" size="14" style="1"/>
                     </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f2" green="f2" red="f2" type="rgb"/>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="letraPrimaria" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Vendas"/>
                   </Properties>
@@ -1613,8 +1615,8 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Light" size="14" style="1"/>
                     </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f2" green="f2" red="f2" type="rgb"/>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="letraPrimaria" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Configura&#xe7;&#xf5;es"/>
                   </Properties>
@@ -1669,8 +1671,8 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Light" size="14" style="1"/>
                     </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f2" green="f2" red="f2" type="rgb"/>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="letraPrimaria" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Feedbacks"/>
                   </Properties>
@@ -1728,8 +1730,8 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Light" size="14" style="1"/>
                     </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f2" green="f2" red="f2" type="rgb"/>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="letraPrimaria" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Sair"/>
                   </Properties>
@@ -1757,8 +1759,8 @@
         </Container>
         <Container class="javax.swing.JPanel" name="titulo">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d9" green="a3" red="91" type="rgb"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="corSecundaria" type="code"/>
             </Property>
           </Properties>
           <Constraints>
@@ -1776,8 +1778,8 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI Light" size="48" style="0"/>
                 </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="73" green="37" red="34" type="rgb"/>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="letraSecundaria" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="FeedBacks"/>
               </Properties>
@@ -1792,8 +1794,8 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI Light" size="18" style="0"/>
                 </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="73" green="37" red="34" type="rgb"/>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="letraSecundaria" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Deixe aqui o feedback do seu cliente"/>
               </Properties>

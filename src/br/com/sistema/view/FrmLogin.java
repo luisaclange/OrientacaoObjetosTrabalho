@@ -9,10 +9,13 @@ package br.com.sistema.view;
 import br.com.sistema.dao.FuncionariosDAO;
 import br.com.sistema.jdbc.ConnectionFactory;
 import br.com.sistema.model.Utilitarios;
+import java.awt.Color;
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.ImageIcon;
 
 import javax.swing.JOptionPane;
 
@@ -40,6 +43,16 @@ public class FrmLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Utilitarios util = new Utilitarios();
+        String[] tema = util.getConfigJson();
+
+        ImageIcon icon = new ImageIcon(tema[0]);
+
+        Image image = icon.getImage();
+        Color corPrimaria = util.stringToColor(tema[2]);
+        Color corSecundaria = util.stringToColor(tema[3]);
+        Color letraPrimaria = util.stringToColor(tema[4]);
+        Color letraSecundaria = util.stringToColor(tema[5]);
         fundo = new keeptoo.KGradientPanel();
         panellogin = new javax.swing.JPanel();
         txtemail = new javax.swing.JTextField();
@@ -209,7 +222,7 @@ public class FrmLogin extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(fundoLayout.createSequentialGroup()
                         .addComponent(figura)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 630, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 596, Short.MAX_VALUE)
                         .addComponent(panellogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(274, 274, 274))))
         );
@@ -231,11 +244,14 @@ public class FrmLogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fundo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1920, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, 1886, Short.MAX_VALUE)
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(fundo, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );

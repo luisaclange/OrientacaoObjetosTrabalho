@@ -6,7 +6,7 @@
 package br.com.sistema.model;
 
 import br.com.sistema.view.FrmTema;
-import br.com.sistema.view.FrmMenu;
+import br.com.sistema.view.Frmmenu;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
@@ -16,6 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -153,5 +154,26 @@ public class Utilitarios {
         }
 
     }
+    
+    public Color stringToColor(final String value) {
+    if (value == null) {
+      return Color.black;
+    }
+    try {
+      // get color by hex or octal value
+      return Color.decode(value);
+    } catch (NumberFormatException nfe) {
+      // if we can't decode lets try to get it by name
+      try {
+        // try to get a color by name using reflection
+        final Field f = Color.class.getField(value);
+
+        return (Color) f.get(null);
+      } catch (Exception ce) {
+        // if we can't get any color return black
+        return Color.black;
+      }
+    }
+  }
     
 }

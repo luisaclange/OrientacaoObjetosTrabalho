@@ -344,7 +344,7 @@ public class FrmVendas2 extends javax.swing.JFrame {
         btnlogo.setBackground(new java.awt.Color(57, 77, 191));
         btnlogo.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         btnlogo.setForeground(new java.awt.Color(242, 242, 242));
-        btnlogo.setText("           Inserir logo");
+        btnlogo.setText("          Personalizar Tema ");
         btnlogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnlogo.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btnlogo.setPreferredSize(new java.awt.Dimension(170, 44));
@@ -399,7 +399,6 @@ public class FrmVendas2 extends javax.swing.JFrame {
 
         painelinferior.add(abaconfigurações, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 0, 88));
 
-        ListaProdutos.setBackground(new java.awt.Color(255, 255, 255));
         ListaProdutos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         ListaProdutos.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         ListaProdutos.setForeground(new java.awt.Color(52, 55, 115));
@@ -420,7 +419,6 @@ public class FrmVendas2 extends javax.swing.JFrame {
         });
         painelinferior.add(ListaProdutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 430, 233, 150));
 
-        ListaNomes.setBackground(new java.awt.Color(255, 255, 255));
         ListaNomes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         ListaNomes.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         ListaNomes.setForeground(new java.awt.Color(52, 55, 115));
@@ -488,7 +486,6 @@ public class FrmVendas2 extends javax.swing.JFrame {
         dadoscliente.setForeground(new java.awt.Color(2, 30, 115));
         dadoscliente.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
 
-        txtnome.setBackground(new java.awt.Color(255, 255, 255));
         txtnome.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         txtnome.setForeground(new java.awt.Color(2, 30, 115));
         txtnome.addActionListener(new java.awt.event.ActionListener() {
@@ -733,34 +730,16 @@ public class FrmVendas2 extends javax.swing.JFrame {
 
         scrollTabela.setBackground(new java.awt.Color(255, 255, 255));
 
+        tabelaItens = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tabelaItens.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         tabelaItens.setForeground(new java.awt.Color(52, 55, 115));
         tabelaItens.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Código", "Produto", "Qtd", "Preço", "Subtotal"
@@ -772,6 +751,7 @@ public class FrmVendas2 extends javax.swing.JFrame {
         tabelaItens.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         tabelaItens.setGridColor(new java.awt.Color(255, 255, 255));
         tabelaItens.setSelectionBackground(new java.awt.Color(69, 99, 191));
+        tabelaItens.setShowGrid(true);
         tabelaItens.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelaItensMouseClicked(evt);
@@ -1496,16 +1476,35 @@ public class FrmVendas2 extends javax.swing.JFrame {
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
         // botao add item
         if(txtqtd.getText().equals("") || txtpreco.getText().equals("") ||
-                txtdescricao.getText().equals("")){
+            txtdescricao.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Favor preencher todos os campos.");
         }
         
         ProdutosDAO p = new ProdutosDAO();
+        ProdutosDAO estoque = new ProdutosDAO();
         
         if(p.consultaPorNome(txtdescricao.getText()) == null){
             JOptionPane.showMessageDialog(null, "Favor inserir um produto válido.");
             return;
         }
+
+        int produtoqtd=0;
+        for(int i = 0; i < tabelaItens.getRowCount(); i++){//soma os produtos da tabela
+            if(Integer.parseInt((String) tabelaItens.getModel().getValueAt(i, 0)) == Integer.parseInt(txtcodigo.getText())){//compara o codigo do produto com o mesmo que vai ser add
+                produtoqtd += Integer.parseInt((String) tabelaItens.getModel().getValueAt(i, 2));// somo a qtd já adicionada na tabela
+            }
+        }
+
+        if((Integer.parseInt(txtqtd.getText()) + produtoqtd )> estoque.retornaEstoqueAtual(Integer.parseInt(txtcodigo.getText()))){
+            int soma;
+            soma = estoque.retornaEstoqueAtual(Integer.parseInt(txtcodigo.getText())) - produtoqtd;
+            
+            JOptionPane.showMessageDialog(null, "Estoque Insuficiente.\n\n"
+                    + soma + " Produtos em Estoque ");
+            txtqtd.setText("");
+            return;
+        }
+   
         qtd = Integer.parseInt(txtqtd.getText());
         preco = Double.parseDouble(txtpreco.getText());
 
@@ -1524,6 +1523,11 @@ public class FrmVendas2 extends javax.swing.JFrame {
             txtpreco.getText(),
             subtotal
         });
+        
+        txtcodigo.setText("");
+        txtdescricao.setText("");
+        txtqtd.setText("");
+        txtpreco.setText("");
     }//GEN-LAST:event_btnaddActionPerformed
 
     private void btnpagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpagamentoActionPerformed
@@ -1557,7 +1561,14 @@ public class FrmVendas2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnpagamentoActionPerformed
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
-        // TODO add your handling code here:
+        if(JOptionPane.showConfirmDialog(null,"Deseja cancelar a venda?") > 0){
+            return;
+        }
+        
+        this.dispose();
+        
+        FrmVendas2 novaTela = new FrmVendas2();
+        novaTela.setVisible(true);
     }//GEN-LAST:event_btncancelarActionPerformed
 
     private void painelinferiorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelinferiorMouseEntered
@@ -1569,7 +1580,7 @@ public class FrmVendas2 extends javax.swing.JFrame {
 
     private void btninicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btninicioMouseClicked
         // TODO add your handling code here:
-        FrmMenu tela = new FrmMenu();
+        Frmmenu tela = new Frmmenu();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btninicioMouseClicked

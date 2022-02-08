@@ -74,6 +74,16 @@ public class FrmEstoque extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Utilitarios util = new Utilitarios();
+        String[] tema = util.getConfigJson();
+
+        ImageIcon icon = new ImageIcon(tema[0]);
+
+        Image image = icon.getImage();
+        Color corPrimaria = util.stringToColor(tema[2]);
+        Color corSecundaria = util.stringToColor(tema[3]);
+        Color letraPrimaria = util.stringToColor(tema[4]);
+        Color letraSecundaria = util.stringToColor(tema[5]);
         telaestoque = new javax.swing.JPanel();
         painelinferior = new javax.swing.JPanel();
         abaprodutos = new javax.swing.JPanel();
@@ -106,11 +116,6 @@ public class FrmEstoque extends javax.swing.JFrame {
         tituloestoque = new javax.swing.JLabel();
         slogan = new javax.swing.JLabel();
         navbar = new javax.swing.JPanel();
-        String[] tema = new Utilitarios().getConfigJson();
-
-        ImageIcon icon = new ImageIcon(tema[0]);
-
-        Image image = icon.getImage();
         arealogo = new javax.swing.JPanel(){
             public void paintComponent(Graphics g){
                 g.drawImage(image, 0,0, getWidth(),getHeight(),this);
@@ -345,7 +350,7 @@ public class FrmEstoque extends javax.swing.JFrame {
         btnlogo.setBackground(new java.awt.Color(57, 77, 191));
         btnlogo.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         btnlogo.setForeground(new java.awt.Color(242, 242, 242));
-        btnlogo.setText("           Inserir logo");
+        btnlogo.setText("          Personalizar Tema");
         btnlogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnlogo.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btnlogo.setPreferredSize(new java.awt.Dimension(170, 44));
@@ -462,7 +467,7 @@ public class FrmEstoque extends javax.swing.JFrame {
         opcoes.setBackground(new java.awt.Color(245, 245, 245));
 
         consulte.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        consulte.setForeground(new java.awt.Color(63, 106, 191));
+        consulte.setForeground(letraSecundaria);
         consulte.setText("Consulta");
         consulte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         consulte.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -540,15 +545,15 @@ public class FrmEstoque extends javax.swing.JFrame {
         });
 
         qtd.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        qtd.setForeground(new java.awt.Color(2, 30, 115));
+        qtd.setForeground(letraSecundaria);
         qtd.setText("Quantidade");
 
         estoqueatual.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        estoqueatual.setForeground(new java.awt.Color(2, 30, 115));
+        estoqueatual.setForeground(letraSecundaria);
         estoqueatual.setText("Estoque atual");
 
         descricao1.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        descricao1.setForeground(new java.awt.Color(2, 30, 115));
+        descricao1.setForeground(letraSecundaria);
         descricao1.setText("Descrição");
 
         btnremover.setText("Remover");
@@ -626,23 +631,23 @@ public class FrmEstoque extends javax.swing.JFrame {
 
         telaestoque.add(painelinferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 200000, 20000));
 
-        titulo.setBackground(new java.awt.Color(145, 163, 217));
+        titulo.setBackground(corSecundaria);
         titulo.setPreferredSize(new java.awt.Dimension(20000, 128));
         titulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tituloestoque.setFont(new java.awt.Font("Segoe UI Light", 0, 48)); // NOI18N
-        tituloestoque.setForeground(new java.awt.Color(52, 55, 115));
+        tituloestoque.setForeground(letraSecundaria);
         tituloestoque.setText("Estoque");
         titulo.add(tituloestoque, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 33, -1, -1));
 
         slogan.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        slogan.setForeground(new java.awt.Color(52, 55, 115));
+        slogan.setForeground(letraSecundaria);
         slogan.setText(" Consulte o seu controle de estoque");
         titulo.add(slogan, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 103, -1, -1));
 
         telaestoque.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 20000, 170));
 
-        navbar.setBackground(new java.awt.Color(52, 55, 115));
+        navbar.setBackground(corPrimaria);
         navbar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 navbarMouseExited(evt);
@@ -685,7 +690,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
         inicio.setBackground(new java.awt.Color(57, 77, 191));
         inicio.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        inicio.setForeground(new java.awt.Color(242, 242, 242));
+        inicio.setForeground(letraPrimaria);
         inicio.setText("Início");
         btninicio.add(inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 94, 24));
 
@@ -713,7 +718,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
         clientes.setBackground(new java.awt.Color(57, 77, 191));
         clientes.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        clientes.setForeground(new java.awt.Color(242, 242, 242));
+        clientes.setForeground(letraPrimaria);
         clientes.setText("Clientes");
         btnclientes.add(clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 94, 24));
 
@@ -741,7 +746,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
         funcionarios.setBackground(new java.awt.Color(57, 77, 191));
         funcionarios.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        funcionarios.setForeground(new java.awt.Color(242, 242, 242));
+        funcionarios.setForeground(letraPrimaria);
         funcionarios.setText("Funcionários");
         btnfuncionarios.add(funcionarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 164, 24));
 
@@ -769,7 +774,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
         fornecedores.setBackground(new java.awt.Color(57, 77, 191));
         fornecedores.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        fornecedores.setForeground(new java.awt.Color(242, 242, 242));
+        fornecedores.setForeground(letraPrimaria);
         fornecedores.setText("Fornecedores");
         btnfornecedores.add(fornecedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 164, 24));
 
@@ -797,7 +802,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
         produtos.setBackground(new java.awt.Color(57, 77, 191));
         produtos.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        produtos.setForeground(new java.awt.Color(242, 242, 242));
+        produtos.setForeground(letraPrimaria);
         produtos.setText("Produtos");
         btnprodutos.add(produtos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 164, 24));
 
@@ -825,7 +830,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
         clientes5.setBackground(new java.awt.Color(57, 77, 191));
         clientes5.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        clientes5.setForeground(new java.awt.Color(242, 242, 242));
+        clientes5.setForeground(letraPrimaria);
         clientes5.setText("Vendas");
         btnvendas.add(clientes5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 164, 24));
 
@@ -853,7 +858,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
         configurações.setBackground(new java.awt.Color(57, 77, 191));
         configurações.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        configurações.setForeground(new java.awt.Color(242, 242, 242));
+        configurações.setForeground(letraPrimaria);
         configurações.setText("Configurações");
         btnconfigurações.add(configurações, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 110, 24));
 
@@ -881,7 +886,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
         configurações1.setBackground(new java.awt.Color(57, 77, 191));
         configurações1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        configurações1.setForeground(new java.awt.Color(242, 242, 242));
+        configurações1.setForeground(letraPrimaria);
         configurações1.setText("Feedbacks");
         configurações1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -914,7 +919,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
         sair.setBackground(new java.awt.Color(57, 77, 191));
         sair.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        sair.setForeground(new java.awt.Color(242, 242, 242));
+        sair.setForeground(letraPrimaria);
         sair.setText("Sair");
         btnsair.add(sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 164, 24));
 
@@ -1267,7 +1272,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
     private void btninicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btninicioMouseClicked
         // TODO add your handling code here:
-        FrmMenu tela = new FrmMenu();
+        Frmmenu tela = new Frmmenu();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btninicioMouseClicked
