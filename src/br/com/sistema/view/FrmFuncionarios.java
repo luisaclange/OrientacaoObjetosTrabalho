@@ -32,6 +32,8 @@ import javax.swing.table.DefaultTableModel;
  * @author Tampelini
  */
 public class FrmFuncionarios extends javax.swing.JFrame {
+
+    private static final long serialVersionUID = 1L;
     
     public FrmFuncionarios(boolean isCadastrando) {
         initComponents();
@@ -53,7 +55,6 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 c.getRg(),
                 c.getCpf(),
                 c.getEmail(),
-                c.getSenha(),
                 c.getCargo(),
                 c.getNivel_acesso(),
                 c.getTelefone(),
@@ -1760,7 +1761,6 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             txtsenha.setText(obj.getSenha());
             txtcargo.setText(obj.getCargo());
             cbnivel.setSelectedItem(obj.getNivel_acesso());
-
             txtfixo.setText(obj.getTelefone());
             txtcel.setText(obj.getCelular());
             txtcep.setText(obj.getCep());
@@ -1820,6 +1820,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         btnexcluir.setkFillButton( false ); // desabilita o preenchimento de cor
     }//GEN-LAST:event_btnnovoActionPerformed
 
+    @SuppressWarnings("deprecation")
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
         // TODO add your handling code here:
         // boto salvar
@@ -1905,6 +1906,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         btnexcluir.setkFillButton( false ); // desabilita o preenchimento de cor
     }//GEN-LAST:event_btnsalvarActionPerformed
 
+    @SuppressWarnings("deprecation")
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
         // TODO add your handling code here:
         // botao editar
@@ -2324,6 +2326,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new FrmFuncionarios().setVisible(true);
             }
