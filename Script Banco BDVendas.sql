@@ -116,3 +116,9 @@ CREATE TABLE tb_feedback (
 );
 
 select * from tb_clientes where nome like 'a%';
+
+
+insert into tb_funcionarios (nome,email,senha,nivel_acesso) 
+values ("ADMINISTRADOR","admin@email.com","123","Administrador");
+
+select * from tb_funcionarios where nome like "ADMINISTRADOR";
