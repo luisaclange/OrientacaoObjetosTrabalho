@@ -178,7 +178,7 @@ public class FrmEstoque extends javax.swing.JFrame {
         });
         painelinferior.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        abaprodutos.setBackground(new java.awt.Color(90, 124, 191));
+        abaprodutos.setBackground(corPrimaria);
         abaprodutos.setPreferredSize(new java.awt.Dimension(170, 88));
         abaprodutos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -191,7 +191,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
         btnestoque.setBackground(new java.awt.Color(57, 77, 191));
         btnestoque.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        btnestoque.setForeground(new java.awt.Color(242, 242, 242));
+        btnestoque.setForeground(letraPrimaria);
         btnestoque.setText("    Controle de Estoque");
         btnestoque.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnestoque.setPreferredSize(new java.awt.Dimension(170, 44));
@@ -209,7 +209,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
         btncontrolprodutos.setBackground(new java.awt.Color(57, 77, 191));
         btncontrolprodutos.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        btncontrolprodutos.setForeground(new java.awt.Color(242, 242, 242));
+        btncontrolprodutos.setForeground(letraPrimaria);
         btncontrolprodutos.setText("   Controle de Produtos");
         btncontrolprodutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btncontrolprodutos.setPreferredSize(new java.awt.Dimension(170, 44));
@@ -245,7 +245,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
         painelinferior.add(abaprodutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 0, 88));
 
-        abavendas.setBackground(new java.awt.Color(90, 124, 191));
+        abavendas.setBackground(corPrimaria);
         abavendas.setPreferredSize(new java.awt.Dimension(170, 150));
         abavendas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -258,7 +258,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
         btntotalvendas.setBackground(new java.awt.Color(57, 77, 191));
         btntotalvendas.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        btntotalvendas.setForeground(new java.awt.Color(242, 242, 242));
+        btntotalvendas.setForeground(letraPrimaria);
         btntotalvendas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btntotalvendas.setText("        Total de Vendas");
         btntotalvendas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -277,7 +277,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
         btnpdv.setBackground(new java.awt.Color(57, 77, 191));
         btnpdv.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        btnpdv.setForeground(new java.awt.Color(242, 242, 242));
+        btnpdv.setForeground(letraPrimaria);
         btnpdv.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnpdv.setText("       Ponto de Vendas");
         btnpdv.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -296,7 +296,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
         btncontrolevendas.setBackground(new java.awt.Color(57, 77, 191));
         btncontrolevendas.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        btncontrolevendas.setForeground(new java.awt.Color(242, 242, 242));
+        btncontrolevendas.setForeground(letraPrimaria);
         btncontrolevendas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btncontrolevendas.setText("     Controle de Vendas");
         btncontrolevendas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -336,7 +336,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
         painelinferior.add(abavendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 0, 132));
 
-        abaconfigurações.setBackground(new java.awt.Color(90, 124, 191));
+        abaconfigurações.setBackground(corPrimaria);
         abaconfigurações.setPreferredSize(new java.awt.Dimension(170, 88));
         abaconfigurações.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -349,7 +349,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
         btnlogo.setBackground(new java.awt.Color(57, 77, 191));
         btnlogo.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        btnlogo.setForeground(new java.awt.Color(242, 242, 242));
+        btnlogo.setForeground(letraPrimaria);
         btnlogo.setText("          Personalizar Tema");
         btnlogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnlogo.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -368,7 +368,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
         btntrocaruser.setBackground(new java.awt.Color(57, 77, 191));
         btntrocaruser.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        btntrocaruser.setForeground(new java.awt.Color(242, 242, 242));
+        btntrocaruser.setForeground(letraPrimaria);
         btntrocaruser.setText("         Trocar usuário");
         btntrocaruser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btntrocaruser.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);

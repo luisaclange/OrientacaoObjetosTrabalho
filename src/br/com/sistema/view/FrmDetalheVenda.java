@@ -151,7 +151,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
         });
         painelinferior.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        abaprodutos.setBackground(new java.awt.Color(90, 124, 191));
+        abaprodutos.setBackground(corPrimaria);
         abaprodutos.setPreferredSize(new java.awt.Dimension(170, 88));
         abaprodutos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -218,7 +218,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
 
         painelinferior.add(abaprodutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 0, 88));
 
-        abavendas.setBackground(new java.awt.Color(90, 124, 191));
+        abavendas.setBackground(corPrimaria);
         abavendas.setPreferredSize(new java.awt.Dimension(170, 150));
         abavendas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -309,7 +309,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
 
         painelinferior.add(abavendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 0, 132));
 
-        abaconfigurações.setBackground(new java.awt.Color(90, 124, 191));
+        abaconfigurações.setBackground(corPrimaria);
         abaconfigurações.setPreferredSize(new java.awt.Dimension(170, 88));
         abaconfigurações.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {

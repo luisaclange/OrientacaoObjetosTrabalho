@@ -86,12 +86,11 @@ public class Utilitarios {
         Color cor = JColorChooser.showDialog(null, "Escolha uma cor ", Color.blue);
                 
         if(cor != null){            
-            String red = Integer.toHexString(cor.getRed());
-            String green = Integer.toHexString(cor.getGreen());
-            String blue = Integer.toHexString(cor.getBlue());
+            String red = String.format("%1$02X",cor.getRed());
+            String green = String.format("%1$02X",cor.getGreen());
+            String blue = String.format("%1$02X",cor.getBlue());
             
             String corRGB = red + green + blue;
-            
             
             txtTema.setText(corRGB);
         }

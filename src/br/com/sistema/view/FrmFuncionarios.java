@@ -238,7 +238,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         });
         painelinferior.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        abaprodutos.setBackground(new java.awt.Color(90, 124, 191));
+        abaprodutos.setBackground(corPrimaria);
         abaprodutos.setPreferredSize(new java.awt.Dimension(170, 88));
         abaprodutos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -251,7 +251,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         btnestoque.setBackground(new java.awt.Color(57, 77, 191));
         btnestoque.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        btnestoque.setForeground(new java.awt.Color(242, 242, 242));
+        btnestoque.setForeground(letraPrimaria);
         btnestoque.setText("    Controle de Estoque");
         btnestoque.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnestoque.setPreferredSize(new java.awt.Dimension(170, 44));
@@ -269,7 +269,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         btncontrolprodutos.setBackground(new java.awt.Color(57, 77, 191));
         btncontrolprodutos.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        btncontrolprodutos.setForeground(new java.awt.Color(242, 242, 242));
+        btncontrolprodutos.setForeground(letraPrimaria);
         btncontrolprodutos.setText("   Controle de Produtos");
         btncontrolprodutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btncontrolprodutos.setPreferredSize(new java.awt.Dimension(170, 44));
@@ -305,7 +305,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         painelinferior.add(abaprodutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 0, 88));
 
-        abavendas.setBackground(new java.awt.Color(90, 124, 191));
+        abavendas.setBackground(corPrimaria);
         abavendas.setPreferredSize(new java.awt.Dimension(170, 150));
         abavendas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -318,7 +318,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         btntotalvendas.setBackground(new java.awt.Color(57, 77, 191));
         btntotalvendas.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        btntotalvendas.setForeground(new java.awt.Color(242, 242, 242));
+        btntotalvendas.setForeground(letraPrimaria);
         btntotalvendas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btntotalvendas.setText("        Total de Vendas");
         btntotalvendas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -337,7 +337,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         btnpdv.setBackground(new java.awt.Color(57, 77, 191));
         btnpdv.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        btnpdv.setForeground(new java.awt.Color(242, 242, 242));
+        btnpdv.setForeground(letraPrimaria);
         btnpdv.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnpdv.setText("       Ponto de Vendas");
         btnpdv.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -356,7 +356,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         btncontrolevendas.setBackground(new java.awt.Color(57, 77, 191));
         btncontrolevendas.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        btncontrolevendas.setForeground(new java.awt.Color(242, 242, 242));
+        btncontrolevendas.setForeground(letraPrimaria);
         btncontrolevendas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btncontrolevendas.setText("     Controle de Vendas");
         btncontrolevendas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -396,7 +396,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         painelinferior.add(abavendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 0, 132));
 
-        abaconfigurações.setBackground(new java.awt.Color(90, 124, 191));
+        abaconfigurações.setBackground(corPrimaria);
         abaconfigurações.setPreferredSize(new java.awt.Dimension(170, 88));
         abaconfigurações.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -409,7 +409,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         btnlogo.setBackground(new java.awt.Color(57, 77, 191));
         btnlogo.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        btnlogo.setForeground(new java.awt.Color(242, 242, 242));
+        btnlogo.setForeground(letraPrimaria);
         btnlogo.setText("          Personalizar Tema");
         btnlogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnlogo.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -428,7 +428,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         btntrocaruser.setBackground(new java.awt.Color(57, 77, 191));
         btntrocaruser.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        btntrocaruser.setForeground(new java.awt.Color(242, 242, 242));
+        btntrocaruser.setForeground(letraPrimaria);
         btntrocaruser.setText("         Trocar usuário");
         btntrocaruser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btntrocaruser.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -1494,13 +1494,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnestoqueMouseClicked
 
     private void btnestoqueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnestoqueMouseEntered
-        // TODO add your handling code here:
-        btnestoque.setForeground(new Color(52, 55, 115));
+        
     }//GEN-LAST:event_btnestoqueMouseEntered
 
     private void btnestoqueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnestoqueMouseExited
-        // TODO add your handling code here:
-        btnestoque.setForeground(new Color(242,242,242));
+        
     }//GEN-LAST:event_btnestoqueMouseExited
 
     private void btncontrolprodutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncontrolprodutosMouseClicked
@@ -1513,13 +1511,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btncontrolprodutosMouseClicked
 
     private void btncontrolprodutosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncontrolprodutosMouseEntered
-        // TODO add your handling code here:
-        btncontrolprodutos.setForeground(new Color(52, 55, 115));
+        
     }//GEN-LAST:event_btncontrolprodutosMouseEntered
 
     private void btncontrolprodutosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncontrolprodutosMouseExited
-        // TODO add your handling code here:
-        btncontrolprodutos.setForeground(new Color(242,242,242));
+        
     }//GEN-LAST:event_btncontrolprodutosMouseExited
 
     private void abaprodutosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abaprodutosMouseEntered
@@ -1541,13 +1537,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btntotalvendasMouseClicked
 
     private void btntotalvendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntotalvendasMouseEntered
-        // TODO add your handling code here:
-        btntotalvendas.setForeground(new Color(52, 55, 115));
+        
     }//GEN-LAST:event_btntotalvendasMouseEntered
 
     private void btntotalvendasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntotalvendasMouseExited
-        // TODO add your handling code here:
-        btntotalvendas.setForeground(new Color(242,242,242));
+        
     }//GEN-LAST:event_btntotalvendasMouseExited
 
     private void btnpdvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpdvMouseClicked
@@ -1559,13 +1553,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnpdvMouseClicked
 
     private void btnpdvMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpdvMouseEntered
-        // TODO add your handling code here:
-        btnpdv.setForeground(new Color(52, 55, 115));
+        
     }//GEN-LAST:event_btnpdvMouseEntered
 
     private void btnpdvMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpdvMouseExited
-        // TODO add your handling code here:
-        btnpdv.setForeground(new Color(242,242,242));
+        
     }//GEN-LAST:event_btnpdvMouseExited
 
     private void btncontrolevendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncontrolevendasMouseClicked
@@ -1577,13 +1569,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btncontrolevendasMouseClicked
 
     private void btncontrolevendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncontrolevendasMouseEntered
-        // TODO add your handling code here:
-        btncontrolevendas.setForeground(new Color(52, 55, 115));
+        
     }//GEN-LAST:event_btncontrolevendasMouseEntered
 
     private void btncontrolevendasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncontrolevendasMouseExited
-        // TODO add your handling code here:
-        btncontrolevendas.setForeground(new Color(242,242,242));
+        
     }//GEN-LAST:event_btncontrolevendasMouseExited
 
     private void abavendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abavendasMouseEntered
@@ -1604,13 +1594,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnlogoMouseClicked
 
     private void btnlogoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoMouseEntered
-        // TODO add your handling code here:
-        btnlogo.setForeground(new Color(52, 55, 115));
+        
     }//GEN-LAST:event_btnlogoMouseEntered
 
     private void btnlogoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoMouseExited
-        // TODO add your handling code here:
-        btnlogo.setForeground(new Color(242,242,242));
+        
     }//GEN-LAST:event_btnlogoMouseExited
 
     private void btntrocaruserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntrocaruserMouseClicked
@@ -1626,13 +1614,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btntrocaruserMouseClicked
 
     private void btntrocaruserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntrocaruserMouseEntered
-        // TODO add your handling code here:
-        btntrocaruser.setForeground(new Color(52, 55, 115));
+        
     }//GEN-LAST:event_btntrocaruserMouseEntered
 
     private void btntrocaruserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntrocaruserMouseExited
-        // TODO add your handling code here:
-        btntrocaruser.setForeground(new Color(242,242,242));
+        
     }//GEN-LAST:event_btntrocaruserMouseExited
 
     private void abaconfiguraçõesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abaconfiguraçõesMouseEntered
@@ -2080,16 +2066,14 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btninicioMouseClicked
 
     private void btninicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btninicioMouseEntered
-        // TODO add your handling code here:
-        btninicio.setBackground(new Color(75, 97, 166));
+        
         abaprodutos.setSize(0,0);
         abavendas.setSize(0,0);
         abaconfigurações.setSize(0,0);
     }//GEN-LAST:event_btninicioMouseEntered
 
     private void btninicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btninicioMouseExited
-        // TODO add your handling code here:
-        btninicio.setBackground(new Color(52,55,115));
+        
     }//GEN-LAST:event_btninicioMouseExited
 
     private void btnclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclientesMouseClicked
@@ -2100,15 +2084,13 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnclientesMouseClicked
 
     private void btnclientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclientesMouseEntered
-        // TODO add your handling code here:
-        btnclientes.setBackground(new Color(75, 97, 166));
+        
         abaprodutos.setSize(0,0);
         abavendas.setSize(0,0);
     }//GEN-LAST:event_btnclientesMouseEntered
 
     private void btnclientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclientesMouseExited
-        // TODO add your handling code here:
-        btnclientes.setBackground(new Color(52,55,115));
+        
     }//GEN-LAST:event_btnclientesMouseExited
 
     private void btnfuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfuncionariosMouseClicked
@@ -2119,15 +2101,13 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnfuncionariosMouseClicked
 
     private void btnfuncionariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfuncionariosMouseEntered
-        // TODO add your handling code here:
-        btnfuncionarios.setBackground(new Color(75, 97, 166));
+        
         abaprodutos.setSize(0,0);
         abavendas.setSize(0,0);
     }//GEN-LAST:event_btnfuncionariosMouseEntered
 
     private void btnfuncionariosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfuncionariosMouseExited
-        // TODO add your handling code here:
-        btnfuncionarios.setBackground(new Color(52,55,115));
+        
     }//GEN-LAST:event_btnfuncionariosMouseExited
 
     private void btnfornecedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfornecedoresMouseClicked
@@ -2138,17 +2118,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnfornecedoresMouseClicked
 
     private void btnfornecedoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfornecedoresMouseEntered
-        // TODO add your handling code here:
-
-        btnfornecedores.setBackground(new Color(75, 97, 166));
-        abaprodutos.setSize(0,0);
-        abavendas.setSize(0,0);
-        abaconfigurações.setSize(0,0);
+        
     }//GEN-LAST:event_btnfornecedoresMouseEntered
 
     private void btnfornecedoresMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfornecedoresMouseExited
-        // TODO add your handling code here:
-        btnfornecedores.setBackground(new Color(52,55,115));
+        
     }//GEN-LAST:event_btnfornecedoresMouseExited
 
     private void btnprodutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnprodutosMouseClicked
@@ -2156,17 +2130,14 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnprodutosMouseClicked
 
     private void btnprodutosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnprodutosMouseEntered
-        // TODO add your handling code here:
 
-        btnprodutos.setBackground(new Color(75, 97, 166));
         abaprodutos.setSize(170,88);
         abavendas.setSize(0,0);
-        abaconfigurações.setSize(0,0);
+        abaconfigurações.setSize(0,0);        
     }//GEN-LAST:event_btnprodutosMouseEntered
 
     private void btnprodutosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnprodutosMouseExited
-        // TODO add your handling code here:
-        btnprodutos.setBackground(new Color(52,55,115));
+        
         abaprodutos.setSize(170,88);
     }//GEN-LAST:event_btnprodutosMouseExited
 
@@ -2175,16 +2146,14 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnvendasMouseClicked
 
     private void btnvendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvendasMouseEntered
-        // TODO add your handling code here:
-        btnvendas.setBackground(new Color(75, 97, 166));
+    
         abavendas.setSize(170,132);
         abaprodutos.setSize(0,0);
         abaconfigurações.setSize(0,0);
     }//GEN-LAST:event_btnvendasMouseEntered
 
     private void btnvendasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvendasMouseExited
-        // TODO add your handling code here:
-        btnvendas.setBackground(new Color(52,55,115));
+        
         abavendas.setSize(170,132);
     }//GEN-LAST:event_btnvendasMouseExited
 
@@ -2193,16 +2162,13 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnconfiguraçõesMouseClicked
 
     private void btnconfiguraçõesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnconfiguraçõesMouseEntered
-        // TODO add your handling code here:
-        btnconfigurações.setBackground(new Color(75, 97, 166));
         abaconfigurações.setSize(170,88);
         abaprodutos.setSize(0,0);
         abavendas.setSize(0,0);
     }//GEN-LAST:event_btnconfiguraçõesMouseEntered
 
     private void btnconfiguraçõesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnconfiguraçõesMouseExited
-        // TODO add your handling code here:
-        btnconfigurações.setBackground(new Color(52,55,115));
+        
         abaconfigurações.setSize(170,88);
     }//GEN-LAST:event_btnconfiguraçõesMouseExited
 
@@ -2218,16 +2184,14 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsairMouseClicked
 
     private void btnsairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsairMouseEntered
-        // TODO add your handling code here:
-        btnsair.setBackground(new Color(75, 97, 166));
+        
         abaprodutos.setSize(0,0);
         abavendas.setSize(0,0);
         abaconfigurações.setSize(0,0);
     }//GEN-LAST:event_btnsairMouseEntered
 
     private void btnsairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsairMouseExited
-        // TODO add your handling code here:
-        btnsair.setBackground(new Color(52,55,115));
+        
     }//GEN-LAST:event_btnsairMouseExited
 
     private void navbarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navbarMouseExited
@@ -2244,15 +2208,14 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnfeedbacksMouseClicked
 
     private void btnfeedbacksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseEntered
-        btnfeedbacks.setBackground(new Color(75, 97, 166));
+        
         abaprodutos.setSize(0, 0);
         abavendas.setSize(0, 0);
         abaconfigurações.setSize(0, 0);
     }//GEN-LAST:event_btnfeedbacksMouseEntered
 
     private void btnfeedbacksMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfeedbacksMouseExited
-        // TODO add your handling code here:
-        btnfeedbacks.setBackground(new Color(52,55,115));
+        
     }//GEN-LAST:event_btnfeedbacksMouseExited
 
     private void txtpesquisaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyReleased
