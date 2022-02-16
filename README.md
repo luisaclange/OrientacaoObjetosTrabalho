@@ -6,6 +6,20 @@ ministrada pelo Professor Leonardo Tampelini.
 
 Sistema de vendas implementado em Java.
 
+Passos para inicialização:
+
+  1 - Rodar o Script Bando BDVendas;
+  
+  2 - Iniciar o sistema pelo NetBeans;
+  
+  3 - Inserir um nome para sua empresa;
+  
+  4 - Primeiro acesso:
+  
+      - Usuário: admin@email.com
+      
+      - Senha: 123
+
 Equipe:
 - Jean Patussi
 - Loriane Martins
